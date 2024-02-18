@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2bd70-c0fd-4545-a356-2a6fd805f023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/basic/service/Blocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/basic/service/Interaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/basic/service/Interactions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/basic/service/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/basic/service/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DLTE-java-001-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/DLTE-java-001-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/basic/service/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/basic/service/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-basic.service.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-basic.service.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/basic.service.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/basic.service.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/basic/service/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/basic/service/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +48,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.Interaction">
+  <component name="RunManager" selected="Application.Interactions">
     <configuration name="Blocks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="basic.service.Blocks" />
       <module name="DLLTE-JAVA-TRAINING" />
@@ -104,8 +88,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Interactions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.service.Interactions" />
+      <module name="DLLTE-JAVA-TRAINING" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Interactions" />
         <item itemvalue="Application.Interaction" />
         <item itemvalue="Application.Blocks" />
         <item itemvalue="Application.Facility" />
@@ -136,6 +134,8 @@
       <updated>1708057022388</updated>
       <workItem from="1708057023848" duration="3109000" />
       <workItem from="1708072842864" duration="9918000" />
+      <workItem from="1708266824726" duration="149000" />
+      <workItem from="1708266994901" duration="2486000" />
     </task>
     <servers />
   </component>
@@ -154,29 +154,37 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708074602384" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708085326500">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708269500326">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708085326500" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708085326500">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708269500326">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708085326500" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708085326500">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708269500326">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708085326500" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708085326500">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708269500326">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708085326500" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
     <state x="279" y="0" key="SettingsEditor" timestamp="1708080284831">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="279" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1708080284831" />
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1708266994066">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1708266994066" />
     <state x="209" y="114" key="new project wizard" timestamp="1708074606133">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="209" y="114" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1708074606133" />
+    <state x="425" y="185" key="run.anything.popup" timestamp="1708267690621">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1708267690621" />
   </component>
 </project>
