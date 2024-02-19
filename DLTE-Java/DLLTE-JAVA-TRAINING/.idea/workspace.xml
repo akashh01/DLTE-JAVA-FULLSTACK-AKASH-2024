@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2bd70-c0fd-4545-a356-2a6fd805f023" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/basic/service/Interactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/basic/service/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/basic/service/Interactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/SIPcalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/SIPcalculator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +51,22 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.Interactions">
+  <component name="RunManager" selected="Application.CLI">
     <configuration name="Blocks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="basic.service.Blocks" />
+      <module name="DLLTE-JAVA-TRAINING" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basic.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basic.service.CLI" />
       <module name="DLLTE-JAVA-TRAINING" />
       <extension name="coverage">
         <pattern>
@@ -87,22 +104,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Interactions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="basic.service.Interactions" />
-      <module name="DLLTE-JAVA-TRAINING" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="basic.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Interactions" />
+        <item itemvalue="Application.CLI" />
         <item itemvalue="Application.Interaction" />
         <item itemvalue="Application.Blocks" />
         <item itemvalue="Application.Facility" />
@@ -138,6 +142,7 @@
       <workItem from="1708313700226" duration="4129000" />
       <workItem from="1708322562705" duration="2820000" />
       <workItem from="1708345836999" duration="908000" />
+      <workItem from="1708357024579" duration="1305000" />
     </task>
     <servers />
   </component>
@@ -156,22 +161,22 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708074602384" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708269500326">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708358338528">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708269500326">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708358338528" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708358338519">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708269500326">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708358338519" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708358338519">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708269500326">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708358338519" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708358338519">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708269500326" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708358338519" />
     <state x="279" y="0" key="SettingsEditor" timestamp="1708080284831">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

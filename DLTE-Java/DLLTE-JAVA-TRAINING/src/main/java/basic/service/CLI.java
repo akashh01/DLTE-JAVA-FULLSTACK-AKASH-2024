@@ -1,19 +1,14 @@
 package basic.service;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
-//Personal Loan
+//         Personal Loan
 //        Internetbanking
-//
 //        Mobile banking
-//
 //        FD calculator
-public class Interactions {
+public class CLI {
     public static void main(String[] args) {
         int choice=0;
         Scanner scanner= new Scanner(System.in);
@@ -22,7 +17,7 @@ public class Interactions {
         System.out.println("-------------------------Welcome to MyBank------------------------------");
         System.out.println("Choose what would you like to do");
         System.out.println("Press 1 : Personal Loan");
-        System.out.println("Press 2: Internet banking");
+        System.out.println("Press 2 : Internet banking");
         System.out.println("Press 3 : Mobile banking");
         System.out.println("Press 4 : FD calculator ");
         System.out.println("PRESS 5 : TO EXIT");
@@ -43,17 +38,39 @@ public class Interactions {
                 mobileNumber=scanner.nextLong();
                 System.out.println("Enter the email address");
                 borrowerEmail=scanner.next();
-                System.out.println("Dear" +borrowerName+ "Thanks for showing intrest in taking the car loan, your application has been sunmitted further details will be mailed to you");
+                System.out.println("Dear" +borrowerName+ " Thanks for showing intrest in taking the personal loan, your application has been submitted further details will be mailed to you");
             case 2:
-                System.out.println("Welcome to internet banking");
-                Long accNumber,TotalBalance=0L;
-                String accName="",password="";
-                System.out.println("Enter your account number");
-                accNumber=scanner.nextLong();
-                System.out.println("Enter the account holder's name");
+                System.out.println("Enter the data to avail internet banking");
+                Long accNumber=0L,cardNumber;
+                String emailAdd,accName;
+                System.out.println("Enter account holders name");
                 accName=scanner.next();
-                System.out.println("Enter your password");
-                password=scanner.next();
+                System.out.println("Enter your mobile number");
+                mobileNumber=scanner.nextLong();
+                System.out.println("Enter your Account Number");
+                accNumber=scanner.nextLong();
+                System.out.println("Enter the email address");
+                emailAdd=scanner.next();
+                System.out.println("Enter your debit/credit card number");
+                cardNumber=scanner.nextLong();
+                System.out.print("Thank you "+accName+", Internet banking facility will be availed soon for you account.");
+            case 3:
+                System.out.println("Enter the data to avail Mobile Banking");
+                String check="";
+                System.out.println("Enter account holders name");
+                accName=scanner.next();
+                System.out.println("Enter your mobile number");
+                mobileNumber=scanner.nextLong();
+                System.out.println("Enter your Account Number");
+                accNumber=scanner.nextLong();
+                System.out.println("Enter the email address");
+                emailAdd=scanner.next();
+                System.out.println("Enter your debit/credit card number");
+                cardNumber=scanner.nextLong();
+                System.out.println("Is Internet banking available for your account or not? (Yes/No) ");
+                check=scanner.next();
+                System.out.println("Your upi id is "+mobileNumber+"@bank");
+                System.out.print("Thank you"+accName+" Your Mobile banking facility will be activated soon for you account.");
             case 4:
                 Long totalInvestment=0L;
                 float rateOfIntrest=0F,EstimatedReturn,totalValue;
