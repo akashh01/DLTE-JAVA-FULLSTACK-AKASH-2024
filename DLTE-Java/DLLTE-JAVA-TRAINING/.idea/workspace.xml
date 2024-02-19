@@ -2,35 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2bd70-c0fd-4545-a356-2a6fd805f023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/basic/service/Flexipay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/DLTE-JAVA-TRAINING-002.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/IncomeTaxSlabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/InsuranceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/NumberOfDebits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/SIPcalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/main/java/basic/service/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/src/test/java/basic/service/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/DLTE-JAVA-TRAINING-002-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/IncomeTaxSlabs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/NumberOfDebits.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/SIPcalculator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/classes/basic/service/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/surefire-reports/TEST-basic.service.AppTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/surefire-reports/basic.service.AppTest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-002/target/test-classes/basic/service/AppTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,6 +137,7 @@
       <workItem from="1708266994901" duration="2486000" />
       <workItem from="1708313700226" duration="4129000" />
       <workItem from="1708322562705" duration="2820000" />
+      <workItem from="1708345836999" duration="908000" />
     </task>
     <servers />
   </component>
