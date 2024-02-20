@@ -9,16 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreditCard {
-//    public CreditCard(Long creditCardNumber, String creditCardHolder, Date creditCardExpiry, Integer creditCardCvv, Integer creditCardLimit, Date dateOfBillGenearation, Date dateOfBillPayment, Integer creditCardPin) {
-//        CreditCardNumber = creditCardNumber;
-//        CreditCardHolder = creditCardHolder;
-//        CreditCardExpiry = creditCardExpiry;
-//        CreditCardCvv = creditCardCvv;
-//        CreditCardLimit = creditCardLimit;
-//        DateOfBillGenearation = dateOfBillGenearation;
-//        DateOfBillPayment = dateOfBillPayment;
-//        CreditCardPin = creditCardPin;
-//    }
+
 
     private Long CreditCardNumber;
     private String CreditCardHolder;
