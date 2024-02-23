@@ -27,6 +27,7 @@ public class CreditCardAnalysis {
             Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
             switch (choice) {
                 case 1:
+                    //using try catch to catch MyBankCreditCardException
                     try {
                         analysis.FilterOnLimits(myBank);
                         break;
@@ -38,6 +39,7 @@ public class CreditCardAnalysis {
 
                     }
                 case 2:
+                    //using try catch to catch MyBankCreditCardException
                     try{
                         analysis.FilterOnDate(myBank);
                         break;

@@ -1,5 +1,6 @@
 package exceptions;
 
+
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
