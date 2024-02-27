@@ -53,6 +53,7 @@ public class Bonds {
 
 
         }
+        System.out.println("Sorted returns in descending order");
         for (Bonds each : bonds) {
             System.out.println(each.getInterestRate());
         }
