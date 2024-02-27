@@ -17,16 +17,16 @@ insert into TransactionsAnalysis(transaction_id,transaction_amount,transaction_d
 
 --QUERY TO Filter based on given ranges of date--
 
-select * from TransactionsAnalysis where transaction_date between '15-Jan-2024' and '30-Jan-2024'
+create view filterdate as select * from TransactionsAnalysis where transaction_date between '15-Jan-2024' and '30-Jan-2024'
 
 --QUERY FOR least amount transferred---
-select min(transaction_amount) from TransactionsAnalysis;
+create view leastamount as select min(transaction_amount) from TransactionsAnalysis;
 
 --QUERY FOR maximum amount transferred--
- select max(transaction_amount) from TransactionsAnalysis;
+ create view maximum amount as select max(transaction_amount) from TransactionsAnalysis;
 
 --QUERY FOR number of transaction made to particular beneficiary--
- select count(transaction_to) from TransactionsAnalysis where transaction_to='Abhishek';
+ create view counttransaction as select count(transaction_to) from TransactionsAnalysis where transaction_to='Abhishek';
 
 --QUERY FOR filter based on particular remarks--
-select * from TransactionsAnalysis where transaction_remarks='Family';
+create view filterbases as select * from TransactionsAnalysis where transaction_remarks='Family';

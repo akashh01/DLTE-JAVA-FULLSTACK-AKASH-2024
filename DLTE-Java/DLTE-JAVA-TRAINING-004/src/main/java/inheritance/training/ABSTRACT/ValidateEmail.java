@@ -7,6 +7,7 @@ public class ValidateEmail extends Backlog {
     public void alter(){
         System.out.println("Validating done with various approach");
     }
+
     public static void main(String[] args) {
       //  Backlog backlog=new Backlog();
         ValidateEmail validateEmail=new ValidateEmail();

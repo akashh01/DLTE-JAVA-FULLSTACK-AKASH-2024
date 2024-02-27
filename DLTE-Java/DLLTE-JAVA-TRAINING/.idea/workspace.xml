@@ -2,20 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40c2bd70-c0fd-4545-a356-2a6fd805f023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/src/main/java/store/oops/CreditCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/src/main/java/store/oops/CustomerSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/target/classes/store/oops/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/target/classes/store/oops/CreditCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/target/classes/store/oops/CustomerSupport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-003/DLTE-JAVA-TRAINING-003/target/test-classes/store/oops/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/ExecuteExecutors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/InsuranceDeskFunctionalities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/MyBankCustomers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/RunnableImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/collections/IllustrationOfList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/collections/IllustrationStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/collections/MyBank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/genirics/example/DebitCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/genirics/example/ExecuteGenirics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/genirics/example/GenericApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/genirics/example/MyBankCrudActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/genirics/example/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/lambda/Linear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/lambda/LinearImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-007/src/main/java/sets/IllustrationSets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-006/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/MyProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/src/main/java/org/example/MyProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-006/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-006/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-006/target/test-classes/org/example/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/src/main/java/LoanProduct/MyBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/src/main/java/LoanProduct/MyBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/src/main/java/inheritance/training/ABSTRACT/ValidateEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/src/main/java/inheritance/training/ABSTRACT/ValidateEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/target/classes/META-INF/DLTE-JAVA-TRAINING-004.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/target/classes/inheritance/training/ABSTRACT/ValidateEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-004/target/classes/inheritance/training/ABSTRACT/ValidateEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysis/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysisException/CreditCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysis/CreditCardAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysisException/CreditCardAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysis/MyBankCreditCardException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/src/main/java/CreditCardAnalysisException/MyBankCreditCardException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/CreditCardAnalysis/CreditCardAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/CreditCardAnalysis/CreditCardAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/CreditCardAnalysis/MyBankCreditCardException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/CreditCardAnalysis/MyBankCreditCardException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/exceptions/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/exceptions/CLI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/exceptions/MyAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-TRAINING-005/target/classes/exceptions/MyAccount.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +173,7 @@
       <workItem from="1708358632833" duration="4231000" />
       <workItem from="1708399881990" duration="722000" />
       <workItem from="1708402822903" duration="12000" />
+      <workItem from="1708969787086" duration="284000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package CreditCardAnalysis;
+package CreditCardAnalysisException;
 
 import java.util.Date;
 

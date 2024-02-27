@@ -1,6 +1,5 @@
-package CreditCardAnalysis;
+package CreditCardAnalysisException;
 
-import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
