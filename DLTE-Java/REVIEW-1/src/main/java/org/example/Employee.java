@@ -9,6 +9,7 @@ public class Employee {
     private String email;
 
     //constructors
+
     public Employee(){}
 
     public Employee(String firstName, String middeName, String lastName, Long employeePhone, Integer employeeId, String houseName, String streetName, String cityName, String stateName, Integer pincode, String email) {
@@ -69,6 +70,16 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
+    @Override
+    public String toString() {
+        return
+                "First Name='" + firstName + '\'' +
+                ",Midde Name='" + middeName + '\'' +
+                ",LastName='" + lastName + '\'' +
+                ", Employee Phone=" + employeePhone +
+                ", Employee Id=" + employeeId +
+                ", email='" + email + '\'' ;
+    }
 }
 class Address{
     private String houseName;
@@ -76,7 +87,15 @@ class Address{
     private String cityName;
     private String stateName;
     private Integer pincode;
-    public void address(){}
+    public void Address(){}
+
+    public Address(String houseName, String streetName, String cityName, String stateName, Integer pincode) {
+        this.houseName = houseName;
+        this.streetName = streetName;
+        this.cityName = cityName;
+        this.stateName = stateName;
+        this.pincode = pincode;
+    }
 
     public String getHouseName() {
         return houseName;
@@ -117,5 +136,18 @@ class Address{
     public void setPincode(Integer pincode) {
         this.pincode = pincode;
     }
+
+    @Override
+    public String toString() {
+        return "Address" +
+                "House Name='" + houseName + '\'' +
+                ",Street Name='" + streetName + '\'' +
+                ",City Name='" + cityName + '\'' +
+                ",State Name='" + stateName + '\'' +
+                ",Pincode=" + pincode
+                ;
+    }
 }
+
+
 
