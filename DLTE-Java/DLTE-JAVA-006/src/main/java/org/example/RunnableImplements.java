@@ -12,7 +12,7 @@ class TestImplements implements Runnable{
     @Override
     public void run() {
         counter++;
-        System.out.println(counter+ "for implements");
+        System.out.println(counter+ " for implements");
     }
 }
 
