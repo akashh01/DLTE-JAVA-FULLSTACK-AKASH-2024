@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CreditCard implements Serializable {
+    //credit card details
     private Long CreditCardNumber;
     private String CreditCardHolder;
     private Date CreditCardExpiry;

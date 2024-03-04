@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MyBankDatabase <T> implements Activity<T>{
+    //array list for storing details
     ArrayList<T> bankDataBase;
     @Override
     public String createNewData(T object) {
-
+       //adding new objects to the array
        bankDataBase.add(object);
        return "data added";
         }
@@ -16,6 +17,7 @@ public class MyBankDatabase <T> implements Activity<T>{
         //return " object not added ";
 
     public void writeTofile() throws IOException {
+        //writing file using object output stream
         FileOutputStream fileOutputStream=new FileOutputStream("Mybankdb");
         ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(bankDataBase);
@@ -23,6 +25,7 @@ public class MyBankDatabase <T> implements Activity<T>{
         objectOutputStream.close();
     }
     public void readFromfile() throws IOException, ClassNotFoundException {
+        //reading file and displaying it for verification
         FileInputStream fileInputStream=new FileInputStream("Mybankdb");
         ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
         bankDataBase= (ArrayList<T>) objectInputStream.readObject();
@@ -38,6 +41,7 @@ public class MyBankDatabase <T> implements Activity<T>{
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         MyBankDatabase<CreditCard> storeCardData= new MyBankDatabase<>();
         storeCardData.bankDataBase=new ArrayList<>(10);
+        //input datas to the data
         CreditCard creditCardOne=new CreditCard(878884155L,"Akash",new Date(2023,12,20),987,80000,1124);
         CreditCard creditCardTwo=new CreditCard(878884177L,"Amal",new Date(2023,12,13),987,80000,1124);
         storeCardData.createNewData(creditCardOne);
