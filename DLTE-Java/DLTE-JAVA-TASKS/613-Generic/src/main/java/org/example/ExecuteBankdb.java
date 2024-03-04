@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class ExecuteBankdb {
@@ -11,8 +12,10 @@ public class ExecuteBankdb {
         //creating or adding new data
         System.out.println(storeCardData.createNewData(creditCardOne));
         storeCardData.createNewData(creditCardTwo);
+        //System.out.println(Arrays.toString(storeCardData.bankDataBase));
+        //System.out.println(storeCardData.bankDataBase[0].get);
         //reading data
-        System.out.println(storeCardData.readData(0).toString());
+        //System.out.println(storeCardData.readData(0).toString());
        //deleting data
         storeCardData.deleteData(1);
         //creating generic for transaction

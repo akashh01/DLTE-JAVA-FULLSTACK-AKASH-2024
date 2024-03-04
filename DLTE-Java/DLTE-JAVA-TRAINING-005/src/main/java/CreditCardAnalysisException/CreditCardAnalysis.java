@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import static java.lang.System.exit;
 
 public class CreditCardAnalysis {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NullPointerException{
         //individual customer details stored as objects
         CreditCard[] myBank = {
                 new CreditCard(8985122212L, "Akash", new Date(2034, 12, 11), 123, 10000, new Date(2031, 05, 06), new Date(2032, 06, 20), 4567),

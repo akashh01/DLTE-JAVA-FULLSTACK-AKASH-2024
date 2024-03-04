@@ -1,0 +1,6 @@
+org\example\Entities\UserInformation.class
+org\example\App.class
+org\example\Remotes\UserInfoRepository.class
+org\example\Exception\UserNotFoundException.class
+org\example\Middleware\UserInformationFileRepository.class
+org\example\Services\MyBankServices.class
