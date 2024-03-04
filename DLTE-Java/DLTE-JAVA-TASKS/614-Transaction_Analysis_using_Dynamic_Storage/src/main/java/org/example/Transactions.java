@@ -9,6 +9,16 @@ public class Transactions {
     private String toWhom;
     private String remarks; //Family, Education, Emergency, Bills, Friend
 
+    @Override
+    public String toString() {
+        return "Transactions{" +
+                "dateOfTransaction=" + dateOfTransaction +
+                ", amountInTransaction=" + amountInTransaction +
+                ", toWhom='" + toWhom + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
+    }
+
     public Transactions() {
     }
 
