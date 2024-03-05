@@ -1,0 +1,6 @@
+Mar 05, 2024 8:57:18 AM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 05, 2024 8:59:11 AM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited
+Mar 05, 2024 9:00:47 AM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated

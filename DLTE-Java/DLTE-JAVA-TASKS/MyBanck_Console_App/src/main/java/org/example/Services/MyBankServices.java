@@ -1,65 +1,55 @@
 package org.example.Services;
 
-import org.example.Entities.UserInformation;
+import org.example.Entities.Customer;
 import org.example.Exception.UserNotFoundException;
 import org.example.Middleware.UserInformationFileRepository;
 import org.example.Remotes.UserInfoRepository;
 
-import javax.jws.soap.SOAPBinding;
-import java.io.IOException;
-import java.util.ResourceBundle;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Date;
 
-public class MyBankServices
-{
-    UserInfoRepository userInfoRepository;
-    UserInformation user1=new UserInformation("Akash","akash123","Kannur","akash@gmail",987455545L,4444L);
-    UserInformation user2=new UserInformation("Ajay","ajay123","Mangalore","ajay@gmail",9888888888L,500L);
-    UserInformation user3=new UserInformation("Akshay","akshay123","Dubai","akshay@gmail",9777777888L,1000L);
-
+public class MyBankServices {
+    UserInfoRepository userInfoRepository;// = new UserInformationFileRepository();
     //  UserInformation user2=new UserInformation("ajay","ad1234");
 
     public MyBankServices() {
+        userInfoRepository = new UserInformationFileRepository();
     }
 
-    public void Intialize(){
-         userInfoRepository=new UserInformationFileRepository();
-         userInfoRepository.addInformation(user1);
-         userInfoRepository.addInformation(user2);
-         userInfoRepository.addInformation(user3);
+//    public void Intialize() {
+//        StringBuilder builder = new StringBuilder("Deposit,0");
+//        builder.append("," + new Date());
+//        ArrayList<StringBuilder> transactionOne = new ArrayList<>();
+//        transactionOne.add(builder);
+//        Customer user1 = new Customer("Akshira", "akshira123", "Kannur", "akash@gmail", 987455545L, 4444L, transactionOne);
+//        Customer user2 = new Customer("Ajay", "ajay123", "Mangalore", "ajay@gmail", 9888888888L, 500L, transactionOne);
+//        Customer user3 = new Customer("Akshay", "akshay123", "Dubai", "akshay@gmail", 9777777888L, 1000L, transactionOne);
+//        UserInformationFileRepository userinfo = new UserInformationFileRepository();
+//        userinfo.addInformation(user1);
+//        userinfo.addInformation(user2);
+//        userinfo.addInformation(user3);
+//
+//    }
+
+    public void callDeposit(String username, Long amount) {
+            userInfoRepository.DepositAmountInto(username, amount);
+
     }
-    public void callDeposit(String username,Long amount){
-        try{
-            userInfoRepository.DepositAmountInto(username,amount);
-        }
-        catch (UserNotFoundException exception){
-            throw new UserNotFoundException();
-        }
-    }
-    public void callValidateUser(String username){
+
+    public Customer callValidateUser(String username) {
         try {
-            userInfoRepository.validateUser(username);
+           Customer customer= userInfoRepository.validateUser(username);
+           return customer;
         }
-        catch (UserNotFoundException exception){
+        catch (UserNotFoundException exception) {
             System.out.println(exception);
         }
+        return null;
     }
 
-
-  //  public void saveNewData(UserInformation userInformation)
-
-    //public static void main(String[] args) throws IOException, ClassNotFoundException {
-      // UserInformation user1=new UserInformation("Akash","ad1234","Kannur","akash@gmail","88888888",4444L);
-       //UserInformation user2=new UserInformation("Alan","ad1234","Kannur","akash@gmail","88888888",500L);
-      //  UserInformation user2=new UserInformation("ajay","ad1234");
-
-      //  userInformationFileRepository.addInformation(user1);
-        //userInformationFileRepository.addInformation(user2);
-     // userInformationFileRepository.DepositAmountInto("Alan",1000L);
-
-      //     ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
-        // Logger logger= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-
+    public void callCheck(){
+        UserInformationFileRepository userinfo = new UserInformationFileRepository();
+        userinfo.check();
     }
+}
 

@@ -9,8 +9,22 @@ public class EmployeeDetails extends CollectCheckData {
     Address temporaryAddress;
     Address permenantAddress;
     public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
         EmployeeDetails employeeDetails=new EmployeeDetails();
-        employeeDetails.collectPersonalData();
+        int choice;
+        while(true){
+            System.out.println("------Welcome------");
+            System.out.println("Enter your choice\n1 : Adding new employee data\n2 : Displaying all employee data\n3 : Exit");
+            choice=scanner.nextInt();
+            switch (choice){
+                case 1:employeeDetails.collectPersonalData();
+
+                case 2:employeeDetails.displayData(employeeDetails.employee1);
+                       return;
+                case 3: default:return;
+            }
+        }
+
 
 
       //  employeeDetails.displayData();
@@ -51,8 +65,8 @@ public class EmployeeDetails extends CollectCheckData {
         employee1.setEmployeeId(scanner.nextInt());
         System.out.println("Enter your permenant address");
         permenantAddress= (Address) collectAddress();
-        System.out.println("Enter your temporary address");
-        temporaryAddress= (Address) collectAddress();
+//        System.out.println("Enter your temporary address");
+//        temporaryAddress= (Address) collectAddress();
 //        employeeDetails.displayData(employee1);
 //        employeeDetails.displayData(permenantAddress);
 //        employeeDetails.displayData(temporaryAddress);
@@ -63,8 +77,8 @@ public class EmployeeDetails extends CollectCheckData {
 
 
     @Override
-    public void displayData() {
-
+    public void displayData(Employee employee) {
+        System.out.println(employee);
 
 
     }
@@ -75,7 +89,7 @@ public class EmployeeDetails extends CollectCheckData {
         String houseName,streetName,cityName,stateName;
         int pincode;
         System.out.println("Enter the house name");
-        houseName=scanner.nextLine();
+        houseName=scanner.next();
         scanner.nextLine();
         System.out.println("Enter the street name");
         streetName=scanner.nextLine();

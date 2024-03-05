@@ -9,7 +9,7 @@ public abstract class CollectCheckData {
     //abstract to collect personal data
     public abstract void collectPersonalData();
     //abstract to display those data
-    public abstract void displayData();
+    public abstract void displayData(Employee employee);
     //to collect address
     public abstract Object collectAddress();
     //validate email address

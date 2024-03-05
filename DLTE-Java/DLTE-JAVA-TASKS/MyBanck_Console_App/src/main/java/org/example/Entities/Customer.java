@@ -1,28 +1,31 @@
 package org.example.Entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class UserInformation implements Serializable {
+public class Customer implements Serializable {
     private String username;
     private String password;
     private String address;
     private String email;
     private Long contact;
     private Long initialBalace;
+    private ArrayList transactionDetails;
 
     @Override
     public String toString() {
-        return "UserInformation{" +
+        return "Customer{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
-                ", contact='" + contact + '\'' +
+                ", contact=" + contact +
                 ", initialBalace=" + initialBalace +
+                ", transactionDetails=" + transactionDetails +
                 '}';
     }
 
-    public UserInformation() {
+    public Customer() {
     }
 
 
@@ -74,16 +77,25 @@ public class UserInformation implements Serializable {
         this.password = password;
     }
 
-    public UserInformation(String username, String password, String address, String email, Long contact, Long initialBalace) {
+    public ArrayList getTransactionDetails() {
+        return transactionDetails;
+    }
+
+    public void setTransactionDetails(ArrayList transactionDetails) {
+        this.transactionDetails = transactionDetails;
+    }
+
+    public Customer(String username, String password, String address, String email, Long contact, Long initialBalace, ArrayList transactionDetails) {
         this.username = username;
         this.password = password;
         this.address = address;
         this.email = email;
         this.contact = contact;
         this.initialBalace = initialBalace;
+        this.transactionDetails = transactionDetails;
     }
 
-    public UserInformation(String username, String password) {
+    public Customer(String username, String password) {
         this.username = username;
         this.password = password;
     }
