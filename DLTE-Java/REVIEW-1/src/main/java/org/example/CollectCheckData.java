@@ -7,11 +7,11 @@ public abstract class CollectCheckData {
     String email;
     Long phone=0L;
     //abstract to collect personal data
-    public abstract void collectPersonalData();
+    public abstract void collectPersonalData(Employee employee);
     //abstract to display those data
-    public abstract void displayData(Employee employee);
+    public abstract void displayData();
     //to collect address
-    public abstract Object collectAddress();
+    public abstract Address collectAddress();
     //validate email address
     public boolean validateEmail() {
             String emailRegex = "^[A-Za-z0-9+-_]{3,}@[A-Za-z]{3,}(.)[A-Za-z]{2,}";

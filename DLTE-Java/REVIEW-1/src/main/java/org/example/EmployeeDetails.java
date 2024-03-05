@@ -1,26 +1,46 @@
 package org.example;
+
+
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class EmployeeDetails extends CollectCheckData {
-
-
-    Employee employee1=new Employee();
     Address temporaryAddress;
     Address permenantAddress;
+    static Scanner scanner=new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
         EmployeeDetails employeeDetails=new EmployeeDetails();
-        int choice;
+      ReadWriteEmployee readWriteEmployee=new ReadWriteEmployee();
+        ArrayList<Object> arrayEmp=new ArrayList<>();
+        //int choice;
         while(true){
             System.out.println("------Welcome------");
+            int choice;
             System.out.println("Enter your choice\n1 : Adding new employee data\n2 : Displaying all employee data\n3 : Exit");
             choice=scanner.nextInt();
             switch (choice){
-                case 1:employeeDetails.collectPersonalData();
-
-                case 2:employeeDetails.displayData(employeeDetails.employee1);
-                       return;
+                case 1:
+                     Employee employee1=new Employee();
+                     System.out.println("Employee data");
+                     employeeDetails.collectPersonalData(employee1);
+                     arrayEmp.add(employee1);
+                     break;
+                case 2://employeeDetails.displayData();'
+                    readWriteEmployee.writeIntoFile(arrayEmp);
+                    ArrayList<Objects> arEmp;
+                    arEmp= readWriteEmployee.readFromFile();
+                    System.out.println(arEmp.size());
+                    System.out.println(arEmp);
+//                      for(int index=0;index<arEmp.size();index++){
+//                          System.out.println(arEmp.get(index));
+//                      }
+                     // ;
+                    //  employee2= (Employee[])
+                     // employee2= (Employee) readWriteEmployee.readFromFile();
+                 //   System.out.println(employee2);
+                       break;
                 case 3: default:return;
             }
         }
@@ -31,8 +51,7 @@ public class EmployeeDetails extends CollectCheckData {
     }
 
     @Override
-    public void collectPersonalData() {
-        Scanner scanner=new Scanner(System.in);
+    public void collectPersonalData(Employee employee1) {
         EmployeeDetails employeeDetails=new EmployeeDetails();
         //name
         System.out.println("-------Employee Details-------");
@@ -63,29 +82,37 @@ public class EmployeeDetails extends CollectCheckData {
         }
         System.out.println("Enter the employee id");
         employee1.setEmployeeId(scanner.nextInt());
-        System.out.println("Enter your permenant address");
-        permenantAddress= (Address) collectAddress();
-//        System.out.println("Enter your temporary address");
+        //address
+         permenantAddress= collectAddress();
+         System.out.println("Enter your permenant address");
+         
+
+//         System.out.println("Enter your temporary address");
+//         employee1.setTemporaryAddress((ArrayList)collectAddress());
 //        temporaryAddress= (Address) collectAddress();
+//        System.out.println("Data collecte");
+
 //        employeeDetails.displayData(employee1);
 //        employeeDetails.displayData(permenantAddress);
 //        employeeDetails.displayData(temporaryAddress);
-        scanner.close();
 
 
     }
 
 
     @Override
-    public void displayData(Employee employee) {
-        System.out.println(employee);
+    public void displayData() {
+        //System.out.println(employee1);
+        System.out.println("Temporary address");
+        System.out.println(temporaryAddress);
+        System.out.println("Permenant address");
+        System.out.println(permenantAddress);
 
 
     }
 
     @Override
-    public Object collectAddress() {
-        Scanner scanner=new Scanner(System.in);
+    public Address collectAddress() {
         String houseName,streetName,cityName,stateName;
         int pincode;
         System.out.println("Enter the house name");
@@ -99,7 +126,6 @@ public class EmployeeDetails extends CollectCheckData {
         stateName=scanner.nextLine();
         System.out.println("Enter the pincode");
         pincode=scanner.nextInt();
-        scanner.close();
         return new Address(houseName,streetName,cityName,stateName,pincode);
 
     }

@@ -1,6 +1,9 @@
 package org.example;
 
-public class Employee {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Employee implements Serializable {
     private String firstName;
     private String middeName;
     private String lastName;
@@ -12,7 +15,7 @@ public class Employee {
 
     public Employee(){}
 
-    public Employee(String firstName, String middeName, String lastName, Long employeePhone, Integer employeeId, String houseName, String streetName, String cityName, String stateName, Integer pincode, String email) {
+    public Employee(String firstName, String middeName, String lastName, Long employeePhone, Integer employeeId, String email) {
         this.firstName = firstName;
         this.middeName = middeName;
         this.lastName = lastName;
@@ -20,7 +23,9 @@ public class Employee {
         this.employeeId = employeeId;
         this.email = email;
     }
-    //getters and setters
+
+//getters and setters
+
 
     public String getEmail() {
         return email;

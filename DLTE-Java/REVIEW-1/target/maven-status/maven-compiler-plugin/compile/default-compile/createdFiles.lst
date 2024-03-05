@@ -1,3 +1,5 @@
-org\example\CollectDetails.class
-org\example\App.class
+org\example\Address.class
+org\example\Test.class
+org\example\EmployeeDetails.class
+org\example\CollectCheckData.class
 org\example\Employee.class
