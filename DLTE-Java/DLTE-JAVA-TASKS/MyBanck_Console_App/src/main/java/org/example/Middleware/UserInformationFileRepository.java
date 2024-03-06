@@ -89,6 +89,7 @@ public class UserInformationFileRepository implements UserInfoRepository {
         logger.log(Level.INFO,resourceBundle.getString("user.deposited"));
        // readFromFile();
         //System.out.println(userList);
+
     }
 
     @Override

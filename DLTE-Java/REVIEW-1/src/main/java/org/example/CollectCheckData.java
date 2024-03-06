@@ -11,7 +11,7 @@ public abstract class CollectCheckData {
     //abstract to display those data
     public abstract void displayData();
     //to collect address
-    public abstract Address collectAddress();
+    public abstract Address collectAddress(int id);
     //validate email address
     public boolean validateEmail() {
             String emailRegex = "^[A-Za-z0-9+-_]{3,}@[A-Za-z]{3,}(.)[A-Za-z]{2,}";
