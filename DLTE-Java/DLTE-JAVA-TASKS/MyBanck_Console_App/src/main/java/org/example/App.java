@@ -5,6 +5,7 @@ import org.example.Exception.UserNotFoundException;
 import org.example.Middleware.UserInformationFileRepository;
 import org.example.Services.MyBankServices;
 
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -57,13 +58,19 @@ public class App {
                     System.out.println(ResourceBundle.getBundle("information").getString("app.choice"));
                     choice = scanner.nextInt();
                     switch (choice) {
-                        case 1: System.out.println("Enter the amount to be deposited");
-                                Long amount=scanner.nextLong();
+                        case 1:
                                 try {
-                                  bankServices.callDeposit(username,amount);
-                                }
-                                catch (UserNotFoundException expection){
-                                    System.out.println(expection);
+                                    System.out.println("Enter the amount to be deposited");
+                                    Long amount = scanner.nextLong();
+                                    try {
+                                        bankServices.callDeposit(username, amount);
+                                    } catch (UserNotFoundException expection) {
+                                        System.out.println(expection);
+                                    }
+
+                                }catch (InputMismatchException expection){
+                                    System.out.println("You have entered the wrong input try again "+expection);
+                                    Scanner scanner = new Scanner(System.in);
                                 }
                                 break;
                        default: return;

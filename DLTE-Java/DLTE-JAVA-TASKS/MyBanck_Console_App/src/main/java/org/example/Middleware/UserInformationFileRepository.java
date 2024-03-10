@@ -87,6 +87,7 @@ public class UserInformationFileRepository implements UserInfoRepository {
         userList.get(index).setInitialBalace(newBalance);
         writeIntoFile();
         logger.log(Level.INFO,resourceBundle.getString("user.deposited"));
+        System.out.println(userList.get(index).getUsername() + "  Your money has been deposited");
        // readFromFile();
         //System.out.println(userList);
 
