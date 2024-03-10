@@ -16,6 +16,6 @@ public interface MyBank {
     void readFromFile() throws IOException, ClassNotFoundException;
     //to
     void addNewLoan(Loan loan);
-    void checkAvailibility();
-    void checkClosedLoan();
+    Loan checkAvailibility();
+    Loan checkClosedLoan();
 }

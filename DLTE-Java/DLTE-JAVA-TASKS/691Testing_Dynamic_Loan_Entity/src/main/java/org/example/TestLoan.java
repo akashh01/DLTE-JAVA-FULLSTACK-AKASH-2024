@@ -55,7 +55,7 @@ public class TestLoan implements MyBank {
     }
 
     @Override
-    public void checkAvailibility() {
+    public Loan checkAvailibility() {
         try {
             readFromFile();
         }
@@ -68,11 +68,13 @@ public class TestLoan implements MyBank {
         avail.forEach(Loan->{
             System.out.println(Loan.toString());
         });
+        Loan test=avail.get(0);
+        return test;
     }
 
 
     @Override
-    public void checkClosedLoan() {
+    public Loan checkClosedLoan() {
         try {
             readFromFile();
         }
@@ -84,6 +86,8 @@ public class TestLoan implements MyBank {
         notAvail.forEach(Loan->{
             System.out.println(Loan.toString());
         });
+        Loan test=notAvail.get(0);
+        return test;
     }
     public Loan getInputData(){
         System.out.println("Enter the folowwing data");
