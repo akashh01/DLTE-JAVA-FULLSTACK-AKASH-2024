@@ -28,3 +28,49 @@ Mar 07, 2024 5:12:59 PM org.example.Middleware.UserInformationFileRepository val
 INFO: Username validated
 Mar 07, 2024 5:14:08 PM org.example.Middleware.UserInformationFileRepository validateUser
 INFO: Username validated
+Mar 11, 2024 4:30:42 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:31:00 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited
+Mar 11, 2024 4:31:54 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:33:50 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:33:54 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:34:10 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:35:53 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:37:34 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:40:01 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:40:15 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited
+Mar 11, 2024 4:42:02 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:42:07 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:42:10 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:42:17 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:49:15 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 11, 2024 4:49:18 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:49:46 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:54:42 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 4:54:49 PM org.example.App main
+INFO: Password incorrect 3 times account suspended
+Mar 11, 2024 5:03:26 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 5:03:49 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 11, 2024 5:04:00 PM org.example.App main
+INFO: Password incorrect 3 times account suspended
+Mar 11, 2024 5:04:15 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited

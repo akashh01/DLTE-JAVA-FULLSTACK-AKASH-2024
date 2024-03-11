@@ -8,7 +8,8 @@ import org.example.Remotes.UserInfoRepository;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MyBankServices {
+public class
+MyBankServices {
     UserInfoRepository userInfoRepository;// = new UserInformationFileRepository();
     //  UserInformation user2=new UserInformation("ajay","ad1234");
 

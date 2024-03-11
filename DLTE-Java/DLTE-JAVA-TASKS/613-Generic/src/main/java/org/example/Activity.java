@@ -8,5 +8,5 @@ public interface Activity<T> {
      void updateData(int index,T object);
      String deleteData(int index);
 
- //    can i speak about my journey to tietoevry and and my short experience about being here ?
+
 }
