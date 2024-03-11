@@ -75,13 +75,14 @@ public class App {
                                         System.out.println(expection);
                                     }
 
-//                                }catch (InputMismatchException expection){
-//                                    System.out.println("You have entered the wrong input try again "+expection);
-//                                    Scanner scanner = new Scanner(System.in);
-//                                }
+                                catch (InputMismatchException expection){
+                                 System.out.println("You have entered the wrong input try again "+expection);
+                                //   Scanner scanner = new Scanner(System.in);
+                                       }
                                 break;
 
                         case 4:bankServices.callCheck();
+                               break;
                        default: return;
                     }
                 }

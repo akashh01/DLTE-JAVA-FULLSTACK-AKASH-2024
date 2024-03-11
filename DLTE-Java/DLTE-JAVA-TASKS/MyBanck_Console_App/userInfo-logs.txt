@@ -74,3 +74,5 @@ Mar 11, 2024 5:04:00 PM org.example.App main
 INFO: Password incorrect 3 times account suspended
 Mar 11, 2024 5:04:15 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
 INFO: Amount deposited
+Mar 11, 2024 5:58:23 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
