@@ -27,6 +27,7 @@ public class App
         logger.error(resourceBundle.getString("check.second"));
         System.out.println("Warning");
         //colours are varying
+
         logger.warn(resourceBundle.getString("check.third"));
         logger.debug("debug testing");
         System.out.println("debug");

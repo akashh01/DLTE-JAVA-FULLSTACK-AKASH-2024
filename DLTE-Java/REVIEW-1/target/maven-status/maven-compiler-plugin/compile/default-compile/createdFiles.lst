@@ -1,5 +1,7 @@
-org\example\Address.class
-org\example\Test.class
 org\example\EmployeeDetails.class
-org\example\CollectCheckData.class
-org\example\Employee.class
+org\example\entites\Address.class
+org\example\entites\Employee.class
+org\example\Test.class
+org\example\remotes\CollectCheckData.class
+org\example\exceptions\EmployeeNotFound.class
+org\example\middleware\Operations.class

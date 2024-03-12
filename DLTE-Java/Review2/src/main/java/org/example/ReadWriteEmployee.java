@@ -39,35 +39,50 @@ public class ReadWriteEmployee {
         }
         return null;
     }
-//    public void writeIntoFileAddress(HashMap<Integer,Object> address){
-//        try {
-//            FileOutputStream fileOutputStream = new FileOutputStream("EmployeeDetails.doc",true);
-//            ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
-//            objectOutputStream.writeObject(address);
-//            fileOutputStream.close();
-//            objectOutputStream.close();
-//        }
-//        catch (IOException expection){
-//            System.out.println(expection);
-//        }
-//    }
-//    public HashMap<Integer,Object> readFromFileAddress(){
-//        try{
-//            //Employee employee=new Employee();
-//            HashMap<Integer,Object> arry=new HashMap<>();
-//            FileInputStream fileInputStream=new FileInputStream("AddressDetails.doc");
-//            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
-//            arry= (HashMap<Integer, Object>) objectInputStream.readObject();
-//            // userList1.add((UserInformation) objectInputStream.readObject());
-//            objectInputStream.close();
-//            fileInputStream.close();
-//            System.out.println(arry.size());
-//            return arry;
-//        }
-//        catch (IOException | ClassNotFoundException  ioException){
-//            System.out.println(ioException);
-//        }
-//        return null;
-//    }
+    public void writeIntoFileAddress(HashMap<Integer,Object> address,String type){
+        try {
+            String filepath;
+            if(type.equals("temporary")){
+                filepath="C:\\Users\\xxnlnnpa\\Documents\\DLTE-JAVA-FULLSTACK-AKASH-2024\\DLTE-Java\\Review2\\TemporaryAddressDetails.doc";
+            }
+            else{
+                filepath="C:\\Users\\xxnlnnpa\\Documents\\DLTE-JAVA-FULLSTACK-AKASH-2024\\DLTE-Java\\Review2\\PermenantAddressDetails.doc";
+            }
+            FileOutputStream fileOutputStream = new FileOutputStream(filepath);
+            ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
+            System.out.println(address);
+            objectOutputStream.writeObject(address);
+            fileOutputStream.close();
+            objectOutputStream.close();
+        }
+        catch (IOException expection){
+            System.out.println(expection);
+        }
+    }
+    public HashMap<Integer,Object> readFromFileAddress(String type){
+        try{
+            String filepath;
+            if(type.equals("temporary")){
+                filepath="C:\\Users\\xxnlnnpa\\Documents\\DLTE-JAVA-FULLSTACK-AKASH-2024\\DLTE-Java\\Review2\\TemporaryAddressDetails.doc";
+            }
+            else{
+                filepath="C:\\Users\\xxnlnnpa\\Documents\\DLTE-JAVA-FULLSTACK-AKASH-2024\\DLTE-Java\\Review2\\PermenantAddressDetails.doc";
+            }
+            //Employee employee=new Employee();
+            HashMap<Integer,Object> arry=new HashMap<>();
+            FileInputStream fileInputStream=new FileInputStream(filepath);
+            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+            arry= (HashMap<Integer, Object>) objectInputStream.readObject();
+            // userList1.add((UserInformation) objectInputStream.readObject());
+            objectInputStream.close();
+            fileInputStream.close();
+           // System.out.println(arry.size());
+            return arry;
+        }
+        catch (IOException | ClassNotFoundException  ioException){
+            System.out.println(ioException);
+        }
+        return null;
+    }
 
 }

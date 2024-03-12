@@ -1,35 +1,57 @@
 package org.example;
 
+import org.example.exceptions.NoEmployeeData;
+import org.example.middleware.Operations;
+import org.example.remotes.CollectCheckData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.omg.PortableInterceptor.INACTIVE;
 
+import java.io.EOFException;
+import java.io.FileNotFoundException;
 import java.util.*;
 
-public class EmployeeDetails extends CollectCheckData {
-    Address temporaryAddress;
-    Address permenantAddress;
+public class EmployeeDetails implements CollectCheckData {
+    //Address temporaryAddress;
+    //tAddress permenantAddress;
+    static ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
+    static ResourceBundle resourceBundleTwo=ResourceBundle.getBundle("loggings");
+    private static Logger logger= LoggerFactory.getLogger(EmployeeDetails.class);
+    Operations operations=new Operations();
    // static HashMap<Integer,Object> hashPermenantAdd=new HashMap<>();
     static Scanner scanner=new Scanner(System.in);
     public static void main(String[] args) {
         EmployeeDetails employeeDetails=new EmployeeDetails();
         ArrayList<Object> arrayEmployee=new ArrayList<>();
         ReadWriteEmployee readWriteEmployee=new ReadWriteEmployee();
+        HashMap<Integer,Object> hashPermanantAddress=new HashMap<>();
+        HashMap<Integer,Object> hashTemporaryAddress=new HashMap<>();
+        //;
+        //
         //int choice;
         while(true){
-            System.out.println("------Welcome------");
+            System.out.println(resourceBundle.getString("collect.greet"));
             int choice;
-            System.out.println("Enter your choice\n1 : Adding new employee data\n2 : Displaying all employee data\n3 : Exit");
+            System.out.println(resourceBundle.getString("collect.menu"));
             choice=scanner.nextInt();
             switch (choice){
                 case 1:
+                     //employee details
                      Employee employee1=new Employee();
-                     System.out.println("Employee data");
+                     System.out.println(resourceBundle.getString("collect.employee"));
                      arrayEmployee=readWriteEmployee.readFromFile();
                      employeeDetails.collectPersonalData(employee1);
                      arrayEmployee.add(employee1);
-                     System.out.println(arrayEmployee.size());
+                    // System.out.println(arrayEmployee.size());
                      readWriteEmployee.writeIntoFile(arrayEmployee);
-                   // readWriteEmployee.writeIntoFileAddress(hashPermenantAdd);
+                     //employee permanent details
+                     hashPermanantAddress=readWriteEmployee.readFromFileAddress("permenant");
+                     hashPermanantAddress.put(employee1.getEmployeeId(),employeeDetails.collectAddress());
+                     readWriteEmployee.writeIntoFileAddress(hashPermanantAddress,"permanant");
+                     //employee temporary details
+                     hashTemporaryAddress=readWriteEmployee.readFromFileAddress("temporary");
+                     hashTemporaryAddress.put(employee1.getEmployeeId(),employeeDetails.collectAddress());
+                     readWriteEmployee.writeIntoFileAddress(hashTemporaryAddress,"temporary");
                      break;
                 case 2:employeeDetails.displayData();
                     break;
@@ -45,7 +67,7 @@ public class EmployeeDetails extends CollectCheckData {
         try {
             EmployeeDetails employeeDetails = new EmployeeDetails();
             //name
-            System.out.println("-------Employee Details-------");
+            System.out.println(resourceBundle.getString("collect.employee.menu"));
             System.out.println("Enter the First name of employee");
             employee1.setFirstName(scanner.next());
             System.out.println("Enter the middle name of employee");
@@ -54,23 +76,28 @@ public class EmployeeDetails extends CollectCheckData {
             employee1.setLastName(scanner.next());
             //email and phone
             System.out.println("Enter the employee email");
-            employeeDetails.email = scanner.next();
-            if (employeeDetails.validateEmail()) {
-                employee1.setEmail(employeeDetails.email);
-            } else {
-                System.out.println("Enter valid employee email");
-                employeeDetails.email = scanner.next();
+            String email = scanner.next();
+            while (employee1.getEmail() == null) {
+                if (operations.validateEmail(email)) {
+                    employee1.setEmail(email);
+                } else {
+                    System.out.println("Enter valid employee email");
+                    email = scanner.next();
+                }
             }
+
             System.out.println("Enter the employee phone");
-            employeeDetails.phone = scanner.nextLong();
-            if (employeeDetails.validatePhone()) {
-                employee1.setEmployeePhone(employeeDetails.phone);
+            Long phone = scanner.nextLong();
+            while (employee1.getEmployeePhone() == null) {
+            if (operations.validatePhone(phone)) {
+                employee1.setEmployeePhone(phone);
             } else {
                 System.out.println("Enter valid phone");
-                employeeDetails.phone = scanner.nextLong();
-            }
+                phone = scanner.nextLong();
+            }}
             System.out.println("Enter the employee id");
             employee1.setEmployeeId(scanner.nextInt());
+            logger.info(resourceBundleTwo.getString("employee.added"));
         }
         catch (InputMismatchException expection){
             System.out.println("You have entered wrong input" +expection);
@@ -95,14 +122,30 @@ public class EmployeeDetails extends CollectCheckData {
 
     @Override
     public void displayData() {
+        try{
+        logger.info(resourceBundleTwo.getString("employee.details"));
         ReadWriteEmployee readWriteEmployee=new ReadWriteEmployee();
         ArrayList<Object> arEmp;
         arEmp= readWriteEmployee.readFromFile();
         int size=arEmp.size();
-        for(int index=0;index<size;index++){
+        HashMap<Integer,Object> temporaryAddress;
+        HashMap<Integer,Object> permanentAddress;
+        temporaryAddress=readWriteEmployee.readFromFileAddress("temporary");
+        permanentAddress=readWriteEmployee.readFromFileAddress("permanant");
+        //System.out.println(temporaryAddress);
+        for(int index=0;index<size;index++) {
+            System.out.println("Employee " + (index + 1));
+            System.out.println(" ");
             System.out.println(arEmp.get(index));
-        }
-//        System.out.println("Temporary address");
+            System.out.println("Permanent address " + permanentAddress.get(((Employee) arEmp.get(index)).getEmployeeId()));
+            System.out.println("Temporary address " + temporaryAddress.get(((Employee) arEmp.get(index)).getEmployeeId()));
+            System.out.println(" ");
+        }}catch (NoEmployeeData notfound){
+            System.out.println(notfound);
+
+       }
+      //  System.out.println(test.get(456));
+
 //        System.out.println(temporaryAddress);
 //        System.out.println("Permenant address");
 //        System.out.println(permenantAddress);
@@ -111,10 +154,11 @@ public class EmployeeDetails extends CollectCheckData {
     }
 
     @Override
-    public Address collectAddress(int empId) {
+    public Address collectAddress() {
         try {
             String houseName, streetName, cityName, stateName;
-            int pincode;
+            int pincode=0;
+            System.out.println("Enter your address detials");
             System.out.println("Enter the house name");
             houseName = scanner.next();
             scanner.nextLine();
@@ -125,7 +169,16 @@ public class EmployeeDetails extends CollectCheckData {
             System.out.println("Enter the state name");
             stateName = scanner.nextLine();
             System.out.println("Enter the pincode");
-            pincode = scanner.nextInt();
+            int pin = scanner.nextInt();
+            while(pincode==0) {
+                if (operations.validatePincode(pin)) {
+                    pincode = pin;
+                } else {
+                    System.out.println("Enter the pincode");
+                    pin = scanner.nextInt();
+                }
+            }
+            logger.info(resourceBundleTwo.getString("address.added"));
             // hashPermenantAdd.put(empId, new Address(houseName,streetName,cityName,stateName,pincode));
             return new Address(houseName, streetName, cityName, stateName, pincode);
         }
@@ -135,4 +188,20 @@ public class EmployeeDetails extends CollectCheckData {
         }
 
     }
+
+//    public void getDetailsPincode(int pincode){
+//        ReadWriteEmployee readWriteEmployee=new ReadWriteEmployee();
+//        ArrayList<Object> arEmp;
+//        arEmp= readWriteEmployee.readFromFile();
+//        int size=arEmp.size();
+//        HashMap<Integer,Object> temporaryAddress;
+//        HashMap<Integer,Object> permanentAddress;
+//        temporaryAddress=readWriteEmployee.readFromFileAddress("temporary");
+//        permanentAddress=readWriteEmployee.readFromFileAddress("permanant");
+//        for(int index=0;index<size;index++){
+//          if
+//
+//        }
+//    }
+
 }

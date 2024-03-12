@@ -1,0 +1,21 @@
+23:53:25.836 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34memployee data had been added [0;39m 
+23:53:51.541 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+23:54:19.043 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+11:56:46.340 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34memployee data had been added [0;39m 
+11:57:11.548 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+11:57:33.989 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+12:04:08.145 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34memployee data had been added [0;39m 
+12:04:47.321 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+12:05:37.608 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+13:29:46.663 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+[34m[main][0;39m [34mINFO [0;39m org.example.EmployeeDetails - [34mAll data displayed[0;39m 12/03/2024 13:32:16.1440 
+22:21:58.416 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:22:51.377 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:43:39.410 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:44:44.101 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:47:19.864 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:49:20.701 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
+22:51:15.067 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34memployee data had been added [0;39m 
+22:52:10.414 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+22:52:36.018 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34madress added for employee[0;39m 
+22:52:38.125 [34m[main][0;39m INFO  org.example.EmployeeDetails - [34mAll data displayed[0;39m 
