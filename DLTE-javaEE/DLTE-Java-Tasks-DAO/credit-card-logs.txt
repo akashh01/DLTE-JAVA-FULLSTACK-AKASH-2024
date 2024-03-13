@@ -1,0 +1,34 @@
+Mar 12, 2024 5:37:37 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 12, 2024 6:11:18 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 12, 2024 6:11:18 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 12, 2024 8:53:21 PM application.db.Middlewares.UserInfoDatabaseRepository DepositAmountInto
+INFO: inserted successfully
+Mar 12, 2024 9:00:15 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 12, 2024 9:00:15 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 12, 2024 9:01:45 PM application.db.Middlewares.UserInfoDatabaseRepository DepositAmountInto
+INFO: inserted successfully
+Mar 13, 2024 5:20:16 AM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 13, 2024 5:20:16 AM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: inserted successfully
+Mar 13, 2024 5:20:52 AM application.db.Middlewares.UserInfoDatabaseRepository DepositAmountInto
+INFO: inserted successfully
+Mar 13, 2024 5:22:51 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully
+Mar 13, 2024 5:23:46 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully
+Mar 13, 2024 5:31:47 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully
+Mar 13, 2024 5:33:22 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully
+Mar 13, 2024 5:36:34 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: User inserted successfully
+Mar 13, 2024 5:36:34 PM application.db.Middlewares.UserInfoDatabaseRepository addInformation
+INFO: transaction Details inserted Suceesfully
+Mar 13, 2024 5:44:34 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully

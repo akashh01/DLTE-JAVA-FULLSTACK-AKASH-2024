@@ -1,0 +1,7 @@
+org\example\Address.class
+org\example\EmployeeDetails.class
+org\example\exceptions\NoEmployeeData.class
+org\example\Test.class
+org\example\remotes\CollectCheckData.class
+org\example\middleware\Operations.class
+org\example\Employee.class

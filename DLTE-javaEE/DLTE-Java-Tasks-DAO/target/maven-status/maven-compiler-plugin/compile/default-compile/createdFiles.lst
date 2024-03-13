@@ -1,0 +1,10 @@
+application\db\App.class
+application\db\Exception\InvalidPassword.class
+application\db\Entities\Customer.class
+application\db\Middlewares\UserInfoDatabaseRepository.class
+application\db\Remotes\UserInfoRepository.class
+application\db\Exception\UserNotFoundException.class
+application\db\Middlewares\DatabaseTarget.class
+application\db\Services\UserInfoServices.class
+application\db\Remotes\StorageTarget.class
+application\db\Test.class

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c48f09e0-d1a8-43e3-8020-0ca2aa9934d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/DB_Integration/src/main/java/org/example/employeeToDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/DB_Integration/src/main/resources/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/AddressDetails.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/REVIEW-1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/EmployeeDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/exceptions/NoEmployeeData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/middleware/Operations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/java/org/example/remotes/CollectCheckData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/resources/information.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/main/resources/loggings.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/information.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/loggings.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/Address.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/EmployeeDetails.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/middleware/Operations.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/classes/org/example/remotes/CollectCheckData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/surefire-reports/TEST-org.example.AppTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/surefire-reports/org.example.AppTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/REVIEW-1/target/test-classes/org/example/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Entities/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Exception/InvalidPassword.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Exception/UserNotFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Middlewares/DatabaseTarget.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Middlewares/UserInfoDatabaseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Remotes/StorageTarget.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Remotes/UserInfoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Services/UserInfoServices.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/classes/application/db/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/surefire-reports/TEST-application.db.AppTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/surefire-reports/application.db.AppTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE-Java-Tasks-DAO/target/test-classes/application/db/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Review2/employelog.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Review2/employelog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../839Rest_Webservice_Transaction_Module/target/839Rest_Webservice_Transaction_Module.war" beforeDir="false" afterPath="$PROJECT_DIR$/../839Rest_Webservice_Transaction_Module/target/839Rest_Webservice_Transaction_Module.war" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="C:/Maven/apache-maven-3.3.9" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2ddZ5nBPwTSvaMxVrWHGyWjTG4a" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../839Rest_Webservice_Transaction_Module" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Servlets" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Servlets" />
+      <module name="899_Rest_Mappings" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Servlets" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c48f09e0-d1a8-43e3-8020-0ca2aa9934d7" name="Default Changelist" comment="" />
+      <created>1710339734168</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710339734168</updated>
+      <workItem from="1710339738163" duration="929000" />
+      <workItem from="1710340709200" duration="190000" />
+      <workItem from="1710340916939" duration="1491000" />
+      <workItem from="1710342456923" duration="82000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710342472526">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710342472526" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710342422680">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710342422680" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1710342422680">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710342422680" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1710342422680">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710342422680" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1710342422680">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710342422680" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1710342195883">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1710342195883" />
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1710340918264">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1710340918264" />
+  </component>
+</project>
