@@ -6,7 +6,9 @@ import application.db.Remotes.StorageTarget;
 import application.db.Remotes.UserInfoRepository;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -79,6 +81,18 @@ public class UserInfoServices {
         return null;
 
     }
+    public Customer callOneUserDetails(String username){
+        Customer customer=new Customer();
+        try{
+            customer=userInfoRepository.oneUserDetail(username);
+            return customer;
+
+        }catch (Exception e){
+
+        }
+        return null;
+
+    }
     public List callTransactionByDate(String username,String date){
         try{
             List<List> transaction=new ArrayList();
@@ -91,5 +105,8 @@ public class UserInfoServices {
         return null;
 
     }
+
+
+
 
 }

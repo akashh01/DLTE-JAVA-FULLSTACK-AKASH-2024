@@ -250,4 +250,29 @@ public class UserInfoDatabaseRepository implements UserInfoRepository {
         }
         return transactionArrayList;
     }
+    //added for the new rest api
+
+    @Override
+    public Customer oneUserDetail(String username) {
+        Customer newCustomer=new Customer();
+        try{
+            String query="select * from user_info where username=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+               newCustomer.setUsername(resultSet.getString(1));
+               newCustomer.setPassword(resultSet.getString(2));
+               newCustomer.setAddress(resultSet.getString(3));
+               newCustomer.setEmail(resultSet.getString(4));
+               newCustomer.setContact(resultSet.getLong(5));
+               newCustomer.setInitialBalace(resultSet.getLong(6));
+
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return newCustomer;
+    }
 }

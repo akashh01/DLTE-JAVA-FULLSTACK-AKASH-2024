@@ -32,3 +32,5 @@ Mar 13, 2024 5:36:34 PM application.db.Middlewares.UserInfoDatabaseRepository ad
 INFO: transaction Details inserted Suceesfully
 Mar 13, 2024 5:44:34 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
 INFO: User validated Successfully
+Mar 13, 2024 9:23:58 PM application.db.Middlewares.UserInfoDatabaseRepository passwordValidate
+INFO: User validated Successfully

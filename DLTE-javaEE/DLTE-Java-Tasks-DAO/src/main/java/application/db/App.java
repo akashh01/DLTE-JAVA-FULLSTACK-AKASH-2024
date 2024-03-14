@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
@@ -32,11 +33,10 @@ public class App {
 //          builder.append("," + new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 //         ArrayList<StringBuilder> transactionOne = new ArrayList<>();
 //           transactionOne.add(builder);
-//        Customer customer2=new Customer("Eeksha", "eeksha123", "Mangalore", "eeksha@gmail", 987455335L, 1000L, transactionOne);
+//       Customer customer2=new Customer("Eeksha", "eeksha123", "Mangalore", "eeksha@gmail", 987455335L, 1000L, transactionOne);
 //        userInfoServices.callAddInformation(customer2);
         Scanner scanner = new Scanner(System.in);
         String username, password;
-        Customer newCustomer = null;
         boolean flag=false;
         //userInfoServices.callDepositAmountInto(fsa,4);
        // username = scanner.next();
