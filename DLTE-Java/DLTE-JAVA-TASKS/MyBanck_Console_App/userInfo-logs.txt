@@ -118,3 +118,5 @@ Mar 15, 2024 3:33:04 PM org.example.Middleware.UserInformationFileRepository val
 INFO: Username validated
 Mar 15, 2024 3:33:15 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
 INFO: Amount deposited
+Mar 18, 2024 9:51:21 AM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated

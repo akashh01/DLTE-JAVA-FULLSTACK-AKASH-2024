@@ -36,7 +36,7 @@ public class App {
                 System.out.println(exp);
             }
         }while(newCustomer==null);
-
+        //if username is correect verify password
         if (newCustomer != null) {
             System.out.println("Enter your password");
             password = scanner.next();
@@ -79,7 +79,10 @@ public class App {
                                 //   Scanner scanner = new Scanner(System.in);
                                        }
                                 break;
-
+                        case 2: case 3:
+                            System.out.println(ResourceBundle.getBundle("information").getString("app.notavailable"));
+                            break;
+                        //all the transactions are called here for verification purpose
                         case 4:bankServices.callCheck();
                                break;
                        default: return;
@@ -90,7 +93,7 @@ public class App {
             }
         }
 
-
+//password verification method
     public boolean passwordValidate(Customer customer, String password)
             {
                 if (customer.getPassword().equals(password)) {
