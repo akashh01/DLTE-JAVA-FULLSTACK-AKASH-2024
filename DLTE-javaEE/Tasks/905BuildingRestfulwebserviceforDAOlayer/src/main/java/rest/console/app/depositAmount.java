@@ -21,6 +21,7 @@ public class depositAmount extends HttpServlet {
 
         StorageTarget storageTarget = new DatabaseTarget();
         userInfoServices = new UserInfoServices(storageTarget);
+        System.out.println("hello");
 
     }
 
@@ -45,5 +46,7 @@ public class depositAmount extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             resp.getWriter().println(userNotFoundation);
         }
+
     }
+
 }
