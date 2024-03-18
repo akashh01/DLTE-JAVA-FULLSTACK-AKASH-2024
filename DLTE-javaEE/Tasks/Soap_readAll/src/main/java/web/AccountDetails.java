@@ -6,20 +6,20 @@ import java.util.List;
 
 public class  AccountDetails{
     private Customer customers;
-
-    public AccountDetails(Customer customers) {
-        this.customers = customers;
+    private List<Customer> customerList;
+    public AccountDetails(List<Customer> customerList) {
+        this.customerList=customerList;
     }
 
     public AccountDetails() {
     }
 
-    public Customer getDetails() {
-        return customers;
+    public List<Customer> getDetails() {
+        return customerList;
     }
 
-    public void setDetails(Customer customers) {
-        this.customers = customers;
+    public void setDetails(List<Customer> customerList) {
+        this.customerList=customerList;
     }
 
     @Override

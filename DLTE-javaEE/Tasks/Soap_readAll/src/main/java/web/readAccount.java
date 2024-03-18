@@ -8,35 +8,39 @@ import application.db.Services.UserInfoServices;
 import org.omg.IOP.TransactionService;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-@WebService
+@WebService()
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public class readAcount {
+public class readAccount {
     UserInfoServices userInfoServices;
-    public readAcount() throws SQLException {
-        StorageTarget storageTarget=new DatabaseTarget();
-        userInfoServices=new UserInfoServices(storageTarget);
+    public readAccount() throws SQLException {
+        StorageTarget storageTarget = new DatabaseTarget();
+        userInfoServices = new UserInfoServices(storageTarget);
 
     }
 
 
     @WebMethod
-    @WebResult(name="AccountDetails")
-    public AccountDetails readAll(){
-        AccountDetails accountDetails=new AccountDetails();
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("enter the username");
-        String username=scanner.next();
-       // accountDetails=userInfoServices.callOneUserDetails(username);
+    @WebResult(name = "AccountDetails")
+    public AccountDetails readAll(@WebParam(name="String") String username) {
+        AccountDetails accountDetails = new AccountDetails();
+        Scanner scanner = new Scanner(System.in);
+     //   System.out.println("enter the username");
+        Customer customer = userInfoServices.callOneUserDetails(username);
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(customer);
+        accountDetails.setDetails(customerList);
+        return accountDetails;
+        //accountDetails=userInfoServices.callOneUserDetails(username);
 
-    //    List<Customer> customerDetails=userInfoServices.ca(user,type);
-//        accountDetails.setDetails(customerDetails);
-//        return customerDetails;
     }
+
 }

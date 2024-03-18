@@ -5,10 +5,10 @@ import java.sql.SQLException;
 
 public class soapEndPoint {
 
-    private static String url="http://localhost:1234/wealthWarriors";
+    private static String url="http://localhost:1234/assetAvengers";
 
     public static void main(String[] args) throws SQLException {
-        readAcount readAcount=new readAcount();
+        readAccount readAcount=new readAccount();
         System.out.println("Webservice hosted @ "+url);
         Endpoint.publish(url,readAcount);
     }
