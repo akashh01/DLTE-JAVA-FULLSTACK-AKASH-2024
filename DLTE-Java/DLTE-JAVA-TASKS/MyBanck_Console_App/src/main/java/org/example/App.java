@@ -23,7 +23,6 @@ public class App {
         MyBankServices bankServices = new MyBankServices();
        //for entering the data to file for the first time uncomment the below line and execute
         //bankServices.Intialize();
-        //
         Scanner scanner = new Scanner(System.in);
         String username, password;
         Customer newCustomer=null;

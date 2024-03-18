@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listOfTransactions>
+    <allTransaction date="2002-12-12T00:00:00+05:30">
+        <amount>500</amount>
+        <remarks>Friend</remarks>
+        <toWhom>Ajay</toWhom>
+    </allTransaction>
+    <allTransaction date="2002-12-12T00:00:00+05:30">
+        <amount>5000</amount>
+        <remarks>Family</remarks>
+        <toWhom>Deepansh</toWhom>
+    </allTransaction>
+    <allTransaction date="2002-12-12T00:00:00+05:30">
+        <amount>6500</amount>
+        <remarks>Education</remarks>
+        <toWhom>Akash</toWhom>
+    </allTransaction>
+    <allTransaction date="2002-12-12T00:00:00+05:30">
+        <amount>7000</amount>
+        <remarks>Bills</remarks>
+        <toWhom>Current</toWhom>
+    </allTransaction>
+    <allTransaction date="2002-12-12T00:00:00+05:30">
+        <amount>50000</amount>
+        <remarks>Friend</remarks>
+        <toWhom>Ajay</toWhom>
+    </allTransaction>
+</listOfTransactions>

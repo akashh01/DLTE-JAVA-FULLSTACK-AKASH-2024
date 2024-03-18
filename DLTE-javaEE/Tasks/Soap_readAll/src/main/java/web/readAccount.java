@@ -32,10 +32,9 @@ public class readAcount {
         AccountDetails accountDetails=new AccountDetails();
         Scanner scanner=new Scanner(System.in);
         System.out.println("enter the username");
-        String user = scanner.next();
-        System.out.println("enter the Transaction type");
-        String type =scanner.next();
-userInfoServices.call
+        String username=scanner.next();
+       // accountDetails=userInfoServices.callOneUserDetails(username);
+
     //    List<Customer> customerDetails=userInfoServices.ca(user,type);
 //        accountDetails.setDetails(customerDetails);
 //        return customerDetails;

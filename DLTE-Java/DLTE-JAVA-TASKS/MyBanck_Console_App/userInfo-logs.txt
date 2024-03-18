@@ -76,3 +76,45 @@ Mar 11, 2024 5:04:15 PM org.example.Middleware.UserInformationFileRepository Dep
 INFO: Amount deposited
 Mar 11, 2024 5:58:23 PM org.example.Middleware.UserInformationFileRepository validateUser
 INFO: Username validated
+Mar 15, 2024 2:53:45 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 2:55:39 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 2:56:05 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 2:56:46 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited
+Mar 15, 2024 3:02:55 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:16:27 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 3:16:44 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:17:16 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:17:19 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:21:32 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:21:35 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:21:36 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:21:38 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:21:42 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 3:21:48 PM org.example.App main
+INFO: Password incorrect 3 times account suspended
+Mar 15, 2024 3:22:12 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 3:22:25 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited
+Mar 15, 2024 3:23:52 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 3:32:55 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: The username entered is invalid
+Mar 15, 2024 3:33:04 PM org.example.Middleware.UserInformationFileRepository validateUser
+INFO: Username validated
+Mar 15, 2024 3:33:15 PM org.example.Middleware.UserInformationFileRepository DepositAmountInto
+INFO: Amount deposited

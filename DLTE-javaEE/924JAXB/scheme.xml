@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alltransaction date="2003-03-05T00:00:00+05:30">
+    <amount>500</amount>
+    <remarks>Friend</remarks>
+    <toWhom>Ajay</toWhom>
+</alltransaction>

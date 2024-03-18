@@ -61,3 +61,15 @@
 11:38:17.871 [34m[main][0;39m INFO  org.example.App - [34mhello this is my first exp[0;39m 
 11:38:17.893 [1;31m[main][0;39m ERROR org.example.App - [1;31mthis is my first error[0;39m 
 11:38:17.893 [31m[main][0;39m WARN  org.example.App - [31mthis is first warning[0;39m 
+10:52:38.913 [34m[main][0;39m INFO  org.example.App - [34mhello this is my first exp[0;39m 
+10:52:38.928 [1;31m[main][0;39m ERROR org.example.App - [1;31mthis is my first error[0;39m 
+10:52:38.928 [31m[main][0;39m WARN  org.example.App - [31mthis is first warning[0;39m 
+10:52:49.953 [34m[main][0;39m INFO  org.example.App - [34mhello this is my first exp[0;39m 
+10:52:49.969 [1;31m[main][0;39m ERROR org.example.App - [1;31mthis is my first error[0;39m 
+10:52:49.970 [31m[main][0;39m WARN  org.example.App - [31mthis is first warning[0;39m 
+10:52:57.394 [34m[main][0;39m INFO  org.example.App - [34mhello this is my first exp[0;39m 
+10:52:57.415 [1;31m[main][0;39m ERROR org.example.App - [1;31mthis is my first error[0;39m 
+10:52:57.415 [31m[main][0;39m WARN  org.example.App - [31mthis is first warning[0;39m 
+10:53:45.097 [34m[main][0;39m INFO  org.example.App - [34mhello this is my first exp[0;39m 
+10:53:45.111 [1;31m[main][0;39m ERROR org.example.App - [1;31mthis is my first error[0;39m 
+10:53:45.112 [31m[main][0;39m WARN  org.example.App - [31mthis is first warning[0;39m 

@@ -5,20 +5,20 @@ import application.db.Entities.Customer;
 import java.util.List;
 
 public class  AccountDetails{
-    private List<Customer> customers;
+    private Customer customers;
 
-    public AccountDetails(List<Customer> customers) {
+    public AccountDetails(Customer customers) {
         this.customers = customers;
     }
 
     public AccountDetails() {
     }
 
-    public List<Customer> getDetails() {
+    public Customer getDetails() {
         return customers;
     }
 
-    public void setDetails(List<Customer> customers) {
+    public void setDetails(Customer customers) {
         this.customers = customers;
     }
 
