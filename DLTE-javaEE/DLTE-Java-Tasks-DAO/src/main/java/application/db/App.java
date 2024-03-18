@@ -96,7 +96,7 @@ public class App {
                                 //   Scanner scanner = new Scanner(System.in);
                             }
                             break;
-
+                        case 2:case 3: System.out.println(ResourceBundle.getBundle("information").getString("app.notavailable"));
 //                        case 4:bankServices.callCheck();
 //                            break;
                         default: return;

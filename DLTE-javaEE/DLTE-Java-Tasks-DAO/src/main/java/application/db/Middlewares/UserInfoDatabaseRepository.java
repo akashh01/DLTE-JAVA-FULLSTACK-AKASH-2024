@@ -39,7 +39,6 @@ public class UserInfoDatabaseRepository implements UserInfoRepository {
     @Override
     public boolean validateUser(String username) {
         boolean flag =false;
-        System.out.println("check");
         try {
             String query = "select * from user_info where username=?";
             preparedStatement = connection.prepareStatement(query);
@@ -47,8 +46,11 @@ public class UserInfoDatabaseRepository implements UserInfoRepository {
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 flag=true;
-                System.out.println("Validated");
+                System.out.println(resourceBundle.getString("user.valid"));
                 return flag;
+            }
+            else {
+                System.out.println(resourceBundle.getString("user.name"));
             }
         }catch(SQLException sqlException){
             System.out.println(sqlException);
