@@ -1,6 +1,10 @@
-employee\implement\entites\Address.class
+employee\implement\basicValidation.class
 employee\implement\entites\Employee.class
-employee\implement\App.class
+employee\implement\exceptions\connectionException.class
+employee\implement\exceptions\NoEmployeeData.class
 employee\implement\EmployeeDb.class
 employee\implement\EmployeeInterface.class
-employee\implement\NoEmployeeData.class
+employee\implement\entites\Address.class
+employee\implement\App.class
+employee\implement\exceptions\EmployeeExists.class
+employee\implement\doConnection.class

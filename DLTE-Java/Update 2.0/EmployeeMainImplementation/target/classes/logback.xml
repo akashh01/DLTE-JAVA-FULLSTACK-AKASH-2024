@@ -1,0 +1,23 @@
+<configuration>
+
+<!--    &lt;!&ndash; Define appenders &ndash;&gt;-->
+<!--    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+
+    <appender name="myLogs" class="ch.qos.logback.core.FileAppender">
+        <file>C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\DLTE-Java\Update 2.0\EmployeeMainImplementation\employeimplemntationlog.log</file> <!-- Define log file name and path -->
+        <encoder>
+            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+        </encoder>
+    </appender>
+    <!--     Root logger settings -->
+    <root level="INFO">
+<!--        <appender-ref ref="myConsole" />-->
+        <appender-ref ref="myLogs" /> <!-- Attach file appender -->
+    </root>
+
+</configuration>

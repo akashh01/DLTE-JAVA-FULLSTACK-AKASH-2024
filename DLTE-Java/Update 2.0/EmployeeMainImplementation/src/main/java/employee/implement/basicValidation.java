@@ -1,4 +1,4 @@
-package org.example;
+package employee.implement;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BasicValidation {
+public class basicValidation {
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
     private static Logger logger= LoggerFactory.getLogger(App.class);
     public boolean validateName(String anyName){
@@ -15,7 +15,7 @@ public class BasicValidation {
         Pattern pattern = Pattern.compile(nameRegex);
         Matcher matcher = pattern.matcher(anyName);
         if (matcher.matches()) {
-           // logger.info(resourceBundle.getString("email.validation"));
+            // logger.info(resourceBundle.getString("email.validation"));
             return true;
         } else {
             //logger.info(resourceBundle.getString("email.not.validated"));

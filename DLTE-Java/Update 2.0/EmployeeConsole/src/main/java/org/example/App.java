@@ -2,12 +2,15 @@ package org.example;
 
 import employee.implement.EmployeeDb;
 import employee.implement.EmployeeInterface;
-import employee.implement.NoEmployeeData;
+//import employee.implement.NoEmployeeData;
+import employee.implement.exceptions.EmployeeExists;
+import employee.implement.exceptions.connectionException;
 import org.example.entites.Address;
 import org.example.entites.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -17,16 +20,14 @@ import java.util.*;
 public class App 
 {
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
+    static ResourceBundle resourceBundleOne=ResourceBundle.getBundle("exceptions");
+
     private static Logger logger= LoggerFactory.getLogger(App.class);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         App app = new App();
         System.out.println(resourceBundle.getString("collect.greet"));
         //Employee,address from other class
         employee.implement.entites.Employee employeeMain;
-        employee.implement.entites.Address permenantAddress;
-        employee.implement.entites.Address temporaryAddress;
-        Address localPermenantAddress=new Address();
-        Address localtemporaryAddress=new Address();
         EmployeeInterface employeeInterface = new EmployeeDb();
         Employee employee1; //employee from this class
         employee1 = new Employee();
@@ -36,46 +37,55 @@ public class App
             System.out.println(resourceBundle.getString("collect.menu"));
             int choice = scannerOne.nextInt();
             switch (choice) {
-                case 1:app.collectPersonalData(employee1);
-                       employeeMain = new employee.implement.entites.Employee(employee1.getFirstName(), employee1.getMiddeName(), employee1.getLastName(), employee1.getEmployeePhone(), employee1.getEmployeeId(), employee1.getEmail());
-                       app.collectAddress(localPermenantAddress);
-                       permenantAddress=new employee.implement.entites.Address(localPermenantAddress.getHouseName(),localPermenantAddress.getStreetName(),localPermenantAddress.getCityName(),localPermenantAddress.getStateName(),localPermenantAddress.getPincode());
-                       app.collectAddress(localtemporaryAddress);
-                       temporaryAddress=new employee.implement.entites.Address(localtemporaryAddress.getHouseName(),localtemporaryAddress.getStreetName(),localtemporaryAddress.getCityName(),localtemporaryAddress.getStateName(),localtemporaryAddress.getPincode());
-                       employeeInterface.writeEmolyeeToDatabase(employeeMain);
-                       employeeInterface.tempAddressToDb(temporaryAddress,employee1.getEmployeeId());
-                       employeeInterface.addressToDb(permenantAddress,employee1.getEmployeeId());
+                case 1:do {
+                    employeeMain =app.collectPersonalData(employee1);
+                    try {
+                        String check = employeeInterface.writeEmolyeeToDatabase(employeeMain);
+                        System.out.println(resourceBundleOne.getString(check));
+                    }catch (EmployeeExists|connectionException exp){
+                        System.out.println(exp);
+                    }
+
+                    System.out.println("Do you want to add another employee?");
+                   } while (scannerOne.next().equalsIgnoreCase("yes"));
                        break;
-                case 2:try {
-                           empList=employeeInterface.getAllEmployee();
-                       }catch (NoEmployeeData exception){
-                            System.out.println(exception);
-                            logger.warn(resourceBundle.getString("employee.not"));
+                case 2:
+                       try {
+                           empList = employeeInterface.getAllEmployee();
+                       }catch (connectionException exp){
+                           System.out.println(exp);
                        }
                        logger.info(resourceBundle.getString("employee.details"));
-                       //List<Employee> employeeList=new ArrayList<>();
-                       for (employee.implement.entites.Employee each :empList){
-
+                        List<Employee> employeeList=new ArrayList<>();
+                       for(int index=0;index<empList.size();index++){
+                        employeeList.add(new Employee());
+                        employeeList.get(index).setFirstName(empList.get(index).getFirstName());
+                        employeeList.get(index).setMiddeName(empList.get(index).getMiddeName());
+                        employeeList.get(index).setEmail(empList.get(index).getEmail());
+                        employeeList.get(index).setEmployeePhone(empList.get(index).getEmployeePhone());
+                        employeeList.get(index).setEmployeeId(empList.get(index).getEmployeeId());
+                       // employeeList.get(index).setPermenantAddress(empList.get(index).getPermenantAddress());
+                        Address address=new Address();
+                        address.setHouseName(empList.get(index).getPermenantAddress().getHouseName());
+                        address.setStreetName(empList.get(index).getPermenantAddress().getStreetName());
+                        address.setCityName(empList.get(index).getPermenantAddress().getCityName());
+                        address.setStateName(empList.get(index).getPermenantAddress().getStateName());
+                        address.setPincode(empList.get(index).getPermenantAddress().getPincode());
+                        employeeList.get(index).setPermenantAddress(address);
+                        Address tempAddress=new Address();
+                        tempAddress.setHouseName(empList.get(index).getPermenantAddress().getHouseName());
+                        tempAddress.setStreetName(empList.get(index).getPermenantAddress().getStreetName());
+                        tempAddress.setCityName(empList.get(index).getPermenantAddress().getCityName());
+                        tempAddress.setStateName(empList.get(index).getPermenantAddress().getStateName());
+                        tempAddress.setPincode(empList.get(index).getPermenantAddress().getPincode());
+                        employeeList.get(index).setTemporaryAddress(tempAddress);
+                      }
+                     for (Employee each :employeeList){
                            System.out.println("\nEmployee details\n"+"name :"+each.getFirstName()+" "+each.getMiddeName()+" "+each.getLastName()+"\nphone: "+each.getEmployeePhone() +" \nEmployee id :"+each.getEmployeeId()+" \nEmail:"+each.getEmail());
                            System.out.println("Permenant address\nHouse Name:"+each.getPermenantAddress().getHouseName()+ "\nStreet Name :"+each.getPermenantAddress().getStreetName()+" \nCity name :"+each.getPermenantAddress().getCityName()+"\nPincode :"+each.getPermenantAddress().getPincode());
                            System.out.println("Temporary address\nHouse Name:"+each.getTemporaryAddress().getHouseName()+ "\nStreet Name :"+each.getTemporaryAddress().getStreetName()+" \nCity name :"+each.getTemporaryAddress().getCityName()+"\nPincode :"+each.getTemporaryAddress().getPincode());
 
-                           System.out.println("test bro "+ empList.get(0).getFirstName());
                        }
-                    //   for(int index=0;index<empList.size();index++){
-                      Employee empLIST=new Employee(empList.get(0).getFirstName(),empList.get(0).getMiddeName(),empList.get(0).getLastName(),empList.get(0).getEmployeePhone(),empList.get(0).getEmployeeId());
-                    System.out.println(empLIST);
-                       //
-//                           employeeList.get(0).setMiddeName(empList.get(0).getMiddeName());
-//                           employeeList.get(0).setEmail(empList.get(0).getEmail());
-//                           employeeList.get(0).setEmployeePhone(empList.get(0).getEmployeePhone());
-//                           employeeList.get(0).setEmployeeId(empList.get(0).getEmployeeId());
-//                           employeeList.get(0).setPermenantAddress(null);
-//                           employeeList.get(0).setTemporaryAddress(null);
-                //    System.out.println("chechk"+ employeeList.get(0));
-
-                         //  employeeList.set(index,)
-                      // }
 
                        break;
 
@@ -84,22 +94,52 @@ public class App
     }
 
 
-
-
-
-
-        public void collectPersonalData(Employee employee1) {
+        public employee.implement.entites.Employee collectPersonalData(Employee employee1) {
+            App app = new App();
+            Address localPermenantAddress=new Address();
+            Address localtemporaryAddress=new Address();
+            employee.implement.entites.Address permenantAddress;
+            employee.implement.entites.Address temporaryAddress;
         try {
             //name
+
             BasicValidation validation=new BasicValidation();
             Scanner scanner=new Scanner(System.in);
             System.out.println(resourceBundle.getString("collect.employee.menu"));
             System.out.println("Enter the First name of employee");
-            employee1.setFirstName(scanner.next());
+            while (employee1.getFirstName()==null) {
+                String firstName=scanner.next();
+                if(validation.validateName(firstName)) {
+                    employee1.setFirstName(firstName);
+                    break;
+                } else {
+                    System.out.println("Enter first name");
+
+                }
+            }
             System.out.println("Enter the middle name of employee");
-            employee1.setMiddeName(scanner.next());
+            while (employee1.getMiddeName()==null) {
+                String middleName=scanner.next();
+                if(validation.validateName(middleName)) {
+                    employee1.setMiddeName(middleName);
+                    break;
+                } else {
+                    System.out.println("Enter middle name");
+                }
+            }
             System.out.println("Enter the last name of employee");
-            employee1.setLastName(scanner.next());
+            while (employee1.getLastName()==null) {
+                String lastName=scanner.next();
+                if(validation.validateName(lastName)) {
+                    employee1.setLastName(lastName);
+                    break;
+                } else {
+                    scanner.nextLine();
+                    System.out.println("Enter last name");
+
+                }
+            }
+
             //email and phone
             System.out.println("Enter the employee email");
             String email = scanner.next();
@@ -124,11 +164,17 @@ public class App
             System.out.println("Enter the employee id");
             employee1.setEmployeeId(scanner.nextInt());
         }
+
         catch (InputMismatchException expection){
             logger.error(resourceBundle.getString("wrong.details"));
             System.out.println("You have entered wrong input" +expection);
         }
-            logger.info(resourceBundle.getString("employee.added"));
+            app.collectAddress(localPermenantAddress);
+            permenantAddress = new employee.implement.entites.Address(localPermenantAddress.getHouseName(), localPermenantAddress.getStreetName(), localPermenantAddress.getCityName(), localPermenantAddress.getStateName(), localPermenantAddress.getPincode());
+            app.collectAddress(localtemporaryAddress);
+            temporaryAddress = new employee.implement.entites.Address(localtemporaryAddress.getHouseName(), localtemporaryAddress.getStreetName(), localtemporaryAddress.getCityName(), localtemporaryAddress.getStateName(), localtemporaryAddress.getPincode());
+            return new employee.implement.entites.Employee(employee1.getFirstName(), employee1.getMiddeName(), employee1.getLastName(), employee1.getEmployeePhone(), employee1.getEmployeeId(), employee1.getEmail(),permenantAddress,temporaryAddress);
+            //logger.info(resourceBundle.getString("employee.added"));
     }
 
     public void collectAddress(Address address) {
@@ -139,13 +185,42 @@ public class App
             int pincode=0;
             System.out.println("Enter your address detials");
             System.out.println("Enter the house name");
-            address.setHouseName(scanner.nextLine());
-            scanner.nextLine();
+            while (address.getHouseName() == null) {
+                String houseName=scanner.nextLine();
+                if(validation.validateAdress(houseName)) {
+                    address.setHouseName(houseName);
+                } else {
+                    System.out.println("Mandatory filed, Enter your house name");
+                }
+            }
             System.out.println("Enter the street name");
-            address.setStreetName(scanner.nextLine());
+            while (address.getStreetName() == null) {
+                String streetName=scanner.nextLine();
+                if(validation.validateAdress(streetName)) {
+                    address.setStreetName(streetName);
+                } else {
+                    System.out.println("Mandatory filed, Enter your street name");
+                }
+            }
+
             System.out.println("Enter the city name");
-            address.setCityName(scanner.nextLine());
+            while (address.getCityName()== null) {
+                String cityName=scanner.nextLine();
+                if(validation.validateAdress(cityName)){
+                    address.setCityName(cityName);
+                } else {
+                    System.out.println("Mandatory filed, Enter your city name");
+                }
+            }
             System.out.println("Enter the state name");
+            while (address.getStateName() == null) {
+                String stateName=scanner.nextLine();
+                if(validation.validateAdress(stateName)){
+                    address.setStateName(stateName);
+                } else {
+                    System.out.println("Mandatory filed, Enter your state name");
+                }
+            }
             address.setStateName(scanner.nextLine());
             System.out.println("Enter the pincode");
             int pin = scanner.nextInt();

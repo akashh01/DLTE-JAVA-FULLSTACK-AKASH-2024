@@ -10,8 +10,6 @@ public class App
     {
         System.out.println( "Hello World!" );
     }
-    public Exception myException(){
 
-    }
 
 }

@@ -2,7 +2,9 @@ package employee.implement;
 
 import employee.implement.entites.Address;
 import employee.implement.entites.Employee;
-import oracle.jdbc.driver.OracleDriver;
+import employee.implement.exceptions.EmployeeExists;
+import employee.implement.exceptions.connectionException;
+import employee.implement.exceptions.NoEmployeeData;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,14 +13,14 @@ import java.util.ResourceBundle;
 
 public class EmployeeDb implements EmployeeInterface {
     ResourceBundle resourceBundle=ResourceBundle.getBundle("informations");
+
     @Override
-    public void writeEmolyeeToDatabase(Employee employee) {
-        Driver driver=new OracleDriver();
-        // System.out.println(firstname+id);
-        //ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
-        try{
-            DriverManager.registerDriver(driver);
-            Connection connection=DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
+    public String writeEmolyeeToDatabase(Employee employee) throws SQLException{
+            ResourceBundle resourceBundleOne=ResourceBundle.getBundle("exceptions");
+
+            try {
+                doConnection setConnection = new doConnection();
+                Connection connection = setConnection.makeConnection();
             String query="insert into EMPLOYEE_DETAILS values(?,?,?,?,?,?)";
             PreparedStatement preparedStatement= connection.prepareStatement(query);
             preparedStatement.setString(1,employee.getFirstName());
@@ -27,90 +29,52 @@ public class EmployeeDb implements EmployeeInterface {
             preparedStatement.setLong(4,employee.getEmployeePhone());
             preparedStatement.setInt(5,employee.getEmployeeId());
             preparedStatement.setString(6,employee.getEmail());
-            int records=preparedStatement.executeUpdate();
-            if(records!=0){
-                System.out.println("Record has inserted");
-            }
-            else{
-                System.out.println("Record hasn't inserted");
-            }
-            preparedStatement.close();
-            connection.close();
-        }
-        catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
-    }
-    @Override
-    public void addressToDb(Address address,int employeeId){
-        Driver driver=new oracle.jdbc.OracleDriver();
-        // System.out.println(firstname+id);
-        //ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
-        try{
-            DriverManager.registerDriver(driver);
-            Connection connection=DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
-            String query="insert into permenant_address values(?,?,?,?,?,?)";
+            int record=preparedStatement.executeUpdate();
+            String query1="insert into permenant_address values(?,?,?,?,?,?)";
 
-            PreparedStatement preparedStatement= connection.prepareStatement(query);
-            preparedStatement.setString(1,address.getHouseName());
-            preparedStatement.setString(2,address.getStreetName());
-            preparedStatement.setString(3,address.getCityName());
-            preparedStatement.setString(4,address.getStateName());
-            preparedStatement.setInt(5,address.getPincode());
-            preparedStatement.setInt(6,employeeId);
+            preparedStatement= connection.prepareStatement(query1);
+            preparedStatement.setString(1,employee.getPermenantAddress().getHouseName());
+            preparedStatement.setString(2,employee.getPermenantAddress().getStreetName());
+            preparedStatement.setString(3,employee.getPermenantAddress().getCityName());
+            preparedStatement.setString(4,employee.getPermenantAddress().getStateName());
+            preparedStatement.setInt(5,employee.getPermenantAddress().getPincode());
+            preparedStatement.setInt(6,employee.getEmployeeId());
+            int recordOne=preparedStatement.executeUpdate();
 
-            int records=preparedStatement.executeUpdate();
-            if(records!=0){
-                System.out.println("Record has inserted");
-            }
-            else{
-                System.out.println("Record hasn't inserted");
-            }
-            preparedStatement.close();
-            connection.close();
-        }
-        catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
-    }
-    @Override
-    public void tempAddressToDb(Address address,int employeeId){
-        Driver driver=new oracle.jdbc.OracleDriver();
-        // System.out.println(firstname+id);
-        //ResourceBundle resourceBundle=ResourceBundle.getBundle("information");
-        try{
-            DriverManager.registerDriver(driver);
-            Connection connection=DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
-            String query="insert into temporary_address values(?,?,?,?,?,?)";
-            PreparedStatement preparedStatement= connection.prepareStatement(query);
-            preparedStatement.setString(1,address.getHouseName());
-            preparedStatement.setString(2,address.getStreetName());
-            preparedStatement.setString(3,address.getCityName());
-            preparedStatement.setString(4,address.getStateName());
-            preparedStatement.setInt(5,address.getPincode());
-            preparedStatement.setInt(6,employeeId);
-            int records=preparedStatement.executeUpdate();
-            if(records!=0){
-                System.out.println("Record has inserted");
-            }
-            else{
-                System.out.println("Record hasn't inserted");
+            String query2="insert into temporary_address values(?,?,?,?,?,?)";
+            preparedStatement= connection.prepareStatement(query2);
+            preparedStatement.setString(1,employee.getTemporaryAddress().getHouseName());
+            preparedStatement.setString(2,employee.getTemporaryAddress().getStreetName());
+            preparedStatement.setString(3,employee.getTemporaryAddress().getCityName());
+            preparedStatement.setString(4,employee.getTemporaryAddress().getStateName());
+            preparedStatement.setInt(5,employee.getTemporaryAddress().getPincode());
+            preparedStatement.setInt(6,employee.getEmployeeId());
+            int recordTwo=preparedStatement.executeUpdate();
+            if(record!=0&&recordOne!=0&&recordTwo!=0){
+                preparedStatement.close();
+                connection.close();
+                return "EXC000";
             }
             preparedStatement.close();
             connection.close();
+            return "EXC001";
+        }catch (connectionException exp) {
+                throw new connectionException();
+            }
+        catch (SQLIntegrityConstraintViolationException sql){
+            throw new EmployeeExists();
         }
-        catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
+
+
     }
+
 
     @Override
     public List<Employee> getAllEmployee() {
-        Driver driver=new OracleDriver();
         List<Employee> employeeList=new ArrayList<>();
         try{
-            DriverManager.registerDriver(driver);
-            Connection connection=DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
+            doConnection setConnection=new doConnection();
+            Connection connection=setConnection.makeConnection();
             String query="select * from employee_details";
             PreparedStatement preparedStatement=connection.prepareStatement(query);
             String queryTwo="select * from permenant_address where employeeid=?";
@@ -165,7 +129,10 @@ public class EmployeeDb implements EmployeeInterface {
             resultSet.close();
 
 
-        } catch (SQLException e) {
+        }catch (connectionException exp) {
+        throw new connectionException();
+    }
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return employeeList;

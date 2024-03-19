@@ -1,4 +1,4 @@
-package employee.implement;
+package employee.implement.exceptions;
 
 import java.util.ResourceBundle;
 

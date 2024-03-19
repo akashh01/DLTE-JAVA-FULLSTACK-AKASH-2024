@@ -33,14 +33,6 @@ package org.example.entites;
             this.temporaryAddress = temporaryAddress;
         }
 
-        public Employee(String firstName, String middeName, String lastName, Long employeePhone, Integer employeeId) {
-            this.firstName = firstName;
-            this.middeName = middeName;
-            this.lastName = lastName;
-            this.employeePhone = employeePhone;
-            this.employeeId = employeeId;
-            this.email = email;
-        }
         //getters and setters
 
 
