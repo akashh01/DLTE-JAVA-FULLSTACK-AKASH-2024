@@ -42,9 +42,9 @@ import java.util.List;
         @WebResult(name = "findUsername")
         public GroupAccount findUser(@WebParam(name = "String") String username){
             GroupAccount groupAccount = new GroupAccount();
-            Customer customer = userInfoServices.callByUsername(username);
+          //  Customer customer = userInfoServices.callByUsername(username);
             List<Customer> customerList = new ArrayList<>();
-            customerList.add(customer);
+            //customerList.add(customer);
             groupAccount.setCustomerList(customerList);
             return groupAccount;
         }

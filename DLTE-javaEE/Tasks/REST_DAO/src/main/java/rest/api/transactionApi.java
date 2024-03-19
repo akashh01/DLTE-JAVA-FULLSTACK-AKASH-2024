@@ -19,12 +19,19 @@ import java.util.List;
 @WebServlet("/transactions")
 public class transactionApi extends HttpServlet {
 
+   public StorageTarget  storageTarget;
+    public UserInfoServices userInfoServices;
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //DatabaseTarget databaseTarget=new StorageTarget();
+    public void init(){
 
-        StorageTarget  storageTarget = new DatabaseTarget();
-        UserInfoServices userInfoServices = new UserInfoServices(storageTarget);
+         storageTarget = new DatabaseTarget();
+        userInfoServices = new UserInfoServices(storageTarget);
+    }
+
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //DatabaseTarget databaseTarget=new StorageTarget();
+        resp.setContentType("application/json");
         if(req.getParameter("username")!=null&&req.getParameter("date")!=null){
               List<List> transactions=new ArrayList<>();
               transactions=userInfoServices.callTransactionByDate(String.valueOf(req.getParameter("username")),String.valueOf(req.getParameter("date")));
@@ -39,17 +46,19 @@ public class transactionApi extends HttpServlet {
             List<List> transactions=new ArrayList<>();
             transactions=userInfoServices.callOneUserTransact(String.valueOf(req.getParameter("username")));
             // System.out.println(transactions.size());
-            for(int index=0;index<transactions.size();index++){
-                resp.getWriter().println(transactions.get(index));
-            }
+//            for(int index=0;index<transactions.size();index++){
+//                resp.getWriter().println(transactions.get(index));
+//            }
+            resp.getWriter().println(transactions);
         }
         else {
             List<List> transactions=new ArrayList<>();
             transactions=userInfoServices.callFindAll();
+            resp.getWriter().println(transactions);
             // System.out.println(transactions.size());
-            for(int index=0;index<transactions.size();index++){
-                resp.getWriter().println(transactions.get(index));
-             }
+//            for(int index=0;index<transactions.size();index++){
+//                resp.getWriter().println(transactions.get(index));
+//             }
 
         }
     }

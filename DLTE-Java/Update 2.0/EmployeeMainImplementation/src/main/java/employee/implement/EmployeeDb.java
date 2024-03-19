@@ -117,31 +117,35 @@ public class EmployeeDb implements EmployeeInterface {
             PreparedStatement preparedStatementTwo=connection.prepareStatement(queryTwo);
             String queryThree="select * from temporary_address where employeeid=?";
             PreparedStatement preparedStatementThree=connection.prepareStatement(queryThree);
+            ResultSet resultSetTwo;
+            ResultSet resultSetOne;
             ResultSet resultSet=preparedStatement.executeQuery();
+            if(!resultSet.next()){
+                throw new NoEmployeeData();
+            }
             while(resultSet.next()){
                 Employee employee=new Employee();
                 Address permenantAddress=new Address();
                 Address temporaryAddress=new Address();
                 preparedStatementTwo.setString(1, String.valueOf(resultSet.getInt(5)));
-                ResultSet resultSetOne=preparedStatementTwo.executeQuery();
+                resultSetOne=preparedStatementTwo.executeQuery();
                 if(resultSetOne.next()) {
                     permenantAddress.setHouseName(resultSetOne.getString(1));
                     permenantAddress.setStreetName(resultSetOne.getString(2));
                     permenantAddress.setCityName(resultSetOne.getString(3));
                     permenantAddress.setStateName(resultSetOne.getString(4));
                     permenantAddress.setPincode(resultSetOne.getInt(5));
-                    permenantAddress.setPincode(resultSetOne.getInt(6));
+                   // permenantAddress.set(resultSetOne.getInt(6));
                 }
-
-                preparedStatementThree.setString(1,resultSet.getString(1));
-                ResultSet resultSetTwo=preparedStatementTwo.executeQuery();
+                preparedStatementThree.setString(1,String.valueOf(resultSet.getInt(5)));
+                resultSetTwo=preparedStatementThree.executeQuery();
                 if(resultSetTwo.next()) {
                     temporaryAddress.setHouseName(resultSetTwo.getString(1));
                     temporaryAddress.setStreetName(resultSetTwo.getString(2));
                     temporaryAddress.setCityName(resultSetTwo.getString(3));
                     temporaryAddress.setStateName(resultSetTwo.getString(4));
                     temporaryAddress.setPincode(resultSetTwo.getInt(5));
-                    temporaryAddress.setPincode(resultSetTwo.getInt(6));
+                   // temporaryAddress.setPincode(resultSetTwo.getInt(6));
                 }
                 employee.setFirstName(resultSet.getString(1));
                 employee.setMiddeName(resultSet.getString(2));
@@ -153,7 +157,12 @@ public class EmployeeDb implements EmployeeInterface {
                 employee.setTemporaryAddress(temporaryAddress);
                 employeeList.add(employee);
 
+
             }
+            preparedStatement.close();
+            preparedStatementTwo.close();
+            preparedStatementThree.close();
+            resultSet.close();
 
 
         } catch (SQLException e) {

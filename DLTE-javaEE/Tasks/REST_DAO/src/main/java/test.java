@@ -9,18 +9,12 @@ import java.util.List;
 public class test {
 
         public static void main(String[] args) {
-            try {
-                StorageTarget storageTarget = new DatabaseTarget();
-                UserInfoServices userInfoServices = new UserInfoServices(storageTarget);
-                // if(req.getParameter("username")!=null&&req.getParameter("date")!=null){
-                List<List> transactions=new ArrayList<>();
-                transactions=userInfoServices.callTransactionByDate("Eeksha","13-03-2024");
-                System.out.println(transactions.size());
-
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            StorageTarget storageTarget = new DatabaseTarget();
+            UserInfoServices userInfoServices = new UserInfoServices(storageTarget);
+            // if(req.getParameter("username")!=null&&req.getParameter("date")!=null){
+            List<List> transactions = new ArrayList<>();
+            transactions = userInfoServices.callTransactionByDate("Eeksha", "13-03-2024");
+            System.out.println(transactions.size());
         }
     }
 
