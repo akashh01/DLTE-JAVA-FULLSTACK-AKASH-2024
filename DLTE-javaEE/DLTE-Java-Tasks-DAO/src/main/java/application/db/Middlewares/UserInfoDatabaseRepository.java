@@ -277,4 +277,5 @@ public class UserInfoDatabaseRepository implements UserInfoRepository {
         }
         return newCustomer;
     }
+
 }

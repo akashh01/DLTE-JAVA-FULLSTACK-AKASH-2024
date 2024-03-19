@@ -105,6 +105,17 @@ public class UserInfoServices {
         return null;
 
     }
+    public List callByUserName(String username){
+        try{
+            List<List> list=new ArrayList<>();
+            list=userInfoRepository.findByUsername(username);
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 

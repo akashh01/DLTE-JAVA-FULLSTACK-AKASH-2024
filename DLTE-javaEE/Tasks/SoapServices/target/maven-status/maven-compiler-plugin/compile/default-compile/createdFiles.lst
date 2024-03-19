@@ -1,0 +1,4 @@
+org\example\App.class
+web\GroupAccount.class
+web\SoapAccount.class
+web\EndPoint.class
