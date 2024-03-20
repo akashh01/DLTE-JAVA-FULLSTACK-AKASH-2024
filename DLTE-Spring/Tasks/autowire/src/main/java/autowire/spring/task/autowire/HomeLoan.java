@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+//fetching all the home loans
 @Component("homeLoan")
 public class HomeLoan implements LoanInterface {
     @Override

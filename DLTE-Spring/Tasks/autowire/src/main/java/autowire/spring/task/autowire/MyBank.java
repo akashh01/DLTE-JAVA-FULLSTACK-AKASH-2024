@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+//injection by autowirign homeloan into interface
 @Service
 public class MyBank {
     @Autowired

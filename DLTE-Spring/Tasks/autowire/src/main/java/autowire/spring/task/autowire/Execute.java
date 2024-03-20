@@ -7,6 +7,7 @@ public class Execute {
         AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext();
         applicationContext.scan("autowire.spring.task");
         applicationContext.refresh();
+        //executing home loan
         MyBank myBank=applicationContext.getBean(MyBank.class);
         System.out.println(myBank.callFindAll().toString());
     }
