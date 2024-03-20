@@ -3,8 +3,14 @@ package employee.implement;
 import employee.implement.entites.Address;
 import employee.implement.entites.Employee;
 import employee.implement.exceptions.EmployeeExists;
-import employee.implement.exceptions.connectionException;
+import employee.implement.exceptions.ConnectionException;
 import employee.implement.exceptions.NoEmployeeData;
+import employee.implement.exceptions.InvalidContactInfo;
+import employee.implement.exceptions.InvalidUserDetails;
+import employee.implement.interfaces.EmployeeInterface;
+import employee.implement.validation.basicValidation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,10 +19,13 @@ import java.util.ResourceBundle;
 
 public class EmployeeDb implements EmployeeInterface {
     ResourceBundle resourceBundle=ResourceBundle.getBundle("informations");
+    private static Logger logger= LoggerFactory.getLogger(Employee.class);
 
     @Override
-    public String writeEmolyeeToDatabase(Employee employee) throws SQLException{
+    public String writeEmolyeeToDatabase(Employee employee) throws SQLException,InvalidContactInfo,InvalidUserDetails{
             ResourceBundle resourceBundleOne=ResourceBundle.getBundle("exceptions");
+            basicValidation validation=new basicValidation();
+            validation.validateEmployee(employee);
 
             try {
                 doConnection setConnection = new doConnection();
@@ -51,15 +60,17 @@ public class EmployeeDb implements EmployeeInterface {
             preparedStatement.setInt(6,employee.getEmployeeId());
             int recordTwo=preparedStatement.executeUpdate();
             if(record!=0&&recordOne!=0&&recordTwo!=0){
+                logger.info(resourceBundle.getString("employee.added"));
                 preparedStatement.close();
                 connection.close();
                 return "EXC000";
             }
             preparedStatement.close();
             connection.close();
+            logger.info(resourceBundle.getString("employee.not.added"));
             return "EXC001";
-        }catch (connectionException exp) {
-                throw new connectionException();
+        }catch (ConnectionException exp) {
+                throw new ConnectionException();
             }
         catch (SQLIntegrityConstraintViolationException sql){
             throw new EmployeeExists();
@@ -126,11 +137,12 @@ public class EmployeeDb implements EmployeeInterface {
             preparedStatement.close();
             preparedStatementTwo.close();
             preparedStatementThree.close();
+            connection.close();
             resultSet.close();
 
 
-        }catch (connectionException exp) {
-        throw new connectionException();
+        }catch (ConnectionException exp) {
+        throw new ConnectionException();
     }
         catch (SQLException e) {
             e.printStackTrace();
@@ -138,5 +150,51 @@ public class EmployeeDb implements EmployeeInterface {
         return employeeList;
 
     }
+    @Override
+    public List<Employee> getEmployeeByPin(int pincode) {
+        List<Employee> employeeList = new ArrayList<>();
+        try {
+            doConnection setConnection = new doConnection();
+            Connection connection = setConnection.makeConnection();
+            String query="SELECT * FROM employee_details emp INNER JOIN permenant_address permadd ON emp.employeeid = permadd.employeeId INNER JOIN temporary_address tempadd ON emp.employeeid = tempadd.employeeid  WHERE tempadd.column3 =?  or permadd.pincode1 = ?";
+            PreparedStatement preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setInt(1, pincode);
+            preparedStatement.setInt(2, pincode);
+            Employee employee=new Employee();
+            Address permenantAddress=new Address();
+            Address temporaryAddress=new Address();
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                employee.setFirstName(resultSet.getString(1));
+                employee.setMiddeName(resultSet.getString(2));
+                employee.setLastName(resultSet.getString(3));
+                employee.setEmployeePhone(resultSet.getLong(4));
+                employee.setEmployeeId(resultSet.getInt(5));
+                employee.setEmail(resultSet.getString(6));
+                permenantAddress.setHouseName(resultSet.getString(7));
+                permenantAddress.setStreetName(resultSet.getString(8));
+                permenantAddress.setCityName(resultSet.getString(9));
+                permenantAddress.setStateName(resultSet.getString(10));
+                permenantAddress.setPincode(resultSet.getInt(11));
+                temporaryAddress.setHouseName(resultSet.getString(13));
+                temporaryAddress.setStreetName(resultSet.getString(14));
+                temporaryAddress.setCityName(resultSet.getString(15));
+                temporaryAddress.setStateName(resultSet.getString(16));
+                temporaryAddress.setPincode(resultSet.getInt(17));
+                employee.setPermenantAddress(permenantAddress);
+                employee.setTemporaryAddress(temporaryAddress);
+                employeeList.add(employee);
+            }
+            preparedStatement.close();
+            connection.close();
+            resultSet.close();
+            return employeeList;
+
+
+        }catch (ConnectionException | SQLException exp){
+            throw new ConnectionException();
+        }
+    }
+
 }
 

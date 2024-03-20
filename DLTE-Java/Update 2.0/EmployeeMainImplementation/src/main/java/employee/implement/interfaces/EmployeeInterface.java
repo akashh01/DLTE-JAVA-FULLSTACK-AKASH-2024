@@ -1,4 +1,4 @@
-package employee.implement;
+package employee.implement.interfaces;
 
 import employee.implement.entites.Address;
 import employee.implement.entites.Employee;
@@ -11,5 +11,6 @@ public interface EmployeeInterface {
   //public void addressToDb(Address address, int employeeId);
   //public void tempAddressToDb(Address address,int employeeId);
   public List<Employee> getAllEmployee();
+  public List<Employee> getEmployeeByPin(int pincode);
 
 }

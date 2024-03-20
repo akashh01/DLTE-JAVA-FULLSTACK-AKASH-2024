@@ -3,3 +3,78 @@
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 19/03/2024 23:48:57 
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 00:03:07 
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 00:04:12 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 08:46:23 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 08:46:40 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 08:46:45 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:47:22 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:47:22 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:47:52 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:47:52 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring email is validated[0;39m 20/03/2024 08:47:52 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring phone is validated[0;39m 20/03/2024 08:47:52 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:47:52 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 08:49:22 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone entred is wrong[0;39m 20/03/2024 08:49:25 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 08:49:29 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:49:54 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:49:54 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is not validated[0;39m 20/03/2024 08:50:18 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:50:22 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:50:22 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring email is validated[0;39m 20/03/2024 08:50:22 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring phone is validated[0;39m 20/03/2024 08:50:22 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:50:22 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 08:50:57 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 08:51:00 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:51:29 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:51:29 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:51:50 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:51:50 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring email is validated[0;39m 20/03/2024 08:51:50 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring phone is validated[0;39m 20/03/2024 08:51:50 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:51:50 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 08:53:23 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 08:53:27 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:53:53 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:53:53 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:54:35 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:54:35 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring email is validated[0;39m 20/03/2024 08:54:35 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring phone is validated[0;39m 20/03/2024 08:54:35 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:54:35 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 08:56:08 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 08:56:13 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:57:12 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:57:12 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring email is validated[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mstring phone is validated[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mthe pincode is validated[0;39m 20/03/2024 08:57:40 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 08:57:45 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 09:04:04 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 10:27:59 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 10:28:03 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 10:28:44 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 10:28:44 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 10:29:24 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 10:29:24 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 20/03/2024 10:29:24 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 20/03/2024 10:31:05 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 20/03/2024 10:31:10 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 10:31:36 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 10:31:36 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 20/03/2024 10:32:25 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 20/03/2024 10:32:25 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 20/03/2024 10:32:25 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mAll the data is validated at backend[0;39m 20/03/2024 10:32:25 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.entites.Employee - [34memployee data had been added [0;39m 20/03/2024 10:32:26 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:33:14 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:35:40 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:36:44 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:37:49 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:38:26 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:39:08 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 12:54:07 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 12:56:00 
