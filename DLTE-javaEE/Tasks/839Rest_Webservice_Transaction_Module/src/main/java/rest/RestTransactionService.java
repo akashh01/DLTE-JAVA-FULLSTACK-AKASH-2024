@@ -54,7 +54,9 @@ public class RestTransactionService extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.getWriter().println(json);
         }
+
     }
+
     //to post the data object and add it to the arraylist
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

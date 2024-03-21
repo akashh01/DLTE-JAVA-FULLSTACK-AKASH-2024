@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c48f09e0-d1a8-43e3-8020-0ca2aa9934d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/employelog.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/src/main/java/employee/implement/NoEmployeeData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/classes/employee/implement/NoEmployeeData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SoapServices/credit-card-logs.txt.1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SoapServices/credit-card-logs.txt.1.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/BasicValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/BasicValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/resources/information.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/resources/information.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/EmployeeConsole-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/EmployeeConsole-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/information.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/information.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/org/example/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/org/example/BasicValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/classes/org/example/BasicValidation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/surefire-reports/TEST-org.example.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/target/surefire-reports/org.example.AppTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/src/main/java/employee/implement/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/src/main/java/employee/implement/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/src/main/java/employee/implement/EmployeeDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/src/main/java/employee/implement/EmployeeDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/EmployeeMainImplementation-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/EmployeeMainImplementation-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/classes/employee/implement/EmployeeDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/classes/employee/implement/EmployeeDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/surefire-reports/TEST-employee.implement.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/surefire-reports/TEST-employee.implement.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/surefire-reports/employee.implement.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/target/surefire-reports/employee.implement.AppTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SoapServices/src/main/java/web/EndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SoapServices/src/main/java/web/EndPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SoapServices/src/main/java/web/SoapAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SoapServices/src/main/java/web/SoapAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SoapServices/target/classes/web/EndPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SoapServices/target/classes/web/EndPoint.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +88,7 @@
       <workItem from="1710386383432" duration="17000" />
       <workItem from="1710386470132" duration="7000" />
       <workItem from="1710840749753" duration="27000" />
+      <workItem from="1710996993711" duration="110000" />
     </task>
     <servers />
   </component>
@@ -122,10 +96,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710840771901">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710997090356">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710840771901" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710997090356" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710342422680">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

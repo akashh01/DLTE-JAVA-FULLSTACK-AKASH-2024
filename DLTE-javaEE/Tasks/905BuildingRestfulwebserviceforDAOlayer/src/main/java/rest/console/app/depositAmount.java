@@ -21,7 +21,7 @@ public class depositAmount extends HttpServlet {
 
         StorageTarget storageTarget = new DatabaseTarget();
         userInfoServices = new UserInfoServices(storageTarget);
-        System.out.println("hello");
+
 
     }
 
