@@ -24,7 +24,7 @@ public class AccountApi {
     public Account apiSave(@RequestBody Account account){
         return accountServices.callSave(account);
     }
-    
+
     @PutMapping(value="/update",consumes = "application/json")
     public Account apiUpdate(@RequestBody Account account){
        return accountServices.callSave(account);
