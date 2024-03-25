@@ -17,7 +17,7 @@ public class basicValidation {
     public void validateEmployee(Employee employee){
         if(!validateEmail(employee.getEmail())){
             logger.info(resourceBundle.getString("validation.email"));
-            throw new InvalidContactInfo("email");
+            throw new InvalidContactInfo("email ");
         }
         if(!validatePhone(employee.getEmployeePhone())) {
             logger.info(resourceBundle.getString("validation.phone"));
@@ -25,7 +25,7 @@ public class basicValidation {
         }
         if(!validateEmployeeId(employee.getEmployeeId())){
             logger.info(resourceBundle.getString("validation.id"));
-            throw new InvalidContactInfo("Employee id");
+            throw new InvalidContactInfo("Employee-id");
         }
         if(!validateName(employee.getFirstName())||!validateName(employee.getMiddeName())||!validateName(employee.getLastName()) ){
             logger.info(resourceBundle.getString("validation.name"));

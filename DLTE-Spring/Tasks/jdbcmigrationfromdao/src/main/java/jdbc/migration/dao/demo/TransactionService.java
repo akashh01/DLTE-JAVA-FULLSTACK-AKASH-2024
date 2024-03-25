@@ -66,7 +66,7 @@ public class TransactionService {
 
 
  //for multiple object retrun in sender ,reciver and amount
-    private class TransactionMapper implements RowMapper<Transactions>{
+    public class TransactionMapper implements RowMapper<Transactions>{
         @Override
         public Transactions mapRow(ResultSet rs, int rowNum) throws SQLException {
             Transactions transactions=new Transactions();

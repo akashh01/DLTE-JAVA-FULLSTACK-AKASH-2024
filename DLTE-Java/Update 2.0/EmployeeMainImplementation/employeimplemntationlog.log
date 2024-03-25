@@ -78,3 +78,72 @@
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 10:39:08 
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 12:54:07 
 [34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 20/03/2024 12:56:00 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mAll data displayed[0;39m 25/03/2024 19:24:47 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 25/03/2024 19:55:54 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 19:55:57 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 19:56:09 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 19:56:09 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 19:56:16 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 19:56:16 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 19:56:16 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mAll the data is validated at backend[0;39m 25/03/2024 19:56:16 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.entites.Employee - [34memployee data had been added [0;39m 25/03/2024 19:56:17 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone entred is wrong[0;39m 25/03/2024 19:58:21 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone entred is wrong[0;39m 25/03/2024 19:58:26 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 19:58:30 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 19:58:39 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 19:58:39 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 19:58:45 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 19:58:45 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 19:58:45 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 19:58:45 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 19:59:50 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 19:59:59 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 19:59:59 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:00:05 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:00:05 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:00:05 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:00:05 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 20:13:38 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:13:47 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:13:47 
+[1;31m[main][0;39m [1;31mERROR[0;39m org.example.App - [1;31mthe details you have entered is wrong[0;39m 25/03/2024 20:13:50 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:13:50 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:13:50 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:13:50 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:14:00 
+[1;31m[main][0;39m [1;31mERROR[0;39m org.example.App - [1;31mthe details you have entered is wrong[0;39m 25/03/2024 20:14:21 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:14:34 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:14:34 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:14:41 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:14:41 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:14:41 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:14:41 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:14:52 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 20:15:15 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:15:24 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:15:24 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:15:30 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:15:30 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:15:30 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:15:30 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:15:37 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 20:17:31 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:17:41 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:17:41 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:17:49 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:17:49 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:17:49 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:17:49 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:17:56 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring phone is validated[0;39m 25/03/2024 20:19:25 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is not validated[0;39m 25/03/2024 20:19:34 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:19:38 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:19:38 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe pincode is validated[0;39m 25/03/2024 20:19:43 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34madress added for employee[0;39m 25/03/2024 20:19:43 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mthe employee data and address data collected[0;39m 25/03/2024 20:19:43 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34muser email validation failed[0;39m 25/03/2024 20:19:43 
+[34m[main][0;39m [34mINFO [0;39m org.example.App - [34mstring email is validated[0;39m 25/03/2024 20:19:51 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.App - [34mAll the data is validated at backend[0;39m 25/03/2024 20:19:51 
+[34m[main][0;39m [34mINFO [0;39m employee.implement.entites.Employee - [34memployee data had been added [0;39m 25/03/2024 20:19:51 

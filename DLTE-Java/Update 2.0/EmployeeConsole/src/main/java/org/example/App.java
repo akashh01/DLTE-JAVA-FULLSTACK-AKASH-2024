@@ -40,14 +40,20 @@ public class App
             int choice = scannerOne.nextInt();
             switch (choice) {
                 case 1:do {
-                    employeeMain =app.collectPersonalData(employee1);
-                    try {
-                        String check = employeeInterface.writeEmolyeeToDatabase(employeeMain);
-                        System.out.println(resourceBundleOne.getString(check));
-                    }catch (EmployeeExists|ConnectionException| InvalidUserDetails|InvalidContactInfo exp){
-                        System.out.println(exp);
+                    String checkAgain="first";
+                    String check;
+                    employeeMain =app.collectPersonalData(employee1,checkAgain);
+                    boolean flag=true;
+                    while(flag) {
+                        try {
+                            check = employeeInterface.writeEmolyeeToDatabase(employeeMain);
+                            System.out.println(resourceBundleOne.getString(check));
+                            flag = false;
+                        } catch (EmployeeExists | ConnectionException | InvalidUserDetails | InvalidContactInfo exp) {
+                            System.out.println(exp);
+                            employeeMain = app.reValidation(String.valueOf(exp), employeeMain);
+                        }
                     }
-
                     System.out.println("Do you want to add another employee?");
                    } while (scannerOne.next().equalsIgnoreCase("yes"));
                        break;
@@ -77,6 +83,7 @@ public class App
             }
         }
     }
+
 
         public List<Employee> translateData(List<employee.implement.entites.Employee> empList){
             List<Employee> employeeList=new ArrayList<>();
@@ -121,13 +128,13 @@ public class App
         }
 
 
-        public employee.implement.entites.Employee collectPersonalData(Employee employee1) {
+        public employee.implement.entites.Employee collectPersonalData(Employee employee1,String checkAgain) {
             App app = new App();
             Address localPermenantAddress=new Address();
             Address localtemporaryAddress=new Address();
             employee.implement.entites.Address permenantAddress;
             employee.implement.entites.Address temporaryAddress;
-        try {
+            try {
             //name
 
             BasicValidation validation=new BasicValidation();
@@ -168,16 +175,18 @@ public class App
             }
 
             //email and phone
-            System.out.println("Enter the employee email");
-            String email = scanner.next();
-            while (employee1.getEmail() == null) {
-                if(validation.validateEmail(email)) {
-                    employee1.setEmail(email);
-                } else {
-                    System.out.println("Enter valid employee email");
-                    email = scanner.next();
+                System.out.println("Enter the employee email");
+                String email = scanner.next();
+                employee1.setEmail(email);
+                while (employee1.getEmail() == null) {
+                    if (validation.validateEmail(email)) {
+                        employee1.setEmail(email);
+                    } else {
+                        System.out.println("Enter valid employee email");
+                        email = scanner.next();
+                    }
                 }
-            }
+
 
             System.out.println("Enter the employee phone");
             Long phone = scanner.nextLong();
@@ -201,8 +210,45 @@ public class App
             app.collectAddress(localtemporaryAddress);
             temporaryAddress = new employee.implement.entites.Address(localtemporaryAddress.getHouseName(), localtemporaryAddress.getStreetName(), localtemporaryAddress.getCityName(), localtemporaryAddress.getStateName(), localtemporaryAddress.getPincode());
             logger.info(resourceBundle.getString("data.collected"));
-            return new employee.implement.entites.Employee(employee1.getFirstName(), employee1.getMiddeName(), employee1.getLastName(), employee1.getEmployeePhone(), employee1.getEmployeeId(), employee1.getEmail(),permenantAddress,temporaryAddress);
-            //logger.info(resourceBundle.getString("employee.added"));
+                return new employee.implement.entites.Employee(employee1.getFirstName(), employee1.getMiddeName(), employee1.getLastName(), employee1.getEmployeePhone(), employee1.getEmployeeId(), employee1.getEmail(), permenantAddress, temporaryAddress);
+         //logger.info(resourceBundle.getString("employee.added"));
+
+    }
+
+    public employee.implement.entites.Employee reValidation(String check,employee.implement.entites.Employee emp){
+        Scanner scanner=new Scanner(System.in);
+        BasicValidation validation=new BasicValidation();
+        if(check.contains("email")){
+            System.out.println("Enter the employee email");
+            String email = scanner.next();
+            while (emp.getEmail() != null) {
+                if(validation.validateEmail(email)) {
+                    emp.setEmail(email);
+                    return emp;
+                } else {
+                    System.out.println("Enter valid employee email");
+                    email = scanner.next();
+                }
+            }
+        }
+        if(check.contains("phone number")){
+            System.out.println("Enter the employee phone");
+            Long phone = scanner.nextLong();
+            while (emp.getEmployeePhone() == null) {
+                if (validation.validatePhone(phone)) {
+                    emp.setEmployeePhone(phone);
+                } else {
+                    System.out.println("Enter valid phone");
+                    phone = scanner.nextLong();
+                }}
+        }
+        if(check.contains("name")){
+
+        }
+        //System.out.println(emp.getEmail());
+
+        return emp;
+
     }
 
     public void collectAddress(Address address) {

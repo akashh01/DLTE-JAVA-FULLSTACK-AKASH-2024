@@ -1,2 +1,3 @@
 rest\console\app\createAccountRest.class
+rest\console\app\depositAmount.class
 rest\console\app\getByUsername.class

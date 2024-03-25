@@ -21,7 +21,7 @@ import java.util.List;
 @WebService
     @SOAPBinding(style = SOAPBinding.Style.RPC)
     public class SoapAccount {
-        private UserInfoServices userInfoServices;
+        public UserInfoServices userInfoServices;
         public SoapAccount() throws SQLException, IOException {
             StorageTarget storageTarget = new DatabaseTarget();
             userInfoServices =  new UserInfoServices(storageTarget);
@@ -48,6 +48,16 @@ import java.util.List;
             groupAccount.setCustomerList(customerList);
             return groupAccount;
         }
+    @WebMethod
+    @WebResult(name = "findall")
+    public GroupAccount findAll(){
+        GroupAccount groupAccount = new GroupAccount();
+         Customer customer = (Customer) userInfoServices.callFindAll();
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(customer);
+        groupAccount.setCustomerList(customerList);
+        return groupAccount;
+    }
 
         @WebMethod
         @WebResult(name = "TransactionUpdate")
