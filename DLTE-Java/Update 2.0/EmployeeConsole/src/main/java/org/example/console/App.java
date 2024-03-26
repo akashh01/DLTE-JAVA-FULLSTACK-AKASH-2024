@@ -1,14 +1,13 @@
-package org.example;
+package org.example.console;
 
-import employee.implement.EmployeeDb;
+import employee.implement.exceptions.*;
+import employee.implement.implementation.EmployeeDb;
 import employee.implement.interfaces.EmployeeInterface;
 //import employee.implement.NoEmployeeData;
-import employee.implement.exceptions.EmployeeExists;
-import employee.implement.exceptions.ConnectionException;
-import employee.implement.exceptions.InvalidUserDetails;
-import employee.implement.exceptions.InvalidContactInfo;
 import org.example.entites.Address;
 import org.example.entites.Employee;
+import org.example.validation.BasicValidation;
+import org.example.validation.ReValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,17 +31,18 @@ public class App
         employee.implement.entites.Employee employeeMain;
         EmployeeInterface employeeInterface = new EmployeeDb();
         Employee employee1; //employee from this class
-        employee1 = new Employee();
         Scanner scannerOne = new Scanner(System.in);
         List<employee.implement.entites.Employee> empList=new ArrayList<>();
         while (true) {
             System.out.println(resourceBundle.getString("collect.menu"));
             int choice = scannerOne.nextInt();
             switch (choice) {
+                //to fetch employee data from the user
                 case 1:do {
                     String checkAgain="first";
+                    employee1 = new Employee();
                     String check;
-                    employeeMain =app.collectPersonalData(employee1,checkAgain);
+                    employeeMain =app.collectPersonalData(employee1);
                     boolean flag=true;
                     while(flag) {
                         try {
@@ -50,39 +50,84 @@ public class App
                             System.out.println(resourceBundleOne.getString(check));
                             flag = false;
                         } catch (EmployeeExists | ConnectionException | InvalidUserDetails | InvalidContactInfo exp) {
-                            System.out.println(exp);
-                            employeeMain = app.reValidation(String.valueOf(exp), employeeMain);
+                            //if invalid contact info occurs it takes that input again and revalidates
+                            String expection= String.valueOf(exp);
+                            if (expection.contains("EXC004")) {
+                                System.out.println(resourceBundleOne.getString("EXC004"));
+                                ReValidation reValidation = new ReValidation();
+                                employeeMain = reValidation.reValidate(String.valueOf(exp), employeeMain);
+                            }
+                            else{
+                                System.out.println(exp);
+                                break;
+                            }
                         }
                     }
                     System.out.println("Do you want to add another employee?");
                    } while (scannerOne.next().equalsIgnoreCase("yes"));
                        break;
                 case 2:
+                    //to dispplay all the data in the db
                        try {
                            empList = employeeInterface.getAllEmployee();
-                       }catch (ConnectionException exp){
+                       }catch (ConnectionException | NoEmployeeData exp){
                            System.out.println(exp);
                        }
                        logger.info(resourceBundle.getString("employee.details"));
-                        List<Employee> employeeList=new ArrayList<>();
-                        employeeList=app.translateData(empList);
-                        app.displayData(employeeList);
+                       List<Employee> employeeList=new ArrayList<>();
+                       employeeList=app.translateData(empList);
+                       app.displayData(employeeList);
                        break;
                 case 3:
+                    //to filter data based on the pincode
                       System.out.println("Enter the pincode");
                       int pincode=scannerOne.nextInt();
-                       try {
-                          empList = employeeInterface.getEmployeeByPin(pincode);
-                       }catch (ConnectionException exp){
-                         System.out.println(exp);
-                       }
-                      List<Employee> employeeListOne=new ArrayList<>();
-                      employeeListOne=app.translateData(empList);
-                      app.displayData(employeeListOne);
-
+                      app.findByPincode(pincode);
+                      break;
+                case 4:
+                      System.out.println("Enter the employee id");
+                      boolean delete;
+                      int empId=scannerOne.nextInt();
+                      try{
+                          System.out.println("checl");
+                          delete=employeeInterface.deleteById(empId);
+                         if(delete==true){
+                             System.out.println("13");
+                             System.out.println(resourceBundle.getString("data.deleted"));
+                             break;
+                         }
+                         else{
+                              System.out.println(resourceBundle.getString("data.not.deleted"));
+                         }
+                         }catch (NoEmployeeData emp){
+                          System.out.println(emp);
+                         }
+                case 5: break;
             }
         }
     }
+
+       public void findByPincode(int pincode){
+           EmployeeInterface employeeInterface = new EmployeeDb();
+           List<employee.implement.entites.Employee> empList=new ArrayList<>();
+           App app=new App();
+           try {
+               empList = employeeInterface.getEmployeeByPin(pincode);
+           }catch (ConnectionException exp){
+               System.out.println(exp);
+           }
+           List<Employee> employeeListOne=new ArrayList<>();
+           employeeListOne=app.translateData(empList);
+           int count=0;
+           for (Employee each :employeeListOne){
+               System.out.println("\nEmployee :"+count++);
+               System.out.println("Employee details\n"+"name :"+each.getFirstName()+" \nEmployee id :"+each.getEmployeeId());
+               System.out.println("Permenant address\nHouse Name:"+each.getPermenantAddress().getHouseName()+ "\nStreet Name :"+each.getPermenantAddress().getStreetName()+" \nCity name :"+each.getPermenantAddress().getCityName()+"\nPincode :"+each.getPermenantAddress().getPincode());
+               System.out.println("Temporary address\nHouse Name:"+each.getTemporaryAddress().getHouseName()+ "\nStreet Name :"+each.getTemporaryAddress().getStreetName()+" \nCity name :"+each.getTemporaryAddress().getCityName()+"\nPincode :"+each.getTemporaryAddress().getPincode());
+
+           }
+
+       }
 
 
         public List<Employee> translateData(List<employee.implement.entites.Employee> empList){
@@ -90,6 +135,7 @@ public class App
             int sizeEmp=empList.size();
             for(int index=0;index<sizeEmp;index++){
                 employeeList.add(new Employee());
+                //emplyee
                 employeeList.get(index).setFirstName(empList.get(index).getFirstName());
                 employeeList.get(index).setMiddeName(empList.get(index).getMiddeName());
                 employeeList.get(index).setLastName(empList.get(index).getLastName());
@@ -98,6 +144,7 @@ public class App
                 employeeList.get(index).setEmployeeId(empList.get(index).getEmployeeId());
                 // employeeList.get(index).setPermenantAddress(empList.get(index).getPermenantAddress());
                 Address address=new Address();
+                //perm address
                 address.setHouseName(empList.get(index).getPermenantAddress().getHouseName());
                 address.setStreetName(empList.get(index).getPermenantAddress().getStreetName());
                 address.setCityName(empList.get(index).getPermenantAddress().getCityName());
@@ -105,6 +152,7 @@ public class App
                 address.setPincode(empList.get(index).getPermenantAddress().getPincode());
                 employeeList.get(index).setPermenantAddress(address);
                 Address tempAddress=new Address();
+                //temp address
                 tempAddress.setHouseName(empList.get(index).getTemporaryAddress().getHouseName());
                 tempAddress.setStreetName(empList.get(index).getTemporaryAddress().getStreetName());
                 tempAddress.setCityName(empList.get(index).getTemporaryAddress().getCityName());
@@ -116,6 +164,7 @@ public class App
 
         }
         public void displayData(List<Employee> employeeList){
+            //to display all the employees one by one
             int count=1;
             for (Employee each :employeeList){
                 System.out.println("\nEmployee :"+count++);
@@ -128,7 +177,7 @@ public class App
         }
 
 
-        public employee.implement.entites.Employee collectPersonalData(Employee employee1,String checkAgain) {
+        public employee.implement.entites.Employee collectPersonalData(Employee employee1) {
             App app = new App();
             Address localPermenantAddress=new Address();
             Address localtemporaryAddress=new Address();
@@ -178,14 +227,14 @@ public class App
                 System.out.println("Enter the employee email");
                 String email = scanner.next();
                 employee1.setEmail(email);
-                while (employee1.getEmail() == null) {
-                    if (validation.validateEmail(email)) {
-                        employee1.setEmail(email);
-                    } else {
-                        System.out.println("Enter valid employee email");
-                        email = scanner.next();
-                    }
-                }
+//                while (employee1.getEmail() == null) {
+//                    if (validation.validateEmail(email)) {
+//                        employee1.setEmail(email);
+//                    } else {
+//                        System.out.println("Enter valid employee email");
+//                        email = scanner.next();
+//                    }
+//                }
 
 
             System.out.println("Enter the employee phone");
@@ -215,42 +264,9 @@ public class App
 
     }
 
-    public employee.implement.entites.Employee reValidation(String check,employee.implement.entites.Employee emp){
-        Scanner scanner=new Scanner(System.in);
-        BasicValidation validation=new BasicValidation();
-        if(check.contains("email")){
-            System.out.println("Enter the employee email");
-            String email = scanner.next();
-            while (emp.getEmail() != null) {
-                if(validation.validateEmail(email)) {
-                    emp.setEmail(email);
-                    return emp;
-                } else {
-                    System.out.println("Enter valid employee email");
-                    email = scanner.next();
-                }
-            }
-        }
-        if(check.contains("phone number")){
-            System.out.println("Enter the employee phone");
-            Long phone = scanner.nextLong();
-            while (emp.getEmployeePhone() == null) {
-                if (validation.validatePhone(phone)) {
-                    emp.setEmployeePhone(phone);
-                } else {
-                    System.out.println("Enter valid phone");
-                    phone = scanner.nextLong();
-                }}
-        }
-        if(check.contains("name")){
+    //to re enter the specific data which failed validation at the backend
 
-        }
-        //System.out.println(emp.getEmail());
-
-        return emp;
-
-    }
-
+    //collect address details from the user
     public void collectAddress(Address address) {
         try {
             BasicValidation validation=new BasicValidation();

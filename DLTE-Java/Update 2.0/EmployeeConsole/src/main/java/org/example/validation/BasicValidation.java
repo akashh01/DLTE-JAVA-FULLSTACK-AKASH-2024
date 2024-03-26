@@ -1,5 +1,6 @@
-package org.example;
+package org.example.validation;
 
+import org.example.console.App;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

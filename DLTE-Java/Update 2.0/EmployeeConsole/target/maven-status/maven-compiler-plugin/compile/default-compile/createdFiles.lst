@@ -1,4 +1,5 @@
-org\example\entites\Employee.class
-org\example\BasicValidation.class
-org\example\App.class
+org\example\validation\BasicValidation.class
+org\example\console\App.class
 org\example\entites\Address.class
+org\example\entites\Employee.class
+org\example\validation\ReValidation.class

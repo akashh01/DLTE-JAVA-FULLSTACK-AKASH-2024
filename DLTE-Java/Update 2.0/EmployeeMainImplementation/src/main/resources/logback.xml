@@ -12,6 +12,11 @@
         <file>C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\DLTE-Java\Update 2.0\EmployeeMainImplementation\employeimplemntationlog.log</file> <!-- Define log file name and path -->
         <encoder>
             <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\DLTE-Java\Update 2.0\EmployeeMainImplementation\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <maxFileSize>1KB</maxFileSize>
+                <maxHistory>1</maxHistory>
+            </rollingPolicy>
         </encoder>
     </appender>
     <!--     Root logger settings -->
@@ -19,5 +24,4 @@
 <!--        <appender-ref ref="myConsole" />-->
         <appender-ref ref="myLogs" /> <!-- Attach file appender -->
     </root>
-
 </configuration>

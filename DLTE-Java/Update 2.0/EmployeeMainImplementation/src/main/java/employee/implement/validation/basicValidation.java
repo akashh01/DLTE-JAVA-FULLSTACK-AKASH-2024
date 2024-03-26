@@ -1,9 +1,9 @@
 package employee.implement.validation;
 
-import employee.implement.App;
 import employee.implement.entites.Employee;
 import employee.implement.exceptions.InvalidContactInfo;
 import employee.implement.exceptions.InvalidUserDetails;
+import employee.implement.implementation.EmployeeDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,11 +13,11 @@ import java.util.regex.Pattern;
 
 public class basicValidation {
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("informations");
-    private static Logger logger= LoggerFactory.getLogger(App.class);
+    private static Logger logger= LoggerFactory.getLogger(EmployeeDb.class);
     public void validateEmployee(Employee employee){
         if(!validateEmail(employee.getEmail())){
             logger.info(resourceBundle.getString("validation.email"));
-            throw new InvalidContactInfo("email ");
+            throw new InvalidContactInfo("email ,invalid ");
         }
         if(!validatePhone(employee.getEmployeePhone())) {
             logger.info(resourceBundle.getString("validation.phone"));

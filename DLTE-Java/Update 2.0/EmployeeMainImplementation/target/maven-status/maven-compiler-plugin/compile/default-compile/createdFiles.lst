@@ -1,12 +1,12 @@
 employee\implement\entites\Employee.class
+employee\implement\connection\doConnection.class
 employee\implement\exceptions\NoEmployeeData.class
+employee\implement\exceptions\DataNotDeleted.class
 employee\implement\validation\basicValidation.class
-employee\implement\EmployeeDb.class
 employee\implement\entites\Address.class
 employee\implement\exceptions\ConnectionException.class
 employee\implement\exceptions\InvalidContactInfo.class
 employee\implement\interfaces\EmployeeInterface.class
-employee\implement\App.class
 employee\implement\exceptions\EmployeeExists.class
-employee\implement\doConnection.class
+employee\implement\implementation\EmployeeDb.class
 employee\implement\exceptions\InvalidUserDetails.class

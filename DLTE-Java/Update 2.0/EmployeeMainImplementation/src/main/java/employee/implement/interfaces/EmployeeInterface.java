@@ -12,5 +12,6 @@ public interface EmployeeInterface {
   //public void tempAddressToDb(Address address,int employeeId);
   public List<Employee> getAllEmployee();
   public List<Employee> getEmployeeByPin(int pincode);
+  public boolean deleteById(int employeeId);
 
 }

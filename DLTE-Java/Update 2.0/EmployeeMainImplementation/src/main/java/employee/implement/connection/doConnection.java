@@ -1,6 +1,7 @@
-package employee.implement;
+package employee.implement.connection;
 
 import employee.implement.exceptions.ConnectionException;
+import employee.implement.implementation.EmployeeDb;
 import oracle.jdbc.driver.OracleDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import java.util.ResourceBundle;
 public class doConnection {
     public Connection makeConnection() {
         ResourceBundle resourceBundle=ResourceBundle.getBundle("informations");
-        Logger logger= LoggerFactory.getLogger(App.class);
+        Logger logger= LoggerFactory.getLogger(EmployeeDb.class);
         try {
             Driver driver = new OracleDriver();
             DriverManager.registerDriver(driver);
