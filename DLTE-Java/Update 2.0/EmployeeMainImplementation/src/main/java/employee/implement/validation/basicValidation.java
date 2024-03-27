@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class basicValidation {
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("informations");
-    private static Logger logger= LoggerFactory.getLogger(EmployeeDb.class);
+    private static Logger logger= LoggerFactory.getLogger(Employee.class);
     public void validateEmployee(Employee employee){
         if(!validateEmail(employee.getEmail())){
             logger.info(resourceBundle.getString("validation.email"));

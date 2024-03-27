@@ -23,7 +23,7 @@ public class EmployeeDb implements EmployeeInterface {
     private static Logger logger= LoggerFactory.getLogger(Employee.class);
 
     @Override
-    public String writeEmolyeeToDatabase(Employee employee) throws SQLException,InvalidContactInfo,InvalidUserDetails{
+    public String writeEmolyeeToDatabase(Employee employee) throws InvalidContactInfo,InvalidUserDetails{
             ResourceBundle resourceBundleOne=ResourceBundle.getBundle("exceptions");
             basicValidation validation=new basicValidation();
             validation.validateEmployee(employee);
@@ -70,6 +70,10 @@ public class EmployeeDb implements EmployeeInterface {
         catch (SQLIntegrityConstraintViolationException sql){
             throw new EmployeeExists();
         }
+            catch (SQLException exp){
+                System.out.println(exp);
+            }
+            return null;
 
     }
 
@@ -121,6 +125,8 @@ public class EmployeeDb implements EmployeeInterface {
             preparedStatementTwo.close();
             connection.close();
             resultSet.close();
+            logger.info(resourceBundle.getString("display.employee"));
+
         }//
         // catch (ConnectionException exp) {
 //        throw new ConnectionException();
