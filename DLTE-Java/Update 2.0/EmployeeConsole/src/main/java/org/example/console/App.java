@@ -89,7 +89,6 @@ public class App
                       boolean delete;
                       int empId=scannerOne.nextInt();
                       try{
-                          System.out.println("checl");
                           delete=employeeInterface.deleteById(empId);
                          if(delete==true){
                              System.out.println("13");

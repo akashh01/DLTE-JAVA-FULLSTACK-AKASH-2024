@@ -1,0 +1,133 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://transactions.services"
+            xmlns:tns="http://transactions.services"
+            elementFormDefault="qualified">
+
+
+    <!--    Entity-->
+    <xsd:complexType name="transactions">
+        <xsd:sequence>
+            <xsd:element name="transactionId" type="xsd:long"/>
+            <xsd:element name="transactionDate" type="xsd:string"/>
+            <xsd:element name="transactionBy" type="xsd:string"/>
+            <xsd:element name="transactionTo" type="xsd:string"/>
+            <xsd:element name="transactionAmount" type="xsd:long"/>
+            <xsd:element name="transactionFor" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--    Status-->
+    <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--    Operation-->
+
+    <!--    Call Procedure-->
+    <xsd:element name="DeletionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="startDate" type="xsd:string"/>
+                <xsd:element name="endDate" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeletionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+    <!--    Update loan details-->
+    <xsd:element name="updateRemarksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="transactions" type="tns:transactions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="updateRemarkResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transactions" type="tns:transactions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    Find By sender name-->
+    <xsd:element name="findBySenderRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="senderName" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findBySenderResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transactions" type="tns:transactions" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    Find By sender name-->
+    <xsd:element name="findByRecieverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="recieverName" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findByRecieverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transactions" type="tns:transactions" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    Find By sender name-->
+    <xsd:element name="findByAmountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="recieverName" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findByAmountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transactions" type="tns:transactions" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    New transaction-->
+    <xsd:element name="newTransactionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="transactions" type="tns:transactions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="newTransactionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transactions" type="tns:transactions"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

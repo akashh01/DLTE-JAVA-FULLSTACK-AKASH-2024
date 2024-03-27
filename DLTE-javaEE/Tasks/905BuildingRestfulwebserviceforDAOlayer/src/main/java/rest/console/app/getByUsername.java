@@ -35,14 +35,17 @@ public class getByUsername extends HttpServlet {
             String username=req.getParameter("username");
             Customer customer=new Customer();
             customer=userInfoServices.callOneUserDetails(username);
-            //customer = userInfoServices.(String.valueOf(req.getParameter("username")));
-            //Gson gson=new Gson();
-            //String details = gson.toJson(customer);
-            resp.setStatus(HttpServletResponse.SC_OK);
-           // resp.getWriter().println(details);
-            req.setAttribute("customer",customer);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("testRender.jsp");
-            dispatcher.forward(req, resp);
+           // customer = userInfoServices.(String.valueOf(req.getParameter("username")));
+            Gson gson=new Gson();
+            String details = gson.toJson(customer);
+
+
+           // resp.setStatus(HttpServletResponse.SC_OK);
+            resp.getWriter().println(details);
+          //  System.out.println(details);
+//            req.setAttribute("customer",customer);
+//            RequestDispatcher dispatcher = req.getRequestDispatcher("testRender.jsp");
+//            dispatcher.forward(req, resp);
 
 //            resp.setContentType("text/html");
 //            PrintWriter out = resp.getWriter();

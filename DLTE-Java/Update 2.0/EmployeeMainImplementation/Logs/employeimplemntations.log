@@ -2,3 +2,12 @@
 07:57:42.512 [main] INFO  org.example.console.App - All data displayed
 08:01:30.866 [pool-1-thread-1] INFO  employee.implement.entites.Employee - employee data send to user
 08:03:02.564 [pool-1-thread-2] INFO  employee.implement.entites.Employee - employee data send to user
+08:55:15.183 [pool-1-thread-1] INFO  employee.implement.entites.Employee - employee data send to user
+09:01:19.040 [pool-1-thread-3] INFO  employee.implement.entites.Employee - user phone validation failed
+09:01:51.387 [pool-1-thread-3] INFO  employee.implement.entites.Employee - All the data is validated at backend
+09:01:51.569 [pool-1-thread-3] INFO  employee.implement.entites.Employee - employee data had been added 
+09:01:58.685 [pool-1-thread-3] INFO  employee.implement.entites.Employee - All the data is validated at backend
+09:35:12.431 [pool-1-thread-6] INFO  employee.implement.entites.Employee - employee data send to user
+09:35:18.830 [pool-1-thread-6] INFO  employee.implement.entites.Employee - employee data send to user
+10:03:58.452 [pool-1-thread-7] INFO  employee.implement.entites.Employee - All the data is validated at backend
+10:03:58.481 [pool-1-thread-7] INFO  employee.implement.entites.Employee - employee data had been added 
