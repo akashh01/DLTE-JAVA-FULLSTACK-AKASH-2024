@@ -117,9 +117,9 @@ public class SoapPhase {
         UpdateRemarkResponse updateRemarksResponse=new UpdateRemarkResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         services.transactions.Transactions transactions=new services.transactions.Transactions();
-          xsd.task.transaction.taskxsd.Transactions daoTransaction = new xsd.task.transaction.taskxsd.Transactions();
+        xsd.task.transaction.taskxsd.Transactions daoTransaction = new xsd.task.transaction.taskxsd.Transactions();
         BeanUtils.copyProperties(updateRemarksRequest.getTransactions(),daoTransaction);
-        daoTransaction = transactionService.updateLoans(daoTransaction);
+        daoTransaction = transactionService.updateTransaction(daoTransaction);
         if (daoTransaction!=null){
             serviceStatus.setStatus("SUCCESS");
             serviceStatus.setMessage(daoTransaction.getTransactionId()+" has been updated");

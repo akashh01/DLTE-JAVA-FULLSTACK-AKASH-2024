@@ -12,10 +12,10 @@ import java.io.IOException;
 
 public class httpTest {
     public static void printResponse(HttpResponse response) throws IOException {
-        System.out.println(response.getProtocolVersion());
-        System.out.println(response.getStatusLine().getStatusCode());
-        System.out.println(response.getStatusLine().getReasonPhrase());
-        System.out.println(response.getStatusLine().toString());
+       // System.out.println(response.getProtocolVersion());
+      //  System.out.println(response.getStatusLine().getStatusCode());
+        //System.out.println(response.getStatusLine().getReasonPhrase());
+       // System.out.println(response.getStatusLine().toString());
      //  System.out.println(EntityUtils.toString(response.getEntity()));
          Gson gson=new Gson();
          String jjson=EntityUtils.toString(response.getEntity());

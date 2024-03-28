@@ -61,7 +61,7 @@ public class TransactionService {
                 new TransactionMapper());
     }
 
-    public Transactions updateLoans(Transactions transactions){
+    public Transactions updateTransaction(Transactions transactions){
         int acknowledge = jdbcTemplate.update("update TRANSACTION_TASK set TRANSACTION_REMARKS=? where TRANSACTION_ID=?",
                 new Object[]{transactions.getTransactionFor(),transactions.getTransactionId()});
         if(acknowledge!=0)

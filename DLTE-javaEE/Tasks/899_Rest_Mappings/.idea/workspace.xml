@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c48f09e0-d1a8-43e3-8020-0ca2aa9934d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/console/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeConsole/src/main/java/org/example/console/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/Logs/Archive/employeimplemntations.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/Logs/Archive/employeimplemntations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/Logs/employeimplemntations.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/EmployeeMainImplementation/Logs/employeimplemntations.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/src/main/java/client/soap/service/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/src/main/java/client/soap/service/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/target/classes/client/soap/service/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/target/classes/client/soap/service/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/target/classes/web/EmployeeSoapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Update 2.0/SoapServicesClient/target/classes/web/EmployeeSoapService.class" afterDir="false" />
-    </list>
+    <list default="true" id="c48f09e0-d1a8-43e3-8020-0ca2aa9934d7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +89,7 @@
       <workItem from="1710996993711" duration="110000" />
       <workItem from="1711442114143" duration="2000" />
       <workItem from="1711521714224" duration="10000" />
+      <workItem from="1711609561456" duration="4000" />
     </task>
     <servers />
   </component>
