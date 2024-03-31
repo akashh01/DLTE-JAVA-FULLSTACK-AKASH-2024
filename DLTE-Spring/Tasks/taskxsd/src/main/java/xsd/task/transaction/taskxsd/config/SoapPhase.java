@@ -3,6 +3,7 @@ package xsd.task.transaction.taskxsd.config;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -21,6 +22,7 @@ public class SoapPhase {
     @Autowired
     private TransactionService transactionService;
 
+    @PreAuthorize("hasAuthority('admin')")
     @PayloadRoot(namespace = url,localPart = "newTransactionRequest")
     @ResponsePayload
     public NewTransactionResponse addNewLoan(@RequestPayload NewTransactionRequest newTransactionRequest){
@@ -44,7 +46,7 @@ public class SoapPhase {
         newTransactionResponse.setServiceStatus(serviceStatus);
         return newTransactionResponse;
     }
-
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findBySenderRequest")
     @ResponsePayload
     public FindBySenderResponse findBySenderRequest(@RequestPayload FindBySenderRequest findBySenderRequest){
@@ -66,6 +68,8 @@ public class SoapPhase {
        findBySenderResponse.getTransactions().addAll(transactList);
         return findBySenderResponse;
     }
+
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findByAmountRequest")
     @ResponsePayload
     public FindByAmountResponse findByAmountRequest(@RequestPayload FindByAmountRequest findByAmountRequest){
@@ -88,6 +92,7 @@ public class SoapPhase {
         return findByAmountResponse;
     }
 
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findByRecieverRequest")
     @ResponsePayload
     public FindByRecieverResponse findByRecieverRequest(@RequestPayload FindByRecieverRequest findByRecieverRequest){
@@ -102,7 +107,6 @@ public class SoapPhase {
             BeanUtils.copyProperties(iterator.next(),currentTransactions);
             transactList.add(currentTransactions);
         }
-
         serviceStatus.setStatus("SUCCESS");
         serviceStatus.setMessage("Transactions available");
         findByRecieverResponse.setServiceStatus(serviceStatus);
@@ -110,7 +114,7 @@ public class SoapPhase {
         return findByRecieverResponse;
     }
 
-
+    @PreAuthorize("hasAnyAuthority('manager','admin')")
       @PayloadRoot(namespace = url, localPart = "updateRemarksRequest")
       @ResponsePayload
       public UpdateRemarkResponse updatingTransaction(@RequestPayload UpdateRemarksRequest updateRemarksRequest){
@@ -134,6 +138,7 @@ public class SoapPhase {
 
         return updateRemarksResponse;
     }
+    @PreAuthorize("hasAuthority('admin')")
     @PayloadRoot(namespace = url,localPart = "DeletionRequest")
     @ResponsePayload
     public DeletionResponse deletionByCall(@RequestPayload DeletionRequest deletionRequest){
