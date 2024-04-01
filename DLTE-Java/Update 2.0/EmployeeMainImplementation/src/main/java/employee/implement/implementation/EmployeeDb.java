@@ -86,64 +86,57 @@ public class EmployeeDb implements EmployeeInterface {
 
     @Override
     public List<Employee> getAllEmployee() {
-        List<Employee> employeeList=new ArrayList<>();
-        try{
-            doConnection setConnection=new doConnection();
-            Connection connection=setConnection.makeConnection();
-            String query="select * from employee_details";
-            PreparedStatement preparedStatement=connection.prepareStatement(query);
-            String queryTwo="select * from EMPLOYEE_ADDRESS where EMPLOYEE_ID=?";
-            PreparedStatement preparedStatementTwo=connection.prepareStatement(queryTwo);
-            ResultSet resultSetOne;
-            ResultSet resultSet=preparedStatement.executeQuery();
-            if(!resultSet.next()){
-                throw new NoEmployeeData();
-            }
-           do{
-                Employee employee=new Employee();
-                Address permenantAddress=new Address();
-                Address temporaryAddress=new Address();
-                preparedStatementTwo.setString(1, String.valueOf(resultSet.getInt(5)));
-                resultSetOne=preparedStatementTwo.executeQuery();
-                if(resultSetOne.next()) {
-                    permenantAddress.setHouseName(resultSetOne.getString(2));
-                    permenantAddress.setStreetName(resultSetOne.getString(3));
-                    permenantAddress.setCityName(resultSetOne.getString(4));
-                    permenantAddress.setStateName(resultSetOne.getString(5));
-                    permenantAddress.setPincode(resultSetOne.getInt(6));
-                    temporaryAddress.setHouseName(resultSetOne.getString(7));
-                    temporaryAddress.setStreetName(resultSetOne.getString(8));
-                    temporaryAddress.setCityName(resultSetOne.getString(9));
-                    temporaryAddress.setStateName(resultSetOne.getString(10));
-                    temporaryAddress.setPincode(resultSetOne.getInt(11));
-                }
-                employee.setFirstName(resultSet.getString(1));
-                employee.setMiddeName(resultSet.getString(2));
-                employee.setLastName(resultSet.getString(3));
-                employee.setEmployeePhone(resultSet.getLong(4));
-                employee.setEmployeeId(resultSet.getInt(5));
+        List<Employee> employeeList = new ArrayList<>();
+        try {
+            doConnection setConnection = new doConnection();
+            Connection connection = setConnection.makeConnection();
+            String query = "select e.employeeid,e.firstname,e.middlename,e.lastname,e.phone,e.email,t.housename,t.streetname,\n" +
+                    "t.city,t.state,t.pincode from employee_details e join address_employee t on e.employeeid=t.employee_id where t.address_type in (1,0)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Employee employee = new Employee();
+                employee.setEmployeeId(resultSet.getInt(1));
+                employee.setFirstName(resultSet.getString(2));
+                employee.setMiddeName(resultSet.getString(3));
+                employee.setLastName(resultSet.getString(4));
+                employee.setEmployeePhone(resultSet.getLong(5));
                 employee.setEmail(resultSet.getString(6));
-                employee.setPermenantAddress(permenantAddress);
+
+                Address permanentAddress = new Address();
+                permanentAddress.setHouseName(resultSet.getString(7));
+                permanentAddress.setStreetName(resultSet.getString(8));
+                permanentAddress.setCityName(resultSet.getString(9));
+                permanentAddress.setStateName(resultSet.getString(10));
+                permanentAddress.setPincode(resultSet.getInt(11));
+                Address temporaryAddress = new Address();
+                if (resultSet.next()) {
+                    temporaryAddress.setHouseName(resultSet.getString(7));
+                    temporaryAddress.setStreetName(resultSet.getString(8));
+                    temporaryAddress.setCityName(resultSet.getString(9));
+                    temporaryAddress.setStateName(resultSet.getString(10));
+                    temporaryAddress.setPincode(resultSet.getInt(11));
+                }
+
+                employee.setPermenantAddress(permanentAddress);
                 employee.setTemporaryAddress(temporaryAddress);
+
                 employeeList.add(employee);
 
-            } while(resultSet.next());
+            }
             preparedStatement.close();
-            preparedStatementTwo.close();
             connection.close();
             resultSet.close();
             logger.info(resourceBundle.getString("display.employee"));
 
-        }//
-        // catch (ConnectionException exp) {
-//        throw new ConnectionException();
-//    }
+
+        }
         catch (SQLException e) {
             e.printStackTrace();
         }
         return employeeList;
-
     }
+
     @Override
     public List<Employee> getEmployeeByPin(int pincode) {
         List<Employee> employeeList = new ArrayList<>();

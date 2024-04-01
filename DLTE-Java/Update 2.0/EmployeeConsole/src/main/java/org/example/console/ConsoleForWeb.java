@@ -74,6 +74,7 @@ public class ConsoleForWeb {
 
                     } while (scannerOne.next().equalsIgnoreCase("yes"));
                     break;
+                case 2:consoleForWeb.displayAll();
             }
 
         }

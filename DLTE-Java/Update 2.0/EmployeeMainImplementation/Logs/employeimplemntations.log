@@ -24,3 +24,9 @@
 22:10:02.468 [main] INFO  org.example.console.App - the pincode is validated
 22:10:02.475 [main] INFO  org.example.console.App - adress added for employee
 22:10:02.475 [main] INFO  org.example.console.App - the employee data and address data collected
+22:56:35.048 [main] INFO  org.example.console.App - All data displayed
+22:58:52.489 [main] INFO  org.example.console.App - All data displayed
+23:02:37.701 [main] INFO  org.example.console.App - All data displayed
+23:05:40.423 [main] INFO  org.example.console.App - All data displayed
+23:08:46.491 [main] INFO  employee.implement.entites.Employee - employee data send to user
+23:08:46.505 [main] INFO  org.example.console.App - All data displayed
