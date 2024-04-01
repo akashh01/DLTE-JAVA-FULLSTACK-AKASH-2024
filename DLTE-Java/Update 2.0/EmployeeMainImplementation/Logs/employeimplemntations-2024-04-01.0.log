@@ -1,0 +1,27 @@
+19:17:21.975 [main] INFO  employee.implement.entites.Employee - employee data send to user
+19:17:21.992 [main] INFO  org.example.console.App - All data displayed
+19:52:32.015 [main] INFO  employee.implement.entites.Employee - employee data send to user
+20:59:41.455 [main] INFO  org.example.console.App - string phone is validated
+21:00:14.914 [main] INFO  org.example.console.App - the pincode is validated
+21:00:14.915 [main] INFO  org.example.console.App - adress added for employee
+21:00:47.060 [main] INFO  org.example.console.App - the pincode is validated
+21:00:47.060 [main] INFO  org.example.console.App - adress added for employee
+21:00:47.097 [main] INFO  org.example.console.App - the employee data and address data collected
+21:00:47.097 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:03:00.677 [main] INFO  org.example.console.App - string phone is validated
+21:03:20.243 [main] INFO  org.example.console.App - the pincode is not validated
+21:03:24.021 [main] INFO  org.example.console.App - the pincode is validated
+21:03:24.021 [main] INFO  org.example.console.App - adress added for employee
+21:03:49.667 [main] INFO  org.example.console.App - the pincode is validated
+21:03:49.667 [main] INFO  org.example.console.App - adress added for employee
+21:03:49.667 [main] INFO  org.example.console.App - the employee data and address data collected
+21:03:49.667 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:05:53.601 [main] INFO  org.example.console.App - string phone is validated
+21:06:12.247 [main] INFO  org.example.console.App - the pincode is validated
+21:06:12.247 [main] INFO  org.example.console.App - adress added for employee
+21:06:36.142 [main] INFO  org.example.console.App - the pincode is not validated
+21:06:39.612 [main] INFO  org.example.console.App - the pincode is validated
+21:06:39.612 [main] INFO  org.example.console.App - adress added for employee
+21:06:39.612 [main] INFO  org.example.console.App - the employee data and address data collected
+21:06:39.612 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:06:40.219 [main] INFO  employee.implement.entites.Employee - employee data had been added 

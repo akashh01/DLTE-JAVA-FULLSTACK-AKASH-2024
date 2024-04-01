@@ -1,9 +1,53 @@
-08:55:15.183 [pool-1-thread-1] INFO  employee.implement.entites.Employee - employee data send to user
-09:01:19.040 [pool-1-thread-3] INFO  employee.implement.entites.Employee - user phone validation failed
-09:01:51.387 [pool-1-thread-3] INFO  employee.implement.entites.Employee - All the data is validated at backend
-09:01:51.569 [pool-1-thread-3] INFO  employee.implement.entites.Employee - employee data had been added 
-09:01:58.685 [pool-1-thread-3] INFO  employee.implement.entites.Employee - All the data is validated at backend
-09:35:12.431 [pool-1-thread-6] INFO  employee.implement.entites.Employee - employee data send to user
-09:35:18.830 [pool-1-thread-6] INFO  employee.implement.entites.Employee - employee data send to user
-10:03:58.452 [pool-1-thread-7] INFO  employee.implement.entites.Employee - All the data is validated at backend
-10:03:58.481 [pool-1-thread-7] INFO  employee.implement.entites.Employee - employee data had been added 
+19:17:21.975 [main] INFO  employee.implement.entites.Employee - employee data send to user
+19:17:21.992 [main] INFO  org.example.console.App - All data displayed
+19:52:32.015 [main] INFO  employee.implement.entites.Employee - employee data send to user
+20:59:41.455 [main] INFO  org.example.console.App - string phone is validated
+21:00:14.914 [main] INFO  org.example.console.App - the pincode is validated
+21:00:14.915 [main] INFO  org.example.console.App - adress added for employee
+21:00:47.060 [main] INFO  org.example.console.App - the pincode is validated
+21:00:47.060 [main] INFO  org.example.console.App - adress added for employee
+21:00:47.097 [main] INFO  org.example.console.App - the employee data and address data collected
+21:00:47.097 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:03:00.677 [main] INFO  org.example.console.App - string phone is validated
+21:03:20.243 [main] INFO  org.example.console.App - the pincode is not validated
+21:03:24.021 [main] INFO  org.example.console.App - the pincode is validated
+21:03:24.021 [main] INFO  org.example.console.App - adress added for employee
+21:03:49.667 [main] INFO  org.example.console.App - the pincode is validated
+21:03:49.667 [main] INFO  org.example.console.App - adress added for employee
+21:03:49.667 [main] INFO  org.example.console.App - the employee data and address data collected
+21:03:49.667 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:05:53.601 [main] INFO  org.example.console.App - string phone is validated
+21:06:12.247 [main] INFO  org.example.console.App - the pincode is validated
+21:06:12.247 [main] INFO  org.example.console.App - adress added for employee
+21:06:36.142 [main] INFO  org.example.console.App - the pincode is not validated
+21:06:39.612 [main] INFO  org.example.console.App - the pincode is validated
+21:06:39.612 [main] INFO  org.example.console.App - adress added for employee
+21:06:39.612 [main] INFO  org.example.console.App - the employee data and address data collected
+21:06:39.612 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:06:40.219 [main] INFO  employee.implement.entites.Employee - employee data had been added 
+21:09:40.406 [main] INFO  org.example.console.App - string phone is validated
+21:10:32.044 [main] INFO  org.example.console.App - the pincode is not validated
+21:10:36.812 [main] INFO  org.example.console.App - the pincode is validated
+21:10:36.813 [main] INFO  org.example.console.App - adress added for employee
+21:11:09.377 [main] INFO  org.example.console.App - the pincode is validated
+21:11:09.379 [main] INFO  org.example.console.App - adress added for employee
+21:11:09.379 [main] INFO  org.example.console.App - the employee data and address data collected
+21:11:09.381 [main] INFO  employee.implement.entites.Employee - All the data is validated at backend
+21:11:09.875 [main] INFO  employee.implement.entites.Employee - employee data had been added 
+21:51:57.064 [main] ERROR org.example.console.App - the details you have entered is wrong
+21:52:02.061 [main] ERROR org.example.console.App - the details you have entered is wrong
+21:52:02.061 [main] INFO  org.example.console.App - adress added for employee
+21:52:04.465 [main] ERROR org.example.console.App - the details you have entered is wrong
+21:52:04.465 [main] INFO  org.example.console.App - adress added for employee
+21:52:04.465 [main] INFO  org.example.console.App - the employee data and address data collected
+21:53:22.784 [main] ERROR org.example.console.App - the details you have entered is wrong
+21:59:20.160 [main] INFO  org.example.console.App - string email entred is wrong
+21:59:21.955 [main] INFO  org.example.console.App - string email entred is wrong
+22:08:32.658 [main] INFO  org.example.console.App - string email is validated
+22:08:40.817 [main] INFO  org.example.console.App - string phone entred is wrong
+22:08:44.590 [main] INFO  org.example.console.App - string phone is validated
+22:09:29.778 [main] INFO  org.example.console.App - the pincode is validated
+22:09:29.778 [main] INFO  org.example.console.App - adress added for employee
+22:10:02.468 [main] INFO  org.example.console.App - the pincode is validated
+22:10:02.475 [main] INFO  org.example.console.App - adress added for employee
+22:10:02.475 [main] INFO  org.example.console.App - the employee data and address data collected

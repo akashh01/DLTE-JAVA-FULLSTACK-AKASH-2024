@@ -28,6 +28,7 @@ public class EmployeeDb implements EmployeeInterface {
             basicValidation validation=new basicValidation();
             validation.validateEmployee(employee);
 
+ //       create table ADDRESS_EMPLOYEE(ADDRESS_ID NUMBER,EMPLOYEE_ID NUMBER,HOUSENAME VARCHAR(100),STREETNAME VARCHAR(100),CITY VARCHAR(50),STATE VARCHAR(50),PINCODE NUMBER,ADDRESS_TYPE NUMBER );
             try {
                 doConnection setConnection = new doConnection();
                 Connection connection = setConnection.makeConnection();
@@ -40,21 +41,27 @@ public class EmployeeDb implements EmployeeInterface {
             preparedStatement.setInt(5,employee.getEmployeeId());
             preparedStatement.setString(6,employee.getEmail());
             int record=preparedStatement.executeUpdate();
-            String query1="insert into EMPLOYEE_ADDRESS values(?,?,?,?,?,?,?,?,?,?,?)";
-            preparedStatement= connection.prepareStatement(query1);
+
+            String permAddressQuery = "insert into ADDRESS_EMPLOYEE(ADDRESS_ID,EMPLOYEE_ID,HOUSENAME,STREETNAME,CITY,STATE,PINCODE,ADDRESS_TYPE) values (address_ID_seq.nextval,?,?,?,?,?,?,1)";
+            preparedStatement= connection.prepareStatement(permAddressQuery);
             preparedStatement.setInt(1,employee.getEmployeeId());
             preparedStatement.setString(2,employee.getPermenantAddress().getHouseName());
             preparedStatement.setString(3,employee.getPermenantAddress().getStreetName());
             preparedStatement.setString(4,employee.getPermenantAddress().getCityName());
             preparedStatement.setString(5,employee.getPermenantAddress().getStateName());
             preparedStatement.setInt(6,employee.getPermenantAddress().getPincode());
-            preparedStatement.setString(7,employee.getTemporaryAddress().getHouseName());
-            preparedStatement.setString(8,employee.getTemporaryAddress().getStreetName());
-            preparedStatement.setString(9,employee.getTemporaryAddress().getCityName());
-            preparedStatement.setString(10,employee.getTemporaryAddress().getStateName());
-            preparedStatement.setInt(11,employee.getTemporaryAddress().getPincode());
-            int recordOne=preparedStatement.executeUpdate();
-            if(record!=0&&recordOne!=0){
+            int recordOne = preparedStatement.executeUpdate();
+
+            String tempAddressQuery = "insert into ADDRESS_EMPLOYEE(ADDRESS_ID,EMPLOYEE_ID,HOUSENAME,STREETNAME,CITY,STATE,PINCODE,ADDRESS_TYPE) values (address_ID_seq.nextval,?,?,?,?,?,?,0)";
+            preparedStatement= connection.prepareStatement(tempAddressQuery);
+                preparedStatement.setInt(1,employee.getEmployeeId());
+            preparedStatement.setString(2,employee.getTemporaryAddress().getHouseName());
+            preparedStatement.setString(3,employee.getTemporaryAddress().getStreetName());
+            preparedStatement.setString(4,employee.getTemporaryAddress().getCityName());
+            preparedStatement.setString(5,employee.getTemporaryAddress().getStateName());
+            preparedStatement.setInt(6,employee.getTemporaryAddress().getPincode());
+            int recordThree=preparedStatement.executeUpdate();
+            if(record!=0&&recordOne!=0&&recordThree!=0){
                 logger.info(resourceBundle.getString("employee.added"));
                 preparedStatement.close();
                 connection.close();

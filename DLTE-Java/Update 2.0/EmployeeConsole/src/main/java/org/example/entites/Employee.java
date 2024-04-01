@@ -102,13 +102,16 @@ package org.example.entites;
 
         @Override
         public String toString() {
-            return
-                    "First Name='" + firstName + '\'' +
-                            ",Midde Name='" + middeName + '\'' +
-                            ",LastName='" + lastName + '\'' +
-                            ", Employee Phone=" + employeePhone +
-                            ", Employee Id=" + employeeId +
-                            ", email='" + email + '\'' ;
+            return "Employee{" +
+                    "firstName='" + firstName + '\'' +
+                    ", middeName='" + middeName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", employeePhone=" + employeePhone +
+                    ", employeeId=" + employeeId +
+                    ", email='" + email + '\'' +
+                    ", permenantAddress=" + permenantAddress +
+                    ", temporaryAddress=" + temporaryAddress +
+                    '}';
         }
     }
 

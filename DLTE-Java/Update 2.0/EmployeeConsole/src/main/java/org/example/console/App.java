@@ -63,9 +63,9 @@ public class App
                             }
                         }
                     }
-                    System.out.println("Do you want to add another employee?");
-                   } while (scannerOne.next().equalsIgnoreCase("yes"));
-                       break;
+                        System.out.println("Do you want to add another employee?");
+                       } while (scannerOne.next().equalsIgnoreCase("yes"));
+                           break;
                 case 2:
                     //to dispplay all the data in the db
                        try {
