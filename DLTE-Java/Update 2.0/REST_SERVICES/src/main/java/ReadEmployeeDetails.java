@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/allemployee/")
@@ -21,16 +22,27 @@ public class ReadEmployeeDetails extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EmployeeInterface employeeInterface=new EmployeeDb();
-        resp.setContentType("application/json");
-        List<Employee> employeeList=employeeInterface.getAllEmployee();
-        Gson gson=new Gson();
-        String responseData = gson.toJson(employeeList);
-        resp.getWriter().println(responseData);
-        resp.setStatus(HttpServletResponse.SC_OK);
+      try{
+       EmployeeInterface employeeInterface=null; //new EmployeeDb();
 
-    }
-}
+        resp.setContentType("application/json");
+
+        List<Employee> employeeList= employeeList= employeeInterface.getAllEmployee();
+        Gson gson=new Gson();
+
+          String responseData = gson.toJson(employeeList);
+          resp.getWriter().println(responseData);
+          resp.setStatus(HttpServletResponse.SC_OK);
+
+      }catch (NullPointerException exp){
+        //  resp.setStatus(HttpServletResponse.SC_OK);
+
+          Employee employee=new Employee();
+          Gson gson=new Gson();
+          String responseData = gson.toJson(employee);
+          resp.getWriter().println(responseData);
+      }
+}}
 
 
 

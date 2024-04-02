@@ -20,6 +20,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.example.entites.Address;
 import org.example.entites.Employee;
+import org.example.interfaces.LambdaFilter;
 import org.example.validation.BasicValidation;
 import org.example.validation.ReValidation;
 import org.slf4j.Logger;
@@ -39,12 +40,8 @@ public class ConsoleForWeb {
         // System.out.println(response.getStatusLine().toString());
         //  System.out.println(EntityUtils.toString(response.getEntity()));
         // Gson gson=new Gson();
-        String jjson = EntityUtils.toString(response.getEntity());
-        System.out.println(jjson);
-        //  JsonObject o=new JsonObject(jjson);
-        //Customer customer = gson.fromJson(jjson, Customer.class);
-        //System.out.println("customer is "+ customer.getUsername());
-        return jjson;
+        String result = EntityUtils.toString(response.getEntity());
+        return result;
     }
 
     static ResourceBundle resourceBundle = ResourceBundle.getBundle("information");
@@ -75,6 +72,10 @@ public class ConsoleForWeb {
                     } while (scannerOne.next().equalsIgnoreCase("yes"));
                     break;
                 case 2:consoleForWeb.displayAll();
+                       break;
+                case 3:consoleForWeb.displayOnPincode();
+                       break;
+                case 5:break;
             }
 
         }
@@ -94,6 +95,37 @@ public class ConsoleForWeb {
         CloseableHttpResponse response = httpclient.execute(httppost);
     }
 
+    public void displayOnPincode() throws IOException {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        HttpGet httpget = new HttpGet(url + "/allemployee/");
+        CloseableHttpResponse response = httpclient.execute(httpget);
+        Gson gson = new Gson();
+        String jjson = printResponse(response);
+        Type listType = new TypeToken<ArrayList<Employee>>() {}.getType();
+        List<Employee> employeeList = new Gson().fromJson(jjson, listType);
+        int pincode;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter the pincode");
+        pincode=scanner.nextInt();
+        searchByPincode(pincode,employeeList);
+
+    }
+    public void searchByPincode(int pincode,List<Employee> employeeList){
+        LambdaFilter filterByPincode=((pincodeNum)->{
+            for(Employee each:employeeList){
+                if(each.getTemporaryAddress().getPincode()==pincodeNum||each.getPermenantAddress().getPincode()==pincodeNum){
+                    System.out.println("Employee details\n" + "name :" + each.getFirstName() + " \nEmployee id :" + each.getEmployeeId());
+                }
+                if(each.getTemporaryAddress().getPincode()==pincodeNum){
+                    System.out.println("Temporary address\nHouse Name:" + each.getTemporaryAddress().getHouseName() + "\nStreet Name :" + each.getTemporaryAddress().getStreetName() + " \nCity name :" + each.getTemporaryAddress().getCityName() + "\nPincode :" + each.getTemporaryAddress().getPincode());
+                }
+                if(each.getPermenantAddress().getPincode()==pincodeNum){
+                    System.out.println("Permenant address\nHouse Name:" + each.getPermenantAddress().getHouseName() + "\nStreet Name :" + each.getPermenantAddress().getStreetName() + " \nCity name :" + each.getPermenantAddress().getCityName() + "\nPincode :" + each.getPermenantAddress().getPincode());
+                }
+            }
+        });
+        filterByPincode.searchByPincode(pincode);
+    }
 
 
     public void displayAll() throws IOException {

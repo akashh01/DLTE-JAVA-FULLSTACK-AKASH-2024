@@ -57,3 +57,5 @@
 23:05:40.423 [main] INFO  org.example.console.App - All data displayed
 23:08:46.491 [main] INFO  employee.implement.entites.Employee - employee data send to user
 23:08:46.505 [main] INFO  org.example.console.App - All data displayed
+07:16:08.439 [main] INFO  employee.implement.entites.Employee - employee data send to user
+07:16:17.452 [main] INFO  employee.implement.entites.Employee - employee data send to user
