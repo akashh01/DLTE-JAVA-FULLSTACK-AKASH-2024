@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resources/forms.css" />
+</head>
+<body>
+    <div class="banner">
+        <h1>MyBank</h1>
+        <h1>Cheque book application</h1>
+    </div>
+
+    <h2>NEW CHECK BOOK APLLICATION</h2>
+    <div class="row">
+        <form name="application" action="#" class="column">
+            <div class="input-group">
+                <label>Account number</label>
+                <input type="text" name="accountNumber" placeholder="account number" />
+            </div>
+            <div class="input-group">
+                <label>Account holder name</label>
+                <input type="text" name="accountHolder" placeholder="account holder" />
+            </div>
+            <div class="input-group">
+                <label>Account type</label>
+                <div>
+                    <input type="radio" name="accountType" value="Savings" />Rupay
+                    <input type="radio" name="accountType" value="Salery" />VISA
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Checkbook type</label>
+                <select name="checkbookType" multiple>
+                    <option>Check book type</option>
+                    <option>Personal</option>
+                    <option>Business</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Date of apply</label>
+                <input id="dates" type="date" name="applyDate" placeholder="date of apply" />
+            </div>
+            <div class="input-group">
+                <label>Address</label>
+                <textarea name="address" placeholder="address enter"></textarea>
+            </div>
+
+            <div class="file">
+                <label>Signature file</label>
+                <br>
+                <input type="file" name="signature" placeholder="holders sign" />
+            </div>
+            <br>
+            <div class="input-group">
+                <label>Contact number</label>
+                <input type="tel" name="contact" placeholder="contact number" />
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="Email" placeholder="Email address" />
+             </div> 
+            
+            <div class="input-group">
+            <label>Read and accept terms and condition </label><input type="checkbox" name="tc" />
+           </div>
+
+           <div class="btn-group">
+            <input type="submit" value="Apply"/>
+            <input type="reset" value="Cancel"/>
+        </div>
+        </form>
+    </div> 
+
+</body>
+</html>
