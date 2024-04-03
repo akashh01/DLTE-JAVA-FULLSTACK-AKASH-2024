@@ -6,6 +6,7 @@ import employee.implement.entites.Employee;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public interface EmployeeInterface {
   public String writeEmolyeeToDatabase(Employee employee) throws SQLException;
   //public void addressToDb(Address address, int employeeId);

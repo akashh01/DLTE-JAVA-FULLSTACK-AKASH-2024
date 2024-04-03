@@ -22,8 +22,9 @@ public class ReadEmployeeDetails extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      try{
-       EmployeeInterface employeeInterface=null; //new EmployeeDb();
+     //try{
+
+      // EmployeeInterface employeeInterface=new EmployeeDb();
 
         resp.setContentType("application/json");
 
@@ -34,14 +35,14 @@ public class ReadEmployeeDetails extends HttpServlet {
           resp.getWriter().println(responseData);
           resp.setStatus(HttpServletResponse.SC_OK);
 
-      }catch (NullPointerException exp){
-        //  resp.setStatus(HttpServletResponse.SC_OK);
-
-          Employee employee=new Employee();
-          Gson gson=new Gson();
-          String responseData = gson.toJson(employee);
-          resp.getWriter().println(responseData);
-      }
+//      }catch (NullPointerException exp){
+//        //  resp.setStatus(HttpServletResponse.SC_OK);
+//
+//          Employee employee=new Employee();
+//          Gson gson=new Gson();
+//          String responseData = gson.toJson(employee);
+//          resp.getWriter().println(responseData);
+//      }
 }}
 
 
