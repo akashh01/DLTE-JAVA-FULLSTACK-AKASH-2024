@@ -1,5 +1,7 @@
 package loan.dao.project.loan;
 
+import loan.dao.project.loan.interfaces.InterfaceServices;
+import loan.dao.project.loan.services.LoanServices;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
