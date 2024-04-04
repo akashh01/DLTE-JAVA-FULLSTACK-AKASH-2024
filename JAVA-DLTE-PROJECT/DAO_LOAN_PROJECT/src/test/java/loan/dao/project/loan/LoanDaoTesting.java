@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -42,7 +43,7 @@ public class LoanDaoTesting {
         //pass
         assertEquals("Personal Loan", result.get(0).getLoanType());
         //fail
-     //   assertEquals("Name3", result.get(1).getLoanName());
+        assertEquals("No loan", result.get(1).getLoanName());
     }
 
     @Test
@@ -53,6 +54,7 @@ public class LoanDaoTesting {
         // Calling the method under test and expecting an exception
         assertThrows(NoLoanData.class, () -> loanServices.allAvailableLoan());
     }
+
 }
 
 

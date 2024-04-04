@@ -2,6 +2,7 @@ package loan.dao.project.loan.services;
 
 
 import loan.dao.project.loan.entities.LoanAvailable;
+import loan.dao.project.loan.exceptions.LoanServiceException;
 import loan.dao.project.loan.exceptions.NoLoanData;
 import loan.dao.project.loan.interfaces.LoanInterface;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class LoanServices implements LoanInterface {
      JdbcTemplate jdbcTemplate;
      Logger logger= LoggerFactory.getLogger(LoanServices.class);
 
-
+     //implementing row mapper for retriving data
      public class LoanAvailableMapper implements RowMapper<LoanAvailable>{
           @Override
           public LoanAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -43,7 +44,7 @@ public class LoanServices implements LoanInterface {
      }
 
 
-
+     //to fetch all the data from available loan
      @Override
      public List<LoanAvailable> allAvailableLoan() {
 
@@ -54,11 +55,15 @@ public class LoanServices implements LoanInterface {
              }
              catch (DataAccessException dae) {
                  logger.error(resourceBundle.getString("db.fetch.error"));
+                 //throwing custom exception for any db error that occurs to the customer
+                 throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
              }
              if(allAvailLoan.size()==0){
+                 //handling the null case using exception
                  logger.warn(resourceBundle.getString("no.loan.data"));
                  throw new NoLoanData();
              }
+
              logger.info(resourceBundle.getString("loan.success.fetch"));
              return allAvailLoan;
      }
