@@ -60,4 +60,15 @@ public class LoanAvailable {
     public void setLoanRoi(double loanRoi) {
         this.loanRoi = loanRoi;
     }
+
+    @Override
+    public String toString() {
+        return "LoanAvailable{" +
+                "loanNumber=" + loanNumber +
+                ", loanType='" + loanType + '\'' +
+                ", loanName='" + loanName + '\'' +
+                ", loanDescription='" + loanDescription + '\'' +
+                ", loanRoi=" + loanRoi +
+                '}';
+    }
 }
