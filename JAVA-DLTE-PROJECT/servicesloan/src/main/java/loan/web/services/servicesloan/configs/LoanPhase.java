@@ -24,8 +24,7 @@ public class LoanPhase {
 
     @Autowired
     public  LoanInterface interfaceServices;
-    @Autowired
-    public static LoanServices loanServices;
+
 
     private final String url="http://loans.services";
 
@@ -49,7 +48,7 @@ public class LoanPhase {
             serviceStatus.setStatus("SUCCESS");
             serviceStatus.setMessage("Loan's were fetched");
             response.getLoanAvailable().addAll(allLoans);
-        response.setServiceStatus(serviceStatus);
+            response.setServiceStatus(serviceStatus);
 
         return response;
     }

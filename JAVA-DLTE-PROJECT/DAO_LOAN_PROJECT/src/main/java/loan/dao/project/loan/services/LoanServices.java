@@ -7,6 +7,7 @@ import loan.dao.project.loan.interfaces.LoanInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 //"LoanException" when there is no loan scheme available
 @Service
 public class LoanServices implements LoanInterface {
-     @Autowired
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    @Autowired
      JdbcTemplate jdbcTemplate;
      Logger logger= LoggerFactory.getLogger(LoanServices.class);
 
@@ -43,22 +46,21 @@ public class LoanServices implements LoanInterface {
 
      @Override
      public List<LoanAvailable> allAvailableLoan() {
-          List<LoanAvailable> allAvailLoan;
-          allAvailLoan = jdbcTemplate.query("select * from MYBANK_APP_LOANAVAILABLE", new LoanAvailableMapper());
-//          try {
-//               allAvailLoan = jdbcTemplate.query("select * from MYBANK_APP_LOANAVAILABLE", new LoanAvailableMapper());
-//               if (allAvailLoan == null) {
-//                   // logger.info(NoLoanData.toS);
-//                    throw new NoLoanData();
-//               } else {
-//                    return allAvailLoan;
-//               }
 
-//
-//          }catch (InputMismatchException e){
-//               System.out.println(e);
-//          }
-          return allAvailLoan;
+             List<LoanAvailable> allAvailLoan = new ArrayList<>();
+             try{
+                 allAvailLoan = jdbcTemplate.query("select * from MYBANK_APP_LOANAVAILABLE", new LoanAvailableMapper());
+                 logger.info(resourceBundle.getString("start.loan.fetch"));
+             }
+             catch (DataAccessException dae) {
+                 logger.error(resourceBundle.getString("db.fetch.error"));
+             }
+             if(allAvailLoan.size()==0){
+                 logger.warn(resourceBundle.getString("no.loan.data"));
+                 throw new NoLoanData();
+             }
+             logger.info(resourceBundle.getString("loan.success.fetch"));
+             return allAvailLoan;
      }
 
 
