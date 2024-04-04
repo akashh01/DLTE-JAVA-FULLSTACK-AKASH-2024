@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 @ComponentScan("loan.dao.project.loan")
 @Endpoint
 public class LoanPhase {
-
+    //autowiring the interface repo from DAO
     @Autowired
     public  LoanInterface interfaceServices;
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
