@@ -61,7 +61,7 @@ public class LoanServices implements LoanInterface {
              if(allAvailLoan.size()==0){
                  //handling the null case using exception
                  logger.warn(resourceBundle.getString("no.loan.data"));
-                 throw new NoLoanData();
+                 throw new NoLoanData(resourceBundle.getString("no.loan.data"));
              }
 
              logger.info(resourceBundle.getString("loan.success.fetch"));

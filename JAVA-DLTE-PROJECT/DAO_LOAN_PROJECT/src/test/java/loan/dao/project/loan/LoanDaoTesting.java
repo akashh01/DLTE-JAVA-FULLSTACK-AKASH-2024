@@ -47,7 +47,7 @@ public class LoanDaoTesting {
     }
 
     @Test
-    void allAvailableLoan_NoDataFound() {
+    void allAvailableLoanNoDataFound() {
         // Mocking an empty response from the database
         when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class))).thenReturn(new ArrayList<>());
 
