@@ -15,6 +15,18 @@
           </xsd:sequence>
     </xsd:complexType>
 
+        <!--    Entity-->
+        <xsd:complexType name="LoanAvailed">
+            <xsd:sequence>
+                <xsd:element name="customerNumber" type="xsd:int"/>
+                <xsd:element name="loanNumber" type="xsd:long"/>
+                <xsd:element name="loanAmount" type="xsd:long"/>
+                <xsd:element name="loanEmi" type="xsd:double"/>
+                <xsd:element name="loanTenure" type="xsd:int"/>
+              </xsd:sequence>
+        </xsd:complexType>
+
+
         <!--    Status-->
         <xsd:complexType name="serviceStatus">
             <xsd:sequence>

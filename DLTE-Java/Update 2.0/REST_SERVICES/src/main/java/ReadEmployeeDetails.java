@@ -17,14 +17,14 @@ public class ReadEmployeeDetails extends HttpServlet {
 //    public
 //    @Override
 //    public void init() {
-//        EmployeeInterface employeeInterfac=new EmployeeDb();
+//       EmployeeInterface employeeInterfac=new EmployeeDb();
 //    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
      //try{
 
-      // EmployeeInterface employeeInterface=new EmployeeDb();
+       EmployeeInterface employeeInterface=new EmployeeDb();
 
         resp.setContentType("application/json");
 

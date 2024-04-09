@@ -1,0 +1,43 @@
+CREATE OR REPLACE PROCEDURE insert_loan_availed5(
+    p_customer_number INT,
+    p_loan_number INT,
+    p_loan_amount DECIMAL,
+    p_loan_emi DECIMAL,
+    p_loan_tenure INT
+) AS 
+    v_customer_status VARCHAR2(255);
+    v_loan_count INT;
+BEGIN
+    SELECT CUSTOMER_STATUS INTO v_customer_status FROM MYBANK_APP_CUSTOMER WHERE CUSTOMER_ID = p_customer_number;
+
+    SELECT COUNT(*) INTO v_loan_count FROM MYBANK_APP_LOANAVAILED WHERE customer_number = p_customer_number AND loan_number = p_loan_number;
+
+    IF v_customer_status = 'active' AND v_loan_count = 0 THEN
+        INSERT INTO MYBANK_APP_LOANAVAILED(
+            loan_avail_number,
+            customer_number,
+            loan_number,
+            loan_amount,
+            loan_emi,
+            loan_tenure
+        ) VALUES (
+            LOANAVAIL_SEQ.nextval,
+            p_customer_number,
+            p_loan_number,
+            p_loan_amount,
+            p_loan_emi,
+            p_loan_tenure
+        );
+        COMMIT;
+    ELSIF v_loan_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Customer has already availed this loan');
+    ELSE
+        RAISE_APPLICATION_ERROR(-20002, 'Cannot insert loan for inactive customer');
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Customer not found');
+END;
+/
+
+execute insert_loan_availed5(100,121,60000,5.1,6);

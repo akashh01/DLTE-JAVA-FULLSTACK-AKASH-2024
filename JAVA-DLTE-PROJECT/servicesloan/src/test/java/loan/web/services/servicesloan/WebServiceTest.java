@@ -70,16 +70,20 @@ public class WebServiceTest {
 //       // assertNotNull(response.getLoanAvailable());
 //       // assertEquals(1, response.getLoanAvailable().size());
 //    }
-
     @Test
     public void testViewAvailLoanRequestNoLoanData() {
         // Arrange
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
 
+        List<LoanAvailable> mockLoanList = new ArrayList<>();
+        //when(interfaceServices.allAvailableLoan()).thenReturn(mockLoanList);
         when(interfaceServices.allAvailableLoan()).thenThrow(NoLoanData.class);
 
+        ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
         // Act and Assert
-        assertThrows(NoLoanData.class, () -> loanPhase.viewAvailLoanRequest(request));
+     //   assertThrows(NoLoanData.class, () -> loanPhase.viewAvailLoanRequest(request));
+        assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
+      //  assertEquals("No loan available,sorry",response.getServiceStatus().getMessage());
     }
 
     @Test

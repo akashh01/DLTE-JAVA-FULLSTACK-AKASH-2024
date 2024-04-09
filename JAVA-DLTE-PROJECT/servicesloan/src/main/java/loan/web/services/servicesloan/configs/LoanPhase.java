@@ -44,14 +44,15 @@ public class LoanPhase {
         try {
                 List<LoanAvailable> allLoansDao = interfaceServices.allAvailableLoan();
                 List<services.loans.LoanAvailable> allLoans=new ArrayList<>();
+                //java8
                 allLoansDao.forEach(each->{
                 services.loans.LoanAvailable currentLoan=new services.loans.LoanAvailable();
                 BeanUtils.copyProperties(each,currentLoan);
                 allLoans.add(currentLoan);
-                serviceStatus.setStatus(HttpServletResponse.SC_OK);
-                response.getLoanAvailable().addAll(allLoans);
-                logger.info(resourceBundle.getString("loan.server.available"));
             });
+            serviceStatus.setStatus(HttpServletResponse.SC_OK);
+            response.getLoanAvailable().addAll(allLoans);
+            logger.info(resourceBundle.getString("loan.server.available"));
         }catch (LoanServiceException exception){
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage(exception.toString());
