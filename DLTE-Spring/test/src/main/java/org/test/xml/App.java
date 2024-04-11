@@ -14,7 +14,7 @@ public class App
     {
         {
             BeanFactory beanFactory=new XmlBeanFactory(new FileSystemResource("spring-dispatcher.xml"));
-            Branch akashBranch=beanFactory.getBean("branch4", Branch.class);
+            Branch akashBranch=beanFactory.getBean("branch3", Branch.class);
             System.out.println(akashBranch.getBranchContact()+" "+akashBranch.getBranchName());
             Branch elroyBranch=beanFactory.getBean("branch1",Branch.class);
             System.out.println(elroyBranch);

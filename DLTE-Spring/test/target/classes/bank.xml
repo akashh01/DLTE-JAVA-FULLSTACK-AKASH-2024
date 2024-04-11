@@ -5,7 +5,7 @@
         <property name="branchId" value="11610"/>
     </bean>
 
-    <bean id="branch3" class="org.test.xml.Branch">
+    <bean id="branch3" name="hello" class="org.test.xml.Branch" lazy-init="true">
         <property name="bankName" value="MyBank"/>
         <property name="branchContact" value="8765678765676"/>
         <property name="branchId" value="122"/>

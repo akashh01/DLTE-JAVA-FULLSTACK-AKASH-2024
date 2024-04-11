@@ -46,9 +46,9 @@ public class ConsoleForWeb {
 
     static ResourceBundle resourceBundle = ResourceBundle.getBundle("information");
     static ResourceBundle resourceBundleOne = ResourceBundle.getBundle("exceptions");
-    public static String url = "http://localhost:7001/REST_SERVICES/";
+    public static String url = "http://localhost:9000/Employee";
 
-    private static Logger logger = LoggerFactory.getLogger(App.class);
+    private static Logger logger = LoggerFactory.getLogger(ConsoleForWeb.class);
 
     public static void main(String[] args) throws IOException {
         ConsoleForWeb consoleForWeb = new ConsoleForWeb();
@@ -85,9 +85,10 @@ public class ConsoleForWeb {
 
     public void writeEmployee(Employee employee) throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpPost httppost = new HttpPost(url + "/addEmployee/");
+        HttpPost httppost = new HttpPost(url + "/New/");
         Gson gson=new Gson();
         String writeData = gson.toJson(employee);
+        System.out.println(writeData);
         //httppost.setEntity(new UrlEncodedFormEntity(writeData, "UTF-8"));
         StringEntity entity=new StringEntity(writeData);
         httppost.setEntity(entity);
@@ -97,7 +98,7 @@ public class ConsoleForWeb {
 
     public void displayOnPincode() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpget = new HttpGet(url + "/allemployee/");
+        HttpGet httpget = new HttpGet(url + "/Details/");
         CloseableHttpResponse response = httpclient.execute(httpget);
         Gson gson = new Gson();
         String jjson = printResponse(response);
@@ -130,7 +131,7 @@ public class ConsoleForWeb {
 
     public void displayAll() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpget = new HttpGet(url + "/allemployee/");
+        HttpGet httpget = new HttpGet(url + "/Details/");
         CloseableHttpResponse response = httpclient.execute(httpget);
         Gson gson = new Gson();
         String jjson = printResponse(response);

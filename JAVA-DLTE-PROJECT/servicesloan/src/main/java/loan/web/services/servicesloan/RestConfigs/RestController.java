@@ -12,13 +12,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 @org.springframework.web.bind.annotation.RestController
@@ -32,17 +34,47 @@ public class RestController {
     Logger logger= LoggerFactory.getLogger(LoanServices.class);
 
     @PostMapping("/apply")
-    public ResponseEntity<Object> availDepositApi(@Valid @RequestBody LoanAvailed depositsAvailRequest){
+    public ResponseEntity<Object> availLoanApi(@Valid @RequestBody LoanAvailed loanAvailRequest){
        String info="";
         try{
-            info=interfaceServices.createNewLoan(depositsAvailRequest);
+            info=interfaceServices.createNewLoan(loanAvailRequest);
             //myBankRemo.availDeposits(depositsAvailRequest);
-            logger.info("Post Request Successful");
+            logger.info(resourceBundle.getString("post.success"));
+            return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
         }
-       catch (LoanAlreadyExist| NoLoanData| CustomerInactive| LoanServiceException exp){
-           logger.info(exp.toString());
+        catch (LoanAlreadyExist exception){
+            logger.info(exception.toString());
+            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"),HttpStatus.BAD_REQUEST);
+        }
+        catch (NoLoanData exception){
+            logger.info(exception.toString());
+            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"),HttpStatus.BAD_REQUEST);
+        }
+        catch (CustomerInactive exception){
+            logger.info(exception.toString());
+            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"),HttpStatus.BAD_REQUEST);
+        }
+       catch (LoanServiceException exception){
+           logger.info(exception.toString());
+           return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"),HttpStatus.BAD_REQUEST);
        }
-        return ResponseEntity.ok(info);
+
+
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+
+
 
 }
