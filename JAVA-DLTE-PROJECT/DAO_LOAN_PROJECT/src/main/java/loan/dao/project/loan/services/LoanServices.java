@@ -26,95 +26,89 @@ import java.util.*;
 @Service
 public class LoanServices implements LoanInterface {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
-     @Autowired
-     JdbcTemplate jdbcTemplate;
-     Logger logger= LoggerFactory.getLogger(LoanServices.class);
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+    Logger logger = LoggerFactory.getLogger(LoanServices.class);
 
-     //implementing row mapper for retriving data
-     public class LoanAvailableMapper implements RowMapper<LoanAvailable>{
-          @Override
-          public LoanAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
-               LoanAvailable loanAvailable=new LoanAvailable();
-               loanAvailable.setLoanNumber(rs.getInt(1));
-               loanAvailable.setLoanType(rs.getString(2));
-               loanAvailable.setLoanName(rs.getString(3));
-               loanAvailable.setLoanDescription(rs.getString(4));
-               loanAvailable.setLoanRoi(rs.getDouble(5));
-               return loanAvailable;
-          }
-     }
-
-
-     //to fetch all the data from available loan
-     @Override
-     public List<LoanAvailable> allAvailableLoan() {
-
-             List<LoanAvailable> allAvailLoan = new ArrayList<>();
-             try{
-                 allAvailLoan = jdbcTemplate.query("select * from MYBANK_APP_LOANAVAILABLE", new LoanAvailableMapper());
-                 logger.info(resourceBundle.getString("start.loan.fetch"));
-             }
-             catch (DataAccessException dae) {
-                 logger.error(resourceBundle.getString("db.fetch.error"));
-                 //throwing custom exception for any db error that occurs to the customer
-                 throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
-             }
-             if(allAvailLoan.size()==0){
-                 //handling the null case using exception
-                 logger.warn(resourceBundle.getString("no.loan.data"));
-                 throw new NoLoanData(resourceBundle.getString("no.loan.data"));
-             }
-
-             logger.info(resourceBundle.getString("loan.success.fetch"));
-             return allAvailLoan;
-     }
+    //implementing row mapper for retriving data
+    public class LoanAvailableMapper implements RowMapper<LoanAvailable> {
+        @Override
+        public LoanAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
+            LoanAvailable loanAvailable = new LoanAvailable();
+            loanAvailable.setLoanNumber(rs.getInt(1));
+            loanAvailable.setLoanType(rs.getString(2));
+            loanAvailable.setLoanName(rs.getString(3));
+            loanAvailable.setLoanDescription(rs.getString(4));
+            loanAvailable.setLoanRoi(rs.getDouble(5));
+            return loanAvailable;
+        }
+    }
 
 
+    //to fetch all the data from available loan
+    @Override
+    public List<LoanAvailable> allAvailableLoan() {
+
+        List<LoanAvailable> allAvailLoan = new ArrayList<>();
+        try {
+            allAvailLoan = jdbcTemplate.query("select * from MYBANK_APP_LOANAVAILABLE", new LoanAvailableMapper());
+            logger.info(resourceBundle.getString("start.loan.fetch"));
+        } catch (DataAccessException dae) {
+            logger.error(resourceBundle.getString("db.fetch.error"));
+            //throwing custom exception for any db error that occurs to the customer
+            throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
+        }
+        if (allAvailLoan.size() == 0) {
+            //handling the null case using exception
+            logger.warn(resourceBundle.getString("no.loan.data"));
+            throw new NoLoanData(resourceBundle.getString("no.loan.data"));
+        }
+
+        logger.info(resourceBundle.getString("loan.success.fetch"));
+        return allAvailLoan;
+    }
 
 
+    @Override
+    public List<LoanAvailable> findByLoanType(String loanType) {
+        return null;
+    }
 
-     @Override
-     public List<LoanAvailable> findByLoanType(String loanType) {
-          return null;
-     }
-//
+    //
 //    variable info varchar2;
 //    execute final_insert_loan(100,121,60000,5.1,6,:info);
 //    print info;
     @Override
     public String createNewLoan(LoanAvailed loan) {
-        CallableStatementCreator creator= con -> {
-            CallableStatement statement=con.prepareCall("{call final_loan_insert(?,?,?,?,?,?)}");
+        CallableStatementCreator creator = con -> {
+            CallableStatement statement = con.prepareCall("{call final_loan_insert(?,?,?,?,?,?)}");
             //statement.setInt(1,loan.getLoanAvailNumber());
-            statement.setInt(1,loan.getCustomerNumber());
-            statement.setLong(2,loan.getLoanNumber());
-            statement.setLong(3,loan.getLoanAmount());
-            statement.setDouble(4,loan.getLoanEmi());
-            statement.setInt(5,loan.getLoanTenure());
+            statement.setInt(1, loan.getCustomerNumber());
+            statement.setLong(2, loan.getLoanNumber());
+            statement.setLong(3, loan.getLoanAmount());
+            statement.setDouble(4, loan.getLoanEmi());
+            statement.setInt(5, loan.getLoanTenure());
             statement.registerOutParameter(6, Types.VARCHAR);
             return statement;
         };
-        Map<String,Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
+        Map<String, Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
                 new SqlParameter[]{
                         new SqlParameter(Types.NUMERIC),
                         new SqlParameter(Types.NUMERIC),
                         new SqlParameter(Types.NUMERIC),
                         new SqlParameter(Types.NUMERIC),
                         new SqlParameter(Types.NUMERIC),
-                        new SqlOutParameter("errOrInfo",Types.VARCHAR),
+                        new SqlOutParameter("errOrInfo", Types.VARCHAR),
                 }
         ));
-        String errorInfo=returnedExecution.get("errOrInfo").toString();
-        if(errorInfo.equals("SQE001")){
+        String errorInfo = returnedExecution.get("errOrInfo").toString();
+        if (errorInfo.equals("SQE001")) {
             throw new LoanAlreadyExist(resourceBundle.getString("loan.exists.customer"));
-        }
-        else if(errorInfo.equals("SQE002")){
+        } else if (errorInfo.equals("SQE002")) {
             throw new CustomerInactive(resourceBundle.getString("loan.exists.customer"));
-        }
-        else if(errorInfo.equals("SQE003")){
+        } else if (errorInfo.equals("SQE003")) {
             throw new NoLoanData(resourceBundle.getString("no.loan.data"));
-        }
-        else if(errorInfo.equals("SQE004")){
+        } else if (errorInfo.equals("SQE004")) {
             logger.error(resourceBundle.getString("apply.loan.error"));
             throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
         }

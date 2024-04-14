@@ -16,17 +16,17 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class SoapServiceConfiguration extends WsConfigurerAdapter {
     @Bean
-    public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext){
-        MessageDispatcherServlet servlet=new MessageDispatcherServlet();
+    public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext) {
+        MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setTransformWsdlLocations(true);
         servlet.setApplicationContext(applicationContext);
-        return new ServletRegistrationBean(servlet,"/loansrepo/*");
+        return new ServletRegistrationBean(servlet, "/loansrepo/*");
     }
 
     // wsdl properties
     @Bean(name = "loans")
-    public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema){
-        DefaultWsdl11Definition defaultWsdl11Definition=new DefaultWsdl11Definition();
+    public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema) {
+        DefaultWsdl11Definition defaultWsdl11Definition = new DefaultWsdl11Definition();
         defaultWsdl11Definition.setPortTypeName("LoansPort");
         defaultWsdl11Definition.setTargetNamespace("http://loans.services");
         defaultWsdl11Definition.setLocationUri("/loansrepo");
@@ -36,6 +36,7 @@ public class SoapServiceConfiguration extends WsConfigurerAdapter {
 
     // identify the xsd
     @Bean
-    public XsdSchema loansSchema(){
+    public XsdSchema loansSchema() {
         return new SimpleXsdSchema(new ClassPathResource("LoanAvailable.xsd"));
-    }}
+    }
+}

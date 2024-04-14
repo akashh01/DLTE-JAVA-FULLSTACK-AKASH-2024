@@ -7,8 +7,8 @@ import javax.validation.constraints.Pattern;
 
 public class LoanAvailable {
     //Entites
-    @NotNull(message="{loan.num.null}")
-    @Digits(integer = 3,fraction = 0, message = "{loan.num.invalid}")
+    @NotNull(message = "{loan.num.null}")
+    @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}")
     private long loanNumber;
     @NotNull(message = "{loan.type.null}")
     @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.type.invalid}")

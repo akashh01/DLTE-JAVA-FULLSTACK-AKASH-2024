@@ -31,34 +31,33 @@ import java.util.ResourceBundle;
 public class LoanPhase {
     //autowiring the interface repo from DAO
     @Autowired
-    public  LoanInterface interfaceServices;
+    public LoanInterface interfaceServices;
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
-    Logger logger= LoggerFactory.getLogger(LoanServices.class);
-    private final String url="http://loans.services";
+    Logger logger = LoggerFactory.getLogger(LoanServices.class);
+    private final String url = "http://loans.services";
 
-    @PayloadRoot(namespace = url,localPart = "viewAllAvailableLoanRequest")
+    @PayloadRoot(namespace = url, localPart = "viewAllAvailableLoanRequest")
     @ResponsePayload
-    public ViewAllAvailableLoanResponse viewAvailLoanRequest(@RequestPayload ViewAllAvailableLoanRequest request){
-        ViewAllAvailableLoanResponse response=new ViewAllAvailableLoanResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
+    public ViewAllAvailableLoanResponse viewAvailLoanRequest(@RequestPayload ViewAllAvailableLoanRequest request) {
+        ViewAllAvailableLoanResponse response = new ViewAllAvailableLoanResponse();
+        ServiceStatus serviceStatus = new ServiceStatus();
         try {
-                List<LoanAvailable> allLoansDao = interfaceServices.allAvailableLoan();
-                List<services.loans.LoanAvailable> allLoans=new ArrayList<>();
-                //java8
-                allLoansDao.forEach(each->{
-                services.loans.LoanAvailable currentLoan=new services.loans.LoanAvailable();
-                BeanUtils.copyProperties(each,currentLoan);
+            List<LoanAvailable> allLoansDao = interfaceServices.allAvailableLoan();
+            List<services.loans.LoanAvailable> allLoans = new ArrayList<>();
+            //java8
+            allLoansDao.forEach(each -> {
+                services.loans.LoanAvailable currentLoan = new services.loans.LoanAvailable();
+                BeanUtils.copyProperties(each, currentLoan);
                 allLoans.add(currentLoan);
             });
             serviceStatus.setStatus(HttpServletResponse.SC_OK);
             response.getLoanAvailable().addAll(allLoans);
             logger.info(resourceBundle.getString("loan.server.available"));
-        }catch (LoanServiceException exception){
+        } catch (LoanServiceException exception) {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage(exception.toString());
             logger.info(resourceBundle.getString("loan.server.error"));
-        }
-        catch (NoLoanData exception){
+        } catch (NoLoanData exception) {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage(exception.toString());
             logger.info(resourceBundle.getString("loan.server.error"));

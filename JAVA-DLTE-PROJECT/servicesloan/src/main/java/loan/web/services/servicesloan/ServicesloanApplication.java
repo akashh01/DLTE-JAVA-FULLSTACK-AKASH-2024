@@ -8,8 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 public class ServicesloanApplication {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SpringApplication.run(ServicesloanApplication.class, args);
     }
 

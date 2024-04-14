@@ -1,33 +1,35 @@
 package loan.dao.project.loan.entities;
 
+import org.springframework.data.relational.core.sql.In;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class LoanAvailed {
-    @NotNull(message="{loan.avail.num.null}")
-    @Digits(integer = 3,fraction = 0, message = "{loan.num.invalid}")
-    private int loanAvailNumber;
-    @NotNull(message="{loan.customer.num.null}")
-    @Digits(integer = 3,fraction = 0, message = "{loan.num.invalid}")
-    private int customerNumber;
-    @NotNull(message="{loan.num.null}")
-    @Digits(integer = 3,fraction = 0, message = "{loan.num.invalid}")
-    private long loanNumber;
-    @NotNull(message="{loan.amount.null}")
-    @Digits(integer = 10,fraction=0,message="{loan.amount.null}")
-    private long loanAmount;
-    @NotNull(message="{loan.emi.null}")
-    @Digits(integer = 2,fraction = 2,message="{loan.emi.null}")
-    private double loanEmi;
-    @NotNull(message="{loan.tenure.null}")
-    @Digits(integer = 2,fraction = 0,message="{loan.tenure.null}")
-    private int loanTenure;
+    @NotNull(message = "{loan.avail.num.null}")
+    @Digits(integer = 3, fraction = 0, message = "{loan.avail.invalid}")
+    private Integer loanAvailNumber;
+    @NotNull(message = "{loan.customer.num.null}")
+    @Digits(integer = 3, fraction = 0, message = "{loan.customer.invalid}")
+    private Integer customerNumber;
+    @NotNull(message = "{loan.num.null}")
+    @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}")
+    private Long loanNumber;
+    @NotNull(message = "{loan.amount.null}")
+    @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}")
+    private Long loanAmount;
+    @NotNull(message = "{loan.emi.null}")
+    @Digits(integer = 2, fraction = 2, message = "{loan.emi.null}")
+    private Double loanEmi;
+    @NotNull(message = "{loan.tenure.null}")
+    @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}")
+    private Integer loanTenure;
 
     public LoanAvailed() {
     }
 
-    public LoanAvailed(@NotNull(message = "{loan.customer.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") int customerNumber, @NotNull(message = "{loan.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") long loanNumber, @NotNull(message = "{loan.amount.null}") @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}") long loanAmount, @NotNull(message = "{loan.emi.null}") @Digits(integer = 2, fraction = 2, message = "{loan.emi.null}") double loanEmi, @NotNull(message = "{loan.tenure.null}") @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}") int loanTenure) {
+    public LoanAvailed(@NotNull(message = "{loan.customer.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") Integer customerNumber, @NotNull(message = "{loan.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") Long loanNumber, @NotNull(message = "{loan.amount.null}") @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}") Long loanAmount, @NotNull(message = "{loan.emi.null}") @Digits(integer = 2, fraction = 2, message = "{loan.emi.null}") Double loanEmi, @NotNull(message = "{loan.tenure.null}") @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}") Integer loanTenure) {
         this.customerNumber = customerNumber;
         this.loanNumber = loanNumber;
         this.loanAmount = loanAmount;
@@ -35,51 +37,51 @@ public class LoanAvailed {
         this.loanTenure = loanTenure;
     }
 
-    public int getLoanAvailNumber() {
+    public Integer getLoanAvailNumber() {
         return loanAvailNumber;
     }
 
-    public void setLoanAvailNumber(int loanAvailNumber) {
+    public void setLoanAvailNumber(Integer loanAvailNumber) {
         this.loanAvailNumber = loanAvailNumber;
     }
 
-    public int getCustomerNumber() {
+    public Integer getCustomerNumber() {
         return customerNumber;
     }
 
-    public void setCustomerNumber(int customerNumber) {
+    public void setCustomerNumber(Integer customerNumber) {
         this.customerNumber = customerNumber;
     }
 
-    public long getLoanNumber() {
+    public Long getLoanNumber() {
         return loanNumber;
     }
 
-    public void setLoanNumber(long loanNumber) {
+    public void setLoanNumber(Long loanNumber) {
         this.loanNumber = loanNumber;
     }
 
-    public long getLoanAmount() {
+    public Long getLoanAmount() {
         return loanAmount;
     }
 
-    public void setLoanAmount(long loanAmount) {
+    public void setLoanAmount(Long loanAmount) {
         this.loanAmount = loanAmount;
     }
 
-    public double getLoanEmi() {
+    public Double getLoanEmi() {
         return loanEmi;
     }
 
-    public void setLoanEmi(double loanEmi) {
+    public void setLoanEmi(Double loanEmi) {
         this.loanEmi = loanEmi;
     }
 
-    public int getLoanTenure() {
+    public Integer getLoanTenure() {
         return loanTenure;
     }
 
-    public void setLoanTenure(int loanTenure) {
+    public void setLoanTenure(Integer loanTenure) {
         this.loanTenure = loanTenure;
     }
 }

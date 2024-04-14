@@ -31,33 +31,29 @@ public class RestController {
     @Autowired
     public LoanInterface interfaceServices;
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
-    Logger logger= LoggerFactory.getLogger(LoanServices.class);
+    Logger logger = LoggerFactory.getLogger(LoanServices.class);
 
     @PostMapping("/apply")
-    public ResponseEntity<Object> availLoanApi(@Valid @RequestBody LoanAvailed loanAvailRequest){
-       String info="";
-        try{
-            info=interfaceServices.createNewLoan(loanAvailRequest);
+    public ResponseEntity<Object> availLoanApi(@Valid @RequestBody LoanAvailed loanAvailRequest) {
+        String info = "";
+        try {
+            info = interfaceServices.createNewLoan(loanAvailRequest);
             //myBankRemo.availDeposits(depositsAvailRequest);
             logger.info(resourceBundle.getString("post.success"));
             return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
-        }
-        catch (LoanAlreadyExist exception){
+        } catch (LoanAlreadyExist exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"),HttpStatus.BAD_REQUEST);
-        }
-        catch (NoLoanData exception){
+            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"), HttpStatus.BAD_REQUEST);
+        } catch (NoLoanData exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"),HttpStatus.BAD_REQUEST);
-        }
-        catch (CustomerInactive exception){
+            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"), HttpStatus.BAD_REQUEST);
+        } catch (CustomerInactive exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.BAD_REQUEST);
+        } catch (LoanServiceException exception) {
+            logger.info(exception.toString());
+            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.BAD_REQUEST);
         }
-       catch (LoanServiceException exception){
-           logger.info(exception.toString());
-           return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"),HttpStatus.BAD_REQUEST);
-       }
 
 
     }
@@ -74,7 +70,6 @@ public class RestController {
         });
         return errors;
     }
-
 
 
 }
