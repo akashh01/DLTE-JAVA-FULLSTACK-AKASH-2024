@@ -29,8 +29,8 @@
 //public class WebServiceTest {
 //
 //    @Autowired
-//    private LoanPhase loanPhase;
-//
+////    private LoanPhase loanPhase;
+////
 //    @MockBean
 //    private LoanInterface interfaceServices;
 //
