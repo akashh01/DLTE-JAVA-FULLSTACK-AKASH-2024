@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import services.loans.LoanAvailed;
 
 import java.util.ResourceBundle;
 
@@ -43,7 +44,7 @@ public class RestEndpoint {
                     "}";
             mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isOk());
     }
-    
+
     @Test
     public void testDepositAvailed() throws Exception {
         String request = "{\n" +
@@ -56,4 +57,10 @@ public class RestEndpoint {
                 "}";
         mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isOk());
     }
+//    @Test
+//    public void testBeans() throws  Exception{
+//        LoanAvailed loan=new LoanAvailed(123,5000,100,1.5,500);
+//
+//    }
+
 }
