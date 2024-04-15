@@ -7,10 +7,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class LoanAvailed {
-    @NotNull(message = "{loan.avail.num.null}")
     @Digits(integer = 3, fraction = 0, message = "{loan.avail.invalid}")
     private Integer loanAvailNumber;
-    @NotNull(message = "{loan.customer.num.null}")
+   // @NotNull(message = "{loan.customer.num.null}")
     @Digits(integer = 3, fraction = 0, message = "{loan.customer.invalid}")
     private Integer customerNumber;
     @NotNull(message = "{loan.num.null}")

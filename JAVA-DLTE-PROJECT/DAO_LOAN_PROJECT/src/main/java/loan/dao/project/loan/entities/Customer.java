@@ -1,12 +1,14 @@
 package loan.dao.project.loan.entities;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Customer implements UserDetails {
@@ -96,22 +98,22 @@ public class Customer implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void setUsername(String username) {
@@ -120,7 +122,9 @@ public class Customer implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<SimpleGrantedAuthority> authorities= new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(username));
+        return authorities;
     }
 
     public String getPassword() {

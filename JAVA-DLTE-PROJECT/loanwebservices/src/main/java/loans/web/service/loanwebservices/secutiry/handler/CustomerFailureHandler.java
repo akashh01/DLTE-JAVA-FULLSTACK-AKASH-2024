@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     @Autowired
     CustomerAuthServices service;
+
     ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
     Logger logger = LoggerFactory.getLogger(CustomerFailureHandler.class);
 
@@ -31,7 +32,7 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
         String username= request.getParameter("username");
         Customer customer=service.findByUserName(username);
         if(customer!=null){
-            if (customer.getCustomerStatus().equalsIgnoreCase("Active")) {
+            if (!customer.getCustomerStatus().equals("Inactive")) {
                 if (customer.getAttempts()<customer.getMaxAttempt()){
                     customer.setAttempts(customer.getAttempts()+1);
                     service.updateAttempts(customer);
@@ -48,7 +49,8 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
 //        }else{
 //            logger.warn(resourceBundle.getString("customer.null"));
 //        }
+        }
         super.setDefaultFailureUrl("/login?error=true");
         super.onAuthenticationFailure(request, response, exception);
-    }
+
 }}

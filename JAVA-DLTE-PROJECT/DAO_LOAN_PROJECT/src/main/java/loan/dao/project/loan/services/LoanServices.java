@@ -81,7 +81,7 @@ public class LoanServices implements LoanInterface {
     @Override
     public String createNewLoan(LoanAvailed loan) {
         CallableStatementCreator creator = con -> {
-            CallableStatement statement = con.prepareCall("{call final_loan_insert(?,?,?,?,?,?)}");
+            CallableStatement statement = con.prepareCall("{call final_loan_insert(?,?,?,?,?,?)}");  //call procedure
             //statement.setInt(1,loan.getLoanAvailNumber());
             statement.setInt(1, loan.getCustomerNumber());
             statement.setLong(2, loan.getLoanNumber());
@@ -91,6 +91,7 @@ public class LoanServices implements LoanInterface {
             statement.registerOutParameter(6, Types.VARCHAR);
             return statement;
         };
+        //mapping
         Map<String, Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
                 new SqlParameter[]{
                         new SqlParameter(Types.NUMERIC),

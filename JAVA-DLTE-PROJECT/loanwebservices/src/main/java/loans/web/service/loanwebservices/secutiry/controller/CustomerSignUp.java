@@ -23,6 +23,7 @@ public class CustomerSignUp {
     CustomerAuthServices repository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     Logger logger= LoggerFactory.getLogger(CustomerSignUp.class);
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
 

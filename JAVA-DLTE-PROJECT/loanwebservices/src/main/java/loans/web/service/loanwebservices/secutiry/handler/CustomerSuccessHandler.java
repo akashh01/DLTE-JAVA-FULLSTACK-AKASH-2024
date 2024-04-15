@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ResourceBundle;
 @Component
@@ -27,14 +28,14 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Customer customer = (Customer) authentication.getPrincipal();
-        if (customer.getCustomerStatus().equalsIgnoreCase("Active")) {
+
+        if (!customer.getCustomerStatus().equals("Inactive")) {
             if (customer.getAttempts() >= 1) {
                 customer.setAttempts(1);
                 service.updateAttempts(customer);
             }
           //  logger.debug(resourceBundle.getString("security.update"));
-
-            super.setDefaultTargetUrl("/mybank/loan/apply");
+            super.setDefaultTargetUrl("/loansrepo/loans.wsdl");
         } else {
           //  logger.warn(resourceBundle.getString("security.max"));
             super.setDefaultTargetUrl("/login");

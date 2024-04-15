@@ -21,9 +21,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class CustomerSecurityConfig {
     @Autowired
     CustomerAuthServices services;
+
     AuthenticationManager manager;
+
     @Autowired
     CustomerSuccessHandler successHandlers;
+
     @Autowired
     CustomerFailureHandler failureHandler;
 
@@ -36,14 +39,12 @@ public class CustomerSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
-        httpSecurity.formLogin()
-                .usernameParameter("username")
-                .failureHandler(failureHandler)
-                .successHandler(successHandlers);
+        httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
 
         httpSecurity.csrf().disable();
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().fullyAuthenticated();
 
 
@@ -52,7 +53,6 @@ public class CustomerSecurityConfig {
         builder.userDetailsService(services);
         manager=builder.build();
         httpSecurity.authenticationManager(manager);
-
         return httpSecurity.build();
     }
 
