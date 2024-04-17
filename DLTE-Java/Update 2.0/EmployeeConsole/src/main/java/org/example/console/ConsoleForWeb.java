@@ -61,9 +61,7 @@ public class ConsoleForWeb {
                 //to fetch employee data from the user
                 case 1:
                     do {
-                        String checkAgain = "first";
                         Employee employee1 = new Employee();
-                        String check;
                         employee1 = consoleForWeb.collectPersonalData();
                         boolean flag = true;
                         consoleForWeb.writeEmployee(employee1);

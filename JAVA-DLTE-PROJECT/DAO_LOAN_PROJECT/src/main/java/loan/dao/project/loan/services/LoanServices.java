@@ -73,11 +73,7 @@ public class LoanServices implements LoanInterface {
     public List<LoanAvailable> findByLoanType(String loanType) {
         return null;
     }
-
-    //
-//    variable info varchar2;
-//    execute final_insert_loan(100,121,60000,5.1,6,:info);
-//    print info;
+;
     @Override
     public String createNewLoan(LoanAvailed loan) {
         CallableStatementCreator creator = con -> {
@@ -103,6 +99,7 @@ public class LoanServices implements LoanInterface {
                 }
         ));
         String errorInfo = returnedExecution.get("errOrInfo").toString();
+        //based on procedure
         if (errorInfo.equals("SQE001")) {
             throw new LoanAlreadyExist(resourceBundle.getString("loan.exists.customer"));
         } else if (errorInfo.equals("SQE002")) {
@@ -170,3 +167,6 @@ public class LoanServices implements LoanInterface {
 //    print info;
 //
 }
+//    variable info varchar2;
+//    execute final_insert_loan(100,121,60000,5.1,6,:info);
+//    print info
