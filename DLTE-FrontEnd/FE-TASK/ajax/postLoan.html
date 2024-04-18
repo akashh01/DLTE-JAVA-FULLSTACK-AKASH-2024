@@ -14,39 +14,37 @@
         $(document).ready(()=>{
 
             $("#cancel").click(()=>{
-                $("#loanName").val("")
-                $("#loanType").val("")
-                $("#loanDescription").val("")
-                $("#loanRoi").val("")
+                $("#loanAmount").val("")
+                $("#loanEmi").val("")
+                $("#loanNumber").val("")
+                $("#loanTenure").val("")
             })
 
             $("#add").click(()=>{
-                const name = $("#loanName").val()
-                const type = $("#loanType").val()
-                const desc = $("#loanDescription").val()
-                const roi = $("#loanRoi").val()
+                const amount = $("#loanAmount").val()
+                const emi = $("#loanEmi").val()
+                const number = $("#loanNumber").val()
+                const year = $("#loanTenure").val()
     
                 const request = {
-                    "loanName":name,
-                    "loanType":type,
-                    "loanDescription":desc,
-                    "loanRoi":roi
+                    "loanAmount":amount,
+                    "loanEmi": emi,
+                    "loanNumber":number,
+                    "loanTenure":year
                 }
                 console.log(JSON.stringify(request))
                 $.ajax({
-                    url:"http://localhost:8082/",
+                    url:"http://localhost:8088/mybank/loan/apply",
                     type:"POST",
                     dataType:"text",
                     beforeSend:function(handler){
-                        handler.setRequestHeader("Authorization","Basic "+btoa("shreyas:shetty"))
+                        handler.setRequestHeader("Authorization","Basic "+btoa("shake1234:shake1234"))
                     },
                     contentType:"application/json;charset=utf-8",
                     data:JSON.stringify(request),
                     success:function(response){
                         alert(JSON.stringify(response))
-                        /*
-                        let element = $("#status")
-                        element.append(`<h1>${response.loanName} has added</h1>`)*/
+    
                     },
                     error:function(err){
                         let element = $("#status")
@@ -58,31 +56,25 @@
     </script>
 </head>
 <body>
-    {
-        "loanAmount": 12100,
-        "loanEmi": 8.2,
-        "loanNumber":121 ,
-        "loanTenure": 8
-      }
     <div class="container">
         <div class="row justify-content-center">
             <p id="status" class="display-6 text-center text-primary"></p>
             <div class="p-5 m-5 rounded-5 shadow">
                 <div class="form group">
                     <label>Loan Amount</label>
-                    <input type="text" id="loanAmount" class="form-control" placholder="Loan amount" />
+                    <input type="number" id="loanAmount" class="form-control" placholder="Loan amount" />
                 </div>
                 <div class="form group">
                     <label>Loan Emi</label>
-                    <input type="text" id="loanEmi" class="form-control" placholder="Loan Emi" />
+                    <input type="number" id="loanEmi" class="form-control" placholder="Loan Emi" />
                 </div>
                 <div class="form group">
                     <label>Loan number</label>
-                    <textarea id="loanDescription" class="form-control"></textarea>
+                    <input type="number" id="loanNumber" class="form-control"></textarea>
                 </div>
                 <div class="form group">
-                    <label>Loan ROI</label>
-                    <input type="number" id="loanRoi" class="form-control" placholder="Loan roi" />
+                    <label>Loan tenure</label>
+                    <input type="number" id="loanTenure" class="form-control" placholder="Loan roi" />
                 </div>
                 <div class="m-5 row justify-content-around">
                     <button id="add" class="col-1 btn btn-outline-primary"><p class="display-6 bi bi-cash-coin"></p></button>

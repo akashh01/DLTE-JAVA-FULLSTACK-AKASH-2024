@@ -33,9 +33,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 //api doc http://localhost:8088/v3/api-docs
 @RestController
+//@CrossOrigin(origins = "*")
 @RequestMapping("/mybank/loan")
 @ComponentScan("loan.dao.project.loan")
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 public class RestControllers {
     @Autowired
     CustomerAuthServices services;
