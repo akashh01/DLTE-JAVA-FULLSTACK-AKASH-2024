@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Customer implements UserDetails {
-    @NotNull
+
     private Integer customerId;
     @NotNull
     private String customerName;

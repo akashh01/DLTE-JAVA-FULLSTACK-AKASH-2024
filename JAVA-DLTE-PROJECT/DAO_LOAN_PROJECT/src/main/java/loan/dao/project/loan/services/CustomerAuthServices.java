@@ -15,7 +15,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerAuthServices implements UserDetailsService {
@@ -57,31 +59,9 @@ public class CustomerAuthServices implements UserDetailsService {
         }
     }
 
-//
-//    public Customer findByUserName(String username) {
-//        Customer customer;
-//        try {
-//            customer= jdbcTemplate.queryForObject(
-//                    "SELECT * FROM MYBANK_APP_CUSTOMER WHERE USERNAME = ?",
-//                    new Object[]{username},
-//                    new BeanPropertyRowMapper<>(Customer.class)
-//            );
-//            if(customer==null){
-//                throw new CustomerSignIn(username + resourceBundle.getString("customer.not.exist"));
-//
-//            }
-//            return customer;
-//        }catch (EmptyResultDataAccessException exp){
-//            throw new CustomerSignIn(username + resourceBundle.getString("customer.not.exist"));
-//
-//        }
-       // logger.info(resourceBundle.getString("customer.not.exist"));
-
-  //  }
-
     public Customer findByUserName(String username){
-        Customer customer = jdbcTemplate.queryForObject("select * from MYBANK_APP_CUSTOMER where username=?",
-                new Object[]{username},new BeanPropertyRowMapper<>(Customer.class));
+        List<Customer> customerList = jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER",new BeanPropertyRowMapper<>(Customer.class));
+        Customer customer=filterByUserName(customerList,username);
         return customer;
     }
 
@@ -98,6 +78,19 @@ public class CustomerAuthServices implements UserDetailsService {
         jdbcTemplate.update("update MYBANK_APP_CUSTOMER set customer_status=? where username=?",
                 status, customer.getUsername());
         logger.info(resourceBundle.getString("customer.status.update"));
+    }
+
+
+    public Customer filterByUserName(List<Customer> customerList,String username){
+        // Filter the list based on the provided username
+        List<Customer> filteredCustomers = customerList.stream()
+                .filter(customer -> customer.getUsername().equals(username))
+                .collect(Collectors.toList());
+        if (!filteredCustomers.isEmpty()) {
+            return filteredCustomers.get(0);
+        } else {
+            return null;
+        }
     }
 
 
