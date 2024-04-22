@@ -306,3 +306,92 @@ Caused by: java.sql.SQLException: Invalid column index
 2024-04-22 12:44:20 [http-nio-8088-exec-10] INFO  o.s.w.t.h.MessageDispatcherServlet - Initializing Servlet 'messageDispatcherServlet'
 2024-04-22 12:44:20 [http-nio-8088-exec-10] INFO  o.s.w.s.saaj.SaajSoapMessageFactory - Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
 2024-04-22 12:44:20 [http-nio-8088-exec-10] INFO  o.s.w.t.h.MessageDispatcherServlet - Completed initialization in 25 ms
+2024-04-22 13:52:18 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m10s991ms292µs800ns).
+2024-04-22 16:18:41 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m20s951ms643µs299ns).
+2024-04-22 16:36:36 [restartedMain] INFO  l.w.s.l.LoanwebservicesApplication - Starting LoanwebservicesApplication using Java 1.8.0_292 on WPF45HZ5M with PID 2552 (C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\loanwebservices\target\classes started by xxnlnnpa in C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\loanwebservices)
+2024-04-22 16:36:36 [restartedMain] INFO  l.w.s.l.LoanwebservicesApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-22 16:36:36 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxnlnnpa\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxnlnnpa/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxnlnnpa/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxnlnnpa/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxnlnnpa/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-22 16:36:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-22 16:36:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-22 16:36:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-22 16:36:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2024-04-22 16:36:37 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'soapServiceConfiguration' of type [loans.web.service.loanwebservices.configs.SoapServiceConfiguration$$EnhancerBySpringCGLIB$$894c40b9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-04-22 16:36:37 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$c02098e0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-04-22 16:36:37 [restartedMain] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2024-04-22 16:36:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (http)
+2024-04-22 16:36:38 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-22 16:36:38 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-22 16:36:38 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-22 16:36:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1558 ms
+2024-04-22 16:36:38 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2290d066, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@535f52be, org.springframework.security.web.context.SecurityContextPersistenceFilter@8ab6bbf, org.springframework.security.web.header.HeaderWriterFilter@5280bfc8, org.springframework.web.filter.CorsFilter@66fb9471, org.springframework.security.web.authentication.logout.LogoutFilter@21878320, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17f34b5f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4af0d06b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4f82c40a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@64b7a9f5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3160209e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a8464e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b352e7c, org.springframework.security.web.session.SessionManagementFilter@4f0daf46, org.springframework.security.web.access.ExceptionTranslationFilter@140120ec, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c2fd85e]
+2024-04-22 16:36:39 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-22 16:36:39 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-22 16:36:39 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-22 16:36:39 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-22 16:36:39 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-04-22 16:36:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (http) with context path ''
+2024-04-22 16:36:39 [restartedMain] INFO  l.w.s.l.LoanwebservicesApplication - Started LoanwebservicesApplication in 3.166 seconds (JVM running for 4.025)
+2024-04-22 16:36:53 [http-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+2024-04-22 16:36:53 [http-nio-8088-exec-1] INFO  o.s.w.t.h.MessageDispatcherServlet - Initializing Servlet 'messageDispatcherServlet'
+2024-04-22 16:36:53 [http-nio-8088-exec-1] INFO  o.s.w.s.saaj.SaajSoapMessageFactory - Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+2024-04-22 16:36:53 [http-nio-8088-exec-1] INFO  o.s.w.t.h.MessageDispatcherServlet - Completed initialization in 11 ms
+2024-04-22 16:36:53 [http-nio-8088-exec-2] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:36:53 [http-nio-8088-exec-4] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:36:56 [http-nio-8088-exec-5] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:36:57 [http-nio-8088-exec-3] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:36:57 [http-nio-8088-exec-7] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:37:15 [http-nio-8088-exec-9] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:37:15 [http-nio-8088-exec-10] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:37:19 [http-nio-8088-exec-1] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:37:20 [http-nio-8088-exec-6] WARN  o.s.ws.server.EndpointNotFound - No endpoint mapping found for [SaajSoapMessage {http://deposits.services}viewAllAvailableLoanRequest]
+2024-04-22 16:38:54 [http-nio-8088-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-22 16:38:54 [http-nio-8088-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-22 16:38:54 [http-nio-8088-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-22 16:39:20 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:20 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:20 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:20 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:20 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:39:20 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:39:27 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:27 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:27 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:39:45 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:45 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:45 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:39:45 [http-nio-8088-exec-4] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:45 [http-nio-8088-exec-4] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:45 [http-nio-8088-exec-4] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:39:48 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:39:48 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:39:48 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:40:04 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:40:04 [http-nio-8088-exec-10] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:40:04 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:40:04 [http-nio-8088-exec-10] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:40:04 [http-nio-8088-exec-10] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:40:04 [http-nio-8088-exec-9] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 16:40:08 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 16:40:08 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 16:40:08 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:27 [http-nio-8088-exec-7] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-7] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-7] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:27 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-5] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:27 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:27 [http-nio-8088-exec-8] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:28 [http-nio-8088-exec-3] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:28 [http-nio-8088-exec-3] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:28 [http-nio-8088-exec-3] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:42 [http-nio-8088-exec-6] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-6] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-6] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:42 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-1] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
+2024-04-22 17:06:42 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
+2024-04-22 17:06:42 [http-nio-8088-exec-2] INFO  l.d.p.loan.services.LoanServices - All data loaded to server
