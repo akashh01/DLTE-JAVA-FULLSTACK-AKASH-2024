@@ -66,7 +66,7 @@ public class CustomerSecurityConfig {
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
-        httpSecurity.authorizeRequests().anyRequest().fullyAuthenticated();
+        httpSecurity.authorizeRequests().anyRequest().authenticated();
 
 
         // 3rd layer

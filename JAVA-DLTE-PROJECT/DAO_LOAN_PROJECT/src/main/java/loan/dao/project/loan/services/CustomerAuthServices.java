@@ -86,9 +86,11 @@ public class CustomerAuthServices implements UserDetailsService {
         List<Customer> filteredCustomers = customerList.stream()
                 .filter(customer -> customer.getUsername().equals(username))
                 .collect(Collectors.toList());
-        if (!filteredCustomers.isEmpty()) {
-            return filteredCustomers.get(0);
-        } else {
+        Customer customer=filteredCustomers.get(0);
+        if(customer!=null){
+            return customer;
+        }
+        else {
             return null;
         }
     }
