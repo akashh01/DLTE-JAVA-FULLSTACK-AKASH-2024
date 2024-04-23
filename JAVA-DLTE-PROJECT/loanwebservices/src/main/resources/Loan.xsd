@@ -5,7 +5,7 @@
             elementFormDefault="qualified">
 
 
-    <!--    Entity-->
+    <!--    Entity loan available-->
     <xsd:complexType name="LoanAvailable">
         <xsd:sequence>
             <xsd:element name="loanNumber" type="xsd:long"/>
@@ -16,7 +16,7 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <!--    Entity-->
+    <!--    Entity loan availed-->
     <xsd:complexType name="LoanAvailed">
         <xsd:sequence>
             <xsd:element name="customerNumber" type="xsd:int"/>
@@ -28,7 +28,7 @@
     </xsd:complexType>
 
 
-    <!--    Status-->
+    <!--   Message with status-->
     <xsd:complexType name="serviceStatus">
         <xsd:sequence>
             <xsd:element name="status" type="xsd:int"/>
@@ -37,7 +37,7 @@
     </xsd:complexType>
 
 
-    <!--    List All-->
+    <!--  view all available loan requests-->
     <xsd:element name="viewAllAvailableLoanRequest">
         <xsd:complexType/>
     </xsd:element>

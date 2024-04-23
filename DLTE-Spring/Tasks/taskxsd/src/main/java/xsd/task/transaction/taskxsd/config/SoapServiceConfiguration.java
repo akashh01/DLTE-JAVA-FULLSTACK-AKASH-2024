@@ -34,6 +34,7 @@ public class SoapServiceConfiguration extends WsConfigurerAdapter {
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
+
     @Bean
     public XsdSchema loansSchema(){
         return new SimpleXsdSchema(new ClassPathResource("Transactions.xsd"));

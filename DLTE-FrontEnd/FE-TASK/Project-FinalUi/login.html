@@ -23,7 +23,7 @@
                 const credentials = btoa(username+":"+password)
 
                 $.ajax({
-                    url:"http://localhost:8088/login",
+                    url:"http://localhost:8088/",
                     type:"GET",
                     beforeSend:function(handler){
                         handler.setRequestHeader("Authorization","Basic "+credentials)
@@ -36,7 +36,7 @@
                     error:function(xhr, status, error){
                     
                         // alert(JSON.stringify(error))
-                        location.assign("http://127.0.0.1:5500/DLTE-FrontEnd-Tasks-1581/login.html")
+                        location.assign("http://127.0.0.1:5500/login.html")
                     }
                 })
             })
