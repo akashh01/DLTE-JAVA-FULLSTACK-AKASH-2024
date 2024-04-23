@@ -1,3 +1,5 @@
-rest\console\app\createAccountRest.class
+rest\console\app\web\servlet\AuthenticateServlet.class
 rest\console\app\depositAmount.class
+rest\console\app\createAccountRest.class
+rest\console\app\testSaopByRest.class
 rest\console\app\getByUsername.class

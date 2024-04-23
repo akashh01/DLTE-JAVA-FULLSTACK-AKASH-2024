@@ -60,15 +60,11 @@ public class CustomerSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
         httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
-
         httpSecurity.csrf().disable();
         httpSecurity.cors();
-
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
-
-
         // 3rd layer
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(services);
