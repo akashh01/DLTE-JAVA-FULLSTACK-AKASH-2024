@@ -89,25 +89,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
         </plugin>
-        <plugin>
-        <groupId>com.sun.xml.ws</groupId>
-        <artifactId>jaxws-maven-plugin</artifactId>
-        <version>2.3.7</version>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>wsimport</goal>
-                </goals>
-            </execution>
-        </executions>
-        <configuration>
-            <wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>
-            <packageName>soap.webservice</packageName>
-            <sourceDestDir>
-                ${project.build.directory}/generated-sources/
-            </sourceDestDir>
-        </configuration>
-    </plugin>
+<!--        <plugin>-->
+<!--        <groupId>com.sun.xml.ws</groupId>-->
+<!--        <artifactId>jaxws-maven-plugin</artifactId>-->
+<!--        <version>2.3.7</version>-->
+<!--        <executions>-->
+<!--            <execution>-->
+<!--                <goals>-->
+<!--                    <goal>wsimport</goal>-->
+<!--                </goals>-->
+<!--            </execution>-->
+<!--        </executions>-->
+<!--        <configuration>-->
+<!--            <wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>-->
+<!--            <packageName>soap.webservice</packageName>-->
+<!--            <sourceDestDir>-->
+<!--                ${project.build.directory}/generated-sources/-->
+<!--            </sourceDestDir>-->
+<!--        </configuration>-->
+<!--    </plugin>-->
     </plugins>
     </build>
 

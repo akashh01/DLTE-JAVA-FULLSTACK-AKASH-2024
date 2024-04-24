@@ -29,7 +29,7 @@ public class CustomerSignUp {
 
     @PostMapping("/register")
     public Customer save(@RequestBody Customer customer){
-         logger.debug(resourceBundle.getString("Password encoded"));
+        logger.debug(resourceBundle.getString("Password encoded"));
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         return repository.signingUp(customer);
     }

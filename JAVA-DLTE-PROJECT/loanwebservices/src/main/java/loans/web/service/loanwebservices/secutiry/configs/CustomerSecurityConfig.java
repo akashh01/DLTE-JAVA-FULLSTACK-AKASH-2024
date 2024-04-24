@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -35,6 +36,7 @@ public class CustomerSecurityConfig {
     @Autowired
     CustomerFailureHandler failureHandler;
 
+    ResourceBundle resourceBundle=ResourceBundle.getBundle("webservice");
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -44,7 +46,7 @@ public class CustomerSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
+        configuration.setAllowedOriginPatterns(Arrays.asList(resourceBundle.getString("html.link")));
 
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
