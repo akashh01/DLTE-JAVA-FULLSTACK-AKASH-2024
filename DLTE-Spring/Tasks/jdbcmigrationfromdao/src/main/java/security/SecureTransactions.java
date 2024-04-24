@@ -14,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecureTransactions
 {
     @Autowired
@@ -29,7 +28,7 @@ public class SecureTransactions
         httpSecurity.csrf().disable();
         httpSecurity.httpBasic();
         httpSecurity.formLogin();
-
+        httpSecurity.authorizeRequests().antMatchers("/web/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/jdbctransaction/sender/*").hasAuthority("customer");
         httpSecurity.authorizeRequests().antMatchers("/jdbctransaction/receiver/*").hasAuthority("customer");
