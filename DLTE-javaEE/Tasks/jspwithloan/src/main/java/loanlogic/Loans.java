@@ -21,10 +21,10 @@ public class Loans {
     @PostConstruct
     public void initLoans() {
         loanList = new ArrayList<>();
-        loanList.add(new Loans(123456L, 3453.9, "03/03/2024", "open", "elroy", 2435435432L));
-        loanList.add(new Loans(654123L, 3454353.9, "05/03/2024", "closed", "monis", 2435435432L));
-        loanList.add(new Loans(789654L, 3453423.9, "06/03/2024", "closed", "monis", 2435435432L));
-        loanList.add(new Loans(7955555L, 34523453.9, "07/03/2024", "open", "elroy", 2435435432L));
+        loanList.add(new Loans(123456L, 3453.9, "03/03/2024", "open", "ajay", 2435435432L));
+        loanList.add(new Loans(654123L, 3454353.9, "05/03/2024", "closed", "amal", 2435435432L));
+        loanList.add(new Loans(789654L, 3453423.9, "06/03/2024", "closed", "aneesh", 2435435432L));
+        loanList.add(new Loans(7955555L, 34523453.9, "07/03/2024", "open", "anek", 2435435432L));
     }
 
 
