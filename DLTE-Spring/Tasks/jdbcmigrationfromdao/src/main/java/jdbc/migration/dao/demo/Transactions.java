@@ -1,13 +1,20 @@
 package jdbc.migration.dao.demo;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Transactions {
+    @NotNull(message = "{not.empty}")
     private Long transactionId;
+    @NotNull(message = "{not.empty}")
     private Date transactionDate;
+    @NotNull(message = "{not.empty}")
     private String transactionBy;
+    @NotNull(message = "{not.empty}")
     private String transactionTo;
+    @NotNull(message = "{not.empty}")
     private Long transactionAmount;
+    @NotNull(message = "{not.empty}")
     private String transactionFor;
 
     public Transactions() {

@@ -1,0 +1,136 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://transactions.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://transactions.services" targetNamespace="http://transactions.services">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+            <xsd:import namespace="http://transactions.services" schemaLocation="Transactions.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="findByRecieverRequest">
+        <wsdl:part element="tns:findByRecieverRequest" name="findByRecieverRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findByRecieverResponse">
+        <wsdl:part element="tns:findByRecieverResponse" name="findByRecieverResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateRemarksRequest">
+        <wsdl:part element="tns:updateRemarksRequest" name="updateRemarksRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findByAmountResponse">
+        <wsdl:part element="tns:findByAmountResponse" name="findByAmountResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="newTransactionResponse">
+        <wsdl:part element="tns:newTransactionResponse" name="newTransactionResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DeletionRequest">
+        <wsdl:part element="tns:DeletionRequest" name="DeletionRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="newTransactionRequest">
+        <wsdl:part element="tns:newTransactionRequest" name="newTransactionRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findBySenderResponse">
+        <wsdl:part element="tns:findBySenderResponse" name="findBySenderResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findByAmountRequest">
+        <wsdl:part element="tns:findByAmountRequest" name="findByAmountRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateRemarkResponse">
+        <wsdl:part element="tns:updateRemarkResponse" name="updateRemarkResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DeletionResponse">
+        <wsdl:part element="tns:DeletionResponse" name="DeletionResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findBySenderRequest">
+        <wsdl:part element="tns:findBySenderRequest" name="findBySenderRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="transactionPort">
+        <wsdl:operation name="findByReciever">
+            <wsdl:input message="tns:findByRecieverRequest" name="findByRecieverRequest"> </wsdl:input>
+            <wsdl:output message="tns:findByRecieverResponse" name="findByRecieverResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRemarks">
+            <wsdl:input message="tns:updateRemarksRequest" name="updateRemarksRequest"> </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="findByAmount">
+            <wsdl:input message="tns:findByAmountRequest" name="findByAmountRequest"> </wsdl:input>
+            <wsdl:output message="tns:findByAmountResponse" name="findByAmountResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="newTransaction">
+            <wsdl:input message="tns:newTransactionRequest" name="newTransactionRequest"> </wsdl:input>
+            <wsdl:output message="tns:newTransactionResponse" name="newTransactionResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Deletion">
+            <wsdl:input message="tns:DeletionRequest" name="DeletionRequest"> </wsdl:input>
+            <wsdl:output message="tns:DeletionResponse" name="DeletionResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findBySender">
+            <wsdl:input message="tns:findBySenderRequest" name="findBySenderRequest"> </wsdl:input>
+            <wsdl:output message="tns:findBySenderResponse" name="findBySenderResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRemark">
+            <wsdl:output message="tns:updateRemarkResponse" name="updateRemarkResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="transactionPortSoap11" type="tns:transactionPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="findByReciever">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="findByRecieverRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findByRecieverResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRemarks">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="updateRemarksRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="findByAmount">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="findByAmountRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findByAmountResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="newTransaction">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="newTransactionRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="newTransactionResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Deletion">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="DeletionRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DeletionResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findBySender">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="findBySenderRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findBySenderResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRemark">
+            <soap:operation soapAction=""/>
+            <wsdl:output name="updateRemarkResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="transactionPortService">
+        <wsdl:port binding="tns:transactionPortSoap11" name="transactionPortSoap11">
+            <soap:address location="http://localhost:8079/transactionsrepo"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

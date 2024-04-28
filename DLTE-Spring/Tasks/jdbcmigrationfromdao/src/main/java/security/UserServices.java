@@ -30,6 +30,16 @@ public class UserServices implements UserDetailsService {
                 new Object[]{username},new BeanPropertyRowMapper<>(MyBankUsers.class));
         return officials;
     }
+    public void updateAttempts(MyBankUsers myBankUsers){
+        jdbcTemplate.update("update user_auth set attempts=? where username=?",
+                new Object[]{myBankUsers.getAttempts(),myBankUsers.getUsername()});
+
+    }
+    public void updateStatus(MyBankUsers myBankUsers){
+        jdbcTemplate.update("update user_auth set status=0 where username=?",
+                new Object[]{myBankUsers.getUsername()});
+
+    }
 
 
     @Override

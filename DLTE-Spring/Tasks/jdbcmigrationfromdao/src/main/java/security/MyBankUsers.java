@@ -16,6 +16,42 @@ public class MyBankUsers implements UserDetails {
     private long aadhaar;
     private String role;
     private String address;
+    private int attempts;
+    private int status;
+    private final int maxAttempt=3;
+
+    public int getMaxAttempt() {
+        return maxAttempt;
+    }
+
+    public int getAttempts() {
+        return attempts;
+    }
+
+    public void setAttempts(int attempts) {
+        this.attempts = attempts;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public MyBankUsers(String name, String username, String password, String email, long contact, long aadhaar, String role, String address, int attempts, int status) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.contact = contact;
+        this.aadhaar = aadhaar;
+        this.role = role;
+        this.address = address;
+        this.attempts = attempts;
+        this.status = status;
+    }
 
     public MyBankUsers(String name, String username, String password, String email, long contact, long aadhaar, String role, String address) {
         this.name = name;

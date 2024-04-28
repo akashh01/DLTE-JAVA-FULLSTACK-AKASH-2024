@@ -1,42 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-</body><div class="container">
-    <h2 class="mt-5">New Transaction</h2>
-    <div th:if="${error}" class="alert alert-danger" role="alert">
-        <strong>error:</strong> <span th:text="${error}"></span>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="card shadow p-4 rounded">
+                <h1 class="card-title text-center mb-4">Login</h1>
+                <form action="/login" method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control rounded-pill" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control rounded-pill" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success rounded-pill">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <form th:action="@{/web/send}" th:object="${transaction}" method="post">
-        <div class="mb-3">
-            <label for="transactionId" class="form-label">Transaction id</label>
-            <input type="number" class="form-control" id="transactionId" th:field="*{transactionId}">
-        </div>
-        <div class="mb-3">
-            <label for="transactionDate" class="form-label">Transaction Date</label>
-            <input type="text" class="form-control" id="transactionDate" th:field="*{transactionDate}" placeholder="Date">
-        </div>
-        <div class="mb-3">
-            <label for="receivedBy" class="form-label">transaction by</label>
-            <input type="text" class="form-control" id="receivedBy" th:field="*{transactionBy}">
-        </div>
-        <div class="mb-3">
-            <label for="sentTo" class="form-label">transaction to</label>
-            <input type="text" class="form-control" id="sentTo" th:field="*{transactionTo}">
-        </div>
-        <div class="mb-3">
-            <label for="amount" class="form-label">amount</label>
-            <input type="number" class="form-control" id="amount" th:field="*{transactionAmount}">
-        </div>
-        <div class="mb-3">
-            <label for="remarks" class="form-label">remarks</label>
-            <input type="text" class="form-control" id="remarks" th:field="*{transactionFor}">
-        </div>x
-        <button type="submit" class="btn btn-primary">submit</button>
-    </form>
 </div>
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
