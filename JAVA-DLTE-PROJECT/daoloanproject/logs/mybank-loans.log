@@ -1,13 +1,33 @@
-2024-04-24 10:03:15 [main] INFO  l.dao.project.loan.LoanApplication - Starting LoanApplication using Java 1.8.0_292 on WPF45HZ5M with PID 33328 (C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\daoloanproject\target\classes started by xxnlnnpa in C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\daoloanproject)
-2024-04-24 10:03:15 [main] INFO  l.dao.project.loan.LoanApplication - No active profile set, falling back to 1 default profile: "default"
-2024-04-24 10:03:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-04-24 10:03:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
-2024-04-24 10:03:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-04-24 10:03:16 [main] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-2024-04-24 10:03:16 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-2024-04-24 10:03:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-04-24 10:03:16 [main] INFO  l.dao.project.loan.LoanApplication - Started LoanApplication in 1.564 seconds (JVM running for 2.198)
-2024-04-24 10:03:16 [main] INFO  l.d.p.loan.services.LoanServices - Executing query to fetch all available loans
-2024-04-24 10:03:16 [main] INFO  l.d.p.loan.services.LoanServices - Successfully fetched all available loans
-2024-04-24 10:03:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-04-24 10:03:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-29 16:05:23 [main] INFO  loan.dao.project.loan.AddLoanTest - Starting AddLoanTest using Java 1.8.0_292 on WPF45HZ5M with PID 6120 (started by xxnlnnpa in C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\daoloanproject)
+2024-04-29 16:05:23 [main] INFO  loan.dao.project.loan.AddLoanTest - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 16:05:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-29 16:05:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2024-04-29 16:05:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-29 16:05:24 [main] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-29 16:05:24 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-29 16:05:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-29 16:05:24 [main] INFO  loan.dao.project.loan.AddLoanTest - Started AddLoanTest in 2.18 seconds (JVM running for 4.053)
+2024-04-29 16:05:25 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-29 16:05:25 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-29 16:08:33 [main] INFO  loan.dao.project.loan.AddLoanTest - Starting AddLoanTest using Java 1.8.0_292 on WPF45HZ5M with PID 30224 (started by xxnlnnpa in C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\daoloanproject)
+2024-04-29 16:08:33 [main] INFO  loan.dao.project.loan.AddLoanTest - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 16:08:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-29 16:08:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2024-04-29 16:08:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-29 16:08:35 [main] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-29 16:08:35 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-29 16:08:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-29 16:08:36 [main] INFO  loan.dao.project.loan.AddLoanTest - Started AddLoanTest in 2.651 seconds (JVM running for 4.263)
+2024-04-29 16:08:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-29 16:08:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-29 16:11:55 [main] INFO  loan.dao.project.loan.AddLoanTest - Starting AddLoanTest using Java 1.8.0_292 on WPF45HZ5M with PID 12152 (started by xxnlnnpa in C:\Users\xxnlnnpa\Documents\DLTE-JAVA-FULLSTACK-AKASH-2024\JAVA-DLTE-PROJECT\daoloanproject)
+2024-04-29 16:11:55 [main] INFO  loan.dao.project.loan.AddLoanTest - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 16:11:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-29 16:11:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
+2024-04-29 16:11:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-29 16:11:56 [main] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-29 16:11:56 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-29 16:11:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-29 16:11:57 [main] INFO  loan.dao.project.loan.AddLoanTest - Started AddLoanTest in 2.322 seconds (JVM running for 4.016)
+2024-04-29 16:11:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-29 16:11:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

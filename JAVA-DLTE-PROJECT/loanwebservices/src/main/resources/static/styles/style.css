@@ -1,3 +1,12 @@
 body.loginpage {
     background-image:url("../images/mybank_login.jpg");
 }
+.login-container {
+    background-color: rgba(194, 195, 221, 0.8);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin-left: 60px;
+}

@@ -64,6 +64,9 @@ public class CustomerAuthServices implements UserDetailsService {
         List<Customer> customerList = jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER",new BeanPropertyRowMapper<>(Customer.class));
         Customer customer=filterByUserName(customerList,username);
         logger.info(resourceBundle.getString("find.user"));
+        if(customer==null){
+            throw new UsernameNotFoundException(username);
+        }
         return customer;
     }
 
@@ -88,14 +91,15 @@ public class CustomerAuthServices implements UserDetailsService {
         List<Customer> filteredCustomers = customerList.stream()
                 .filter(customer -> customer.getUsername().equals(username))
                 .collect(Collectors.toList());
-        Customer customer=filteredCustomers.get(0);
+
         logger.info(resourceBundle.getString("customer.filtered"));
-        if(customer!=null){
-            return customer;
+        if(filteredCustomers.size()==0){
+            return null;
         }
         else {
+            Customer customer=filteredCustomers.get(0);
             logger.info(resourceBundle.getString("no.customer"));
-            return null;
+            return customer;
         }
     }
 

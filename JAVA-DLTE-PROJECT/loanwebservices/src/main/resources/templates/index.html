@@ -21,13 +21,16 @@
 
     <div style="display: flex; justify-content: flex-end; align-items: center; height: 100vh;">
 
-        <div class="col-lg-4 col-md-6 col-12 align-self-center p-5 rounded-5 shadow bg-light-subtle">
-            <h1 th:text="${param.error}"></h1>
-            <h1 th:if="${param.error}" style="text-align: center; margin-bottom: 20px;">
-                <span style="font-size: 20px; color: Red;" th:text="${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}"></span>
-            </h1>
+        <div class="login-container col-lg-4 col-md-6 col-12 align-self-center p-5 rounded-5 ">
             <h2 class="text-center mb-4">MyBank Login</h2>
-            <form action="#" th:action="@{'/mybanklogin/'}" method="post" >
+            <h5 th:if="${param.error}" style="text-align: center; margin-bottom: 20px;">
+                <span style="font-size: 20px; color: Red;" th:text="${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}"></span>
+            </h5>
+            <h5 th:if="${param.errors}" style="text-align: center; margin-bottom: 20px;">
+                <span style="font-size: 20px; color: Red;" th:text="${param.errors}"></span>
+            </h5>
+
+            <form action="#" th:action="@{'/mybank/loanlogin/'}" method="post" >
              <div class="form-group">
                  <label for="username">Username</label>
                  <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>

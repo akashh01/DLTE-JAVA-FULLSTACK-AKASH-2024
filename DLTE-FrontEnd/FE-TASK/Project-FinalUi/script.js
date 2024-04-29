@@ -1,10 +1,10 @@
 const getAllLoans = () => {
-    let soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dep="http://loans.services">
-<soapenv:Header/>
-<soapenv:Body>
-<dep:viewAllAvailableLoanRequest/>
-</soapenv:Body>
-</soapenv:Envelope>`;
+    let soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loan="http://loans.services">
+    <soapenv:Header/>
+   <soapenv:Body>
+   <loan:viewAllAvailableLoanRequest/>
+   </soapenv:Body>
+   </soapenv:Envelope>`;
 
     $.ajax({
         url: "http://localhost:8088/loansrepo/",

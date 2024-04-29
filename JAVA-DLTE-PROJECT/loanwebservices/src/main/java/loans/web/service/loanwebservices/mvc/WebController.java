@@ -7,14 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mybanklogin")
+@RequestMapping("/mybank/")
 public class WebController {
     @Autowired
     LoanInterface loanInterface;
 
-    @GetMapping("/")
+    @GetMapping("loanlogin/")
     public String landing(){
         return "index";
     }
 
+    @GetMapping("view/")
+    public String viewing(){
+        return "ViewAll";
+    }
 }

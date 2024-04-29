@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
@@ -31,32 +32,42 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String username= request.getParameter("username");
-        Customer customer=service.findByUserName(username);
-        if(customer!=null){
-            if (!customer.getCustomerStatus().equals("Inactive")) {
-                if (customer.getAttempts()<customer.getMaxAttempt()){
-                    customer.setAttempts(customer.getAttempts()+1);
-                    service.updateAttempts(customer);
-                    logger.warn(resourceBundle.getString("customer.password.invalid"));
-                    exception=new LockedException(customer.getAttempts()+" "+resourceBundle.getString("customer.password.attempts"));
-                    String err = customer.getAttempts()+" "+ exception.getMessage();
-                    logger.warn(err);
-                    setDefaultFailureUrl("/mybanklogin/?error="+exception.getMessage());
-                }else {
-                    service.updateStatus(customer);
-                    logger.warn(resourceBundle.getString("attempt.max"));
-                    exception=new LockedException(resourceBundle.getString("attempt.max"));
-                    setDefaultFailureUrl("/mybanklogin/?error="+exception.getMessage());
-                }
-            }else{
-                 logger.warn(resourceBundle.getString("account.suspended"));
-                super.setDefaultFailureUrl("/mybanklogin/?error=USER NOT EXIST");
-                //super.setDefaultFailureUrl("/login/?error="+exception.);
-            }
-//        }else{
-//            logger.warn(resourceBundle.getString("customer.null"));
-//        }
-        }
+       try {
+           Customer customer = service.findByUserName(username);
+           if (customer != null) {
+               if (!customer.getCustomerStatus().equals("Inactive")) {
+                   if (customer.getAttempts() < customer.getMaxAttempt()) {
+                       customer.setAttempts(customer.getAttempts() + 1);
+                       service.updateAttempts(customer);
+                       logger.warn(resourceBundle.getString("customer.password.invalid"));
+                       int leftAttempts=4;
+                       exception = new LockedException(leftAttempts-customer.getAttempts() + " " + resourceBundle.getString("customer.password.attempts"));
+                       String err = customer.getAttempts() + " " + exception.getMessage();
+                       logger.warn(err);
+                       setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+                   } else {
+                       service.updateStatus(customer);
+                       logger.warn(resourceBundle.getString("attempt.max"));
+                       exception = new LockedException(resourceBundle.getString("attempt.max"));
+                       setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+                   }
+               } else {
+                   logger.warn(resourceBundle.getString("account.suspended"));
+                   exception = new LockedException(resourceBundle.getString("suspended.account"));
+                   super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+                   //super.setDefaultFailureUrl("/login/?error="+exception.);
+               }
+           } else {
+               logger.warn(resourceBundle.getString("account.suspended"));
+               exception = new LockedException("no account");
+               super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+           }
+       }catch (UsernameNotFoundException e){
+           logger.info(e.toString());
+           logger.warn(resourceBundle.getString("account.suspended"));
+           exception = new LockedException(resourceBundle.getString("incorrect.username"));
+           super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+       }
 
         super.onAuthenticationFailure(request, response, exception);
 
