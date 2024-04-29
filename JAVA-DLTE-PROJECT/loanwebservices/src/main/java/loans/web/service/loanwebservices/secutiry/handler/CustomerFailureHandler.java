@@ -38,20 +38,26 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
                     customer.setAttempts(customer.getAttempts()+1);
                     service.updateAttempts(customer);
                     logger.warn(resourceBundle.getString("customer.password.invalid"));
-                    exception=new LockedException(resourceBundle.getString("customer.password.invalid"));
+                    exception=new LockedException(customer.getAttempts()+" "+resourceBundle.getString("customer.password.attempts"));
+                    String err = customer.getAttempts()+" "+ exception.getMessage();
+                    logger.warn(err);
+                    setDefaultFailureUrl("/mybanklogin/?error="+exception.getMessage());
                 }else {
                     service.updateStatus(customer);
                     logger.warn(resourceBundle.getString("attempt.max"));
                     exception=new LockedException(resourceBundle.getString("attempt.max"));
+                    setDefaultFailureUrl("/mybanklogin/?error="+exception.getMessage());
                 }
             }else{
                  logger.warn(resourceBundle.getString("account.suspended"));
+                super.setDefaultFailureUrl("/mybanklogin/?error=USER NOT EXIST");
+                //super.setDefaultFailureUrl("/login/?error="+exception.);
             }
 //        }else{
 //            logger.warn(resourceBundle.getString("customer.null"));
 //        }
         }
-        super.setDefaultFailureUrl("/login?error=true");
+
         super.onAuthenticationFailure(request, response, exception);
 
 }}

@@ -61,9 +61,17 @@ public class CustomerSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
-        httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
+     //   httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
+        httpSecurity.formLogin().loginPage("/mybanklogin/").
+                usernameParameter("username").
+                failureHandler(failureHandler).
+                successHandler(successHandlers);
         httpSecurity.csrf().disable();
+
         httpSecurity.cors();
+        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/mybanklogin/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();

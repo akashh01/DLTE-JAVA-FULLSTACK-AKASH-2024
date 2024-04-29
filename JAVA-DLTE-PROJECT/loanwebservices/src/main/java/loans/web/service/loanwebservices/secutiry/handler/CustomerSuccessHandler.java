@@ -38,7 +38,7 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
             super.setDefaultTargetUrl("/loansrepo/loans.wsdl");
         } else {
           //  logger.warn(resourceBundle.getString("security.max"));
-            super.setDefaultTargetUrl("/login");
+            super.setDefaultTargetUrl("/mybanklogin/");
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }
