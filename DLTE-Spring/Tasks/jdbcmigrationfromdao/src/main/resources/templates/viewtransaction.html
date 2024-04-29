@@ -27,20 +27,20 @@
                     <tr>
                         <th scope="col">Transaction ID</th>
                         <th scope="col">Transaction Date</th>
-                        <th scope="col">Sent To</th>
-                        <th scope="col">Received By</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Remarks</th>
+                        <th scope="col">transactio by</th>
+                        <th scope="col">transaction to</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">transaction for</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="transactions : ${transactions}">
-                        <td th:text="${transactions.transactionId}"></td>
+                        <td th:text="${transaction.transactionId}"></td>
                         <td th:text="${#dates.format(transaction.transactionDate, 'yyyy-MM-dd')}"></td>
-                        <td th:text="${transactions.transactionBy}"></td>
-                        <td th:text="${transaction.transactionFor}"></td>
+                        <td th:text="${transaction.transactionBy}"></td>
+                        <td th:text="${transaction.transactionTo}"></td>
                         <td th:text="${transaction.amount}"></td>
-                        <td th:text="${transaction.remarks}"></td>
+                        <td th:text="${transaction.transactionFor}"></td>
                     </tr>
                     </tbody>
                 </table>
