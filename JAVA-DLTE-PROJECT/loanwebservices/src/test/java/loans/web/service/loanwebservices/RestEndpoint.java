@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import services.loans.LoanAvailed;
 
@@ -33,6 +34,7 @@ public class RestEndpoint {
     private MockMvc mockMvc;
     //pass
     @Test
+    @WithMockUser(username = "shake123", password = "shake123")
     public void testDepositAvailedSuccess() throws Exception {
             String request = "{\n" +
                     "\"customerNumber\": 121,\n" +
@@ -45,22 +47,46 @@ public class RestEndpoint {
             mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isOk());
     }
 
+    //customer number invalid
     @Test
+    @WithMockUser(username = "shake123", password = "shake123")
     public void testDepositAvailed() throws Exception {
         String request = "{\n" +
-                "\"customerNumber\": ABC,\n" +
+                "\"customerNumber\": 1454,\n" +  //CUSTOMER NUMBER ONLY 3 DIGIT
                 "\"loanAmount\": 50000,\n" +
                 "\"loanAvailNumber\": 100,\n" +
                 "\"loanEmi\": 8.2,\n" +
                 "\"loanNumber\": 101,\n" +
                 "\"loanTenure\": 18\n" +
                 "}";
-        mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isOk());
+        mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isBadRequest());
     }
-//    @Test
-//    public void testBeans() throws  Exception{
-//        LoanAvailed loan=new LoanAvailed(123,5000,100,1.5,500);
-//
-//    }
+
+    @Test
+    @WithMockUser(username = "shake123", password = "shake123")
+    public void testLoanAmount() throws Exception {
+        String request = "{\n" +
+                "\"customerNumber\": 101,\n" +
+                "\"loanAmount\": 10011555535343243,\n" +  //AMOUNT SHOULD NOT BE GREATER THAN 10 DIGITS
+                "\"loanAvailNumber\": 100,\n" +
+                "\"loanEmi\": 8.2,\n" +
+                "\"loanNumber\": 101,\n" +
+                "\"loanTenure\": 18\n" +
+                "}";
+        mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isBadRequest());
+    }
+    @Test
+    @WithMockUser(username = "shake123", password = "shake13")
+    public void testLoanAmount2() throws Exception {
+        String request = "{\n" +
+                "\"customerNumber\": 101,\n" +
+                "\"loanAmount\": ,\n" +  //AMOUNT SHOULD NOT BE NULL
+                "\"loanAvailNumber\": 100,\n" +
+                "\"loanEmi\": 8.2,\n" +
+                "\"loanNumber\": 101,\n" +
+                "\"loanTenure\": 18\n" +
+                "}";
+        mockMvc.perform(post("/mybank/loan/apply").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isBadRequest());
+    }
 
 }

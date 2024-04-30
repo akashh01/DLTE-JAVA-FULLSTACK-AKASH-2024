@@ -1,4 +1,4 @@
-package loans.web.service.loanwebservices.secutiry.handler;
+package loans.web.service.loanwebservices.security.handler;
 
 import loan.dao.project.loan.entities.Customer;
 
@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Component;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ResourceBundle;
 @Component
@@ -37,7 +35,7 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
                 service.updateAttempts(customer);
             }
           //  logger.debug(resourceBundle.getString("security.update"));
-            super.setDefaultTargetUrl("/mybank/view/");
+            super.setDefaultTargetUrl("/mybank/dash/");
         } else {
           //  logger.warn(resourceBundle.getString("security.max"));
             super.setDefaultTargetUrl("/mybank/loanlogin/?errors="+ resourceBundle.getString("suspended.account"));

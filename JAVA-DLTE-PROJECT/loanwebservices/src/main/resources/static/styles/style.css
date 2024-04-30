@@ -10,3 +10,76 @@ body.loginpage {
     width: 100%;
     margin-left: 60px;
 }
+
+.heading {
+    background-color: #fff; /* White background color */
+    padding: 10px 0;
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    height: 40px;
+}
+
+.heading span {
+    font-size: 24px; /* Larger font size */
+    color: #020082; /* Dark text color */
+    margin-left: 0px; /* Add some left margin */
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 13px;
+}
+
+.logout button {
+    background-color: #182052; /* Red background color for logout button */
+    color: #fff; /* White text color for logout button */
+    border: none; /* Remove border */
+    padding: 5px 15px; /* Add padding */
+    border-radius: 15px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add some right margin */
+    margin-top: 5px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+.navbar {
+    background-color: #182052 ;  /* Blue background color for navbar */
+    margin-top: 8px;
+}
+
+
+/*.navbar-custom .navbar-brand, .navbar-custom .navbar-nav .nav-link {*/
+/*    color: white;*/
+/*}*/
+/*.navbar-custom .nav-item.active .nav-link {*/
+/*    color: #f8f9fa !important;*/
+/*}*/
+.navbar-nav .nav-link {
+    color: #fff ; /* White text color for navbar links */
+}
+
+.dropdown-menu {
+    background-color: #a5aaa8;  /* Blue background color for dropdown menu */
+    list-style: none;
+}
+
+.dropdown-item {
+    color: #fff4f7; /* White text color for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #003870;  /* Blue background color on hover */
+    color: #fff; /* White text color on hover */
+}
+
+.nav-item {
+    flex-grow: 1; /* Allow items to grow equally */
+    text-align: center;
+}
+.logoimg{
+    width:30px;
+    height: 25px;
+    margin-left: 10px;
+}
+.navbar-nav {
+    list-style-type: none; /* Remove bullet points */
+}

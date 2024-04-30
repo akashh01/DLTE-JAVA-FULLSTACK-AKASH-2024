@@ -1,4 +1,4 @@
-package loans.web.service.loanwebservices.secutiry.controller;
+package loans.web.service.loanwebservices.security.controller;
 
 import loan.dao.project.loan.entities.Customer;
 

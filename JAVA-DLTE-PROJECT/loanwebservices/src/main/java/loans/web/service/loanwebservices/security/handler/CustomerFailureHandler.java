@@ -1,4 +1,4 @@
-package loans.web.service.loanwebservices.secutiry.handler;
+package loans.web.service.loanwebservices.security.handler;
 
 import loan.dao.project.loan.entities.Customer;
 
@@ -17,7 +17,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ResourceBundle;
 
 @Component

@@ -1,8 +1,8 @@
-package loans.web.service.loanwebservices.secutiry.configs;
+package loans.web.service.loanwebservices.security.configs;
 
 import loan.dao.project.loan.services.CustomerAuthServices;
-import loans.web.service.loanwebservices.secutiry.handler.CustomerFailureHandler;
-import loans.web.service.loanwebservices.secutiry.handler.CustomerSuccessHandler;
+import loans.web.service.loanwebservices.security.handler.CustomerFailureHandler;
+import loans.web.service.loanwebservices.security.handler.CustomerSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
