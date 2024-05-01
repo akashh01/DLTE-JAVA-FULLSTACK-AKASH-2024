@@ -27,17 +27,17 @@
         }
 </style>
 <body>
-    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 20rem; border-radius: 15px;">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="max-width: 20rem; border-radius: 15px; margin-left: 60px;">
         <div class="card-body">
-            <h5 class="card-title fst-montserrat" style="color: #182052; padding: 10px; border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;">AGRICULTURAL</h5>
-            <p class="card-text fst-montserrat" style="background-color: #f25c19; color: white; padding: 10px; margin-bottom: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; text-align: center;">KISAN SAHYAK LOAN</p>
-            <div class="fst-poppins" style="width: 15rem; margin: 0 auto; background-color:rgba(128, 128, 128, 0.5); padding: 8px; margin-top: 0; text-align: center; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
-                <p style="color: #182052; font-weight: bold;">ROI : 6.0</p>
-                <p>For all your agricultural needs</p>
+            <h5 class="card-title fst-montserrat" style="color: #182052; padding: 10px; text-align: center;">${loan.loanType}</h5>
+            <p class="card-text fst-montserrat" style="background-color: #f25c19; color: white; padding: 10px; margin-bottom: 0; text-align: center;">${loan.loanName}</p>
+            <div class="fst-poppins" style="width: calc(100% - 32px); margin: 0 auto; background-color:rgba(128, 128, 128, 0.5); padding: 8px; margin-top: 10px; text-align: center; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                <p style="color: #182052; font-weight: bold;">ROI : ${loan.loanRoi}</p>
+                <p>${loan.loanDescription}</p>
             </div>
-            <div style="display: flex; justify-content: space-between;">
-                <a href="#" class="btn btn-primary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;">APPLY</a>
-                <a href="#" class="btn btn-secondary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;"><i class="bi bi-calculator"></i> EMI</a>
+            <div class="d-flex justify-content-between mt-3">
+                <button type="button" onclick="appendDataToForm(${i})" class="btn btn-primary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;">APPLY</button>
+                <button type="button" class="btn btn-secondary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;"><i class="bi bi-calculator"></i> EMI</button>
             </div>
         </div>
     </div>

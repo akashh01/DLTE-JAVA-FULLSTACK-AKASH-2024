@@ -72,8 +72,8 @@ public class CustomerSecurityConfig {
 
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.image")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.style")).permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/mybank/dash/").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/mybank/view/").permitAll();
+     //   httpSecurity.authorizeRequests().antMatchers("/mybank/dash/").permitAll();
+      //  httpSecurity.authorizeRequests().antMatchers("/mybank/view/").permitAll();
 
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.login")).permitAll();
 

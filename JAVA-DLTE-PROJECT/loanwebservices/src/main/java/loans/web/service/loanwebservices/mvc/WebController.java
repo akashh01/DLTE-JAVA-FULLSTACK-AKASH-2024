@@ -4,26 +4,33 @@ import loan.dao.project.loan.interfaces.LoanInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/mybank/")
+@RequestMapping("/mybank")
 public class WebController {
     @Autowired
     LoanInterface loanInterface;
 
-    @GetMapping("loanlogin/")
+    @GetMapping("/loanlogin")
     public String landing(){
         return "index";
     }
 
-    @GetMapping("view/")
+    @GetMapping("/view")
     public String viewing(){
         return "ViewAll";
     }
-    @RequestMapping(value="/dash", method = RequestMethod.GET)
+
+    @GetMapping("/dash")
     public String homePage(){
         return "dashboard";
+    }
+
+    @GetMapping("/newloan")
+    public String save(){
+        return "newloan";
     }
 }

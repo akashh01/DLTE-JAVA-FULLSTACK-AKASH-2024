@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance Form</title>
+    <title>Loans</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -89,6 +89,23 @@
     </style>
     <script>
         $(document).ready(() => {
+            window.appendDataToForm = function(index) {
+                // Get data from modal fields using unique IDs based on the index
+                const loan = allLoanData[index];
+
+                // Create a new form data object
+                const formData = new FormData();
+
+                // Append loan data to the form data object
+                formData.append('loanType', loan.loanType);
+                formData.append('loanName', loan.loanName);
+            //    formData.append('loanDescription', loan.loanDescription);
+                formData.append('loanRoi', loan.loanRoi);
+                formData.append('loanNumber', loan.loanNumber);
+                // Redirect to the applyInsurance.html page with appended data
+                window.location.href = '../mybank/newloan?' + new URLSearchParams(formData).toString();
+            }
+
             const allLoanData = [];
             let currentPage = 1;
             const cardsPerPage = 3;
@@ -117,8 +134,9 @@
                             let loanName = $(this).find("ns2\\:loanName").text();
                             let loanDescription = $(this).find("ns2\\:loanDescription").text();
                             let loanRoi = $(this).find("ns2\\:loanRoi").text();
+                            let loanNumber = $(this).find("ns2\\:loanNumber").text();
 
-                           allLoanData.push({ loanType,loanName,loanDescription,loanRoi});
+                           allLoanData.push({ loanType,loanName,loanDescription,loanRoi,loanNumber});
                         });
                         // Calculate total pages after fetching data
                         totalPages = Math.ceil(allLoanData.length / cardsPerPage);
@@ -148,8 +166,8 @@
                 <p>${loan.loanDescription}</p>
             </div>
             <div style="display: flex; justify-content: space-between;">
-                <a href="#" class="btn btn-primary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;">APPLY</a>
-                <a href="#" class="btn btn-secondary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;"><i class="bi bi-calculator"></i> EMI</a>
+                <button type="button" onclick="appendDataToForm(${i})" class="btn btn-primary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;">APPLY</a>
+                <button type="button" class="btn btn-secondary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;"><i class="bi bi-calculator"></i> EMI</a>
             </div>
         </div>
     </div> `;
