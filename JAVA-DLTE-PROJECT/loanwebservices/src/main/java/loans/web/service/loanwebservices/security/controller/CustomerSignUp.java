@@ -25,7 +25,7 @@ public class CustomerSignUp {
     private PasswordEncoder passwordEncoder;
 
     Logger logger= LoggerFactory.getLogger(CustomerSignUp.class);
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
 
     @PostMapping("/register")
     public Customer save(@RequestBody Customer customer){

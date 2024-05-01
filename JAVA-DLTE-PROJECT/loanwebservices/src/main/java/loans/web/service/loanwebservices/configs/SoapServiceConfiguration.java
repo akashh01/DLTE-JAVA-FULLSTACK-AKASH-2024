@@ -13,27 +13,31 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import java.util.ResourceBundle;
+
 @EnableWs
 @Configuration
 public class SoapServiceConfiguration extends WsConfigurerAdapter {
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
     @Bean
     public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setTransformWsdlLocations(true);
         servlet.setApplicationContext(applicationContext);
-        return new ServletRegistrationBean(servlet, "/loansrepo/*");
+        return new ServletRegistrationBean(servlet, resourceBundle.getString("servlet.url"));
     }
 
     // wsdl properties
     @Bean(name = "loans")
     public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema) {
         DefaultWsdl11Definition defaultWsdl11Definition = new DefaultWsdl11Definition();
-        defaultWsdl11Definition.setPortTypeName("LoansPort");
-        defaultWsdl11Definition.setTargetNamespace("http://loans.services");
-        defaultWsdl11Definition.setLocationUri("/loansrepo");
+        defaultWsdl11Definition.setPortTypeName(resourceBundle.getString("port.type"));
+        defaultWsdl11Definition.setTargetNamespace(resourceBundle.getString("target.namespace"));
+        defaultWsdl11Definition.setLocationUri(resourceBundle.getString("location.uri"));
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
+
 
     // identify the xsd
     @Bean

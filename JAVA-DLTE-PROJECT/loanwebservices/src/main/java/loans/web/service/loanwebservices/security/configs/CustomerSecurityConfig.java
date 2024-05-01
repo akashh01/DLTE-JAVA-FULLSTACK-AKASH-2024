@@ -62,20 +62,23 @@ public class CustomerSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
      //   httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
-        httpSecurity.formLogin().loginPage("/mybank/loanlogin/").
+        httpSecurity.formLogin().loginPage(resourceBundle.getString("login.endpoint")).
                 usernameParameter("username").
                 failureHandler(failureHandler).
                 successHandler(successHandlers);
         httpSecurity.csrf().disable();
 
         httpSecurity.cors();
-        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
 
-        httpSecurity.authorizeRequests().antMatchers("/mybank/loanlogin/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.image")).permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.style")).permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/mybank/dash/").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/mybank/view/").permitAll();
 
-        httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.login")).permitAll();
+
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.register")).permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.api")).permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
         // 3rd layer
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);

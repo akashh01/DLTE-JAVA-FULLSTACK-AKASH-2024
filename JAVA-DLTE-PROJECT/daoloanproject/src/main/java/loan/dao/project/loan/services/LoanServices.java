@@ -25,7 +25,7 @@ import java.util.*;
 //"LoanException" when there is no loan scheme available
 @Service
 public class LoanServices implements LoanInterface {
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("loandao");
     @Autowired
     JdbcTemplate jdbcTemplate;
     Logger logger = LoggerFactory.getLogger(LoanServices.class);
@@ -115,6 +115,7 @@ public class LoanServices implements LoanInterface {
 
 
     }
+}
 
 //    CREATE OR REPLACE PROCEDURE final_loan_insert(
 //            p_customer_number INT,
@@ -166,7 +167,6 @@ public class LoanServices implements LoanInterface {
 //    execute final_insert_loan(100,121,60000,5.1,6,:info);
 //    print info;
 //
-}
 //    variable info varchar2;
 //    execute final_insert_loan(100,121,60000,5.1,6,:info);
 //    print info

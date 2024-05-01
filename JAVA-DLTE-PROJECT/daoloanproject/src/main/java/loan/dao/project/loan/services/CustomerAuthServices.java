@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerAuthServices implements UserDetailsService {
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("loandao");
     Logger logger = LoggerFactory.getLogger(CustomerAuthServices .class);
     @Autowired
     private JdbcTemplate jdbcTemplate;

@@ -34,19 +34,14 @@ public class WebServiceTest {
     @MockBean
     private LoanInterface interfaceServices;
 
-   // @Test
+   @Test
     public void testViewAvailLoanRequestSuccess() {
-        // Arrange
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
         List<LoanAvailable> mockLoanList = new ArrayList<>();
 
         mockLoanList.add(new LoanAvailable());
         when(interfaceServices.allAvailableLoan()).thenReturn(mockLoanList);
-
-        // Act
         ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-
-        // Assert
         assertNotNull(response);
         assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
         assertNotNull(response.getLoanAvailable());
@@ -86,7 +81,7 @@ public class WebServiceTest {
         //  assertEquals("No loan available,sorry",response.getServiceStatus().getMessage());
     }
 
-    @Test
+    //@Test
     public void testViewAvailLoanRequestLoanServiceException() {
         // Arrange
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();

@@ -35,10 +35,11 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
                 service.updateAttempts(customer);
             }
           //  logger.debug(resourceBundle.getString("security.update"));
-            super.setDefaultTargetUrl("/mybank/dash/");
+            super.setDefaultTargetUrl(resourceBundle.getString("login.success.map"));
+
         } else {
           //  logger.warn(resourceBundle.getString("security.max"));
-            super.setDefaultTargetUrl("/mybank/loanlogin/?errors="+ resourceBundle.getString("suspended.account"));
+            super.setDefaultTargetUrl(resourceBundle.getString("login.error.map")+ resourceBundle.getString("suspended.account"));
 
         }
 

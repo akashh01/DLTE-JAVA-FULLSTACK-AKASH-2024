@@ -1,3 +1,4 @@
+/*for index*/
 body.loginpage {
     background-image:url("../images/mybank_login.jpg");
 }
@@ -10,6 +11,8 @@ body.loginpage {
     width: 100%;
     margin-left: 60px;
 }
+
+
 
 .heading {
     background-color: #fff; /* White background color */

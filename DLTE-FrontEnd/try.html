@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
+    <style>
+        .card {
+            background-color: rgba(11, 26, 123,0.7);
+            border-radius: 10px;
+
+        }
+        .card-container .card:hover{
+            transition: 0.3s;
+            transform: scale(1.1);
+        }
+        .card-header {
+            background-color: rgba(11, 26, 123, 0.2);
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .card-content p {
+            max-height: 13em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .fst-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .fst-montserrat{
+            font-family: 'Montserrat', sans-serif;
+        }
+        .page-number {
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            margin: 0 2px;
+            color: #007bff;
+            background-color: #fff;
+            border: 2px solid #f25c19;
+
+            border-radius: 0.25rem;
+        }
+
+        .page-number:hover {
+            z-index: 2;
+            text-decoration: none;
+            background-color: #e9ecef;
+            border-color: #182052;
+        }
+
+        /*.page-number.active {*/
+        /*    z-index: 3;*/
+        /*    color: #fff;*/
+        /*    background-color: #007bff;*/
+        /*    border-color: #007bff;*/
+        /*}*/
+        .card-container {
+            height: 400px; /* Fixed height for the card container */
+            overflow-y: auto; /* Add vertical scrollbar if content exceeds container height */
+            border: 1px solid #0000; /* Add border to the container */
+            border-radius: 10px; /* Optional: Add border radius for rounded corners */
+            padding: 15px; /* Adjust scrollbar width */
+        }
+        .page-number {
+            border-radius: 50%; /* Makes the container circular */
+            width: 40px; /* Set width to control the size of the container */
+            height: 40px; /* Set height to match the width for a perfect circle */
+            border: 1px solid #182052; /* Optional: Add border to the container */
+            display: flex; /* Optional: Use flexbox to center content vertically */
+            justify-content: center; /* Optional: Center content horizontally */
+            align-items: center;
+            color: #182052;
+            font-weight: bold;/* Optional: Center content vertically */
+        }
+        .page-item{
+            padding-right: 3px;
+            padding-left: 3px;
+
+        }
+        #prevPage,#nextPage {
+            display: flex;
+            justify-content: center; /* Horizontally center the icon */
+            align-items: center;
+            -webkit-text-fill-color: white;/* Vertically center the icon */
+            height: 40px; /* Set the height of the container */
+            width: 40px; /* Set the width of the container */
+            border-radius: 50%; /* Make the container circular */
+            background-color: #182052;
+        }
+        #prevPage,#nextPage:hover {
+
+            -webkit-text-fill-color: #182052;/* Vertically center the icon */ /* Make the container circular */
+            background-color: white;
+            border: 2px solid #182052;
+        }
+        button {
+            background-color: #182052;
+            color: white;
+        }
+        button:hover {
+            background-color: orange;
+            border: 1px solid darkorange;
+        }
+
+        .apply {
+            background-color: #182052;
+            border:1px solid white;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .apply:hover {
+            background-color: #f5854d;
+            border: 1px solid white;
+        }
+
+    </style>
+</head>
+<body >
+<h2 class="mb-0" style="color: #182052; font-weight: bold; font-family: 'Poppins', sans-serif; padding: 20px;">Apply Insurance</h2>
+
+<div class="container">
+    <!-- Search by Insurance ID -->
+    <div class="form-row justify-content-center">
+        <div class="col-4">
+            <div class="form-group" style="border: 1px solid #182052; padding: 10px;">
+                <h6 class="mb-3" style="color: #182052; font-weight: bold;">Find by ID</h6>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search by Insurance ID">
+                    <button  type="button">Search</button>
+                </div>
+            </div>
+        </div>
+        <!-- Search by Coverage -->
+        <div class="col-6">
+            <div class="form-group" style="border: 1px solid #182052; padding: 10px;">
+                <h6 class="mb-3" style="color: #182052; font-weight: bold;">Find by Coverage</h6>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter Minimum Amount">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter Maximum Amount">
+                    </div>
+                    <div class="col-auto" style="padding-left: 0;">
+                        <button style=" padding: 5px"  type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid col-10 ">
+    <div class="row">
+        <div class="col card-container">
+            <div id="insuranceCards" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 me-4"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- Pagination -->
+            <nav aria-label="Insurance Pagination" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" id="prevPage" aria-label="Previous">
+                                <span class="bi bi-chevron-left" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li id="pageNumberContainer" class="page-item "></li>
+                    <!-- Dynamically generated page numbers will go here -->
+                    <li class="page-item">
+                        <a class="page-link" href="#" id="nextPage" aria-label="Next">
+                                <span class="bi bi-chevron-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Page number container -->
+    <div id="modalContent"></div>
+</div>
+
+
+
+</div>
+<script>
+    $(document).ready(() => {
+
+        const insuranceData = [];
+        let currentPage = 1;
+        const cardsPerPage = 8;
+        let totalPages = 0; // Initialize totalPages
+
+        // window.appendDataToForm = function(index) {
+        //     // Get data from modal fields using unique IDs based on the index
+        //     const insuranceID = document.getElementById(`insuranceID${index}`).value;
+        //     const insuranceType = document.getElementById(`insuranceType${index}`).value;
+        //     const insuranceName = document.getElementById(`insuranceName${index}`).value;
+        //     const insuranceKeyBenefits = document.getElementById(`insuranceKeyBenefits${index}`).value;
+        //     const insuranceLifetime = document.getElementById(`insuranceLifetime${index}`).value;
+
+        //     // Create a new form data object
+        //     const formData = new FormData();
+
+        //     // Append data to the form data object
+        //     formData.append('insuranceID', insuranceID);
+        //     formData.append('insuranceType', insuranceType);
+        //     formData.append('insuranceName', insuranceName);
+        //     formData.append('insuranceKeyBenefits', insuranceKeyBenefits);
+        //     formData.append('insuranceLifetime', insuranceLifetime);
+
+        //     // Redirect to the applyInsurance.html page with appended data
+        //     window.location.href = '../ui/apply?' + new URLSearchParams(formData).toString();
+        // }
+        var username ="shake123"
+            var password ="shake123"
+
+        const fetchInsuranceData = () => {
+            let soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loan="http://loans.services">
+    <soapenv:Header/>
+   <soapenv:Body>
+   <loan:viewAllAvailableLoanRequest/>
+   </soapenv:Body>
+   </soapenv:Envelope>`;
+
+        $.ajax({
+            
+            url: "http://localhost:8088/loansrepo/",
+            type: "POST",
+            dataType: "xml",
+            beforeSend: function (handler) {
+              //  handler.setRequestHeader("Authorization","Basic "+sessionStorage.getItem("logged"));
+              handler.setRequestHeader("Authorization","Basic "+credentials)  
+             handler.setRequestHeader("SOAPAction", "viewAllAvailableLoanRequest");
+            },
+                data: soapRequest,
+                contentType: "text/xml;charset=utf-8",
+                success: function(response) {
+                    $(response).find("ns2\\:LoanAvailable").each(function(index) {
+                        let insuranceID = $(this).find("ns2\\:loanNumber").text();
+                        let insuranceType = $(this).find("ns2\\:loanType").text();
+                        let insuranceName = $(this).find("ns2\\:loanName").text();
+                        let insuranceKeyBenefits = $(this).find("ns2\\:loanDescription").text();
+                        let insuranceLifetime = $(this).find("ns2\\:loanRoi").text();
+
+                        insuranceData.push({ insuranceID, insuranceType, insuranceName, insuranceKeyBenefits, insuranceLifetime });
+                    });
+
+                    // Calculate total pages after fetching data
+                    totalPages = Math.ceil(insuranceData.length / cardsPerPage);
+
+                    generateInsuranceCards();
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching insurance data:", error);
+                }
+            });
+        };
+
+        const generateInsuranceCards = () => {
+            const containerHeight = 2000; // Fixed container height (adjust as needed)
+            const cardHeight = 250; // Approximate height of each card
+            const maxCardsPerPage = Math.floor(containerHeight / cardHeight); // Calculate max cards per page
+
+            $("#insuranceCards").empty();
+            $("#modalContent").empty();
+
+            // Calculate start and end indexes for current page
+            const startIndex = (currentPage - 1) * maxCardsPerPage;
+            const endIndex = Math.min(startIndex + maxCardsPerPage, insuranceData.length);
+
+            // Loop through data and generate cards for current page
+            for (let i = startIndex; i < endIndex; i++) {
+                if (i >= insuranceData.length) break; // Exit loop if reached end of data
+
+                const insurance = insuranceData[i];
+                let cardHtml = `
+            <div class="col">
+                <div class="card text-white p-2 me-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#cardModal${i}">
+                    <div class="card-header border-3 text-center">${insurance.insuranceType}</div>
+                    <div class="card-body card-content">
+                        <h5 class="card-title text-center">${insurance.insuranceName}</h5>
+                        <p class="card-text text-center fst-poppins">${insurance.insuranceKeyBenefits}</p>
+                    </div>
+                </div>
+            </div>`;
+
+                $("#insuranceCards").append(cardHtml);
+
+                let modalHtml = `
+            <div class="modal fade" id="cardModal${i}" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cardModalLabel">Detailed View</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card text-white ">
+                                <div class="card-header fst-montserrat">${insurance.insuranceType}</div>
+                                <div class="card-body">
+                                    <h3 class="card-title fst-poppins">${insurance.insuranceName}</h3>
+                                    <h5 class="card-body">
+                                        <p class="card-text fst-poppins">Insurance ID: ${insurance.insuranceID}</p>
+                                        <p class="card-text fst-poppins">Insurance Type: ${insurance.insuranceType}</p>
+                                        <p class="card-text fst-poppins">Key Benefits: ${insurance.insuranceKeyBenefits}</p>
+                                        <p class="card-text font-poppins">Insurance Lifetime: ${insurance.insuranceLifetime}</p>
+                                    </h5>
+                        <input type="hidden" id="insuranceID${i}" value="${insurance.insuranceID}">
+                        <input type="hidden" id="insuranceType${i}" value="${insurance.insuranceType}">
+                        <input type="hidden" id="insuranceName${i}" value="${insurance.insuranceName}">
+                        <input type="hidden" id="insuranceKeyBenefits${i}" value="${insurance.insuranceKeyBenefits}">
+                        <input type="hidden" id="insuranceLifetime${i}" value="${insurance.insuranceLifetime}">
+                        <button type="button" onclick="appendDataToForm(${i})" class="apply">Apply Insurance</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+                $("#modalContent").append(modalHtml);
+            }
+
+            generatePageNumbers();
+        };
+
+
+
+        // Function to handle pagination
+        const handlePagination = (direction) => {
+            if (direction === 'next') {
+                currentPage++;
+            } else if (direction === 'prev') {
+                currentPage--;
+            }
+            generateInsuranceCards();
+        };
+
+        // Function to generate page numbers
+        const generatePageNumbers = () => {
+            let pageNumberHtml = '';
+            pageNumberHtml += `<span class="page-number page-link border-2">${currentPage}</span>`;
+            $('#pageNumberContainer').html(pageNumberHtml);
+            // Highlight the current page number
+            $(`#pageNumberContainer .page-number[data-page="${currentPage}"]`).addClass('active');
+        };
+
+        // Event listener for next page button
+        $('#nextPage').click(() => {
+            if (currentPage < totalPages) {
+
+                handlePagination('next');
+                updatePaginationButtons();
+            }
+        });
+
+        // Event listener for previous page button
+        $('#prevPage').click(() => {
+            if (currentPage > 1) {
+
+                handlePagination('prev');
+                updatePaginationButtons();
+            }
+        });
+
+        // Function to update pagination buttons visibility
+        const updatePaginationButtons = () => {
+            if (currentPage === 1) {
+                $('#prevPage').addClass('d-none');
+            } else {
+                $('#prevPage').removeClass('d-none');
+            }
+
+            if (currentPage === totalPages) {
+                $('#nextPage').addClass('d-none');
+            } else {
+                $('#nextPage').removeClass('d-none');
+            }
+        };
+
+        // Call the function initially to set the initial visibility
+        updatePaginationButtons();
+
+        fetchInsuranceData();
+    });
+</script>
+
+
+<br><br>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

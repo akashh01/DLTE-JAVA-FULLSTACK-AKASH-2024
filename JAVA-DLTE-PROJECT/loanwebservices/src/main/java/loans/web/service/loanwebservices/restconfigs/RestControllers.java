@@ -59,7 +59,6 @@ public class RestControllers {
     public ResponseEntity<Object> availLoanApi(@Valid @RequestBody LoanAvailed loanAvailRequest) {
         String info = "";
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         // Extract username from authentication object
         String username = authentication.getName();
         Customer customer=services.findByUserName(username);
@@ -72,13 +71,13 @@ public class RestControllers {
             return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
         } catch (LoanAlreadyExist exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"), HttpStatus.OK);
         } catch (NoLoanData exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"), HttpStatus.OK);
         } catch (CustomerInactive exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.OK);
         } catch (LoanServiceException exception) {
             logger.info(exception.toString());
             return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.INTERNAL_SERVER_ERROR);

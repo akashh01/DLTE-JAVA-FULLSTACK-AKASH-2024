@@ -1,83 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loans Available</title>
+    <title>Insurance Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/style.css}" type="text/css">
+    <style>
+
+        .fst-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .fst-montserrat{
+            font-family: 'Montserrat', sans-serif;
+        }
+        .page-number {
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            margin: 0 2px;
+            color: #007bff;
+            background-color: #fff;
+            border: 2px solid #f25c19;
+
+            border-radius: 0.25rem;
+        }
+
+        .page-number:hover {
+            z-index: 2;
+            text-decoration: none;
+            background-color: #e9ecef;
+            border-color: #182052;
+        }
+
+        .page-number {
+            border-radius: 50%; /* Makes the container circular */
+            width: 40px; /* Set width to control the size of the container */
+            height: 40px; /* Set height to match the width for a perfect circle */
+            border: 1px solid #182052; /* Optional: Add border to the container */
+            display: flex; /* Optional: Use flexbox to center content vertically */
+            justify-content: center; /* Optional: Center content horizontally */
+            align-items: center;
+            color: #182052;
+            font-weight: bold;/* Optional: Center content vertically */
+        }
+        .page-item{
+            padding-right: 3px;
+            padding-left: 3px;
+
+        }
+        #prevPage,#nextPage {
+            display: flex;
+            justify-content: center; /* Horizontally center the icon */
+            align-items: center;
+            -webkit-text-fill-color: white;/* Vertically center the icon */
+            height: 40px; /* Set the height of the container */
+            width: 40px; /* Set the width of the container */
+            border-radius: 50%; /* Make the container circular */
+            background-color: #182052;
+        }
+        #prevPage,#nextPage:hover {
+
+            -webkit-text-fill-color: #182052;/* Vertically center the icon */ /* Make the container circular */
+            background-color: white;
+            border: 2px solid #182052;
+        }
+        button {
+            background-color: #182052;
+            color: white;
+        }
+        button:hover {
+            background-color: orange;
+            border: 1px solid darkorange;
+        }
+
+
+
+    </style>
+    <script>
+        $(document).ready(() => {
+            const allLoanData = [];
+            let currentPage = 1;
+            const cardsPerPage = 3;
+            let totalPages = 0; // Initialize totalPages
+            const getAllLoanData = () => {
+                let soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loan="http://loans.services">
+                <soapenv:Header/>
+                <soapenv:Body>
+                <loan:viewAllAvailableLoanRequest/>
+                </soapenv:Body>
+                </soapenv:Envelope>`;
+                $.ajax({
+                    url: "http://localhost:8088/loansrepo/",
+                    type: "POST",
+                    dataType: "xml",
+                    beforeSend: function (handler) {
+                        //  handler.setRequestHeader("Authorization","Basic "+sessionStorage.getItem("logged"));
+                        // handler.setRequestHeader("Authorization","Basic "+credentials)
+                        handler.setRequestHeader("SOAPAction", "viewAllAvailableLoanRequest");
+                    },
+                    data: soapRequest,
+                    contentType: "text/xml;charset=utf-8",
+                    success: function(response) {
+                        $(response).find("ns2\\:LoanAvailable").each(function(index) {
+                            let loanType = $(this).find("ns2\\:loanType").text();
+                            let loanName = $(this).find("ns2\\:loanName").text();
+                            let loanDescription = $(this).find("ns2\\:loanDescription").text();
+                            let loanRoi = $(this).find("ns2\\:loanRoi").text();
+
+                           allLoanData.push({ loanType,loanName,loanDescription,loanRoi});
+                        });
+                        // Calculate total pages after fetching data
+                        totalPages = Math.ceil(allLoanData.length / cardsPerPage);
+                        createLoanCards();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching insurance data:", error);
+                    }
+                });
+            };
+            const createLoanCards = () => {
+                const startIndex = (currentPage - 1) * cardsPerPage;
+                const endIndex = Math.min(startIndex + cardsPerPage, allLoanData.length);
+                $("#loanCards").empty();
+                // Loop through data and generate cards for current page
+                for (let i = startIndex; i < endIndex; i++) {
+                    if (i >= allLoanData.length) break; // Exit loop if reached end of data
+
+                    const loan = allLoanData[i];
+                    let cardHtml = `
+              <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 20rem; border-radius: 15px; margin-left: 60px">
+        <div class="card-body">
+            <h5 class="card-title fst-montserrat" style="color: #182052; padding: 10px; border-top-left-radius: 15px; border-top-right-radius: 15px; text-align: center;">${loan.loanType}</h5>
+            <p class="card-text fst-montserrat" style="background-color: #f25c19; color: white; padding: 10px; margin-bottom: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; text-align: center;">${loan.loanName}</p>
+            <div class="fst-poppins" style="width: 15rem; margin: 0 auto; background-color:rgba(128, 128, 128, 0.5); padding: 8px; margin-top: 0; text-align: center; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                <p style="color: #182052; font-weight: bold;">ROI : ${loan.loanRoi}</p>
+                <p>${loan.loanDescription}</p>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <a href="#" class="btn btn-primary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;">APPLY</a>
+                <a href="#" class="btn btn-secondary fst-poppins" style="background-color: #182052; color: white; margin-top:10px; border-radius: 15px;"><i class="bi bi-calculator"></i> EMI</a>
+            </div>
+        </div>
+    </div> `;
+                    $("#loanCards").append(cardHtml);
+                }
+                generatePageNumbers();
+            };
+            // Function to handle pagination
+            const handlePagination = (direction) => {
+                if (direction === 'next' && currentPage < totalPages) {
+                    currentPage++;
+                } else if (direction === 'prev' && currentPage > 1) {
+                    currentPage--;
+                }
+                createLoanCards();
+            };
+            // Function to generate page numbers
+            const generatePageNumbers = () => {
+                let pageNumberHtml = '';
+                pageNumberHtml += `<span class="page-number page-link border-2">${currentPage}</span>`;
+                $('#pageNumberContainer').html(pageNumberHtml);
+                // Highlight the current page number
+                $(`#pageNumberContainer .page-number[data-page="${currentPage}"]`).addClass('active');
+            };
+            // Event listener for next page button
+            $('#nextPage').click(() => {
+                if (currentPage < totalPages) {
+
+                    handlePagination('next');
+                    updatePaginationButtons();
+                }
+            });
+            // Event listener for previous page button
+            $('#prevPage').click(() => {
+                if (currentPage > 1) {
+
+                    handlePagination('prev');
+                    updatePaginationButtons();
+                }
+            });
+            // Function to update pagination buttons visibility
+            const updatePaginationButtons = () => {
+                if (currentPage === 1) {
+                    $('#prevPage').addClass('d-none');
+                } else {
+                    $('#prevPage').removeClass('d-none');
+                }
+
+                if (currentPage === totalPages) {
+                    $('#nextPage').addClass('d-none');
+                } else {
+                    $('#nextPage').removeClass('d-none');
+                }
+            };
+
+            // Call the function initially to set the initial visibility
+            updatePaginationButtons();
+            getAllLoanData();
+        });
+    </script>
+
 
 </head>
-<script>
-    const getAllLoans = () => {
-        let soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loan="http://loans.services">
-    <soapenv:Header/>
-   <soapenv:Body>
-   <loan:viewAllAvailableLoanRequest/>
-   </soapenv:Body>
-   </soapenv:Envelope>`;
-
-        $.ajax({
-            url: "http://localhost:8088/loansrepo/",
-            type: "POST",
-            dataType: "xml",
-            beforeSend: function (handler) {
-              //  handler.setRequestHeader("Authorization","Basic "+sessionStorage.getItem("logged"));
-                handler.setRequestHeader("SOAPAction", "viewAllAvailableLoanRequest");
-            },
-            contentType: "text/xml;charset=utf-8",
-            data: soapRequest,
-
-            success: function (response) {
-                console.log("HELLO");
-                $('#loanList').empty();
-
-                $(response).find('ns2\\:LoanAvailable').each(function () {
-                    const loanId = $(this).find('ns2\\:loanNumber').text();
-                    const loanName = $(this).find('ns2\\:loanType').text();
-                    const loanType = $(this).find('ns2\\:loanName').text();
-                    const loanDescription = $(this).find('ns2\\:loanDescription').text();
-                    const loanRoi = $(this).find('ns2\\:loanRoi').text();
-                    const loanHtml = `
-                <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                <br>
-                                    <h5 class="card-title">${loanType}</h5>
-                                    <p class="card-text">Loan number: ${loanId}</p>
-                                    <p class="card-text">loan name: ${loanName}</p>
-                                    <p class="card-text">loan description ${loanDescription}</p>
-                                    <p class="card-text">loan roi: ${loanRoi}</p>
-
-                                </div>
-                            </div>
-                        </div>`;
-
-                    $('#loanList').append(loanHtml);
-                });
-            },
-            error: function (xhr, status, error) {
-                console.error(xhr.responseText);
-            }
-        });
-    }
-
-    $(document).ready(function () {
-        getAllLoans();
-    });
-</script>
-
-<body>
-<h1>[[${#httpServletRequest.remoteUser}]]</h1>
-<div class="container ">
-    <div class="row justify-content-center" id="loanList">
-
+<body >
+<header><div th:insert="header::menu"></div></header>
+<!--<div th:replace="header :: menu"></div>-->
+<h2 class="mb-0" style="color: grey; font-weight: bold; font-family: 'Poppins', sans-serif; padding: 20px; text-align: center">AVAILABLE LOANS</h2>
+<br>
+<div class="container-fluid col-10 ">
+    <div class="row">
+        <div class="col card-container">
+            <div id="loanCards" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 me-4"></div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <!-- Pagination -->
+            <nav aria-label="Loan Pagination" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" id="prevPage" aria-label="Previous">
+                            <span class="bi bi-chevron-left" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li id="pageNumberContainer" class="page-item "></li>
+                    <!-- Dynamically generated page numbers will go here -->
+                    <li class="page-item">
+                        <a class="page-link" href="#" id="nextPage" aria-label="Next">
+                            <span class="bi bi-chevron-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Page number container -->
+    <div id="modalContent"></div>
 </div>
-
+<br><br>
+<div th:replace="footer :: footer"></div>
 </body>
 </html>

@@ -43,29 +43,30 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
                        exception = new LockedException(leftAttempts-customer.getAttempts() + " " + resourceBundle.getString("customer.password.attempts"));
                        String err = customer.getAttempts() + " " + exception.getMessage();
                        logger.warn(err);
-                       setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+
+                       setDefaultFailureUrl(resourceBundle.getString("login.error.map") + exception.getMessage());
                    } else {
                        service.updateStatus(customer);
                        logger.warn(resourceBundle.getString("attempt.max"));
                        exception = new LockedException(resourceBundle.getString("attempt.max"));
-                       setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+                       setDefaultFailureUrl(resourceBundle.getString("login.error.map") + exception.getMessage());
                    }
                } else {
                    logger.warn(resourceBundle.getString("account.suspended"));
                    exception = new LockedException(resourceBundle.getString("suspended.account"));
-                   super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+                   super.setDefaultFailureUrl(resourceBundle.getString("login.error.map") + exception.getMessage());
                    //super.setDefaultFailureUrl("/login/?error="+exception.);
                }
            } else {
                logger.warn(resourceBundle.getString("account.suspended"));
                exception = new LockedException("no account");
-               super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+               super.setDefaultFailureUrl(resourceBundle.getString("login.error.map") + exception.getMessage());
            }
        }catch (UsernameNotFoundException e){
            logger.info(e.toString());
            logger.warn(resourceBundle.getString("account.suspended"));
            exception = new LockedException(resourceBundle.getString("incorrect.username"));
-           super.setDefaultFailureUrl("/mybank/loanlogin/?error=" + exception.getMessage());
+           super.setDefaultFailureUrl(resourceBundle.getString("login.error.map") + exception.getMessage());
        }
 
         super.onAuthenticationFailure(request, response, exception);

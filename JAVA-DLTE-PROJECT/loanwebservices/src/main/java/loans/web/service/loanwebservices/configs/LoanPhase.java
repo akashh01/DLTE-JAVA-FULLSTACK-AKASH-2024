@@ -29,7 +29,7 @@ public class LoanPhase {
     //autowiring the interface repo from DAO
     @Autowired
     public LoanInterface interfaceServices;
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
     Logger logger = LoggerFactory.getLogger(LoanServices.class);
     private final String url = "http://loans.services";
 
