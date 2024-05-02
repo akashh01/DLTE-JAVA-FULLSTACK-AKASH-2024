@@ -3,6 +3,8 @@ package loan.dao.project.loan.services;
 import loan.dao.project.loan.entities.Customer;
 import loan.dao.project.loan.exceptions.CustomerSignIn;
 
+//import loan.dao.project.loan.interfaces.CustomerInterface;
+import loan.dao.project.loan.interfaces.CustomerInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 @Service
-public class CustomerAuthServices implements UserDetailsService {
+public class CustomerAuthServices implements CustomerInterface,UserDetailsService {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("loandao");
     Logger logger = LoggerFactory.getLogger(CustomerAuthServices .class);
     @Autowired
@@ -34,7 +36,7 @@ public class CustomerAuthServices implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         return customers;
     }
-
+    @Override
     public Customer signingUp(Customer customer) {
         try{
             customer.setCustomerStatus("Active");
@@ -59,7 +61,7 @@ public class CustomerAuthServices implements UserDetailsService {
 
         }
     }
-
+    @Override
     public Customer findByUserName(String username){
         List<Customer> customerList = jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER",new BeanPropertyRowMapper<>(Customer.class));
         Customer customer=filterByUserName(customerList,username);
@@ -70,14 +72,14 @@ public class CustomerAuthServices implements UserDetailsService {
         return customer;
     }
 
-
+    @Override
     public void updateAttempts(Customer customer) {
         jdbcTemplate.update("update MYBANK_APP_CUSTOMER set ATTEMPTS=? where USERNAME=?",
                 new Object[]{customer.getAttempts(),customer.getUsername()});
         logger.info(resourceBundle.getString("customer.attempt.update"));
     }
 
-
+    @Override
     public void updateStatus(Customer customer) {
         String status = "Inactive";
         jdbcTemplate.update("update MYBANK_APP_CUSTOMER set customer_status=? where username=?",
@@ -85,7 +87,7 @@ public class CustomerAuthServices implements UserDetailsService {
         logger.info(resourceBundle.getString("customer.status.update"));
     }
 
-
+    @Override
     public Customer filterByUserName(List<Customer> customerList,String username){
         // Filter the list based on the provided username
         List<Customer> filteredCustomers = customerList.stream()

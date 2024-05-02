@@ -17,6 +17,12 @@
         .nav-link dropdown-toggle{
             color: #f8f9fa;
         }
+        .logout-btn {
+            color: #ffffff;
+            background-color: #182052;
+            border-color: #182052;
+            border-radius: 25px;
+        }
 
     </style>
 
@@ -30,9 +36,7 @@
             <span>MY BANK</span>
         </div>
         <div class="logout">
-            <form id="logoutForm" action="/logout" method="post">
-                <button type="submit">Logout</button>
-            </form>
+            <a th:href="@{'/logout'}"  class="logout-btn btn btn-outline-dark rounded-5"><span class="bi bi-door-open"></span> Logout</a>
         </div>
     </div>
     <nav class=" navbar navbar-expand-lg" style="background-color: #182052;">

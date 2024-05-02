@@ -2,7 +2,9 @@ package loans.web.service.loanwebservices.security.handler;
 
 import loan.dao.project.loan.entities.Customer;
 
-import loan.dao.project.loan.services.CustomerAuthServices;
+
+import loan.dao.project.loan.interfaces.CustomerInterface;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ import java.util.ResourceBundle;
 @ComponentScan("loan.dao.project.loan")
 public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Autowired
-    CustomerAuthServices service;
+    CustomerInterface service;
     ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
     Logger logger = LoggerFactory.getLogger(CustomerSuccessHandler.class);
 

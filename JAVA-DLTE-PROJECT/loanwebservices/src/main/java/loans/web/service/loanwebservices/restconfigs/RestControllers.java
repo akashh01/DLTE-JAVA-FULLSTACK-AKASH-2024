@@ -10,6 +10,8 @@ import loan.dao.project.loan.exceptions.CustomerInactive;
 import loan.dao.project.loan.exceptions.LoanAlreadyExist;
 import loan.dao.project.loan.exceptions.LoanServiceException;
 import loan.dao.project.loan.exceptions.NoLoanData;
+
+import loan.dao.project.loan.interfaces.CustomerInterface;
 import loan.dao.project.loan.interfaces.LoanInterface;
 import loan.dao.project.loan.services.CustomerAuthServices;
 import loan.dao.project.loan.services.LoanServices;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -39,7 +42,7 @@ import java.util.ResourceBundle;
 @CrossOrigin(origins = "*")
 public class RestControllers {
     @Autowired
-    CustomerAuthServices services;
+    CustomerInterface services;
 
     @Autowired
     public LoanInterface interfaceServices;
@@ -71,21 +74,21 @@ public class RestControllers {
             return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
         } catch (LoanAlreadyExist exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.exists.customer"), HttpStatus.OK);
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.one")+exception.getMessage());
         } catch (NoLoanData exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.not.exists"), HttpStatus.OK);
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.two")+exception.getMessage());
         } catch (CustomerInactive exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.OK);
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.three")+exception.getMessage());
         } catch (LoanServiceException exception) {
             logger.info(exception.toString());
-            return new ResponseEntity<>(resourceBundle.getString("loan.user.inactive"), HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.four")+exception.getMessage());
         }
 
     }
     //FOR BEAN VALIDATION
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
             MethodArgumentNotValidException ex) {

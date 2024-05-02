@@ -103,7 +103,7 @@ public class LoanServices implements LoanInterface {
         if (errorInfo.equals("SQE001")) {
             throw new LoanAlreadyExist(resourceBundle.getString("loan.exists.customer"));
         } else if (errorInfo.equals("SQE002")) {
-            throw new CustomerInactive(resourceBundle.getString("loan.exists.customer"));
+            throw new CustomerInactive(resourceBundle.getString("loan.customer.inactive"));
         } else if (errorInfo.equals("SQE003")) {
             throw new NoLoanData(resourceBundle.getString("no.loan.data"));
         } else if (errorInfo.equals("SQE004")) {

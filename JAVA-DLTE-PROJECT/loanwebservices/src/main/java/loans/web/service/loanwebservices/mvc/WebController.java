@@ -1,12 +1,18 @@
 package loans.web.service.loanwebservices.mvc;
 
+import loan.dao.project.loan.entities.Customer;
+import loan.dao.project.loan.entities.LoanAvailable;
 import loan.dao.project.loan.interfaces.LoanInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import javax.jws.WebParam;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/mybank")
@@ -29,8 +35,29 @@ public class WebController {
         return "dashboard";
     }
 
+//    @GetMapping("/newloan")
+//    public String save(){
+//        return "newloan";
+//    }
+
+
+    //@RequestMapping(value="/newloan/{loanNames}",method = RequestMethod.GET)
     @GetMapping("/newloan")
-    public String save(){
+    public String save(@RequestParam String loanNames,Model model){
+        List<LoanAvailable> allLoansDao =loanInterface.allAvailableLoan();
+        List<LoanAvailable> filteredLoan = allLoansDao.stream()
+                .filter(LoanAvailable -> LoanAvailable.getLoanName().equals(loanNames))
+                .collect(Collectors.toList());
+        model.addAttribute("newAdditionalLoan",filteredLoan.get(0));
         return "newloan";
     }
+//    @GetMapping("/name")
+//    @ResponseBody
+//    public String customerName(){
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String name = authentication.getName();
+//     //   Customer customer = ]c].findByUserName(name);
+//      // return customer.getCustomerName();
+//    }
+
 }

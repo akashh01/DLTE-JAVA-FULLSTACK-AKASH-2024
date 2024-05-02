@@ -1,5 +1,6 @@
 package loans.web.service.loanwebservices.security.configs;
 
+
 import loan.dao.project.loan.services.CustomerAuthServices;
 import loans.web.service.loanwebservices.security.handler.CustomerFailureHandler;
 import loans.web.service.loanwebservices.security.handler.CustomerSuccessHandler;
@@ -74,8 +75,9 @@ public class CustomerSecurityConfig {
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.style")).permitAll();
      //   httpSecurity.authorizeRequests().antMatchers("/mybank/dash/").permitAll();
       //  httpSecurity.authorizeRequests().antMatchers("/mybank/view/").permitAll();
-
+        httpSecurity.logout().permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.login")).permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/loansrepo/loans.wsdl").permitAll();
 
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.register")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.api")).permitAll();

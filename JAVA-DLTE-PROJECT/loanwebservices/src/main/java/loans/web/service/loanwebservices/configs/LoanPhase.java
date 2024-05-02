@@ -5,11 +5,15 @@ import loan.dao.project.loan.exceptions.LoanServiceException;
 import loan.dao.project.loan.exceptions.NoLoanData;
 import loan.dao.project.loan.interfaces.LoanInterface;
 import loan.dao.project.loan.services.LoanServices;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.authentication.TestingAuthenticationProvider;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -37,6 +41,9 @@ public class LoanPhase {
     @ResponsePayload
     public ViewAllAvailableLoanResponse viewAvailLoanRequest(@RequestPayload ViewAllAvailableLoanRequest request) {
         ViewAllAvailableLoanResponse response = new ViewAllAvailableLoanResponse();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
         ServiceStatus serviceStatus = new ServiceStatus();
         try {
             List<LoanAvailable> allLoansDao = interfaceServices.allAvailableLoan();
@@ -51,12 +58,13 @@ public class LoanPhase {
             response.getLoanAvailable().addAll(allLoans);
             logger.info(resourceBundle.getString("loan.server.available"));
         } catch (LoanServiceException exception) {
-            serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            serviceStatus.setMessage(exception.toString());
+           // return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.three")+exception.getMessage());
+            serviceStatus.setStatus(HttpServletResponse.SC_OK);
+            serviceStatus.setMessage(resourceBundle.getString("loan.error.four")+ exception.toString());
             logger.info(resourceBundle.getString("loan.server.error"));
         } catch (NoLoanData exception) {
-            serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            serviceStatus.setMessage(exception.toString());
+            serviceStatus.setStatus(HttpServletResponse.SC_OK);
+            serviceStatus.setMessage(resourceBundle.getString("loan.error.four")+ exception.toString());
             logger.info(resourceBundle.getString("loan.server.error"));
         }
         response.setServiceStatus(serviceStatus);

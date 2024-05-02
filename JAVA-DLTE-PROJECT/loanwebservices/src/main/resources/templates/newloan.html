@@ -17,6 +17,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/styles/style.css}" type="text/css">
 </head>
+
+<body>
+<header><div th:insert="header::menu"></div></header>
+<br>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="p-3 m-3 rounded-5 shadow">
+                <h4 class="text-center ">APPLY NEW LOAN</h4>
+                <div class="form-group row">
+                    <label for="loanType" class="col-sm-4 col-form-label">Loan Name  :</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="loanType" class="form-control" placeholder="Loan Type" th:value="${newAdditionalLoan.loanType}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="loanName" class="col-sm-4 col-form-label">Loan Name  :</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="loanName" class="form-control" placeholder="Loan Name" th:value="${newAdditionalLoan.loanName}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="loanAmount" class="col-sm-4 col-form-label">Loan Amount  :</label>
+                    <div class="col-sm-8">
+                        <input type="number" id="loanAmount" class="form-control" placeholder="Loan amount">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="loanTenure" class="col-sm-4 col-form-label">Loan Tenure  :</label>
+                    <div class="col-sm-8">
+                        <input type="number" id="loanTenure" class="form-control" placeholder="Loan tenure">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="loanEmi" class="col-sm-4 col-form-label">Loan Emi   :</label>
+                    <div class="col-sm-8">
+                        <input type="number" id="loanEmi" class="form-control" placeholder="Loan Emi" oninput="calculateEmi(this)" readonly required >
+                    </div>
+                </div>
+                <div class="m-3 row justify-content-around">
+                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-cash-coin"></span> Add</button>
+                    <button id="cancel" class="col-4 col-sm-2 btn btn-outline-dark"><span class="bi bi-escape"></span> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div th:replace="footer :: footer"></div>
 <script>
     $(document).ready(()=>{
         $("#cancel").click(()=>{
@@ -26,18 +75,37 @@
             $("#loanRoi").val("")
         })
 
+        // Function to calculate EMI
+        function calculateEmi() {
+            const roi = [[${newAdditionalLoan.loanRoi}]];
+            const monthlyInterest = (roi/100) / 12;
+            const tenure = Number($("#loanTenure").val())*12;
+            const amount = Number($("#loanAmount").val());
+            const emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
+            $('#loanEmi').val(emi.toFixed(2));
+        }
+
+        // Trigger calculation when amount or tenure changes
+        $('#loanAmount, #loanTenure').on('input', function() {
+            calculateEmi();
+        });
+
+        // Initial calculation
+        calculateEmi();
         $("#add").click(()=>{
             const name = $("#loanName").val()
-            const emi = $("#loanEmi").val()
-            const tenure = $("#loanTenure").val()
-            const amount = $("#loanAmount").val()
-            const number=121
+            const tenure = Number($("#loanTenure").val())
+            const emi = Number($("#loanEmi").val())
+            const amount =Number($("#loanAmount").val())
+            const number=[[${newAdditionalLoan.loanNumber}]]
+            console.log(emi,tenure,amount)
             const request = {
                 "loanNumber":number,
                 "loanEmi":emi,
                 "loanAmount":amount,
                 "loanTenure":tenure
             }
+            console.log(request)
             $.ajax({
                 url:"http://localhost:8088/mybank/loan/apply",
                 type:"POST",
@@ -59,49 +127,6 @@
         })
     })
 </script>
-
-<body>
-<header><div th:insert="header::menu"></div></header>
-
-<div class="container ">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="p-3 m-3 rounded-5 shadow">
-                <h4 class="text-center">APPLY NEW LOAN</h4>
-                <div class="form-group row">
-                    <label for="loanName" class="col-sm-4 col-form-label">Loan Name  :</label>
-                    <div class="col-sm-8">
-                        <input type="text" id="loanName" class="form-control" placeholder="Loan Name">
-                    </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="loanAmount" class="col-sm-4 col-form-label">Loan Amount  :</label>
-                    <div class="col-sm-8">
-                        <input type="text" id="loanAmount" class="form-control" placeholder="Loan amount">
-                    </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="loanTenure" class="col-sm-4 col-form-label">Loan Tenure  :</label>
-                    <div class="col-sm-8">
-                        <input type="text" id="loanTenure" class="form-control" placeholder="Loan tenure">
-                    </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="loanEmi" class="col-sm-4 col-form-label">Loan Emi   :</label>
-                    <div class="col-sm-8">
-                        <input type="text" id="loanEmi" class="form-control" placeholder="Loan Emi">
-                    </div>
-                </div>
-                <div class="m-3 row justify-content-around">
-                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-cash-coin"></span> Add</button>
-                    <button id="cancel" class="col-4 col-sm-2 btn btn-outline-dark"><span class="bi bi-escape"></span> Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div th:replace="footer :: footer"></div>
 
 </body>
 </html>

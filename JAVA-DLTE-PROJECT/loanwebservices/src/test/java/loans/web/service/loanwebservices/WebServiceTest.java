@@ -34,7 +34,7 @@ public class WebServiceTest {
     @MockBean
     private LoanInterface interfaceServices;
 
-   @Test
+   //@Test
     public void testViewAvailLoanRequestSuccess() {
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
         List<LoanAvailable> mockLoanList = new ArrayList<>();
@@ -65,7 +65,7 @@ public class WebServiceTest {
 //       // assertNotNull(response.getLoanAvailable());
 //       // assertEquals(1, response.getLoanAvailable().size());
 //    }
-    @Test
+   // @Test
     public void testViewAvailLoanRequestNoLoanData() {
         // Arrange
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();

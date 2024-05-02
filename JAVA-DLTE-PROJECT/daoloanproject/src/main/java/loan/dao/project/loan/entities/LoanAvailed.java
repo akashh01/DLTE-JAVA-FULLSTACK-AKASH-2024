@@ -19,7 +19,7 @@ public class LoanAvailed {
     @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}")
     private Long loanAmount;
     @NotNull(message = "{loan.emi.null}")
-    @Digits(integer = 2, fraction = 2, message = "{loan.emi.null}")
+    @Digits(integer = 8, fraction = 2, message = "{loan.emi.null}")
     private Double loanEmi;
     @NotNull(message = "{loan.tenure.null}")
     @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}")

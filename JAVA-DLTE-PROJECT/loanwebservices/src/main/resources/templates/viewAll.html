@@ -92,16 +92,12 @@
             window.appendDataToForm = function(index) {
                 // Get data from modal fields using unique IDs based on the index
                 const loan = allLoanData[index];
-
                 // Create a new form data object
                 const formData = new FormData();
-
-                // Append loan data to the form data object
-                formData.append('loanType', loan.loanType);
-                formData.append('loanName', loan.loanName);
+                formData.append('loanNames', loan.loanName);
             //    formData.append('loanDescription', loan.loanDescription);
-                formData.append('loanRoi', loan.loanRoi);
-                formData.append('loanNumber', loan.loanNumber);
+           //     formData.append('loanRoi', loan.loanRoi);
+          //      formData.append('loanNumber', loan.loanNumber);
                 // Redirect to the applyInsurance.html page with appended data
                 window.location.href = '../mybank/newloan?' + new URLSearchParams(formData).toString();
             }
