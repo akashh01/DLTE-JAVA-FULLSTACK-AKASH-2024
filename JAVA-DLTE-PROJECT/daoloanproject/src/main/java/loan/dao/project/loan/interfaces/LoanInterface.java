@@ -10,7 +10,6 @@ import java.util.List;
 public interface LoanInterface {
     public List<LoanAvailable> allAvailableLoan();
 
-    public List<LoanAvailable> findByLoanType(String loanType);
 
     public String createNewLoan(LoanAvailed loan);
 

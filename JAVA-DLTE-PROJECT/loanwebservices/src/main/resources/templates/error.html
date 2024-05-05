@@ -1,12 +1,68 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:replace="index :: bootstrap-link">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Error page</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>-->
-<!--    Invalid endpoint/ URL-->
-<!--</h1>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Exception Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #003870;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color:#003870;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+
+        button {
+            background-color: powderblue;
+            color: #003870;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border-color:#003870;
+
+        }
+
+        button:hover {
+            background-color: lightblue;
+        }
+
+        button i {
+            margin-left: 7px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:if="${param.code}" th:text="${param.code}"></h1>
+    <p th:if="${param.code}" th:text="${param.msg}">&lt;&lt;  &gt;&gt;</p>
+    <h2 th:unless="${param.code}">404 - Page not found</h2>
+    <a th:href="@{'/mybank/dash'}"><button >BACK TO HOME<i class="bi bi-arrow-right-circle-fill"></i></button></a>
+</div>
+</body>
+</html>

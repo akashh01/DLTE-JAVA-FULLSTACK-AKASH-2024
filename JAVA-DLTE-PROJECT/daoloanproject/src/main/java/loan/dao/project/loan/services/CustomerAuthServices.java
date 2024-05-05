@@ -32,8 +32,9 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info(resourceBundle.getString("load.initiated"));
         Customer customers = findByUserName(username);
-        if(customers==null)
+        if(customers==null) {
             throw new UsernameNotFoundException(username);
+        }
         return customers;
     }
     @Override

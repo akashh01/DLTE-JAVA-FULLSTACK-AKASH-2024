@@ -3,42 +3,29 @@ package loan.dao.project.loan.entities;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Customer implements UserDetails {
-
     private Integer customerId;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private String customerName;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private String customerAddress;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private String customerStatus;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private Long customerContact;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private String username;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private String password;
-    @NotNull
+    @NotNull(message = "{EXV001}")
     private int attempts;
 
-    public Customer(@NotNull String customerName, @NotNull String customerAddress, @NotNull String customerStatus, @NotNull Long customerContact, @NotNull String username, @NotNull String password) {
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerStatus = customerStatus;
-        this.customerContact = customerContact;
-        this.username = username;
-        this.password = password;
-    }
 
-    public Customer(@NotNull Integer customerId, @NotNull String customerName, @NotNull String customerAddress, @NotNull String customerStatus, @NotNull Long customerContact, @NotNull String username, @NotNull String password, @NotNull int attempts) {
+    public Customer(Integer customerId,String customerName,String customerAddress, String customerStatus,Long customerContact, String username, String password, int attempts) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;

@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/styles/style.css}" type="text/css">
-
+    <script th:src="@{'/js/dashboard.js'}"></script>
     <style>
         .carousel-container {
             padding-top: 30px;
@@ -64,16 +64,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" th:src="@{'/images/insu_1.png'}" alt="First slide">
+                <img class="d-block w-100" th:src="@{'/images/loans1.png'}" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" th:src="@{'/images/insu_2.jpg'}" alt="Second slide">
+                <img class="d-block w-100" th:src="@{'/images/loans2.png'}" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" th:src="@{'/images/insu_4.jpg'}" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" th:src="@{'/images/insu_5.jpg'}" alt="Fourth slide">
+                <img class="d-block w-100" th:src="@{'/images/loans3.png'}" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

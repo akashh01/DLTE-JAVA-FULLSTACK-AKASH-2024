@@ -2,6 +2,7 @@ package loans.web.service.loanwebservices.mvc;
 
 import loan.dao.project.loan.entities.Customer;
 import loan.dao.project.loan.entities.LoanAvailable;
+import loan.dao.project.loan.interfaces.CustomerInterface;
 import loan.dao.project.loan.interfaces.LoanInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,9 @@ import java.util.stream.Collectors;
 public class WebController {
     @Autowired
     LoanInterface loanInterface;
+
+    @Autowired
+    CustomerInterface customerInterface;
 
     @GetMapping("/loanlogin")
     public String landing(){
@@ -51,13 +55,21 @@ public class WebController {
         model.addAttribute("newAdditionalLoan",filteredLoan.get(0));
         return "newloan";
     }
-//    @GetMapping("/name")
-//    @ResponseBody
-//    public String customerName(){
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String name = authentication.getName();
-//     //   Customer customer = ]c].findByUserName(name);
-//      // return customer.getCustomerName();
-//    }
+
+    @GetMapping("/name")
+    @ResponseBody
+    public String customerName(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        Customer customer = customerInterface.findByUserName(name);
+        return customer.getCustomerName();
+    }
+
+    @GetMapping("/error")
+    public String errorPage() {
+        return "error"; // Return the name of the HTML template for the error page
+    }
+
+
 
 }

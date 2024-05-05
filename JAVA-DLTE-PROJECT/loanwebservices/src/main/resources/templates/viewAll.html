@@ -132,7 +132,7 @@
                             let loanRoi = $(this).find("ns2\\:loanRoi").text();
                             let loanNumber = $(this).find("ns2\\:loanNumber").text();
 
-                           allLoanData.push({ loanType,loanName,loanDescription,loanRoi,loanNumber});
+                            allLoanData.push({ loanType,loanName,loanDescription,loanRoi,loanNumber});
                         });
                         // Calculate total pages after fetching data
                         totalPages = Math.ceil(allLoanData.length / cardsPerPage);
@@ -143,7 +143,8 @@
                     }
                 });
             };
-            const createLoanCards = () => {
+
+                const createLoanCards = () => {
                 const startIndex = (currentPage - 1) * cardsPerPage;
                 const endIndex = Math.min(startIndex + cardsPerPage, allLoanData.length);
                 $("#loanCards").empty();

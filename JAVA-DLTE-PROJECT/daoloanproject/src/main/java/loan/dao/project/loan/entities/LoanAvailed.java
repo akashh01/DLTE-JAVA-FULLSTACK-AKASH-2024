@@ -1,34 +1,40 @@
 package loan.dao.project.loan.entities;
 
-import org.springframework.data.relational.core.sql.In;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+
+import javax.validation.constraints.Positive;
 
 public class LoanAvailed {
-    @Digits(integer = 3, fraction = 0, message = "{loan.avail.invalid}")
+    @Digits(integer = 3, fraction = 0, message = "{EXV003}")
+    @Positive(message ="{EXV002}")
     private Integer loanAvailNumber;
    // @NotNull(message = "{loan.customer.num.null}")
-    @Digits(integer = 3, fraction = 0, message = "{loan.customer.invalid}")
+    @Digits(integer = 3, fraction = 0, message = "{EXV003}")
+    @Positive(message ="{EXV002}")
     private Integer customerNumber;
-    @NotNull(message = "{loan.num.null}")
-    @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 3, fraction = 0, message = "{EXV003}")
     private Long loanNumber;
-    @NotNull(message = "{loan.amount.null}")
-    @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 10, fraction = 0, message = "{EXV003}")
     private Long loanAmount;
-    @NotNull(message = "{loan.emi.null}")
-    @Digits(integer = 8, fraction = 2, message = "{loan.emi.null}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 8, fraction = 2, message = "{EXV003}")
     private Double loanEmi;
-    @NotNull(message = "{loan.tenure.null}")
-    @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 2, fraction = 0, message = "{EXV003}")
     private Integer loanTenure;
 
     public LoanAvailed() {
     }
 
-    public LoanAvailed(@NotNull(message = "{loan.customer.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") Integer customerNumber, @NotNull(message = "{loan.num.null}") @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}") Long loanNumber, @NotNull(message = "{loan.amount.null}") @Digits(integer = 10, fraction = 0, message = "{loan.amount.null}") Long loanAmount, @NotNull(message = "{loan.emi.null}") @Digits(integer = 2, fraction = 2, message = "{loan.emi.null}") Double loanEmi, @NotNull(message = "{loan.tenure.null}") @Digits(integer = 2, fraction = 0, message = "{loan.tenure.null}") Integer loanTenure) {
+    public LoanAvailed(Integer customerNumber,  Long loanNumber, Long loanAmount,  Double loanEmi, Integer loanTenure) {
         this.customerNumber = customerNumber;
         this.loanNumber = loanNumber;
         this.loanAmount = loanAmount;
@@ -36,9 +42,6 @@ public class LoanAvailed {
         this.loanTenure = loanTenure;
     }
 
-    public Integer getLoanAvailNumber() {
-        return loanAvailNumber;
-    }
 
     public void setLoanAvailNumber(Integer loanAvailNumber) {
         this.loanAvailNumber = loanAvailNumber;

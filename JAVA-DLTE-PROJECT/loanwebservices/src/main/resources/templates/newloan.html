@@ -41,13 +41,17 @@
                 <div class="form-group row mt-3">
                     <label for="loanAmount" class="col-sm-4 col-form-label">Loan Amount  :</label>
                     <div class="col-sm-8">
+                        <span id="amountError" class="text-danger"></span>
                         <input type="number" id="loanAmount" class="form-control" placeholder="Loan amount">
+
                     </div>
                 </div>
                 <div class="form-group row mt-3">
                     <label for="loanTenure" class="col-sm-4 col-form-label">Loan Tenure  :</label>
                     <div class="col-sm-8">
+                        <span id="tenureError" class="text-danger"></span>
                         <input type="number" id="loanTenure" class="form-control" placeholder="Loan tenure">
+
                     </div>
                 </div>
                 <div class="form-group row mt-3">
@@ -57,18 +61,56 @@
                     </div>
                 </div>
                 <div class="m-3 row justify-content-around">
-                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-cash-coin"></span> Add</button>
-                    <button id="cancel" class="col-4 col-sm-2 btn btn-outline-dark"><span class="bi bi-escape"></span> Cancel</button>
+                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-check-circle"></span> Add</button>
+                    <button id="cancel" class="col-4 col-sm-2 btn btn-outline-dark"><span class="bi bi-arrow-clockwise"></span> Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" id="confirmationModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5  id="headAck" class="modal-title"  style="color: #182052; font-family:'Montserrat', sans-serif "></h5>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p id="successMessage" style="color: #182052; font-family: 'Poppins', sans-serif"></p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" th:href="@{'dash'}" id="backHome">Back to Home</button>
+                <button type="button" class="btn btn-primary" th:href="@{'view'}" id="viewInsurance">View Other Loans</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="validationModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5  id="headValid" class="modal-title"  style="color: #182052; font-family:'Montserrat', sans-serif "></h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p id="errorValid" style="color: #182052; font-family: 'Poppins', sans-serif"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <br>
 <div th:replace="footer :: footer"></div>
 <script>
     $(document).ready(()=>{
+
         $("#cancel").click(()=>{
+            event.preventDefault();
             $("#loanName").val("")
             $("#loanType").val("")
             $("#loanDescription").val("")
@@ -93,6 +135,8 @@
         // Initial calculation
         calculateEmi();
         $("#add").click(()=>{
+            event.preventDefault();
+            if(validation()){
             const name = $("#loanName").val()
             const tenure = Number($("#loanTenure").val())
             const emi = Number($("#loanEmi").val())
@@ -113,7 +157,26 @@
                 contentType:"application/json;charset=utf-8",
                 data:JSON.stringify(request),
                 success:function(response){
-                    alert(JSON.stringify(response))
+                    var excRegex = /EXC00\d\s*:/;
+                    var validationRegex = /EXV00\d\s*:/
+                     if(excRegex.test(response)){
+                         var errorMessage = response.replace(excRegex, '').trim();
+                         $("#headAck").text(`Error occured during applying the loan`);
+                         $("#successMessage").text(errorMessage);
+                         $("#confirmationModal").modal("show");
+                     }
+                     else if(validationRegex.test(response)){
+                         //global for all the regex to get deleted
+                         var errorMessage = response.replace(new RegExp(validationRegex, 'g'), '').trim();
+                         $("#headValid").text(`Wrong data entered`);
+                         $("#errorValid").text(errorMessage);
+                         $("#validationModal").modal("show");
+                     }
+                     else{
+                         $("#headAck").text(`Loan Applied Successfully!`);
+                         $("#successMessage").text(`Thank you for applying this loan ! Your loan amount is ${loanAmount} ,EMI is ${loanEmi} `);
+                         $("#confirmationModal").modal("show");
+                     }
                     $("#loanNumber").val("")
                     $("#loanEmi").val("")
                     $("#loanTenure").val("")
@@ -124,8 +187,57 @@
                     element.append(`<h1>${err.status}</h1>`)
                 }
             })
+            }
         })
     })
+    function validation(){
+        const tenureInput=$("#loanTenure").val();
+        const amountInput = $("#loanAmount").val();
+        let isValid=true;
+        // Amount
+        if (amountInput.trim() === '') {
+            $("#amountError").text("The amount cannot be an empty value")
+            isValid = false;
+        }
+        else if(amountInput<=0){
+            $("#amountError").text('Amount cannot be Zero or less than Zero');
+            isValid = false;
+        }
+        else {
+            $("#amountError").text('');
+        }
+
+        // Duration validation
+        if (tenureInput.trim() === '') {
+            $("#tenureError").text('Duration is required');
+            isValid = false;
+        }
+        else if (!Number.isInteger(Number(tenureInput))) {
+            $("#tenureError").text('Duration must be a whole number');
+            isValid = false;
+        }
+        else if(tenureInput<=0){
+            $("#tenureError").text('Duration cannot be Zero or less than Zero');
+            isValid = false;
+        }
+        else {
+            $("#tenureError").text('');
+        }
+        return isValid
+    };
+
+    $("#backHome").click(function() {
+        // Redirect to the home page
+        window.location.href = "/mybank/dash";
+    });
+    //to view loans after the acknowlodgement
+    $("#viewInsurance").click(function() {
+        // Redirect to the apply insurance page
+        window.location.href = "/mybank/view";
+    });
+    $(document).on('click', '.close', function() {
+        $('#validationModal').modal('hide');
+    });
 </script>
 
 </body>

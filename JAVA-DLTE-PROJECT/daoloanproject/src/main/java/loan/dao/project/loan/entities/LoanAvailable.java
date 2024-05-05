@@ -4,23 +4,26 @@ package loan.dao.project.loan.entities;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 public class LoanAvailable {
     //Entites
-    @NotNull(message = "{loan.num.null}")
-    @Digits(integer = 3, fraction = 0, message = "{loan.num.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 3, fraction = 0, message = "{EXV003}")
     private long loanNumber;
-    @NotNull(message = "{loan.type.null}")
-    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.type.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{EXV004}")
     private String loanType;
-    @NotNull(message = "{loan.name.null}")
-    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.name.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{EXV004}")
     private String loanName;
-    @NotNull(message = "{loan.desc.null}")
-    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.desc.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{EXV004}")
     private String loanDescription;
-    @NotNull(message = "{loan.roi.null}")
-    @Digits(integer = 8, fraction = 2, message = "{loan.roi.invalid}")
+    @NotNull(message = "{EXV001}")
+    @Positive(message ="{EXV002}")
+    @Digits(integer = 8, fraction = 2, message = "{EXV002}")
     private double loanRoi;
 
     //Constructors ,gettters and setters

@@ -36,6 +36,7 @@
             <span>MY BANK</span>
         </div>
         <div class="logout">
+            <span th:id="Username" style="color: #182052; font-size: 15px;">Welcome </span>
             <a th:href="@{'/logout'}"  class="logout-btn btn btn-outline-dark rounded-5"><span class="bi bi-door-open"></span> Logout</a>
         </div>
     </div>
@@ -54,7 +55,7 @@
                             Amount
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -63,7 +64,7 @@
                             Deposits
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " th:href="@{'/view'}">View Deposits</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">View Deposits</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -72,7 +73,7 @@
                             Payments
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -81,7 +82,7 @@
                             Cards
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -99,7 +100,7 @@
                             Investments
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -108,7 +109,7 @@
                             Insurance
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -116,53 +117,6 @@
         </div>
     </nav>
 </div>
-    <!--    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">-->
-<!--        <div class="container-fluid">-->
-<!--            <div class="collapse navbar-collapse" id="navbarNav">-->
-<!--                <ul class="navbar-nav mr-auto justify-content-start">-->
-<!--                    <li class="nav-item dropdown" aria-haspopup="false">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="accountsDropdownToggle" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">-->
-<!--                            Accounts-->
-<!--                        </a>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="depositsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            Deposits-->
-<!--                        </a>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="paymentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            Payments-->
-<!--                        </a>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="loansDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            Loans-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu" >-->
-<!--                            <a class="dropdown-item" href="#">View Loans</a>-->
-<!--                        </div>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="cardsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            Cards-->
-<!--                        </a>-->
-
-<!--                    </li>-->
-
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle text-light" href="#" id="insuranceDropdown" role="button" data-toggle="dropdown" >-->
-<!--                            Insurance-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
 
 </body>
 </html>

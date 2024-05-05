@@ -31,7 +31,7 @@ public class LoanServices implements LoanInterface {
     Logger logger = LoggerFactory.getLogger(LoanServices.class);
 
     //implementing row mapper for retriving data
-    public class LoanAvailableMapper implements RowMapper<LoanAvailable> {
+    public static class LoanAvailableMapper implements RowMapper<LoanAvailable> {
         @Override
         public LoanAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
             LoanAvailable loanAvailable = new LoanAvailable();
@@ -43,7 +43,6 @@ public class LoanServices implements LoanInterface {
             return loanAvailable;
         }
     }
-
 
     //to fetch all the data from available loan
     @Override
@@ -69,11 +68,7 @@ public class LoanServices implements LoanInterface {
     }
 
 
-    @Override
-    public List<LoanAvailable> findByLoanType(String loanType) {
-        return null;
-    }
-;
+
     @Override
     public String createNewLoan(LoanAvailed loan) {
         CallableStatementCreator creator = con -> {
@@ -115,58 +110,5 @@ public class LoanServices implements LoanInterface {
 
 
     }
-}
 
-//    CREATE OR REPLACE PROCEDURE final_loan_insert(
-//            p_customer_number INT,
-//            p_loan_number INT,
-//            p_loan_amount DECIMAL,
-//            p_loan_emi DECIMAL,
-//            p_loan_tenure INT,
-//            information out varchar2
-//    ) AS
-//    v_customer_status VARCHAR2(255);
-//    v_loan_count INT;
-//    BEGIN
-//    SELECT CUSTOMER_STATUS INTO v_customer_status FROM MYBANK_APP_CUSTOMER WHERE CUSTOMER_ID = p_customer_number;
-//
-//    SELECT COUNT(*) INTO v_loan_count FROM MYBANK_APP_LOANAVAILED WHERE customer_number = p_customer_number AND loan_number = p_loan_number;
-//
-//    IF v_customer_status = 'Active' AND v_loan_count = 0 THEN
-//    INSERT INTO MYBANK_APP_LOANAVAILED(
-//            loan_avail_number,
-//            customer_number,
-//            loan_number,
-//            loan_amount,
-//            loan_emi,
-//            loan_tenure
-//            ) VALUES (
-//    LOANAVAIL_SEQ.nextval,
-//    p_customer_number,
-//    p_loan_number,
-//    p_loan_amount,
-//    p_loan_emi,
-//    p_loan_tenure
-//        );
-//    information:='SQE000';
-//    COMMIT;
-//    ELSIF v_loan_count > 0 THEN
-//    information:='SQE001';
-//    ELSE
-//    information:='SQE002';
-//    END IF;
-//    EXCEPTION
-//    WHEN NO_DATA_FOUND THEN
-//    information:='SQE003';
-//    WHEN OTHERS THEN
-//    information:='SQE004'||SQLERRM;
-//    END;
-///
-//
-//    variable info varchar2;
-//    execute final_insert_loan(100,121,60000,5.1,6,:info);
-//    print info;
-//
-//    variable info varchar2;
-//    execute final_insert_loan(100,121,60000,5.1,6,:info);
-//    print info
+}

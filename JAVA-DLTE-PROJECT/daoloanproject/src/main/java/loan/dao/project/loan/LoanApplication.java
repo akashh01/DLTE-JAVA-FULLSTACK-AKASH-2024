@@ -15,11 +15,11 @@ public class LoanApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(LoanApplication.class, args);
         LoanServices loanServices = context.getBean(LoanServices.class);
-        List<LoanAvailable> check = loanServices.allAvailableLoan();
-        LoanAvailed loan = new LoanAvailed(101, 121L, 5000L, 3.5, 6);
-        String info = loanServices.createNewLoan(loan);
-        System.out.println(info);
-        System.out.println(check);
+//        List<LoanAvailable> check = loanServices.allAvailableLoan();
+//        LoanAvailed loan = new LoanAvailed(101, 121L, 5000L, 3.5, 6);
+//        String info = loanServices.createNewLoan(loan);
+//        System.out.println(info);
+//        System.out.println(check);
 
     }
 
