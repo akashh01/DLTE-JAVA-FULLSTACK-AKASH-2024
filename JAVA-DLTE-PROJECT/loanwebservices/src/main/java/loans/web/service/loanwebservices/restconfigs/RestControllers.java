@@ -73,7 +73,7 @@ public class RestControllers {
             logger.info(resourceBundle.getString("post.success"));
             return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
         } catch (LoanAlreadyExist exception) {
-            logger.info(exception.toString());
+           // logger.info(exception.toString());
             return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.one")+exception.getMessage());
         } catch (NoLoanData exception) {
             logger.info(exception.toString());

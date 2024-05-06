@@ -1,0 +1,110 @@
+body {
+background-image:url('../images/login-image.jpg');
+background-size: cover;
+background-position: center;
+height: 100vh;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+img{
+width:40px;
+height: 40px;
+margin-left: 10px;
+}
+.login-container {
+background-color: rgba(194, 195, 221, 0.8);
+padding: 20px;
+border-radius: 25px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+max-width: 400px;
+width: 100%;
+margin: 0 auto;
+}
+
+
+.login-container h2 {
+text-align: center;
+margin-bottom: 20px;
+color: white;
+}
+
+.login-info {
+color: white; /* Changed text color to black */
+text-align: left;
+padding-left: 20px;
+padding-bottom: 40px;
+}
+
+/* Added styles for text */
+.login-info p {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+}
+
+/* Add margin-bottom for the second paragraph */
+.login-info p:nth-child(2) {
+margin-bottom: 20px;
+}
+
+/* Added custom class for narrow button */
+.narrow-btn {
+width: 50%; /* Adjust the width as needed */
+margin: 0 auto; /* Center the button */
+background-color: #f25c19; /* Orange color */
+color: white; /* Text color */
+font-family: 'Poppins', sans-serif; /* Poppins font */
+/*font-weight: bold;*/
+border-radius: 20px;
+border: none; /* Remove default button border */
+transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for background color and box shadow change */
+}
+
+/* Button hover effect */
+.narrow-btn:hover,
+.narrow-btn:focus {
+background-color: #f25c19; /* Orange color on hover */
+color: white; /* Text color on hover */
+}
+.narrow-btn1 {
+width: 50%; /* Adjust the width as needed */
+margin: 0 auto; /* Center the button */
+background-color: grey; /* Orange color */
+color: white; /* Text color */
+font-family: 'Poppins', sans-serif; /* Poppins font */
+/*font-weight: bold;*/
+border-radius: 20px;
+border: none; /* Remove default button border */
+transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for background color and box shadow change */
+}
+
+/* Button hover effect */
+.narrow-btn:hover,
+.narrow-btn:focus {
+background-color: #f25c19; /* Orange color on hover */
+color: white; /* Text color on hover */
+}
+
+
+/* Button active effect */
+.narrow-btn:active,
+.narrow-btn.active {
+background-color: #f25c19 !important; /* Orange color on click */
+color: white !important; /* Text color on click */
+box-shadow: none !important; /* Remove box shadow on click */
+}
+
+/* Override Bootstrap input field hover effect */
+input.form-control:hover,
+input.form-control:focus {
+border-color: transparent;
+box-shadow: none;
+}
+
+/* Round the input borders */
+input.form-control {
+border-radius: 20px;
+}

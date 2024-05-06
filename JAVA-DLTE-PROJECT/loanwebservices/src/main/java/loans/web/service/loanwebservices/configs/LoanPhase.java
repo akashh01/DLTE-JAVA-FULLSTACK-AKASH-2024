@@ -57,12 +57,9 @@ public class LoanPhase {
             serviceStatus.setStatus(HttpServletResponse.SC_OK);
             response.getLoanAvailable().addAll(allLoans);
             logger.info(resourceBundle.getString("loan.server.available"));
-//            if(allLoans==null){
-//                serviceStatus.setStatus(HttpServletResponse.SC_OK);
-//                serviceStatus.setMessage(resourceBundle.getString("loan.error.four")+ "test");
-//            }
+
         } catch (LoanServiceException exception) {
-           // return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.three")+exception.getMessage());
+          // return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.three")+exception.getMessage());
             serviceStatus.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             serviceStatus.setMessage(resourceBundle.getString("loan.error.four")+ exception.toString());
             logger.info(resourceBundle.getString("loan.server.error"));

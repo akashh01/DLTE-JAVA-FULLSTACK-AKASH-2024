@@ -1,5 +1,4 @@
 package loans.web.service.loanwebservices.mvc;
-
 import loan.dao.project.loan.entities.Customer;
 import loan.dao.project.loan.entities.LoanAvailable;
 import loan.dao.project.loan.interfaces.CustomerInterface;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.jws.WebParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
