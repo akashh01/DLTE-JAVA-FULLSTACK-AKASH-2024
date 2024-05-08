@@ -29,7 +29,7 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { //default loads the details of user during auth
         logger.info(resourceBundle.getString("load.initiated"));
         Customer customers = findByUserName(username);
         if(customers==null) {
@@ -39,7 +39,7 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
     }
     @Override
     public Customer signingUp(Customer customer) {
-        try{
+        try{  //registering a new customer
             customer.setCustomerStatus("Active");
             String sql="INSERT INTO MYBANK_APP_CUSTOMER(CUSTOMER_ID,CUSTOMER_NAME,CUSTOMER_ADDRESS,CUSTOMER_STATUS,CUSTOMER_CONTACT,USERNAME,PASSWORD) VALUES(CUSTOMER_ID_SEQ.nextval,?,?,?,?,?,?)";
             int rowCount=jdbcTemplate.update(sql,
@@ -64,6 +64,7 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
     }
     @Override
     public Customer findByUserName(String username){
+        //finding user by username
         List<Customer> customerList = jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER",new BeanPropertyRowMapper<>(Customer.class));
         Customer customer=filterByUserName(customerList,username);
         logger.info(resourceBundle.getString("find.user"));
@@ -75,6 +76,7 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
 
     @Override
     public void updateAttempts(Customer customer) {
+        //updating attempts after success and failures
         jdbcTemplate.update("update MYBANK_APP_CUSTOMER set ATTEMPTS=? where USERNAME=?",
                 new Object[]{customer.getAttempts(),customer.getUsername()});
         logger.info(resourceBundle.getString("customer.attempt.update"));
@@ -82,6 +84,7 @@ public class CustomerAuthServices implements CustomerInterface,UserDetailsServic
 
     @Override
     public void updateStatus(Customer customer) {
+        //update status to after reaching max attempts
         String status = "Inactive";
         jdbcTemplate.update("update MYBANK_APP_CUSTOMER set customer_status=? where username=?",
                 status, customer.getUsername());

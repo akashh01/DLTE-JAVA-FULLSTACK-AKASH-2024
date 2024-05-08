@@ -37,15 +37,9 @@ public class WebController {
         return "dashboard";
     }
 
-//    @GetMapping("/newloan")
-//    public String save(){
-//        return "newloan";
-//    }
-
-
-    //@RequestMapping(value="/newloan/{loanNames}",method = RequestMethod.GET)
     @GetMapping("/newloan")
     public String save(@RequestParam String loanNames,Model model){
+        //to pass loan from view to create loan using model
         List<LoanAvailable> allLoansDao =loanInterface.allAvailableLoan();
         List<LoanAvailable> filteredLoan = allLoansDao.stream()
                 .filter(LoanAvailable -> LoanAvailable.getLoanName().equals(loanNames))
@@ -57,6 +51,7 @@ public class WebController {
     @GetMapping("/name")
     @ResponseBody
     public String customerName(){
+        //to display name of user in nav
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String name = authentication.getName();
         Customer customer = customerInterface.findByUserName(name);
@@ -65,7 +60,7 @@ public class WebController {
 
     @GetMapping("/error")
     public String errorPage() {
-        return "error"; // Return the name of the HTML template for the error page
+        return "error"; // HTML template for the error page
     }
 
 

@@ -9,8 +9,5 @@ import java.util.List;
 @Repository
 public interface LoanInterface {
     public List<LoanAvailable> allAvailableLoan();
-
-
     public String createNewLoan(LoanAvailed loan);
-
 }

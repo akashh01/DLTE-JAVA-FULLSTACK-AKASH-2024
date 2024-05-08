@@ -23,13 +23,11 @@ public class CustomerSignUp {
     CustomerAuthServices repository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
     Logger logger= LoggerFactory.getLogger(CustomerSignUp.class);
     ResourceBundle resourceBundle = ResourceBundle.getBundle("webservice");
 
     @PostMapping("/register")
     public Customer save(@RequestBody Customer customer){
-      //  logger.debug(resourceBundle.getString("Password encoded"));
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         return repository.signingUp(customer);
     }

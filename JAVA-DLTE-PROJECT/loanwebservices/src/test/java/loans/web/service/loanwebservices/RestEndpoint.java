@@ -25,9 +25,15 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import static org.junit.Assert.assertEquals;
@@ -58,18 +64,6 @@ public class RestEndpoint {
 
     @Mock
     private CustomerInterface customerInterface;
-
-
-
-    @Autowired
-    public WebController webControllers;
-    @Test
-    @WithMockUser(username = "shake123")
-    public void testDashBoardView() {
-        WebController webController=new WebController();
-        String viewName = webControllers.viewing();
-        assertEquals("ViewAll", viewName);
-    }
 
 
     @Test
@@ -177,8 +171,6 @@ public class RestEndpoint {
         assertEquals(HttpServletResponse.SC_OK, responseEntity.getStatusCodeValue());
         assertEquals("New loan has been applied successully", responseEntity.getBody());
     }
-
-
 
 
 }

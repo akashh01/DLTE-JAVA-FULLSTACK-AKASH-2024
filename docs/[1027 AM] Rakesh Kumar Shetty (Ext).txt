@@ -1,0 +1,61 @@
+[10:27 AM] Rakesh Kumar Shetty (Ext)
+How the objects are getting created in xml and java configuration(also with and without spring)
+ 
+Bean Declaration: in xml
+
+------------------------
+
+Objects are declared using the <bean> tag, where you specify the class of the object, its dependencies, and other configurations.
+ 
+Dependency Injection: Dependencies are injected using <property> or <constructor-arg> tags within the <bean> declaration.
+ 
+java configuration with spring
+
+----------
+
+Create a configuration class annotated with @Configuration.
+ 
+This class is annotated with @Configuration to indicate that it contains bean definitions and configuration for the application.
+ 
+Methods annotated with @Bean are used to define beans. These methods return instances of the beans they define.
+ 
+java configuration without spring
+
+------------
+
+creating an object and set the valuse using getters and setters.
+ 
+Component Scanning: Spring can automatically detect classes annotated with @Component using component scanning. These annotated classes are automatically registered as beans in the Spring application context.
+ 
+ 
+BeanFactory and ApplicationContext are both core interfaces in the Spring Framework that facilitate the creation and management of beans.
+ 
+Bean Id:
+ 
+The bean id is a unique identifier for a bean within the Spring IoC container.
+
+It is specified using the id attribute in XML configuration or the @Bean annotation's name attribute in Java configuration.
+
+The bean id is used primarily for internal purposes within the container to identify and reference beans.
+ 
+ 
+Class Level Annotations:
+
+@Component: Indicates that a class is a component. Spring will automatically detect and register this class as a Spring bean.
+ 
+@Controller: Indicates that a class serves the role of a controller in a Spring MVC application.
+ 
+@Service: Indicates that a class is a service component in the business layer.
+ 
+@Repository: Indicates that a class is a data repository or DAO (Data Access Object).
+ 
+------------------------
+ 
+Method Level Annotations:
+
+@Bean: Indicates that a method produces a bean to be managed by the Spring container. This annotation is used within @Configuration classes.
+ 
+@RequestMapping: Maps HTTP requests to handler methods in Spring MVC controllers. It can be applied at both class and method levels.
+ 
+@PostMapping, @GetMapping, @PutMapping, @DeleteMapping: These annotations are shortcuts for @RequestMapping(method = RequestMethod.POST), @RequestMapping(method = RequestMethod.GET), @RequestMapping(method = RequestMethod.PUT), and @RequestMapping(method = RequestMethod.DELETE) respectively.
+ 

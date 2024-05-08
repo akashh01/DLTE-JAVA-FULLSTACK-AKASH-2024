@@ -1,0 +1,95 @@
+Create an program to collect the employee data with permenant and temporary address
+-what should it contain:
+    -Name               - should it be a single string or should we divide it-(First name,Middle name,Last name)?
+    -Employee id-
+    -Temporary address   -in a single string or multiple address detail (House name ,street,city,state,pincode)
+    -Permenant address   -in a single string or multiple address detail (House name ,street,city,state,pincode)
+    -Employee phone number -One phone number required //or should we have a column for alternative number
+    -Employee email      - personal email id or official id
+    
+------------------------------------------------------------------------------------------------------------------
+
+    -Does it require any other personal detail like married/or not , Name of parents,thier contact?
+    -Any emergency contact & contact detail?
+    -Any identification proofs such as aadhar or pan card number required?
+    -
+    
+Debbuging the mode ,printing specific
+employee[employee].get
+more careful performance
+require gathering
+dont striaght away start 
+design in mind ,document
+have a second thoughtvbefore class
+how to segregate code
+standerd what you use 
+performance!!!!!!!!!
+using intellj ,start using the debug,change the valuew at the runtime itself,going isnide it step by step 
+more handson
+more neatly
+
+////***menu trigerred options add menu with options to continue ,usablity point
+have further concepts added
+
+
+---------------Review 
+is a
+has a realtion
+one to one ,onw to many
+incoporate
+loop break ,break in a method?
+validation
+IMP ->Use corrct data for pincode etc
+two different project ,two modules read and write 
+one prject will have reading into file
+other project will have writing into file
+console should be able 
+
+//filter based on specific pincode...hashmap error
+
+Increasong customer experience in mobile banking-exception
+
+
+---------------Review 
+creating  objects- makes lare change
+create util packages for commonly used things
+reading and writing objects
+archive for loggers
+interface
+translation back
+usability for user
+loggers sizre
+
+keep loggers in file ,check the the file size
+add validation for backend give a chance again if it is wrong
+---------------26/3
+
+two tables for address-- *** -> done
+cascade delete  ->       done
+pincode searchin with alias->     done
+index ->yet to do
+add logging -> done
+zipping indivual file and collective add in the project, keep the size more-> done 
+
+ testing-->for changes yet to do
+
+SQL Developer : how to execute one query,all the queries, formating of the query-> done
+
+queries , innerjoin vs join , using of aliases , fetch only required data
+all the joins and uses check 
+
+schema connection or db ->done
+
+web service api , will utilize the database , one table 
+
+
+----------------
+
+java 8 implementation
+table without reduntancy
+pincode retrieve the arraylist , then fikter it using lambda expression ,add filter on top of it
+
+implement all the joins 
+inner join condtion part
+
+define your own schema , create a user for it and grant privilages to it

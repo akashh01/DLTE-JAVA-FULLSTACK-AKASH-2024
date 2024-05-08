@@ -5,12 +5,16 @@ import loan.dao.project.loan.entities.LoanAvailable;
 import loan.dao.project.loan.exceptions.LoanServiceException;
 import loan.dao.project.loan.exceptions.NoLoanData;
 import loan.dao.project.loan.interfaces.LoanInterface;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,128 +27,115 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertThrows;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 public class WebServiceTest {
+    private static LoanAvailable loanAvailable1=new LoanAvailable();
+    private static LoanAvailable loanAvailable2=new LoanAvailable();
+    private static LoanAvailable loanAvailable3=new LoanAvailable();
+    private static List<LoanAvailable> loanAvailableList= Stream.of(loanAvailable1,loanAvailable2,loanAvailable3).collect(Collectors.toList());
+    @InjectMocks
+    private LoanPhase loanPhase;
 
-    @Autowired
-   private LoanPhase loanPhase;
-//
     @MockBean
     private LoanInterface interfaceServices;
 
-//   @Test
-//   @WithMockUser(username = "shake123", password = "shake123")
-//    public void testViewAvailLoanRequestSuccess() {
-//        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-//        List<LoanAvailable> mockLoanList = new ArrayList<>();
-//
-//        mockLoanList.add(new LoanAvailable());
-//        when(interfaceServices.allAvailableLoan()).thenReturn(mockLoanList);
-//        ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-//        assertNotNull(response);
-//        assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
-//        assertNotNull(response.getLoanAvailable());
-//        assertEquals(1, response.getLoanAvailable().size());
-//    }
-    //    @Test
-//    public void testViewAvailLoanRequest_null() {
-//        // Arrange
-//        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-//        List<LoanAvailable> mockLoanList = new ArrayList<>();
-//
-//        //mockLoanList.add(new LoanAvailable());
-//        when(interfaceServices.allAvailableLoan()).thenReturn(mockLoanList);
-//
-//        // Act
-//        ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-//
-//        // Assert
-//        //assertNotNull(response);
-//        assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
-//       // assertNotNull(response.getLoanAvailable());
-//       // assertEquals(1, response.getLoanAvailable().size());
-//    }
-//   @Test
-//   @WithMockUser(username = "shake123", password = "shake123")
-//    public void testViewAvailLoanRequestNoLoanData() {
-//        // Arrange
-//        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-//
-//        List<LoanAvailable> mockLoanList = new ArrayList<>();
-//        //when(interfaceServices.allAvailableLoan()).thenReturn(mockLoanList);
-//        when(interfaceServices.allAvailableLoan()).thenThrow(NoLoanData.class);
-//
-//        ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-//        // Act and Assert
-//        //   assertThrows(NoLoanData.class, () -> loanPhase.viewAvailLoanRequest(request));
-//        assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
-//        //  assertEquals("No loan available,sorry",response.getServiceStatus().getMessage());
-//    }
-//
-//    @Test
-//    @WithMockUser(username = "shake123", password = "shake123")
-//    public void testViewAvailLoanRequestLoanServiceException() {
-//        // Arrange
-//        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-//        when(interfaceServices.allAvailableLoan()).thenThrow(LoanServiceException.class);
-//        // Act and Assert
-//        assertThrows(LoanServiceException.class, () -> loanPhase.viewAvailLoanRequest(request));
-//    }
-@Test
- @WithMockUser(username = "shake123", password = "shake123")
-public void testViewAvailLoanRequest_Success() {
-    // Arrange
-    ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-    ServiceStatus expectedServiceStatus = new ServiceStatus();
-    expectedServiceStatus.setStatus(HttpServletResponse.SC_OK);
+    @Mock
+    private SpringApplicationBuilder springApplicationBuilder;
 
-    List<LoanAvailable> allLoansDao = Arrays.asList(
-            new LoanAvailable(101, "Personal", "Apna loan", "Best loan", 8.3),
-            new LoanAvailable(201, "Marriage", "shaadi loan", "Nice loan", 7.5)
-    );
-    when(interfaceServices.allAvailableLoan()).thenReturn(allLoansDao);
-    ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-    assertNotNull(response);
-    assertEquals(expectedServiceStatus.getStatus(), response.getServiceStatus().getStatus());
-    assertEquals(2, response.getLoanAvailable().size());
-}
+    @BeforeEach
+    public void setup(){
+        loanAvailable1.setLoanNumber(121);
+        loanAvailable1.setLoanName("Apna loan");
+        loanAvailable1.setLoanRoi(8.2);
+        loanAvailable1.setLoanDescription("good loan");
+        loanAvailable1.setLoanType("Persoanal");
+
+        loanAvailable2.setLoanNumber(122);
+        loanAvailable2.setLoanName("Sabka loan");
+        loanAvailable2.setLoanRoi(8.2);
+        loanAvailable2.setLoanDescription("good loan");
+        loanAvailable2.setLoanType("Gold");
+
+        loanAvailable2.setLoanNumber(123);
+        loanAvailable2.setLoanName("Stay healthy");
+        loanAvailable2.setLoanRoi(8.2);
+        loanAvailable2.setLoanDescription("good loan");
+        loanAvailable2.setLoanType("Health");
+        loanAvailableList=Stream.of(loanAvailable1,loanAvailable2,loanAvailable3).collect(Collectors.toList());
+    }
 
     @Test
     @WithMockUser(username = "shake123", password = "shake123")
-    public void testViewAvailLoanRequest_ServiceException() {
-        // Arrange
+    public void testViewAllAvailableLoan_Success() throws LoanServiceException, NoLoanData {
+        // Mocking necessary objects
+        when(interfaceServices.allAvailableLoan()).thenReturn(loanAvailableList);
         ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-        ServiceStatus expectedServiceStatus = new ServiceStatus();
-        expectedServiceStatus.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
-        when(interfaceServices.allAvailableLoan()).thenThrow(LoanServiceException.class);
-
-        // Act
         ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-        assertNotNull(response);
-        assertEquals(expectedServiceStatus.getStatus(), response.getServiceStatus().getStatus());
+        assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
+        assertEquals(loanAvailableList.size(), response.getLoanAvailable().size());
+        assertEquals(loanAvailableList.get(1).getLoanNumber(), response.getLoanAvailable().get(1).getLoanNumber());
+    }
+
+    @Test
+    public void testConfigure() {
+        // Initialize mocks
+        openMocks(this);
+
+        // Create an instance of ServletInitializer
+        ServletInitializer servletInitializer = new ServletInitializer();
+
+        // Mock the sources() method call
+        Class<LoanwebservicesApplication> applicationClass = LoanwebservicesApplication.class;
+        when(springApplicationBuilder.sources(applicationClass)).thenReturn(springApplicationBuilder);
+
+        // Call the configure method
+        SpringApplicationBuilder returnedBuilder = servletInitializer.configure(springApplicationBuilder);
+
+        // Verify that sources() method was called with correct argument
+        verify(springApplicationBuilder).sources(applicationClass);
+
+        // Verify that the returned builder is the same as the mock
+        assert returnedBuilder == springApplicationBuilder;
+    }
+
+    @Test
+    @WithMockUser(username = "shake123", password = "shake123")
+    public void testViewAllAvailableLoan_ServiceException() throws LoanServiceException, NoLoanData {
+        // Stubbing service to throw LoanServiceException
+        when(interfaceServices.allAvailableLoan()).thenThrow(new LoanServiceException("Loan service exception"));
+
+        // Call the method to test
+        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
+        ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
+
+        // Assert the response
+
         assertNotNull(response.getServiceStatus().getMessage());
     }
 
     @Test
     @WithMockUser(username = "shake123", password = "shake123")
-    public void testViewAvailLoanRequest_NoLoanData() {
-        // Arrange
-        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
-        ServiceStatus expectedServiceStatus = new ServiceStatus();
-        expectedServiceStatus.setStatus(HttpServletResponse.SC_OK);
+    public void testViewAllAvailableLoan_NoLoanData() throws LoanServiceException, NoLoanData {
+        // Stubbing service to throw NoLoanData exception
+        when(interfaceServices.allAvailableLoan()).thenThrow(new NoLoanData("No loan data"));
 
-        when(interfaceServices.allAvailableLoan()).thenThrow(NoLoanData.class);
+        // Call the method to test
+        ViewAllAvailableLoanRequest request = new ViewAllAvailableLoanRequest();
         ViewAllAvailableLoanResponse response = loanPhase.viewAvailLoanRequest(request);
-        assertNotNull(response);
-        assertEquals(expectedServiceStatus.getStatus(), response.getServiceStatus().getStatus());
+
+        // Assert the response
+        assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
         assertNotNull(response.getServiceStatus().getMessage());
     }
 

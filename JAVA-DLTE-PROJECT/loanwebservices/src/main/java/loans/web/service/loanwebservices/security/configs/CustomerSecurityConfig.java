@@ -46,13 +46,11 @@ public class CustomerSecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList(resourceBundle.getString("html.link")));
-
-        configuration.addAllowedMethod("*");
+        CorsConfiguration configuration = new CorsConfiguration(); //config object holds cors details
+        configuration.setAllowedOriginPatterns(Arrays.asList(resourceBundle.getString("html.link"))); //req from this org will be allowed
+        configuration.addAllowedMethod("*"); //get post put delete
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
@@ -61,28 +59,22 @@ public class CustomerSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.httpBasic();
-     //   httpSecurity.formLogin().usernameParameter("username").failureHandler(failureHandler).successHandler(successHandlers);
+        httpSecurity.httpBasic();  //basic authentication filter
         httpSecurity.formLogin().loginPage(resourceBundle.getString("login.endpoint")).
                 usernameParameter("username").
                 failureHandler(failureHandler).
                 successHandler(successHandlers);
-        httpSecurity.csrf().disable();
-
+        httpSecurity.csrf().disable();  //cross site request forgery
         httpSecurity.cors();
-
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.image")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.style")).permitAll();
-     //   httpSecurity.authorizeRequests().antMatchers("/mybank/dash/").permitAll();
-      //  httpSecurity.authorizeRequests().antMatchers("/mybank/view/").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.script")).permitAll();
         httpSecurity.logout().permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.login")).permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/loansrepo/loans.wsdl").permitAll();
-
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.wsdl")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.register")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("permit.api")).permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
-        // 3rd layer
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(services);
         manager=builder.build();

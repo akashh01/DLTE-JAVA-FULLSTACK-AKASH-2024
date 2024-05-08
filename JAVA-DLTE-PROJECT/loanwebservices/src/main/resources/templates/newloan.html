@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -20,54 +20,60 @@
 
 <body>
 <header><div th:insert="header::menu"></div></header>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-left">
+            <i class="bi bi-arrow-left-circle-fill ml-1 " style="color: #182052; font-size: 2rem;" onclick="window.history.back()"></i>
+        </div>
+    </div>
+</div>
 <br>
-<div class="container ">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
-            <div class="p-3 m-3 rounded-5 shadow">
-                <h4 class="text-center ">APPLY NEW LOAN</h4>
+            <div class="p-3 m-3 shadow">
+                <h4 class="text-center">APPLY NEW LOAN</h4>
                 <div class="form-group row">
-                    <label for="loanType" class="col-sm-4 col-form-label">Loan Name  :</label>
+                    <label for="loanType" class="col-sm-4 col-form-label">Loan Name:</label>
                     <div class="col-sm-8">
                         <input type="text" id="loanType" class="form-control" placeholder="Loan Type" th:value="${newAdditionalLoan.loanType}" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="loanName" class="col-sm-4 col-form-label">Loan Name  :</label>
+                    <label for="loanName" class="col-sm-4 col-form-label">Loan Name:</label>
                     <div class="col-sm-8">
                         <input type="text" id="loanName" class="form-control" placeholder="Loan Name" th:value="${newAdditionalLoan.loanName}" readonly>
                     </div>
                 </div>
                 <div class="form-group row mt-3">
-                    <label for="loanAmount" class="col-sm-4 col-form-label">Loan Amount  :</label>
+                    <label for="loanAmount" class="col-sm-4 col-form-label">Loan Amount:</label>
                     <div class="col-sm-8">
                         <span id="amountError" class="text-danger"></span>
-                        <input type="number" id="loanAmount" class="form-control" placeholder="Loan amount">
-
+                        <input type="number" id="loanAmount" class="form-control" placeholder="Enter amount">
                     </div>
                 </div>
                 <div class="form-group row mt-3">
-                    <label for="loanTenure" class="col-sm-4 col-form-label">Loan Tenure  :</label>
+                    <label for="loanTenure" class="col-sm-4 col-form-label">Loan Tenure:</label>
                     <div class="col-sm-8">
                         <span id="tenureError" class="text-danger"></span>
-                        <input type="number" id="loanTenure" class="form-control" placeholder="Loan tenure">
-
+                        <input type="number" id="loanTenure" class="form-control" placeholder="Enter tenure in years">
                     </div>
                 </div>
                 <div class="form-group row mt-3">
-                    <label for="loanEmi" class="col-sm-4 col-form-label">Loan Emi   :</label>
+                    <label for="loanEmi" class="col-sm-4 col-form-label">Loan Emi:</label>
                     <div class="col-sm-8">
-                        <input type="number" id="loanEmi" class="form-control" placeholder="Loan Emi" oninput="calculateEmi(this)" readonly required >
+                        <input type="number" id="loanEmi" class="form-control" placeholder="Loan Emi" oninput="calculateEmi(this)" readonly required>
                     </div>
                 </div>
                 <div class="m-3 row justify-content-around">
-                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-check-circle"></span> Add</button>
+                    <button id="add" class="add col-4 col-sm-2 btn btn-outline-primary"><span class="bi bi-check-circle"></span> Apply</button>
                     <button id="cancel" class="col-4 col-sm-2 btn btn-outline-dark"><span class="bi bi-arrow-clockwise"></span> Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="modal" id="confirmationModal">
     <div class="modal-dialog">
@@ -117,15 +123,18 @@
             $("#loanRoi").val("")
         })
 
-        // Function to calculate EMI
-        function calculateEmi() {
-            const roi = [[${newAdditionalLoan.loanRoi}]];
-            const monthlyInterest = (roi/100) / 12;
-            const tenure = Number($("#loanTenure").val())*12;
-            const amount = Number($("#loanAmount").val());
-            const emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
-            $('#loanEmi').val(emi.toFixed(2));
-        }
+
+             // Function to calculate EMI
+             function calculateEmi() {
+                 const roi = [[${newAdditionalLoan.loanRoi}]];
+                 const monthlyInterest = (roi / 100) / 12;
+                 const tenure = Number($("#loanTenure").val()) * 12;
+                 const amount = Number($("#loanAmount").val());
+                 const emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
+                 $('#loanEmi').val(emi.toFixed(2));
+             }
+
+
 
         // Trigger calculation when amount or tenure changes
         $('#loanAmount, #loanTenure').on('input', function() {
@@ -200,9 +209,18 @@
             isValid = false;
         }
         else if(amountInput<=0){
-            $("#amountError").text('Amount cannot be Zero or less than Zero');
+            $("#amountError").text('Amount cannot be Zero or less than Zero,Minimum amount should be 10000');
             isValid = false;
         }
+        else if(amountInput>=0 && amountInput<10000){
+            $("#amountError").text('The minimum loan amount should be 10000');
+            isValid = false;
+        }
+        else if(amountInput>100000){
+            $("#amountError").text('The maximum loan amount is 100000');
+            isValid = false;
+        }
+
         else {
             $("#amountError").text('');
         }
@@ -217,7 +235,11 @@
             isValid = false;
         }
         else if(tenureInput<=0){
-            $("#tenureError").text('Duration cannot be Zero or less than Zero');
+            $("#tenureError").text('Tenure cannot be Zero or less than Zero,minimum tenure should be 1 year');
+            isValid = false;
+        }
+        else if(tenureInput>10){
+            $("#tenureError").text('Maximum tenure should be  10 year');
             isValid = false;
         }
         else {

@@ -1,0 +1,83 @@
+why a class is used ? 
+ an object will be created which will contain only that persons data (kind of an encapsulation)
+ Association of features or properties that have same goal ,
+ single object is used to create all the properties to one person
+ 
+ 
+private String creditCardHolder -> why private here? 
+even though we have privalage to access it indirectly , we have to go through a process to do the same (withdraw,deposit)
+
+encapsulation - if a class only contains methods,properties it is not encapsulated => encapsualtion is hididng our sensitive data.    
+
+ setter and getter for accessing private
+ [mvn repositary] creating first dependency -> https://mvnrepository.com/search?q=lombok ->project lambok
+
+
+ constructor - initialize the class properties.
+              constructors can be private.
+              no signatures
+ polymorphism - compile time 
+
+
+
+
+OOPS
+objective/requirement/ problem oriented programming
+solutions/ software >> application s/w
+
+class and 
+
+Database: 
+sql
+noSql 
+backend-architecture frontend-lld hld db- ER 
+ SQL :
+     PostgeSQL
+     MS SQL
+     MySQL
+     ORACLE:
+        SQL Developer>>gui
+        sqlplus >> cli
+        Tables : coloumn and rows
+        Data types:  varchar, number,int ,bigint,text,double,float,blob,date
+     SQL:
+        Data defination language :create,drop,alter
+         database ,table,views,types,users ,procedure,triggers,sequence
+        Data control language : Grant ,Revoke
+        Data manipulation language : insert , delete ,update,truncate
+        Data query Langauge :select
+sqlplus:
+ system
+ password
+
+create table transactions(transaction_id int not null,transaction_date date not null,transaction_to varchar(255) not null,transaction_amount number(10) not null,transaction_remarks varchar(100));
+
+DDL
+ALTAER TABLE TRANSACTIONS DROP
+CREATE SEQUENCE TRANSACTION_SEQ START WITH 885200 INCREMENT BY 1;
+
+DML
+
+
+TRANSACTION
+-----------
+TRANSACTION_TO
+--------------
+
+
+DDL-view
+create view emergency_name as select transaction_to from transactions where transaction_remarks= "Emergency"
+view created
+
+
+update transactions set trransaction_remarks='Medical needs' where transaction_remarks="Emergency"
+commit
+
+update transactions set 
+
+dml -- truncate table transaction_second;
+
+ddl-- drop table transaction_second
+
+
+

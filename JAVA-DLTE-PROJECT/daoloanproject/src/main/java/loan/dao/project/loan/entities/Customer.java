@@ -24,7 +24,7 @@ public class Customer implements UserDetails {
     @NotNull(message = "{EXV001}")
     private int attempts;
 
-
+    //Constructors ,gettters and setters
     public Customer(Integer customerId,String customerName,String customerAddress, String customerStatus,Long customerContact, String username, String password, int attempts) {
         this.customerId = customerId;
         this.customerName = customerName;

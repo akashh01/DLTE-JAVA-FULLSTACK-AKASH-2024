@@ -1,0 +1,72 @@
+inheritance interface
+abstraction
+over riding
+data ttri pr
+
+-finalize topic
+
+
+Inheritance :
+    Derived extends base 
+    try to avoid ambiguity
+  
+
+search for the proper way of comparing between two dates
+ 
+//how to convert number in words to digit
+
+C:\tools\maven_repo\repository\org\projectlombok\lombok
+
+
+1. static
+2. non static
+3. local
+4. anonymous
+
+//try about private classs
+//protected class has a variable
+
+modifiers :
+public -> class and method become avaialable to any class and method declared within the same package(if a diff method or class needs it should be imported)
+private - >
+protected -> rightfull subclasses (outside the package you have to inherit it,if you are acessing it)[within a package no issue] [ie class calling the protected method must be child of the class of the class in whicch the method is present)
+default : package scope
+
+Interface
+-what you can do with the class can be done to interface properties
+-absrtact method and non abstract method  //cant create public void viewAll(){}
+-static and default can be used for method with body
+-default can be used for within the class
+-interface does not have a constructor
+-by default the data members in interface is finall
+ //for an array defined within the classs we can change the size by addding items
+-we can do overloading in interface
+-Casting can happen between classs
+-if we have multiple interface mentioned , it will go based on fifo. overrride whatever you wanted
+- multiple inheritance in terms of class not present,
+
+DIFF BETWEEN Abstract and Interface ; everymethod in interface is abstract without the use of abstract keyword 
+we can implement as many interfaces as we wanted to implement in java but we can omly extend omly one class 
+-every item defined inside the interface will be static and final
+SOPPOSE WE HAVE ACCOUNT ABSTTRACT CLASS AND USER ACCOUNT NAME
+
+--------------------------------
+Abstract classes:
+-class which we cannot instanctiatiae we cannot create object of it(Animal ,cat)
+-*we do not provide body to method
+-what actually abstract method does is it makes sure what exactly all the sublcasses must have
+
+abstract: can be given infront of a method and infront of class
+final
+static : front of datamembers,methods and now class
+
+class:
+standalone : public,final abstract default
+members classes
+
+Runtime is a class which is used to 
+Process processs
+
+
+final methods cannot be overidden
+

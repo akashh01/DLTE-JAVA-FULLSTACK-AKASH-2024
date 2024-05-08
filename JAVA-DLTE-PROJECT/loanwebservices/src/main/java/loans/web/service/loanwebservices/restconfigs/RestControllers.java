@@ -53,11 +53,11 @@ public class RestControllers {
     @Operation(summary = "Apply for a loan")
     @PostMapping("/apply")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Loan added successfully"),
-            @ApiResponse(responseCode = "409", description = "Loan already exists for the customer"),
-            @ApiResponse(responseCode = "204", description = "No loan data exists"),
-            @ApiResponse(responseCode = "403", description = "Customer is inactive"),
-            @ApiResponse(responseCode = "500", description = "Internal server error")
+            @ApiResponse(responseCode = "200", description = "Loan added successfully,or any on of the sub error"),
+            @ApiResponse(responseCode = "EXC001", description = "Loan already exists for the customer"),
+            @ApiResponse(responseCode = "EXC002", description = "No loan data exists"),
+            @ApiResponse(responseCode = "EXC003", description = "Customer is inactive"),
+            @ApiResponse(responseCode = "EXC004", description = "Internal server error")
     })
     public ResponseEntity<Object> availLoanApi(@Valid @RequestBody LoanAvailed loanAvailRequest) {
         String info = "";
@@ -73,7 +73,7 @@ public class RestControllers {
             logger.info(resourceBundle.getString("post.success"));
             return ResponseEntity.ok(resourceBundle.getString("loan.added.sucess"));
         } catch (LoanAlreadyExist exception) {
-           // logger.info(exception.toString());
+            logger.info(exception.toString());
             return ResponseEntity.status(HttpServletResponse.SC_OK).body(resourceBundle.getString("loan.error.one")+exception.getMessage());
         } catch (NoLoanData exception) {
             logger.info(exception.toString());

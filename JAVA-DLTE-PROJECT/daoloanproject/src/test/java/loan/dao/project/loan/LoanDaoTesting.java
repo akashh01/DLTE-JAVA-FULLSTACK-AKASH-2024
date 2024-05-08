@@ -1,8 +1,5 @@
 package loan.dao.project.loan;
-
-
 import loan.dao.project.loan.entities.LoanAvailable;
-import loan.dao.project.loan.entities.LoanAvailed;
 import loan.dao.project.loan.exceptions.LoanServiceException;
 import loan.dao.project.loan.exceptions.NoLoanData;
 import loan.dao.project.loan.services.LoanServices;
@@ -13,13 +10,11 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -34,10 +29,6 @@ public class LoanDaoTesting {
     private LoanServices loanServices;
     ResourceBundle resourceBundle = ResourceBundle.getBundle("loandao");
 
-//    @InjectMocks
-//    ValidationConfiguration validationConfiguration;
-
-
     @Test
     void allAvailableLoan_Success() {
         // Mocking the response from the database
@@ -47,7 +38,6 @@ public class LoanDaoTesting {
         loan1.setLoanName("My personal loan");
         loan1.setLoanDescription("mock personal loan");
         loan1.setLoanRoi(10.0);
-
         LoanAvailable loan2 = new LoanAvailable();
         loan2.setLoanNumber(2000);
         loan2.setLoanType("Gold Loan");
@@ -73,7 +63,7 @@ public class LoanDaoTesting {
 
     @Test
     void allAvailableLoanNoDataFound() {
-        // Mocking an empty response from the database
+        //  empty response from the database
         when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class))).thenReturn(new ArrayList<>());
         // Calling the method under test and expecting an exception
         assertThrows(NoLoanData.class, () -> loanServices.allAvailableLoan());
@@ -85,7 +75,7 @@ public class LoanDaoTesting {
         Throwable exception = assertThrows(LoanServiceException.class, () -> {
             loanServices.allAvailableLoan();
         });
-        // Asserting that the method throws the expected exception
+        //  method throws the expected exception
         assertEquals(resourceBundle.getString("no.service.exp"), exception.getMessage());
     }
 

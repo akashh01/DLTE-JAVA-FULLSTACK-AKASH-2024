@@ -1,0 +1,56 @@
+
+Collections framework >> java.util
+Iterable<<interface
+
+collections:
+  list:
+     ArrayList,LinkedList(addLast/add,addFirst,get(index),getFirst(),getLast(),removeFirst/remove,removeLast())     ,Vector   
+                                    
+  set: add, (no get method),contains,remove(obj),removeAll,retainAll
+     HashSet,TreeSet,LinkedHashSet
+  Map:
+     Hashtable, HashMap,TreeMap
+  Queue
+  
+overcomes:
+ flexibility to work with fixed and dynamic size
+ flexibility ti work with genrics and non genrics
+ in built mehtods to perform CRYD and analysis
+ interact as objects
+ incoperate with class's and objects
+
+Stream 
+ comparable
+ comparator
+
+Iterator>>java.util
+  hasNext-> retruns oolean if next element exists
+  
+
+List interface
+ child interface of the collection interface,can store all ordered type of data and it also        allows dupilciate
+   Arraylist-provides dynamic arrays in java,size of the arrays grows or shrink 
+   cannot be used for primitive dataypes
+   
+   //LinkedList- every object has seperate location with data and addresss part, maynot be stored continoulsy
+   
+   Vector-similiar to arraylist but vector is syncronized, this is not
+
+   Stack-last in fist out
+
+Set interface
+Unordered collection of objects ,duplicates value cannot be stores only unique obkjects we store in it
+   Hashset-implemenatiuon of hash table ds, no guarentee that the same order followed,based on hashcdode
+   LinkedHashSet - very similiar to that of the hashset but difference is it uses doule linked list,hence retains the ordering of the elements
+   TreeSet - tree for storage, natural ordering whether or not comparator is provided
+
+Map Interface
+ key-value pair for mapping of the data,no duplicate keys but duplicate values are allowe 
+
+HashMap
+key vaue pair,hashing method
+
+
+disadvamtage
+cannot hold primitivr datatype
+linkedlist and allis lsow

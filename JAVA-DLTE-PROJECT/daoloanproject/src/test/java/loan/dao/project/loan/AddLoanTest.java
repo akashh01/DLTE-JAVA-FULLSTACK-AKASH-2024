@@ -1,5 +1,4 @@
 package loan.dao.project.loan;
-
 import loan.dao.project.loan.entities.LoanAvailed;
 import loan.dao.project.loan.exceptions.CustomerInactive;
 import loan.dao.project.loan.exceptions.LoanAlreadyExist;
@@ -10,17 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
@@ -28,15 +23,12 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
+@AutoConfigureMockMvc
 public class AddLoanTest {
-
-
-
     @Mock
     public JdbcTemplate jdbcTemplate;
     @InjectMocks
     public LoanServices service;
-
     @Test
     void testCreateNewLoan_Success() {
         LoanAvailed loanAvailed = new LoanAvailed();
@@ -45,8 +37,8 @@ public class AddLoanTest {
         loanAvailed.setLoanNumber(10000L);
         loanAvailed.setLoanAmount(40000L);
         loanAvailed.setLoanEmi(400.0);
-        loanAvailed.setLoanTenure(1);// Instantiate your entity
-        // Mock the behavior of jdbcTemplate.call
+        loanAvailed.setLoanTenure(1);
+        //mocking loanavailable checking if seuccess returns on using procedure mock
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("errOrInfo", "Success");
         when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList())).thenReturn(resultMap);
@@ -62,9 +54,9 @@ public class AddLoanTest {
         loanAvailed.setLoanNumber(10000L);
         loanAvailed.setLoanAmount(40000L);
         loanAvailed.setLoanEmi(400.0);
-        loanAvailed.setLoanTenure(1);// Instantiate your entity
+        loanAvailed.setLoanTenure(1);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("errOrInfo", "SQE001"); // Mocking a failure
+        resultMap.put("errOrInfo", "SQE001"); // Mocking  the first error code
         when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList())).thenReturn(resultMap);
         // Call the method to be tested and assert that it throws the expected exception
         assertThrows(LoanAlreadyExist.class, () -> service.createNewLoan(loanAvailed));
@@ -73,7 +65,7 @@ public class AddLoanTest {
     void testCreateNewLoan_CustomerInactive() {
         LoanAvailed loanAvailed = new LoanAvailed(1, 1000001L, 10000L, 400.0, 1);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("errOrInfo", "SQE002"); // Mocking a failure
+        resultMap.put("errOrInfo", "SQE002"); // Mocking second error code
         when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList())).thenReturn(resultMap);
         assertThrows(CustomerInactive.class, () -> service.createNewLoan(loanAvailed));
     }
@@ -82,7 +74,7 @@ public class AddLoanTest {
     void testCreateNewLoan_NoLoanData() {
         LoanAvailed loanAvailed = new LoanAvailed(1, 1000001L, 10000L, 400.0, 1);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("errOrInfo", "SQE003"); // Mocking a failure
+        resultMap.put("errOrInfo", "SQE003"); // Mocking third error code
         when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList())).thenReturn(resultMap);
         assertThrows(NoLoanData.class, () -> service.createNewLoan(loanAvailed));
     }
@@ -91,7 +83,7 @@ public class AddLoanTest {
     void testCreateNewLoan_LoanServiceException() {
         LoanAvailed loanAvailed = new LoanAvailed(1, 1000001L, 10000L, 400.0, 1);
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("errOrInfo", "SQE004"); // Mocking a failure
+        resultMap.put("errOrInfo", "SQE004"); // Mocking last error code
         when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList())).thenReturn(resultMap);
         assertThrows(LoanServiceException.class, () -> service.createNewLoan(loanAvailed));
     }
@@ -106,7 +98,6 @@ public class AddLoanTest {
         loan.setLoanAmount(100000L);
         loan.setLoanEmi(5000.0);
         loan.setLoanTenure(24);
-        //assertEquals(123, loan.getLoanAvailNumber());
         assertEquals(456, loan.getCustomerNumber());
         assertEquals(789L, loan.getLoanNumber());
         assertEquals(100000L, loan.getLoanAmount());

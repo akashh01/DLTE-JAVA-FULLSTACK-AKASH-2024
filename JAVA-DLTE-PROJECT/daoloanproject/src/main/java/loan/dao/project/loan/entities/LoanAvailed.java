@@ -31,6 +31,7 @@ public class LoanAvailed {
     @Digits(integer = 2, fraction = 0, message = "{EXV003}")
     private Integer loanTenure;
 
+    //Constructors ,gettters and setters
     public LoanAvailed() {
     }
 

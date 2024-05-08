@@ -1,0 +1,9 @@
+dont call me i will call you
+--depend in dependecies to provide data rather than actively obtaining them
+
+That means if you want to use an IoC container in spring whether we need to use a BeanFactory or ApplicationContext. The BeanFactory is the most basic version of IoC containers, and the ApplicationContext extends the features of BeanFactory. The followings are some of the main features of Spring IoC,
+
+Creating Object for us,
+Managing our objects,
+Helping our application to be configurable,
+Managing dependencies

@@ -1,0 +1,28 @@
+Wrapper class!?
+operation: process
+  
+operators:
+   Arthematic : +-%*
+   Unary ++ --
+   Biteise >> << & | ^  (basic encryption can be done)
+   Shorthand += -= *= /= %= >>= <<=
+   boolean: true/false 
+   relational 
+   logical
+
+scannner.close() -> close the scanner everytime okey!
+
+
+flexipay
+
+control statements
+finding out what is the user requirment 
+if 
+switch
+disadvantage 
+ datatype
+ relational op
+
+#dentify the income tax slabs 
+
+

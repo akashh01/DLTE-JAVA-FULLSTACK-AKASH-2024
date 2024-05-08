@@ -1,13 +1,11 @@
 package loans.web.service.loanwebservices.restconfigs;
-
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-
-
-import java.util.Arrays;
+import org.thymeleaf.spring5.messageresolver.SpringMessageResolver;
 
 @Configuration
 public class RestConfig {
@@ -19,7 +17,6 @@ public class RestConfig {
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
-
 
     //Bean Validator
     @Bean

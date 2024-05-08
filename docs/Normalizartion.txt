@@ -1,0 +1,21 @@
+Normalizartion
+
+1. 1st normal form : primary key
+2. 2nd normal forma : composite key
+3. 3rd normal form :transitive dependecy
+
+
+        |-Bankend 
+Driver--|
+        |-Database 
+connections - db properties
+
+
+statement-queroes
+prepares statement ->query(??)
+CallPreparedStatement -procedures
+Executors-> execute holders
+  executeUpdate()->int
+  executeQuery()->resultSet
+                  fetch the data from resultSet by using proper methods
+                   obj.getString()

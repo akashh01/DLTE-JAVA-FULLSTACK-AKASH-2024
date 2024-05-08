@@ -1,0 +1,22 @@
+//23-2-24
+Meeting notes
+-hiow many classifers are there ?
+-public - compile time
+-If we want to extend how we will extend the class
+-when we have to got for inheritance ? done-
+
+-override for inheritance
+-When to use abstract classes?
+-where is the transitive supporitng , if the filesa re delted then is it coming again in m2?
+
+
+-how to achive that target file through class file?
+
+-naming conventions in method level?
+
+What does the transitive libraries actually support? What happens when you delete those libraries?
+
+
+-mvn installl
+
+-

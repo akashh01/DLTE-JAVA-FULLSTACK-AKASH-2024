@@ -1,24 +1,15 @@
 package loan.dao.project.loan;
-
 import loan.dao.project.loan.entities.Customer;
 import loan.dao.project.loan.exceptions.CustomerSignIn;
-import loan.dao.project.loan.interfaces.CustomerInterface;
 import loan.dao.project.loan.services.CustomerAuthServices;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -39,6 +30,7 @@ public class testCustomer {
 
     @Test
     void testLoadUserByUsername_UserExists() {
+        //mock customer check load by username
         String username = "amal12";
         Customer customer1 = new Customer();
         customer1.setUsername(username);
@@ -50,6 +42,7 @@ public class testCustomer {
     }
     @Test
     void testLoadUserByUsername_UserNotExists() {
+        //mock the usernamenotfound by loaduser
         String username = "akhil";
         when(jdbcTemplate.query(anyString(), any(BeanPropertyRowMapper.class)))
                 .thenThrow(UsernameNotFoundException.class);
@@ -60,7 +53,6 @@ public class testCustomer {
     }
 
     @Test
-        //passed also the loggers returning
     void testSigningUp() {
         // Mock customer data
         Customer customer1 = new Customer();
@@ -69,12 +61,11 @@ public class testCustomer {
         customer1.setCustomerContact(99999999999L);
         customer1.setUsername("akash");
         customer1.setPassword("akas12");
+        //using when with any indicating match call when ant argument is passed
         when(jdbcTemplate.update(anyString(), any(), any(), any(), any(), any(), any())).thenReturn(1);
         Customer result = customerAuthServices.signingUp(customer1);
-        // assertEquals(customer, result); // Ensure the returned customer object is the same as the input
-        assertEquals("akash", result.getUsername());
-        assertEquals("Active", result.getCustomerStatus()); // Ensure customer status is set to "Active"
-
+         assertEquals("akash", result.getUsername());
+        assertEquals("Active", result.getCustomerStatus()); // customer status is set to "Active"
         assertEquals(customer1.getAuthorities(),result.getAuthorities());
         assertEquals(customer1.isAccountNonExpired(),result.isAccountNonExpired());
         assertEquals(customer1.isAccountNonLocked(),result.isAccountNonLocked());
@@ -91,7 +82,7 @@ public class testCustomer {
         customer1.setCustomerContact(99999999999L);
         customer1.setUsername("akash");
         customer1.setPassword("akas12");
-
+        //throwing the exception in signUp
         when(jdbcTemplate.update(anyString(), any(), any(), any(), any(), any(), any())).thenReturn(0);
         assertThrows(CustomerSignIn.class, () -> customerAuthServices.signingUp(customer1));
 
@@ -100,12 +91,12 @@ public class testCustomer {
     @Test
     void testFindByUserName() {
         // Mock customer data
-        Customer customer1 = new Customer(123, "Amal", "Kanput", "Active", 89874565554L, "amaall", "amal123", 0);
+        Customer customer1 = new Customer(123, "Amal", "Kanpur", "Active", 89874565554L, "amaall", "amal123", 0);
         when(jdbcTemplate.query(anyString(), any(RowMapper.class))).thenReturn(Collections.singletonList(customer1));
+        //mocked customer with username amal and trying to retrive it back
         Customer result = customerAuthServices.findByUserName("amaall");
         assertEquals(customer1, result); // customer object matches the expected one
-        verify(jdbcTemplate).query(anyString(), any(RowMapper.class)); // Verify jdbcTemplate method call
-
+        verify(jdbcTemplate).query(anyString(), any(RowMapper.class)); // Verify jdbcTemplate method called on mock object
 
     }
 
@@ -126,8 +117,7 @@ public class testCustomer {
         );
         // Call the method to be tested
         Customer result = customerAuthServices.filterByUserName(customerList, "sinchans");
-        // Assertions
-        assertNotNull(result); // Ensure a customer is found
+        assertNotNull(result);
         assertEquals(125, result.getCustomerId()); // Ensure the correct customer is returned
         assertEquals("Sinchan", result.getCustomerName()); // Ensure the correct customer is returned
     }
@@ -150,7 +140,6 @@ public class testCustomer {
         customer1.setCustomerId(126);
         customer1.setCustomerStatus("Active");
         customer1.setAttempts(0);
-
         // Add the new customer to the list
         customerList.add(customer1);
 
@@ -179,7 +168,7 @@ public class testCustomer {
         Customer customer = new Customer();
         customer.setUsername("Akashh");
         customer.setAttempts(3);
-
+        //try updating gets proper loggers
         customerAuthServices.updateAttempts(customer);
         verify(jdbcTemplate).update("update MYBANK_APP_CUSTOMER set ATTEMPTS=? where USERNAME=?", new Object[]{customer.getAttempts(), customer.getUsername()});
     }

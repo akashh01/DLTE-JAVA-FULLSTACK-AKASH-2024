@@ -1,0 +1,59 @@
+INTERNET DOWNLOAD MANAGER
+TERRA COPY
+
+Tiers of architecture
+->Ja
+
+
+              p-jsp,jsf
+    javaEE----b-servlet-acceptrequest
+                       -read request
+                        process reques
+web-                    provide response
+    
+
+     jakata eeFramework
+            Jax-ws
+webservices Jax-Rs
+
+1. install jBoss-> 7.4 EAp
+2. Application service
+
+Jboss<-redhat
+tomcat_>apache
+
+--simple login facade 4 java ->SLF4J ->2.0.7
+--log back
+--
+configure logs :
+  logback.xml :
+
+configaration
+Appender: 
+ConsoleAppender>>
+Pattern 
+>>%d>>date/timestamp
+>>thread>
+>>levels
+>>msg
+
+FileAppender>>
+log file>>location of the log
+
+root: appender names,
+
+
+implement:
+Logger,LoggerFactory(Classname.class)
+
+util.logger:
+  logger.log(level,msg)
+slf4j: 
+  logger.info(msg)
+  logger.error(msg)
+  logger.warning(msg)
+
+
+
+
+root : appender names

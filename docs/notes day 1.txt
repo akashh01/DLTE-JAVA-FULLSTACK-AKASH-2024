@@ -1,0 +1,35 @@
+process automation and hardware automation
+
+programming:
+ data : 
+      stored,access
+  variables: 
+     datatypes variable_name;
+       (initialization depends on the block, a variable in class level need not be initialzed check the scope,empty block,contraints)
+  objects :
+      classname obj_name=new Classname();   //non literal
+      Character bankType='S';  //literal: 8 wrapper classes
+ 
+  scopes : (wherrre the objects or the vairables are created)
+     local
+     class level
+  modifiers: 
+     static
+     default 
+     public
+     protected
+        
+
+      
+       
+ operations
+
+No classes with multiple public classes
+static block has more privilage than a public main
+
+
+Good evening,
+       Tasks we achieved today
+        Started using intellj, configured and used maven file structure and implemented a simple java program in it,which took 3 hours.
+        Started learning Fundamentals of java,learned about scope, overloading and execution point which took about 2 hours.
+        started creating interaction for loan in command line interface, yet to be completed it took 1 hour

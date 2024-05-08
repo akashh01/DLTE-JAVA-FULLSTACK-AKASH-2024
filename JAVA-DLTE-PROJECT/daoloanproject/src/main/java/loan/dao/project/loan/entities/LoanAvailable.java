@@ -27,7 +27,6 @@ public class LoanAvailable {
     private double loanRoi;
 
     //Constructors ,gettters and setters
-
     public LoanAvailable() {
     }
 

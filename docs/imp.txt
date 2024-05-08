@@ -1,0 +1,23 @@
+imp
+
+jdbc template
+ udate 
+ queary for object
+ query
+
+method(SQL,Objectp[ {p1,p2})
+ 
+service called by contoleer architect
+
+dependencct
+spring data jdbc
+
+rpring-boot-starer
+compile scope and provide scope // exclusde the depencdency
+
+
+
+mock the template check with the service 
+when testing url
+mock the service then go to the contorller
+

@@ -1,0 +1,61 @@
+Transitive libraries
+what if i would delete it
+excluding
+
+loggings 
+
+
+try(
+A
+)
+catch(
+   
+   try(B)(
+  
+     )
+
+   catch(
+  
+   )
+)
+
+try(
+B
+)
+catch(
+   
+   try(A)(
+  
+     )
+
+   catch(
+  
+   )
+)
+
+
+
+
+
+
+
+procedure: 
+    write complex / repeated queries once in  a procedure to compile once and execute when ever it requires.
+    avoid network traffic
+    compilation 
+    exception handling
+   
+    ddl for it -- create or replace procedure PROCEDURE_NAME
+                  begin
+                  end
+    / [end with forword slash for procedure
+   
+     syntax of procedures:
+       in,out,inout  
+       in- passing the arguments to the method
+       out- can be said as the return type / unlike the methods in programming it doeanst  have any spacufic place to add this
+
+triggers 
+    time>> before ,after
+    event>> insert,update,
+ 

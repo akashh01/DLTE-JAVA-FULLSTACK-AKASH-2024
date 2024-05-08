@@ -1,0 +1,14 @@
+jsp
+
+There are two ways to add Java code to a .jsp. First, we can use basic Java Scriptlet syntax which involves placing Java code blocks within two Scriptlet tags:
+
+implicit object
+Serverside functionalities for use in your servlet and for interacting with your .jsp! 
+
+request
+request belongs to the class javax.servlet.http.HttpServletRequest. The request object exposes all user inputs data and makes it available serverside.
+
+response
+response belongs to the class javax.servlet.http.HttpServletResponse and determines what is passed back clientside after a request is made.
+
+out , outPrinln

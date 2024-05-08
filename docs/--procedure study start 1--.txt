@@ -1,0 +1,15 @@
+--procedure study start 1--
+
+create or replace procedure read_to_who(
+   my_id number,
+   to_name out VARCHAR2
+   
+)
+as 
+begin select transaction_to into to_name from transactionsanalysis where transaction_id=my_id;
+end;
+/
+variable to_name varchar2;
+execute read_to_who(65405,:to_name);
+print to_name;
+

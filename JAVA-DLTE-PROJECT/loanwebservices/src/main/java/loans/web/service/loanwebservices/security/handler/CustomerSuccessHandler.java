@@ -41,7 +41,7 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
 
         } else {
           //  logger.warn(resourceBundle.getString("security.max"));
-            super.setDefaultTargetUrl(resourceBundle.getString("login.error.map")+ resourceBundle.getString("suspended.account"));
+            super.setDefaultTargetUrl(resourceBundle.getString("login.error.map.two")+ resourceBundle.getString("suspended.account"));
 
         }
 

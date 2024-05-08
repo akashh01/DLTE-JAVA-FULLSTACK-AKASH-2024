@@ -72,8 +72,8 @@ public class LoanServices implements LoanInterface {
     @Override
     public String createNewLoan(LoanAvailed loan) {
         CallableStatementCreator creator = con -> {
+            //preparing call and setting data for the procedure
             CallableStatement statement = con.prepareCall("{call final_loan_insert(?,?,?,?,?,?)}");  //call procedure
-            //statement.setInt(1,loan.getLoanAvailNumber());
             statement.setInt(1, loan.getCustomerNumber());
             statement.setLong(2, loan.getLoanNumber());
             statement.setLong(3, loan.getLoanAmount());
@@ -94,7 +94,7 @@ public class LoanServices implements LoanInterface {
                 }
         ));
         String errorInfo = returnedExecution.get("errOrInfo").toString();
-        //based on procedure
+        //based on procedure handling errors by error codes
         if (errorInfo.equals("SQE001")) {
             throw new LoanAlreadyExist(resourceBundle.getString("loan.exists.customer"));
         } else if (errorInfo.equals("SQE002")) {
@@ -106,7 +106,7 @@ public class LoanServices implements LoanInterface {
             throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
         }
 
-        return returnedExecution.get("errOrInfo").toString();
+        return returnedExecution.get("errOrInfo").toString(); //returns Success
 
 
     }

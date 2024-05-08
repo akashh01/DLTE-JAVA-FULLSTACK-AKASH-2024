@@ -1,0 +1,35 @@
+indexing
+
+create index expiry on my_bank (credit_expiry);
+
+select * from mybank where expirt between 
+
+
+explain plan for
+select * from mybank where expiry between
+select * from tables(DBMS_XPLAN.DISPLAY)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------
+INNER JOIN: Returns records that have matching values in both tables
+LEFT JOIN or LEFT OUTER JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT JOIN or RIGHT OUTER JOIN: Returns all records from the right table, and the matched records from the left table
+FULL JOIN or FULL OUTER JOIN: Returns all records when there is a match in either left or right table
+
+Natural join- no condition
+Equijoin
+
+cross join
+

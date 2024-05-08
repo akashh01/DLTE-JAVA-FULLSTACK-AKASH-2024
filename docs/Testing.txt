@@ -1,0 +1,40 @@
+jdk 8 doestnt have any library so we use external library called junit 5.2
+
+Testing :- manual-ms excel and automation-framworks
+                                          junit,sellinum,cucumber 
+                                            |
+                                         mockito->mock resource(db)  
+                                         annotation in junit
+                                         Test cases 
+
+Test suit- inoder to test it we can priovide a lot of test cases 
+           1.valid card no and valid pin
+           2.valid card no - invalid pin
+           3.invalid card no- valid pin
+           4.invalid cardno - no pin
+          @Test annotation all the test cases can be grouped together and done, every test cases will have results and every errors will have failures
+Results ->timeouts,failures,count
+
+@BeforeEach  --suppose to add data before performing a test case
+@BeforeClass --
+@AfterEach   --After  
+@AfterClass
+
+junit assertions ->work with the timeout test, check against the exception (weather the particuar case will rise exception or not)
+assert null
+assert not null
+assert equals(actual one,exceptes one)
+assertSame
+assertTrue
+assertFalse 
+
+three ways to execute the test program
+1>test in maven
+2>
+
+   unit
+   functional integration
+   non functional
+
+What is failure and what is error?
+we can add the file in the main file orr not?

@@ -1,0 +1,44 @@
+FILES
+
+debitcard , cardrecords,Executing thread using executors,Executing thread using schedulers
+
+join mthod , synchronized block adding sunch to run and lock
+Lock from concurrent threads
+lock.lock
+lock.unlock
+concurrancy time once locked in it will not come out till end
+
+
+--Mutable--StringBuilder-asynchrounous it is better it takes less time concurrent process can access at the same time, Stringbuffer-thread safety
+insert(pos,characters)
+delete(start,end)
+append(obj)
+toString 
+
+
+where we use for denomination for reconstruction , mini statement task it includes the date and type of transaction these dynamic inputs cannot have in the strings since it is immutable but in string buffer and sstringbuilder is used
+
+application.properties while we write it into console we can use string builder and demonstarate it.
+
+
+
+Storage logics:
+   Array >> liner,static,temporary , no-built-in methods
+   Collections >> dynamic , build in methods,not a general approach ,temporary 
+   
+File>> absolutePath,name,createNameFile
+Stream:
+    InputStream >> reading
+      FileInputStream
+      DataInputSream
+      ObjectInputStream
+      InflaterInputStream
+    
+    OutputStream >>writing
+     FileOutputStream
+     ObjectOutputStream
+     Def;at
+Stream handles everything via bytes but reader/writer uses character
+
+
+//signature rules voilation
